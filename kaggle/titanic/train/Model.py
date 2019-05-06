@@ -9,13 +9,11 @@ class Model:
     def train_model(self,lr,input_dim):
         self.model = Sequential()
 
-        self.model.add(Dense(units=10,activation='relu',input_dim=input_dim))
+        self.model.add(Dense(output_dim=input_dim*2,activation='relu',input_dim=input_dim))
+        self.model.add(Dropout(0.2))
+        self.model.add(Dense(output_dim=input_dim*2,activation='relu'))
         self.model.add(Dropout(0.3))
-        self.model.add(Dense(units=10,activation='relu'))
-        self.model.add(Dropout(0.3))
-        self.model.add(Dense(units=10,activation='relu'))
-        self.model.add(Dropout(0.3))
-        self.model.add(Dense(units=1,activation='sigmoid'))
+        self.model.add(Dense(output_dim=1,activation='sigmoid'))
         self.model.add(Dropout(0.3))
 
 
