@@ -40,7 +40,6 @@ class DataLoader:
 if __name__ == "__main__":
     events_path = "../data/events.csv"
     promoted_content_path = "../data/promoted_content.csv"
-    # extract_data = ["Survived","Pclass","Sex","Age","SibSp","Parch","Ticket","Fare","Cabin","Embarked","PassengerId"]
     dataLoader = DataLoader(events_path,promoted_content_path)
     clicks_train_path = "../data/clicks_train.csv"
     train_input, train_label = dataLoader.train_loader(clicks_train_path)
