@@ -33,7 +33,7 @@
         campaign_id
         advertiser_id
         
-###documents_meta.csv
+### documents_meta.csv
 > document 상세 정보 제공 <br>
 
         document_id
