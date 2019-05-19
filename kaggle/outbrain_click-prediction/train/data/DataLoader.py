@@ -22,7 +22,7 @@ class DataLoader:
         train = pd.read_csv(clicks_train_path,nrows=1000)
         train = pd.merge(train,self.promoted_content,on="ad_id")
         train = pd.merge(train,self.events,on="display_id")
-        label_list = train["clicked"].values
+        # label_list = train["clicked"].values
         # 'display_id', 'ad_id', 'clicked', 'document_id_x', 'campaign_id',
         #        'advertiser_id', 'uuid', 'document_id_y', 'timestamp', 'platform',
         #        'geo_location'
