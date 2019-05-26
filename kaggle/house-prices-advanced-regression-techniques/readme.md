@@ -19,3 +19,10 @@
        160	2-STORY PUD - 1946 & NEWER
        180	PUD - MULTILEVEL - INCL SPLIT LEV/FOYER
        190	2 FAMILY CONVERSION - ALL STYLES AND AGES
+       
+       ... 너무많음 
+ 
+ 
+ 모든 데이터를 전부다 사용하여 작업한 결과 
+ 
+0.21664 너무 큼..
