@@ -23,6 +23,8 @@ class ClassificationTrain:
         :return:
         '''
         train, label, train_dev, label, label_dev = self.dataLoader.train_loader(train_path, train_rate)
+        print("train : ",train.shape)
+        print("train_dev : ",train_dev.shape)
 
         model = Model()
         model.train_model(lr,len(train[0]))
@@ -38,7 +40,7 @@ class ClassificationTrain:
 
         tb_hist =  TensorBoard(log_dir='../data/tensorboard/logs/{}'.format(time()))
 
-        history = model.fit(train, label, epochs=epochs, batch_size=batch_size,verbose=2,
+        history = model.fit(train, label, epochs=epochs, batch_size=batch_size,verbose=1,
                                   callbacks=[tb_hist,cb_checkpoint,cb_early_stopping], validation_data=(train_dev, label_dev))
         # train_history_detail = history.history
         # model.save(self.model_path) # 모델 저장
@@ -79,7 +81,7 @@ if __name__ == "__main__":
     mode = "train"
     model_path = "../data/model"
     if mode == "test":
-        model_path = "../data/model/26-1785017941.3333.hdf5"
+        model_path = "../data/model/74-1847349250.6301.hdf5"
         dataPath = "../data/test.csv"
         train = ClassificationTrain(model_path)
         train.test(dataPath,"../data/submission.csv")

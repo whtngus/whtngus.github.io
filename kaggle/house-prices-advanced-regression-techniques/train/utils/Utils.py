@@ -17,9 +17,9 @@ class Utils:
                      "LowQualFinSF","GrLivArea","BsmtFullBath","BsmtHalfBath","FullBath","HalfBath","GarageYrBlt","GarageArea"
                      ,"WoodDeckSF","OpenPorchSF","EnclosedPorch","YrSold"
                      ]
-        # Utilities : 결과가 너무 한쪽으로 쏠려있음
         self.set_onehots(one_hot_list)
-        self.set_sqrt(sqrt_list)
+        # self.set_sqrt(sqrt_list)
+        self.set_normals(sqrt_list)
         self.set_ConstructionAge()
 
         target_list = ["ConstructionAge","YearBuilt","YearRemodAdd","YrSold","TotRmsAbvGrd","Fireplaces","GarageCars","3SsnPorch",
@@ -56,6 +56,15 @@ class Utils:
         for lists in sqrt_list:
             self.data = self.sqrt(self.data,lists)
 
+    def set_normals(self,sqrt_list):
+        '''
+         제곱근으로 변경
+        :param sqrt_list: 변경대상 컬럼 리스트
+        :return:
+        '''
+        for lists in sqrt_list:
+            self.data = self.normal(self.data,lists)
+
 
     def sqrt(self,data,columns):
         '''
@@ -65,6 +74,20 @@ class Utils:
         :return:
         '''
         data[columns] = np.sqrt(data[columns]).fillna(0.0)
+        return data
+
+    def normal(self,data,columns):
+        '''
+        해당 컬럼을 정규화
+        :param data:
+        :param columns:
+        :return:
+        '''
+        # 0으로 값 채우기
+        data[columns] = data[columns].fillna(0.0)
+        # 평균으로 값 채우기
+        # data[columns].fillna(data[columns].mean(), inplace=True)
+        data[columns] = (data[columns] - data[columns].mean())/data[columns].std()
         return data
 
     def one_hot(self,data,columns):
