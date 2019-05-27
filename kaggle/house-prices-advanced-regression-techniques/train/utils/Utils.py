@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import utils.commons as cm
 
 class Utils:
     def __init__(self,data):
@@ -13,6 +14,7 @@ class Utils:
         #                 "KitchenQual","Functional","FireplaceQu","GarageType","GarageFinish","GarageQual","GarageCond","PavedDrive",
         #                 "PoolQC","Fence","MiscFeature","SaleType","SaleCondition"
         #                 ]
+        # OverallQual d
         one_hot_list = ["MSSubClass","Neighborhood","OverallQual","ExterQual","Foundation","BsmtQual","KitchenQual","GarageFinish"]
         sqrt_list = ["YearRemodAdd","MasVnrArea","TotalBsmtSF","LowQualFinSF","GrLivArea","FullBath","GarageYrBlt"]
         # sqrt_list = ["LotFrontage","YearRemodAdd","MasVnrArea","BsmtFinSF1","BsmtUnfSF","TotalBsmtSF","1stFlrSF","2ndFlrSF",
