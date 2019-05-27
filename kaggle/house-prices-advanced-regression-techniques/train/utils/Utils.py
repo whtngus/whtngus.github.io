@@ -6,24 +6,27 @@ class Utils:
         self.data = data
 
     def run(self):
-        one_hot_list = ["MSSubClass", "MSZoning", "Street", "Alley", "LotShape", "LandContour","LotConfig","LandSlope","Neighborhood"
-            ,"Condition1","Condition2","BldgType","HouseStyle","OverallQual","OverallCond","RoofStyle","RoofMatl","Exterior1st"
-                        ,"Exterior2nd", "MasVnrType","ExterQual","ExterCond","Foundation","BsmtQual","BsmtCond","BsmtExposure",
-                        "BsmtFinType1","BsmtFinType2","BsmtFinSF2","BsmtUnfSF","Heating","HeatingQC","CentralAir","Electrical",
-                        "KitchenQual","Functional","FireplaceQu","GarageType","GarageFinish","GarageQual","GarageCond","PavedDrive",
-                        "PoolQC","Fence","MiscFeature","SaleType","SaleCondition"
-                        ]
-        sqrt_list = ["LotFrontage","YearRemodAdd","MasVnrArea","BsmtFinSF1","BsmtUnfSF","TotalBsmtSF","1stFlrSF","2ndFlrSF",
-                     "LowQualFinSF","GrLivArea","BsmtFullBath","BsmtHalfBath","FullBath","HalfBath","GarageYrBlt","GarageArea"
-                     ,"WoodDeckSF","OpenPorchSF","EnclosedPorch","YrSold"
-                     ]
+        # one_hot_list = ["MSSubClass", "MSZoning", "Street", "Alley", "LotShape", "LandContour","LotConfig","LandSlope","Neighborhood"
+        #     ,"Condition1","Condition2","BldgType","HouseStyle","OverallQual","OverallCond","RoofStyle","RoofMatl","Exterior1st"
+        #                 ,"Exterior2nd", "MasVMSSubClasnrType","ExterQual","ExterCond","Foundation","BsmtQual","BsmtCond","BsmtExposure",
+        #                 "BsmtFinType1","BsmtFinType2","BsmtFinSF2","BsmtUnfSF","Heating","HeatingQC","CentralAir","Electrical",
+        #                 "KitchenQual","Functional","FireplaceQu","GarageType","GarageFinish","GarageQual","GarageCond","PavedDrive",
+        #                 "PoolQC","Fence","MiscFeature","SaleType","SaleCondition"
+        #                 ]
+        one_hot_list = ["MSSubClass","Neighborhood","OverallQual","ExterQual","Foundation","BsmtQual","KitchenQual","GarageFinish"]
+        sqrt_list = ["YearRemodAdd","MasVnrArea","TotalBsmtSF","LowQualFinSF","GrLivArea","FullBath","GarageYrBlt"]
+        # sqrt_list = ["LotFrontage","YearRemodAdd","MasVnrArea","BsmtFinSF1","BsmtUnfSF","TotalBsmtSF","1stFlrSF","2ndFlrSF",
+        #              "LowQualFinSF","GrLivArea","BsmtFullBath","BsmtHalfBath","FullBath","HalfBath","GarageYrBlt","GarageArea"
+        #              ,"WoodDeckSF","OpenPorchSF","EnclosedPorch","YrSold"
+        #              ]
         self.set_onehots(one_hot_list)
         # self.set_sqrt(sqrt_list)
         self.set_normals(sqrt_list)
         self.set_ConstructionAge()
 
-        target_list = ["ConstructionAge","YearBuilt","YearRemodAdd","YrSold","TotRmsAbvGrd","Fireplaces","GarageCars","3SsnPorch",
-                       "ScreenPorch","PoolArea","MiscVal","MoSold"]
+        # target_list = ["ConstructionAge","YearBuilt","YearRemodAdd","YrSold","TotRmsAbvGrd","Fireplaces","GarageCars","3SsnPorch",
+        #                "ScreenPorch","PoolArea","MiscVal","MoSold"]
+        target_list = ["YearBuilt","Fireplaces","GarageCars"]
 
         target_list = target_list + one_hot_list + sqrt_list
         return self.data[target_list].values
