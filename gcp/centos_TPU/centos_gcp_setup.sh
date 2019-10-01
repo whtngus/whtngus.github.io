@@ -1,6 +1,8 @@
 # yum update
 sodo yum update -y
-# python 3version install
+# ftp install
+sudo yum -y install vsftpd
+
 sudo apt-get install python3-pip -y
 # docker install
 sudo yum install -y yum-utils device-mapper-persistent-data lvm2
