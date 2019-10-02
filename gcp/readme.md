@@ -29,9 +29,11 @@
  gcloud beta compute tpus create demo-tpu --range=10.240.1.0/29 --version=1.13 --network=default
  // Cloud Shell에서 SSH 만들기
  gcloud compute ssh tpu-demo-vm
- //  tpu 이름 설정
+ //  tpu 이름 설정 쉘에서 설정해줘야 python실행이 됨 
  export TPU_NAME="demo-tpu"
- 
+ //gcp tpu 인증하기 
+ gcloud auth list
+ gcloud auth application-default login
 ```
 
 ## 오류 정리
