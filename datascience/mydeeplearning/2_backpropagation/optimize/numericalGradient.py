@@ -3,17 +3,16 @@ import numpy as np
 from gradient import Gradient
 
 class NumericalGradient(Gradient):
-
     @abstractmethod
-    def update_gradient(self,x):
+    def update_gradient(self,x, h = 1e-4):
         '''
             편미분 함수
             최적화 해야하는 파라미터가 2개 이상일때
         :param f: 함수
+        :param h: default 1e-4  # 0.0001
         :param x: 입력값
         :return: 미분 결과
         '''
-        h = 1e-4  # 0.0001
         grad = np.zeros_like(x)  # x와 형상이 같은 배열을 생성
         for idx in range(x.size):
             tmp_val = x[idx]
