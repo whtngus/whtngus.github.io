@@ -1,25 +1,23 @@
 import numpy as np
 
 class Activation():
-    def __init__(self):
-        pass
 
     def get_activation(self,activation):
         if activation == "sigmoid":
-            return self.sigmoid()
+            return self.sigmoid
         elif activation == "relu":
-            return self.relu()
+            return self.relu
         elif activation == "softmax":
-            return self.softmax()
+            return self.softmax
         elif activation == "tanh":
-            return self.tanh()
+            return self.tanh
         elif activation == "swish":
-            return self.swish()
+            return self.swish
         elif activation == "dswish":
-            return self.dswish()
+            return self.dswish
         else:
             #default
-            return self.default()
+            return self.default
 
     def default(self,x):
         return x

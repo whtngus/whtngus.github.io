@@ -1,9 +1,10 @@
 from abc import *
 import numpy as np
-from gradient import Gradient
 
-class NumericalGradient(Gradient):
-    @abstractmethod
+class NumericalGradient():
+    def __init__(self,f):
+        self.f = f
+
     def update_gradient(self,x, h = 1e-4):
         '''
             편미분 함수
@@ -26,3 +27,4 @@ class NumericalGradient(Gradient):
             grad[idx] = (fxh1 - fxh2) / (2 * h)
             x[idx] = tmp_val  # 값 복원
         return grad
+
