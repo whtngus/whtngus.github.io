@@ -34,8 +34,8 @@ class NeuralNet():
         return weight, bias
 
     def update_subtraction(self,update_w,update_b):
-        self._w -= update_w
-        self._b -= update_b
+        self._w += update_w
+        self._b += update_b
 
     def neural_out(self,x):
         result_w = np.array(x)

@@ -40,7 +40,7 @@ if __name__ == "__main__":
     data = [(1, 1), (1, 0), (0, 1), (0, 0)]
     label = [0,1,1,0]
     epoch = 500
-    lr = 0.05
+    lr = 0.005
     learner = Learner(inout_shzpe,activations,layer_shape,differential,loss)
     weight_result = learner.train(data, label, epoch, lr)
     print()
