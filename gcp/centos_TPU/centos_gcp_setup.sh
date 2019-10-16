@@ -15,6 +15,8 @@ sudo systemctl start docker
 sudo mkdir /data
 sudo chown whtngus32:whtngus32 /data
 # docker pull and run
-sudo docker pull whtngus3232/bert
-sudo docker run -v /data:/data -i -t whtngus3232/bert /bin/bash
+#sudo docker pull whtngus3232/bert
+#sudo docker run -v /data:/data -i -t whtngus3232/bert /bin/bash
+sudo docker pull gcr.io/tpu-pytorch/xla:nightly
+sudo docker run -it -v /data:/data --shm-size 16G gcr.io/tpu-pytorch/xla:nightly
 

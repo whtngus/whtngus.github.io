@@ -6,3 +6,5 @@ sudo systemctl start docker.service
 sudo systemctl status docker.service
 # 도커 접속하기
 sudo docker run -v /data:/data -i -t whtngus3232/bert /bin/bash
+# 도커 실행중인 상태에 접속
+# sudo docker exec -it "container id" /bin/bash
