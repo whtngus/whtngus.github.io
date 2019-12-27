@@ -22,8 +22,8 @@ Paragraph Vector : 문서 수 X 임베딩 차원 수 크기를 가지는 문서 
 학습이 종료되면 문서 수 X 임베딩 차원 수 크기를 가지는 문서 행렬 D를 각 문서의 임베딩으로 사용
 아래는 입력 데이터 예시
 ```
-<img src="./pic/PV_DM1.PNG" width="300px" height="300px"></img>
-<img src="./pic/PV_DM2.PNG" width="300px" height="300px"></img><br/>
+<img src="./pic/PV_DM1.PNG" width="350px" height="300px"></img>
+<img src="./pic/PV_DM2.PNG" width="350px" height="300px"></img><br/>
 
 
 
