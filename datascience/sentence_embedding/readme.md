@@ -57,8 +57,13 @@ Paragraph Vector : 문서 수 X 임베딩 차원 수 크기를 가지는 문서 
 ```
 <img src="./pic/PV_DM1.PNG" width="350px" height="300px"></img>
 <img src="./pic/PV_DM2.PNG" width="350px" height="300px"></img><br/>
-
 ---
+
+> LDA
+```
+- 주어진 문서에 대하여 각 문서에 어떤 주제들이 존재하는지에 대한 확률모형
+- 토픽별 단어의 분포, 문서별 토픽의 분포를 모두 추정
+```
 
 
 ---
@@ -66,6 +71,6 @@ Paragraph Vector : 문서 수 X 임베딩 차원 수 크기를 가지는 문서 
 https://www.slideshare.net/keunbongkwak/pr12-distributed-representations-of-sentences-and-documents <br>
 https://darkpgmr.tistory.com/106 -> 특이값 분해 <br>
 https://sragent.tistory.com/entry/Latent-Semantic-AnalysisLSA -> LSA <br>
-
+https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/06/01/LDA/ -> LDA <br>
 
 
