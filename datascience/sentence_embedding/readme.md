@@ -19,14 +19,13 @@ V : ATA를 고유값분해해서 얻어진 직교행렬로서
 그래서 특이값의 기하학적 의미를 보자  <br>
 ```
 
-<br/>
-<img src="./pic/svd1.PNG" width="300px" height="250px"></img>
-<img src="./pic/svd1.PNG" width="300px" height="250px"></img><br>
+<img src="./pic/svd2.PNG" width="250px" height="250px"></img>
+<img src="./pic/svd3.PNG" width="250px" height="250px"></img><br>
 
 ```
  A = UΣVT에서 U, V는 직교행렬, Σ는 대각행렬이므로 Ax는 x를 먼저 VT에 의해 회전시킨 후 Σ로 스케일을 변화시키고 다시 U로 회전시키는 것임을 알 수 있다.
  즉, 행렬의 특이값(singular value)이란 이 행렬로 표현되는 선형변환의 스케일 변환을 나타내는 값으로 해석할 수 있다.
- 
+
 ```
 
 ---
