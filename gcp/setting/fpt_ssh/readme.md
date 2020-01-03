@@ -10,7 +10,17 @@
 
 ### 셋팅
 ```
+보안 설정
+vpc 네트워크 -> 방화벽 규칙 -> 방화벽 규칙생성
+ip 범위 : 0.0.0.0/0
+port : 21,49152-65535
+인스턴스에서 위 규칙의 네트워크 태그 추가 하기
+
 ftp 설정 필요
+ apt search vsftpd
+ apt install vsftpd
+ service vsftpd status
+
 sudo vi /etc/vsftpd/vsftpd.conf
 12번라인 
 annoymous_enable No --> 변경
@@ -22,5 +32,12 @@ sudo vi /etc/vsftpd/chroot_lis 계정 설정
 ipv6 No로 변경 listen_ipv6=NO
 포트 변경
 listen=YES -> 변경   listen_port="포트번호" listen_ipv6=NO  -> 추가
+
+
+내용 추가
+userlist_enable=YES
+userlist_file=/etc/vsftpd.userlist
+userlist_deny=NO
+/etc/vsftpd.userlist에 접속 리스트 삽입
 
 ```
