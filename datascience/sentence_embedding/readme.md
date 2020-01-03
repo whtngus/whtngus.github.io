@@ -3,7 +3,7 @@
 
 > 특이값 분해(SVD) <br>
 
-<img src="./pic/svd1.PNG" width="200px" height="200px"></img> <br>
+<img src="./pic/svd1.PNG" width="300px" height="250px"></img> <br>
 ```
 고유값 분해(eigendecomposition)처럼 행렬을 대각화하는 한 방법
 U : AAT를 고유값분해(eigendecomposition)해서 얻어진 직교행렬(orthogonal matrix)로 
