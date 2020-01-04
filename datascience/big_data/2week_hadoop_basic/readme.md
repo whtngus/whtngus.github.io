@@ -39,6 +39,14 @@ slave : 데이터 처리하도록
 
 Name node : Name Space를 관리하는 노드 
 
+---
+
+## AWS 사용하기 
+<img src="./pictures/aws_student.PNG" width="350px" height="300px">학생 계정</img> <br>
+> AWS student 계정으로 계정 생성하면 100$ 무료 사용 가능
+
+
+
 
 
 -> trello에 빅데이터 관련 논문 종류별로 업로드 됨 
