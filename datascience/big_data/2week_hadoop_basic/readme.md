@@ -42,7 +42,7 @@ Name node : Name Space를 관리하는 노드
 ---
 
 ## AWS 사용하기 
-<img src="./pictures/aws_student.PNG" width="350px" height="300px"></img>  학생 계정 AWS<br>
+<img src="./pictures/aws_student.PNG" width="350px" height="300px"> 학생 계정 AWS</img> <br>
 > AWS student 계정으로 계정 생성하면 100$ 무료 사용 가능
 
 
