@@ -41,7 +41,4 @@ Name node : Name Space를 관리하는 노드
 
 
 
-
-
-
 -> trello에 빅데이터 관련 논문 종류별로 업로드 됨 
