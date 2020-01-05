@@ -40,7 +40,7 @@ VGG16 모델의 경우 1000 개의 카테고리를 학습시켰기 때문에 고
 - 잘 훈련된 pretrainted model을 이용해서 마지막 final layer만 수정해서 본인의 목적에 맞게 다시 학습 시키는 방법. <br>
 - 잘 훈련된 모델이 있고, 해당 모델과 유사한 문제를 해결 시 Transfer Learning을 사용 <br>
 
-<img src="./pic/transfer_learning01.PNG" width="600px" height="400px"></img> <br>
+<img src="./pic/transfer_learning01.PNG" width="500px" height="400px"></img> <br>
 > 특정 목적을 가진 학습된 모델을 다른 일의 시작 포인트에서 재사용 하는 것 <br>
 <img src="./pic/transfer_learning02.PNG" width="300px" height="250px"></img> <br>
 
