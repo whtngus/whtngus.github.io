@@ -9,7 +9,7 @@
 - 잘 훈련된 모델이 있고, 해당 모델과 유사한 문제를 해결 시 Transfer Learning을 사용 <br>
 
 <img src="./pic/transfer_learning01.PNG" width="300px" height="250px"></img> <br>
-> 특정 목적을 가진 학습된 모델을 다른 일의 시작 포인트에서 재사용 하는 것
+> 특정 목적을 가진 학습된 모델을 다른 일의 시작 포인트에서 재사용 하는 것 <br>
 <img src="./pic/transfer_learning02.PNG" width="300px" height="250px"></img> <br>
 
 - Transfer Learning, fine tuning 사용 범주<br>
@@ -79,11 +79,11 @@
     - 하나의 신경망이 여러작업을 동시에 할 수 있도록 학습하는 것
     - 대표적으로 두 가지 방법이 있다.
         1. Hard Parameter Sharing
-            - Hidden Layer를 공유하고 Task 별로 일부 개별적인 Layer를 가지고 가는 형태
+            - Hidden Layer를 공유하고 Task 별로 일부 개별적인 Layer를 가지고 가는 형태 <br>
             <img src="./pic/mulit-task_learning_hard.PNG" width="200px" height="150px"></img>  <br>
         2. Soft Parameter Sharing
             - 각각의 Task 별로 별도의 Layer를 가지고 있다.
-            - 단, 각각의 Layer가 비슷해 질 수 있도록 L2 Distance를 사용한다.
+            - 단, 각각의 Layer가 비슷해 질 수 있도록 L2 Distance를 사용한다. <br>
             <img src="./pic/mulit-task_learning_soft.PNG" width="200px" height="150px"></img> <br>
     - Multi-task Learning이 잘 동작하는 이유
         1. Implicit Data Augmentation
@@ -105,11 +105,11 @@
     - 두 가지 개념을 기본으로 결론 도출
         1. H-divergence
             - 두 domain이 얼마나 다른지를 수치화한 값
-            - H는 classifier 의 classifier 에타 들의 집합을 의미
+            - H는 classifier 의 classifier 에타 들의 집합을 의미 <br>
             <img src="./pic/domain_adaptation01.PNG" width="300px" height="100px"></img> <br>
         2. VC dimmension
             - H-divergence 가  얼마나 복잡한지를 측정
-            - 방법 - 새로운 도메인을 기존 도메인과 구분하지 못하게 하여 사용함
+            - 방법 - 새로운 도메인을 기존 도메인과 구분하지 못하게 하여 사용함 <br>
              <img src="./pic/domain_adaptation02.PNG" width="150px" height="200px"></img>
              <img src="./pic/domain_adaptation03.PNG" width="150px" height="200px"></img> <br>
              - 두 도메인을 구분하지 못하도록 하는 방법 <br>
