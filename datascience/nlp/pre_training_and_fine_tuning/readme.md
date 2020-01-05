@@ -8,7 +8,7 @@
 - 잘 훈련된 pretrainted model을 이용해서 마지막 final layer만 수정해서 본인의 목적에 맞게 다시 학습 시키는 방법. <br>
 - 잘 훈련된 모델이 있고, 해당 모델과 유사한 문제를 해결 시 Transfer Learning을 사용 <br>
 
-<img src="./pic/transfer_learning01.PNG" width="300px" height="250px"></img> <br>
+<img src="./pic/transfer_learning01.PNG" width="350px" height="400px"></img> <br>
 > 특정 목적을 가진 학습된 모델을 다른 일의 시작 포인트에서 재사용 하는 것 <br>
 <img src="./pic/transfer_learning02.PNG" width="300px" height="250px"></img> <br>
 
@@ -106,7 +106,7 @@
         1. H-divergence
             - 두 domain이 얼마나 다른지를 수치화한 값
             - H는 classifier 의 classifier 에타 들의 집합을 의미 <br>
-            <img src="./pic/domain_adaptation01.PNG" width="300px" height="100px"></img> <br>
+            <img src="./pic/domain_adaptation01.PNG" width="200px" height="80px"></img> <br>
         2. VC dimmension
             - H-divergence 가  얼마나 복잡한지를 측정
             - 방법 - 새로운 도메인을 기존 도메인과 구분하지 못하게 하여 사용함 <br>
