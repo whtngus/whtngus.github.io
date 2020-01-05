@@ -1,6 +1,38 @@
 # Pre Training
+- 프리 트레이닝(Pre Training) 이란
+풀고자 하는 문제와 비슷하면서 사이즈가 큰 데이터로 이미 **범용적으로 잘 학습이** 되어 있는 모델
 
-# fine tuning
+- generative pre-training -> 제프리 힌톤(Geoffrey Hinton) <br>
+    -  ** 해당 탭은 발생적 사전 훈련 설명 ** 
+    - "A fast learning algorithm for deep belief nets"라는 2006년의 논문 <br>
+     -> 해당 논문을 통해 pre-training 을 제시
+    -  Unsupervised Learning을 이용한 Pre-training <br>
+        - 위의 힌톤 교수가 2006년에 제안한 방벙 
+     
+# Fine tuning
+- 파인 튜닝(Fine-tuning) 이란?
+모델의 파라미터를 미세하게 조정하는 행위 <br>
+이미 존재하는 모델에 추가 데이터를 투입하여 파라미터를 업데이트하는 것. <br>
+- 위키 피디아 설명
+파인튜닝은 정교한 파라미터 튜닝이라고 생각하면 되는데 정교한과 파라미터가 키포인트들 이다.
+```
+개, 고양이를 분류기를 만드는데 다른 데이터로 학습된 모델(VGG16, ResNet 등) 을 가져다 쓰는 경우를 생각해보자.
+VGG16 모델의 경우 1000 개의 카테고리를 학습시켰기 때문에 고양이와 개, 2개의 카테고리만 필요한 우리 문제를 해결하는데 모든 레이어를 그대로 쓸 수는 없다.
+따라서 가장 쉽게 이용하려면 내 데이터를 해당 모델로 예측(predict)하여 보틀넥 피쳐만 뽑아내고, 이를 이용하여 어파인 레이어(Fully-connected layer) 만 학습시켜서 사용하는 방법을 취하게 된다.
+하지만 이 경우는 파인튜닝이라고 부르지 않는다. 피쳐를 추출해내는 레이어의 파라미터를 업데이트 하지 않기 때문이다.
+어파인 레이어를 업데이트 하지 않냐고 생각할 수 있지만 내가 새로 구성한 레이어이기 때문에 업데이트가 아니며 초기 웨이트가 랜덤이기 때문에 정교하지도 않다.
+** 파인튜닝을 했다고 말하려면 기존에 학습이 된 레이어에 내 데이터를 추가로 학습시켜 파라미터를 업데이트 해야 한다.
+이 때 주의할 점은, 정교해야 한다.
+완전히 랜덤한 초기 파라미터를 쓴다거나 가장 아래쪽의 레이어(일반적인 피쳐를 학습한 덜추상화된 레이어)의 
+파라미터를 습해버리면 오버피팅 이 일어나거나 전체 파라미터가 망가지는 문제가 생기기 때문이다.
+```
+- 보틀넥 피처(Bottleneck feature) <br>
+모델에서 가장 추상화된 피쳐<br>
+
+- 어파인 레이어(AFFINE LAYER)<br>
+    - 뉴럴 네트워크에서 완전 연결된 레이어 (fully-connected layer)입니다.
+    - Affine은 이전 레이어의 각 뉴런들이 현재 레이어의 각 뉴런들에 연결되어 있음을 뜻합니다.
+    - 뉴럴 네트워크의 표준 레이어
 
 # Transfer Learning 
 > Transfer Learning 이란
@@ -262,6 +294,10 @@
     ```
  
 # 참조 
+- pre training 개념 및 히스토리
+http://t-robotics.blogspot.com/2015/05/deep-learning.html#.XhHJGUcza1s
+- fine tuning 설명
+http://blog.haandol.com/2016/12/25/define-bottleneck-feature-and-fine-tuning.html
 - Transfer Learning 개념
 https://goodtogreate.tistory.com/entry/학습-모델의-재사용-Transfer-Learning
 - Transorfer Learnnig - Tensorflow 사용 방법
