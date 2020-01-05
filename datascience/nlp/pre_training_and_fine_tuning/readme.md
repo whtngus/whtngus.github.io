@@ -106,7 +106,7 @@
         1. H-divergence
             - 두 domain이 얼마나 다른지를 수치화한 값
             - H는 classifier 의 classifier 에타 들의 집합을 의미 <br>
-            <img src="./pic/domain_adaptation01.PNG" width="300px" height="100px"></img> <br>
+            <img src="./pic/domain_adaptation01.PNG" width="500px" height="100px"></img> <br>
         2. VC dimmension
             - H-divergence 가  얼마나 복잡한지를 측정
             - 방법 - 새로운 도메인을 기존 도메인과 구분하지 못하게 하여 사용함 <br>
