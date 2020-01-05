@@ -106,12 +106,12 @@
         1. H-divergence
             - 두 domain이 얼마나 다른지를 수치화한 값
             - H는 classifier 의 classifier 에타 들의 집합을 의미 <br>
-            <img src="./pic/domain_adaptation01.PNG" width="200px" height="80px"></img> <br>
+            <img src="./pic/domain_adaptation01.PNG" width="300px" height="100px"></img> <br>
         2. VC dimmension
             - H-divergence 가  얼마나 복잡한지를 측정
             - 방법 - 새로운 도메인을 기존 도메인과 구분하지 못하게 하여 사용함 <br>
-             <img src="./pic/domain_adaptation02.PNG" width="150px" height="200px"></img>
-             <img src="./pic/domain_adaptation03.PNG" width="150px" height="200px"></img> <br>
+             <img src="./pic/domain_adaptation02.PNG" width="200px" height="200px"></img>
+             <img src="./pic/domain_adaptation03.PNG" width="200px" height="200px"></img> <br>
              - 두 도메인을 구분하지 못하도록 하는 방법 <br>
                 - Unsupervised Domain Adaptation by Backpropagation(ICML 2015) <br>
                 - Adversarial Discriminative Domain Adaptation(CVPR 2017)  <br>
