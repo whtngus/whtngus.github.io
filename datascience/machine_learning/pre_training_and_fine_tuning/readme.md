@@ -1,9 +1,9 @@
 # Pre Training
 - 프리 트레이닝(Pre Training) 이란
-풀고자 하는 문제와 비슷하면서 사이즈가 큰 데이터로 이미 **범용적으로 잘 학습이** 되어 있는 모델
+풀고자 하는 문제와 비슷하면서 사이즈가 큰 데이터로 이미 **범용적으로 잘 학습이 되어 있는 모델**
 
 - generative pre-training -> 제프리 힌톤(Geoffrey Hinton) <br>
-    -  ** 해당 탭은 발생적 사전 훈련 설명 ** 
+    -  **해당 탭은 발생적 사전 훈련 설명** 
     - "A fast learning algorithm for deep belief nets"라는 2006년의 논문 <br>
      -> 해당 논문을 통해 pre-training 을 제시
     -  Unsupervised Learning을 이용한 Pre-training <br>
