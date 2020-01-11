@@ -1,6 +1,7 @@
 # Pre Training
 - 프리 트레이닝(Pre Training) 이란
 풀고자 하는 문제와 비슷하면서 사이즈가 큰 데이터로 이미 **범용적으로 잘 학습이 되어 있는 모델**
+> 페이지 하단에 Tensorflow 와 Pytorch 코드예제 있음
 
 - generative pre-training -> 제프리 힌톤(Geoffrey Hinton) <br>
     -  **해당 탭은 발생적 사전 훈련 설명** 
