@@ -39,4 +39,32 @@ ssh 접속해서 확인해보기
 ```
 ssh -p "port" "id"@"ip"
 ex) ssh -p 23 root@127.0.0.1
+
+
+최종 실행 예시 
+# 적용안되는 경우 이것도 시도 -> -e LC_ALL=ko_KR.UTF-8 
+sudo nohup docker run -itd -e LC_ALL=C.UTF-8 -v /data:/data -p 23:22 --rm vnv:v0.4 /bin/bash
+sudo docker exec -it "docker_container_id" /bin/bash
+service ssh start
+```
+
+#### SSH 한글 설정
+ssh 새로 접속시 한글이 깨짐 
+```
+vi /etc/environment
+LANG="ko_KR.UTF-8"
+LANGUAGE="ko_KR:ko:en_GB:en"
+
+vi /etc/profile 마지막 줄 삽입
+LANG="ko_KR.UTF-8"
+
+vi /etc/default/locale 
+LANG="ko_KR.UTF-8"
+LANGUAGE="ko_KR_UTF-8"
+LANG_ALL="ko_KR.UTF-8"
+
+vi ~/.bashrc 마지막 줄 삽입
+export  LANG="ko_KR.UTF-8"
+
+설정 후 도커 실행시 -e 옵션 없이 실행
 ```
