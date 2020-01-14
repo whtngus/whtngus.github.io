@@ -7,6 +7,7 @@
 > 한번 쓰고 여러번 읽어들이는 구조에 특화되어 있음 <br>
 > 데이터를 처리하는 프로그래밍 모델
 - 데이터 처리 방식 
+- word count 같은 집계하는 작업에 강함
 <img src="./pictures/MapReduce01.PNG" width="350px" height="300px"></img> <br>
 ```
 - 맵(Map) 단계
@@ -34,6 +35,11 @@ Computing 변형 과정
 1. Grid Computing
 2. Clustering Computing
 3. Cloud Computing
+
+- split 단위는 블럭단위
+- 기본 블럭사이즈는 128MB
+- 작은 여러개의 파일을 읽는경우 오히려 더느릴 수 있음
+
 <br>
 Lucene 개발자가 개발을 시작 원래 Apache Nutch에서 시작 
 (Web Search를 위해서)
