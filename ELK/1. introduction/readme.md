@@ -24,18 +24,23 @@ wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.5.1.de
 dpkg -i elasticsearch-5.1.1.deb
 * 최신 버전 정리를 위해 2020-01-15를 기준으로 최신버전 설치 
 https://www.elastic.co/kr/downloads/elasticsearch 에서 검색 최신버전 찾기 <br>
-wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.5.1-x86_64.rpm
 <br>
-> rpm으로 받아 det파일로 변환 필요 <br>
 ```
-[rpm 파일 바로 설치하기]
-alien -i  elasticsearch-7.5.1-x86_64.rpm
-[deb 파일로 변환하여 설치하기]
-# sudo alien -c elasticsearch-7.5.1-x86_64.rpm     —->  변환
-# sudo dpkg -i elasticsearch-7.5.1-x86_64.rpm     —->  설치
+간편 설치 
+apt-get install elasticsearch -y
+sed -i 's/#START_DAEMON/START_DAEMON/' /etc/default/elasticsearch
+/usr/share/elasticsearch/bin/elasticsearch &
+-> 에러 발생
+can not run elasticsearch as root
+-> 해결책 el 계정 만든후 관리자 권한 주고 java까지 전부 다시 셋팅
+useradd el
+chown -R el:el /etc/sysconfig/elasticsearch
+chown -R el:el /usr/share/elasticsearch/
+chown -R  el:el  /etc/elasticsearch/
+chown -R  el:el /var/log/elasticsearch/
+chown -R  el:el /var/lib/elasticsearch/
+/usr/share/elasticsearch/bin/elasticsearch &
+
 ```
 
-
-##### 명령어 없어서 강의와 다른 명령어로 교체
-service elasticsearch start
 
