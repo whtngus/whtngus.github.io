@@ -43,4 +43,16 @@ chown -R  el:el /var/lib/elasticsearch/
 
 ```
 
+> 설치 설명 추가
+```
+apt-get install elasticsearch
+위 명령어 하나로도 가능 
++ 루트권한 실행시 --allow-root 로 가능
+    - 서비스 시작 방법
+#엘라스틱서치 서비스 등록
+systemctl enable elasticsearch.service
+# 서비스 실행 status로 상태확인 가능
+service elasticsearch start
+```
+
 
