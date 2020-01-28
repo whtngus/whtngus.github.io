@@ -13,21 +13,39 @@ cd kibana-7.5.2-linux-x86_64/
 - 설정 파일변경
 vim "다운받은 설치 드렉토리"/config/kibana.yml
 # 주석 해제 
+server.port: 5601
 elasticsearch.hosts: ["http://localhost:9200"]
 server.host: "localhost"
+server.name: "kibana"
 -> elastic search 서버와 같은 서버인걸 명시해주는 역할
 - 실행
 해당 위치에서 
-./bin/kibana
+bin/kibana --allow-root &
 
-
+- 접속확인 
+localhost:5601
 =====
 엘라스틱서치도 셋팅 필요
 /etc/
 network.host: ["127.0.0.1"]
 
 * root 권한으로 실행하려면  --allow-root 커멘드 붙이기 
-
-
+```
+## 2. Kibana management
+```
+elasticsaerch에 document insert
+해당 github의 데이터 insert
+https://github.com/minsuk-heo/BigData/archive/master.zip
+- 기존에 있을수도 있으니 삭제후 다시 삽입
+curl -XDELETE localhost:9200/basketball?pretty
+curl -XPUT localhost:9200/basketball
+# 데이터 타입 지정 -> kibana 에서 사용할 수 있도록 
+curl -XPUT localhost':9200/basketball/record/_mapping?include_type_name=true&pretty' -d @basketball_mapping.json -H 'Content-Type: application/json'
+# 값 삽입
+아래 에러 발생 
+```
+<img src="./pic/bulk_error_01.PNG" width="500px" height="300px"></img> <br>
+```
+값 삽입시 아래 명령어로 해결 
 
 ```
