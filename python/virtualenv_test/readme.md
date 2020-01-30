@@ -38,6 +38,17 @@ ex) yum install --downloadonly --downloaddir=./ gcc
     yum install --downloadonly --downloaddir=/data/bin/zlib_devel zlib-devel
     yum install --downloadonly --downloaddir=/data/bin/openssl openssl
     yum install --downloadonly --downloaddir=/data/bin/openssl openssl-dev
+    yum install --downloadonly --downloaddir=./ gcc-c++ kernel-devel
+    
+    # 환경이 달라 독립성이 다른경우 직접 하나씩 받아야함 
+    yumdownloader 패키지명  <- 요렇게 다운로드
+    ex) java 설치의 경우
+    yum install --downloadonly --downloaddir=./ java-1.8.0-openjdk
+    yum install --downloadonly --downloaddir=./ java-1.8.0-openjdk-devel
+    yumdownloader chkconfig
+    yumdownloader hwdata
+    ex) gcc 컴파일러의 경우
+    
 2. 파이썬 설치파일 준비 (python 공식 페이지)
 3. 설치 패키지
 pip3 download virtualenv
@@ -93,3 +104,4 @@ Add it to “Administrators” group (also in properties of that user).
 Share the drive where projects reside with the newly created user. i.e. C:/ (Properties of drive → sharing tab → Advanced sharing → Permissions → add the newly created user for docker → give it full access ). Repeat process for specific path to projects folder (for example of another user C:/Users/OtherUser/projects) and make sure it has permissions for full access. Sometimes this is handy for refreshing sharing and make it work.
 Shared Drives in docker settings - Add user credentials to Docker for Windows, using the newly created user with its password.
 ```
+
