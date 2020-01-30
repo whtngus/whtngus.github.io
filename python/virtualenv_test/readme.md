@@ -80,3 +80,16 @@ python 링크 경로 변경
 ln -Tfs [새로바꿀경로] [바꿀심볼릭링크]
 (바꿀 위치는 대상 서버에서 python3 설치 후 which python3 로 나온 경로 삽입)
 ```
+
+
+#### docker windows shared drive 변경 안되는 이슈 
+```
+    - url
+https://forums.docker.com/t/how-to-share-windows-drives-with-a-user-without-password/22933/4
+    - key point
+Create a new user (Computer Management → System Tools → Local Users and Groups → Users → Create new user), e.g. “DockerHost”. Give it a password.
+Mark “User cannot change password” & “Password never expires” (in properties of that user).
+Add it to “Administrators” group (also in properties of that user).
+Share the drive where projects reside with the newly created user. i.e. C:/ (Properties of drive → sharing tab → Advanced sharing → Permissions → add the newly created user for docker → give it full access ). Repeat process for specific path to projects folder (for example of another user C:/Users/OtherUser/projects) and make sure it has permissions for full access. Sometimes this is handy for refreshing sharing and make it work.
+Shared Drives in docker settings - Add user credentials to Docker for Windows, using the newly created user with its password.
+```
