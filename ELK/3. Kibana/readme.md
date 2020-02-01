@@ -48,4 +48,7 @@ curl -XPUT localhost':9200/basketball/record/_mapping?include_type_name=true&pre
 ```
 값 삽입시 아래 명령어로 해결 
 
+
+-- java version 변경
+update-alternatives --config java
 ```
