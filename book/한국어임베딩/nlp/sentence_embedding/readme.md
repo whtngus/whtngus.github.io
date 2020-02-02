@@ -46,7 +46,7 @@ V, U : 는 회전변환
 ---
 > Doc2Vec
 
-![PV-DM](./pic/doc-vec.PNG)
+![PV-DM](pic/doc-vec.PNG)
 ```
 Doc2Vec : 구글 연구 팀이 개발한 문서 임베딩 기법.
           이전 단어 n개가 주어진 경우 다음 단어를 맞추는 언어 모델
