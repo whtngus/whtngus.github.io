@@ -65,7 +65,7 @@ url : http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
 ```
 <img src="./pic/decision_tree_code_result_01.PNG" width="400px" height="300px"></img> <br>
 
-## 앙상블 학습
+## 3. 앙상블 학습
 > 앙상블 (Ensemble)
 ```
     - 앙상블 학습 (Ensemble Learning)
@@ -99,5 +99,28 @@ url : http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Sm
 
 
 ```
+## 4. 랜덤 포레스트 
 
-
+> 정의
+```
+배깅의 대표적인 알고리즘
+     - 장점
+ 앙상블 알고리즘 중 비교적 빠른 수행 속도를 가지고 있다.
+ 다양한 영역에서 높은? 예측 성능을 보인다.
+ 결정 트리기반 알고리즘으로서 직좐적인 장점을 그대로 가지고 있다.
+```
+> 학습 방법
+```
+개별적인 분류기에 전체 데이터에서 일부가 중첩되게 샘플링된 데이터로 학습.
+bootstrapping : 위 처럼 일부 데이터가 중첩되게 분리하는 분할방식
+```
+> 하이퍼 파라미터 튜닝
+```
+    - n_estimators
+결정 트리의 개수를 지정
+default = 10
+    - max_features
+결정 트리에 사용된 max_features 파라미터와 같음.
+default = auto (sqrt) --> default가 다름
+    - 나머지 파라미터는 결정트리와 같음
+```
