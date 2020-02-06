@@ -124,3 +124,118 @@ default = 10
 default = auto (sqrt) --> default가 다름
     - 나머지 파라미터는 결정트리와 같음
 ```
+
+## 5. GBM (Gradient Boostring Machine)
+```
+부스팅 알고리즘 : 여러 개의 약한 학습기를 순차적으로 학습, 예측하면서 잘못 예측한 데이터에 가중치 부여를 통해 오류를 개선해 나가면서 학습하는 방식
+
+에이다 부스트(Ada Boost)는 오류 데이터에 가중치를 부여하면서 부스팅을 수행하는 대표적인 알고리즘.
+-> 이전 약학습기에서 잘못 분류한 데이터에 대하여 더 큰 가중치를 부여하여 학습시키는 바업ㅂ
+```
+> GBM
+```
+GBM : AdaBoost와 유사하나, 가중치 업데이트를 GD를 이용함 
+    - 하이퍼 파라미터 설명
+- loss
+손실 함수 지정 
+default : deviance
+- learning_rate 
+학습률
+default : 0.1
+- n_estimators
+week learner의 개수
+- subsample
+week learner가 학습에 사용하는 데이터의 샘플링 비율
+1 이면 전체 데이터를 기반으로 학습 
+default : 1 
+```
+
+## 6. XGboost(eXtra Gradient Boost)
+> XGBoost
+```
+    - 설명
+트리 기반의 앙상블 학습에서 가장 곽광받고 있는 알고리즘 중 하나
+GBM에 기반하고 있지만, GBM의 단점인 느린시간 및 과적합 규제 부재 등의 문제를 해결함
+병렬 CPU환경에서 병렬 학습이 가능해 기존 GBM보다 빠르다.
+
+    - 일반 파라미터 : 일반적으로 실 시 스레드의 개수나 silent 모드 등 선택을 위한 파라미터 (거의 안바꾸는 설정)
+- booster 
+gbree(ree based model) 또는 gblinear(linear model) 선택
+default : gbtree
+- slient
+출력 메시지를 나타내지 않고 싶은경우 1로 설정
+default: 0
+- nthread
+스래드 개수 조정
+
+    - 주요 부스터 파라미터 : 트리 최적화, 부스팅, 정규화 등과 관련된 파라미터
+- eta
+학습률 0~1사이 지정
+보통은 0.01 ~ 0.2 사이로 지정
+default : 0.3
+alias : learng_rate
+- num_boost_rounds
+GBM의 n_estimators와 유사
+- min_child_weight
+GBM의 min_child_leaf와 유사 
+-> 과적합을 조절하기 위해 사용
+default : 1
+- gamma
+트리와 리프 노드를 추자적으로 나눌지를 결정할 최소 손실 감소 값
+값이 클수록 과적합 감소 효과가 있음
+alias : min_split_loss
+default : 0
+- max_depth
+0 지정시 제한이 없음
+보통 3~10이면 숫자가 커지면 과적합 가능성이 커짐 
+default : 6
+- sub_sample
+GBM의 subsample과 동일.
+트리가 커져 과적합되는 것을 제어하기 위해 데이터를 샘플링하는 비율을 지정
+일반적으로 0.5 ~ 1 사용 가능
+default : 1
+- colsample_bytree
+GBM의 max_features와 유사
+트리 생성에 필요한 피처를 임의로 샘플링
+default : 1
+- lambda
+L2 Regularization
+alias : reg_lambda
+default : 1
+- alpha
+L1 Regularization
+alias : reg_+alpha
+default : 0
+- scale_pos_weight
+특정 값으로 치우친 비대칭한 클래스로 구성된 데이터 세트의 균형을 유지하기 위한 파라미터
+default : 1
+
+    - 학습 태스크 파라미터 : 학습 수행 시의 객체 함수, 평가를 위한 지표 등을 설정
+- objective
+최솟값을 가져야할 손실 함수를 정의
+- binary:logistic:
+이진 분류일때 사용
+- multi:softmax:
+다중 분류일 때 사용
+num_class 파라미터를 지정해야 사용 가능하다 
+- multi:softprob
+multi:softmax와 유사, 개별 레이블 크래스의 해당되는 예측 확률을 반환
+- eval_metric
+검증에 사용되는 함수를 정의
+default : 회기 - rmse , 분류 - error
+   rmse : Root Mean Square Error
+   mae : Mean Absolute Error
+   logloss : Negative log-likelihood
+   error : Binary classification error rate (0.5 threshold)
+   merror : Multiclass classification error rate
+   mlogloss : Multiclass logloss
+   auc : Area under the curve
+   
+    - 과적합 시 파라미터 튜닝시 추천 값
+1. eta를 낮춘다. 
+eta 값을 낮출 경우 num_round or n_estimators는 반대로 높여줘야한다.
+2. max_depth 값을 낮춘다
+3. min_child_weight 값을 높인다.
+4. gamma 값을 높인다.
+5, subsample 과 colsample_bytree를 조정한다.
+```
