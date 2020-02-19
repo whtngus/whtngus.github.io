@@ -48,6 +48,8 @@ LDA는 지도학습의 분류에서 사용하기 쉽도록 개별 클래스를 �
 
 ```
 SVD는 정방행렬뿐만 아니라 행과 열의 크기가 다른 행렬에도 적용할 수 있다.
+    - SVD 강의 
+https://www.youtube.com/watch?v=cq5qlYtnLoY
 ```
 
 ## 05. NMF(Non-Negative Matrix Factoriation)
