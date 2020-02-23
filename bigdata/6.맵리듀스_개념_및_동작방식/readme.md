@@ -41,11 +41,7 @@ key 값은 파일명 or 라인번호 등의 고유값
     - 맵퍼의 0개 또는 그 이상의 Key/Value 상을 출력한다.
 map(in_key, in_value) -output> (inter_key, inter_value)list
 - 입력은 key value 출력은 key value의 리스트
-
-
 ```
-
-
 
 
 
