@@ -31,6 +31,32 @@ network.host: ["127.0.0.1"]
 
 * root 권한으로 실행하려면  --allow-root 커멘드 붙이기 
 ```
+
+### 키바나 실행시 에러 
+
+> error log 
+```
+error  [08:00:17.191] [error][reporting] Error: Failed to launch chrome!
+[0216/080017.099506:WARNING:resource_bundle.cc(358)] locale_file_path.empty() for locale
+[0216/080017.099878:ERROR:zygote_host_impl_linux.cc(89)] Running as root without --no-sandbox is not supported. See https://crbug.com/638180.
+TROUBLESHOOTING: https://github.com/GoogleChrome/puppeteer/blob/master/docs/troubleshooting.md
+```
+
+> 해결 
+
+```
+예상 원인
+1. elasticserch 와 kibana의 버전 상이
+버전 동일하게 맞췄으나 동일이슈 발생
+2. 부족한 라이브러리 설치
+apt-get install -y libxtst6 libnss3 libnspr4 libxss1 libasound2 libatk-bridge2.0-0 libgtk-3-0 libgdk-pixbuf2.0-0
+동일이슈 발생
+3. --allow-root를 해도 루트권한에서는 실행이 안된다고 가정
+계정생성하여 권한을 주고 실행하였으나 같은 에러 발생
+4. 
+```
+
+
 ## 2. Kibana management
 ```
 elasticsaerch에 document insert
@@ -51,4 +77,6 @@ curl -XPUT localhost':9200/basketball/record/_mapping?include_type_name=true&pre
 
 -- java version 변경
 update-alternatives --config java
+```
+
 ```
