@@ -37,3 +37,170 @@ Programmability
 데이터를 추가하기가 어려움
 
 ```
+
+# 10. Hive 테이블 다루기
+
+> mysql 과 사용 방법은 같다
+
+> 테이블 생성 
+
+<img src="./pic/테이블생성.PNG" width="350px" height="300px"></img> <br>
+
+> 테이블 확인
+
+<img src="./pic/테이블_확인.PNG" width="350px" height="300px"></img> <br>
+
+> 테이블_구조_확인
+
+<img src="./pic/테이블_구조_확인.PNG" width="350px" height="300px"></img> <br>
+
+> 스키마와 인스턴스
+
+```
+    - 스키마
+컬럼과 데이터 구조형 
+ex)
+name : String
+id : Int
+    - 인스턴스
+실제 값 
+
+기본 문법 사용법은 mysql과 같아서 따로 정리 생략(slect insert delete 등)
+```
+
+> Sqoop
+
+<img src="./pic/sqoop_구조.PNG" width="350px" height="300px"></img> <br>
+
+```
+Local 머신에서 Sqoop 커멘드를 이용하여 HDFS로 파일을 올림
+
+방법
+1. MySQL 로그인
+mysql --user=root --password="설정한 비밀번호"
+2. db 확인
+show databases
+3. 데이터베이스 선택
+use "db 명"
+4. 테이블 목록 확인
+show tables
+5. 테이블 HDFS 로 이동
+```
+
+<img src="./pic/push_table.PNG" width="350px" height="300px"></img> <br>
+
+## 11. Hive 와 데이터베이스와의 차이점
+
+> Apache Hive
+
+```
+HIVEQL은 SQL-Like 언어를 사용
+Hadoop 클러스터에서 MapReduce 잡을 생성
+Facebook 에서 데이터 웨어하우스를 위해 개발되었음
+```
+
+> HIVE 사용 이유
+
+```
+- MapReduce 를 직접 작성하는 것 보다 좀 더 생산적
+- 폭 넓은 사용자에게 대용량 데이터를 분석할 수 있는 기회 제공
+- 다른 시스템과의 상호 운용성 제겅
+Java 나 외부 Script를 통해 확장 가능
+```
+
+<img src="./pic/hive_upload.PNG" width="350px" height="300px"></img> <br>
+
+```
+    - 위 사진의 metastore
+Hive의 메타 정보를 가지고 있음
+sql 질의문이 오면 metastore를 통해 확인 후 쿼리를 날리는 구조
+
+```
+
+> 차이점
+
+<img src="./pic/차이점.PNG" width="350px" height="300px"></img> <br>
+
+```
+SQL은 single 머신에서 오랫동안 개발된 언어이기 때문에 더 성능이 좋음
+HIVE는 데이터 사이즈가 크다는것 빼고는 sql에비해 열악한 구조를 가지고 있음
+```
+
+> 테이블 hadoop 으로 업로드
+
+<img src="./pic/table_upload.PNG" width="350px" height="300px"></img> <br>
+
+## 12. 기존 데이터베이스를 Hive에서 활용
+
+> Hive의 기본 명령어
+
+<img src="./pic/hive_command01.PNG" width="350px" height="300px"></img> <br>
+
+```
+추가 예시
+# 모든 필드 보기 * 상위 5개만 출력 LIMIT 5  
+SELECT * FROM orders LIMIT 5;
+```
+
+> HIVE로 해당 db를 가져오기
+
+<img src="./pic/hive_push01.PNG" width="350px" height="300px"></img> <br>
+
+```
+mysql 명령어와 join 명령어등 많이 필요
+```
+
+## 13. Hive에서의 join사용법 및 예제
+
+> Hive 에서의 Join
+
+> 1. Inner Joins <br>
+> 2. Outer Joins <br>
+> 3. Cross joins <br>
+> 4. Left semi joins <br>
+>> 사용 예시 SELECT ~~ FROM ~~ JOIN  ~~ ON ( ~~ = ~~) <br>
+
+> 1. Inner joins
+
+<img src="./pic/inner_join.PNG" width="350px" height="300px"></img> <br>
+```
+두 테이블 에서 cust_id 가 같은 내용을 기반으로 조인을 함
+select 를 기반으로 a가 2번 매칭됨으로 2개를  출력
+매칭이 안되는 경우넨 출력을 하지 않는다 (custermers table의 d의 경우 매칭되는 경우가 없어어 출력하지 않음)
+```
+
+> 2. LEFT Outer Joins
+
+<img src="./pic/outer_join.PNG" width="350px" height="300px"></img> <br>
+
+```
+inner join과 같으나 매칭된 데이터가 없는경우 나머지 값을 NULL값으로 매칭시킴 
+반대로 right outer joins 라면 orders의 데이터를 살리고 customers의 데이터가 NULL로 출력이 됨 
+```
+
+> 3. full outer join <br>
+
+<img src="./pic/full_outer_join.PNG" width="350px" height="300px"></img> <br>
+
+```
+left rigt 조인을 합친 것 
+양 쪽 테이블의 빈 내용을 모두 출력
+
+outer join 아래에 쿼리문을 추가 가능 
+```
+
+> 4. cross join
+
+<img src="./pic/cross_join.PNG" width="350px" height="300px"></img> <br>
+
+```
+모든 경우의 수를 모두 조합시켜서 join
+```
+
+
+
+
+
+
+
+
