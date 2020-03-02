@@ -110,3 +110,5 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 > Ok Google: How to do Speech Recognition? <br>
 >> https://towardsdatascience.com/ok-google-how-to-do-speech-recognition-f77b5d7cbe0b
 
+
+# ACL논문 찾아보기
