@@ -39,7 +39,7 @@
 
 > 화자 인식 연구의 흐름 
 
-<img src="./pic/음성인식_역사02.PNG" width="350px" height="300px"></img> <br>
+<img src="./pic/화자인식_역사02.PNG.PNG" width="350px" height="300px"></img> <br>
 
 > GMM(Gaussian mixture model)
 
@@ -97,7 +97,7 @@ JFA와의 차이점
 
 > 전체 요약 2000 ~ 2009 년 흐름 전체 요약
 
-<img src="./pic/음성인식_역사03.PNG" width="350px" height="300px"></img> <br>
+<img src="./pic/화자인식_역사03.PNG" width="350px" height="300px"></img> <br>
 
 > 2011 N.Dehak
 
@@ -110,7 +110,8 @@ score 링을 정교하게 하게 하기 위해 s-norm 을 제안
 ```
 
 > 전체 요약 2010년 이후의 흐름 전체 요약
-<img src="./pic/음성인식_역사04.PNG" width="350px" height="300px"></img> <br>
+
+<img src="./pic/화자인식_역사04.PNG" width="350px" height="300px"></img> <br>
 
 > i-vector 추출 과정
 
@@ -153,7 +154,7 @@ DNN을 분류기로 사용
 두 발화의 특징을 분류 자동화
 ```
 
-<img src="./pic/음성인식_역사05.PNG" width="450px" height="500px"></img> <br>
+<img src="./pic/화자인식_역사05.PNG" width="450px" height="500px"></img> <br>
 
 ### 여기서부터 딥러닝
 

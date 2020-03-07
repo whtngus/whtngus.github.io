@@ -112,3 +112,8 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 
 
 # ACL논문 찾아보기
+
+- ACL 2019 논문  https://www.aclweb.org/anthology/P19-1039.pdf <br>
+
+> https://www.aclweb.org/anthology/P19-1039.pdf
+
