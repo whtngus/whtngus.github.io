@@ -7,6 +7,10 @@
 - https://www.youtube.com/watch?v=XhjPqGKF9Zs
 - https://www.youtube.com/watch?v=mAjvfIh2iXw
 
+## 음성처리 책 추천 블로그
+
+https://brunch.co.kr/@kakao-it/180
+
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
 
 - 1편 <br>
@@ -70,6 +74,11 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 - https://www.kaggle.com/dude431/beginner-s-visualization-and-removing-uniformative
 
 ## Papers
+
+- **A Study on Speech Recognition Technology**
+
+> https://www.researchgate.net/publication/278811438_A_Study_on_Speech_Recognition_Technology <br>
+-> 보고 정리 예정
 
 - **SpecAugmentation**
 
