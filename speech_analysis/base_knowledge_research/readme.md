@@ -120,6 +120,12 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 >> https://towardsdatascience.com/ok-google-how-to-do-speech-recognition-f77b5d7cbe0b
 
 
+## Voice representation
+
+- https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full <br>
+- paper <br>
+https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full
+
 # ACL논문 찾아보기
 
 - ACL 2019 논문  https://www.aclweb.org/anthology/P19-1039.pdf <br>
