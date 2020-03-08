@@ -9,7 +9,7 @@
 
 ## 음성처리 책 추천 블로그
 
-https://brunch.co.kr/@kakao-it/180
+> https://brunch.co.kr/@kakao-it/180
 
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
 
