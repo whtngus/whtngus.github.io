@@ -7,9 +7,12 @@
 - https://www.youtube.com/watch?v=XhjPqGKF9Zs
 - https://www.youtube.com/watch?v=mAjvfIh2iXw
 
-## 음성처리 책 추천 블로그
+## 음성처리 책 추천 블로그 
 
-> https://brunch.co.kr/@kakao-it/180
+> https://brunch.co.kr/@kakao-it/180 <br>
+> https://wikidocs.net/30651  -> 정리 엄청 잘되있음 <br>
+> https://medium.com/@jongdae.lim/%EA%B8%B0%EA%B3%84-%ED%95%99%EC%8A%B5-machine-learning-%EC%9D%80-%EC%A6%90%EA%B2%81%EB%8B%A4-part-6-eb0ed6b0ed1d <br>
+> https://engineering.linecorp.com/ko/blog/voice-waveform-arbitrary-signal-to-noise-ratio-python/ <br>
 
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
 
@@ -128,7 +131,7 @@ https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full
 
 # ACL논문 찾아보기
 
-- ACL 2019 논문  https://www.aclweb.org/anthology/P19-1039.pdf <br>
+- ACL 2019 논문  <br>
 
 > https://www.aclweb.org/anthology/P19-1039.pdf
 
