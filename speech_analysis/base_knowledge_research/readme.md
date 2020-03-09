@@ -7,6 +7,13 @@
 - https://www.youtube.com/watch?v=XhjPqGKF9Zs
 - https://www.youtube.com/watch?v=mAjvfIh2iXw
 
+## 음성처리 책 추천 블로그 
+
+> https://brunch.co.kr/@kakao-it/180 <br>
+> https://wikidocs.net/30651  -> 정리 엄청 잘되있음 <br>
+> https://medium.com/@jongdae.lim/%EA%B8%B0%EA%B3%84-%ED%95%99%EC%8A%B5-machine-learning-%EC%9D%80-%EC%A6%90%EA%B2%81%EB%8B%A4-part-6-eb0ed6b0ed1d <br>
+> https://engineering.linecorp.com/ko/blog/voice-waveform-arbitrary-signal-to-noise-ratio-python/ <br>
+
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
 
 - 1편 <br>
@@ -71,6 +78,11 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 
 ## Papers
 
+- **A Study on Speech Recognition Technology**
+
+> https://www.researchgate.net/publication/278811438_A_Study_on_Speech_Recognition_Technology <br>
+-> 보고 정리 예정
+
 - **SpecAugmentation**
 
 > https://ai.googleblog.com/2019/04/specaugment-new-data-augmentation.html?m=1
@@ -111,4 +123,15 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 >> https://towardsdatascience.com/ok-google-how-to-do-speech-recognition-f77b5d7cbe0b
 
 
+## Voice representation
+
+- https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full <br>
+- paper <br>
+https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full
+
 # ACL논문 찾아보기
+
+- ACL 2019 논문  <br>
+
+> https://www.aclweb.org/anthology/P19-1039.pdf
+
