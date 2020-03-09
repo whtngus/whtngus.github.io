@@ -129,9 +129,15 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 - paper <br>
 https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full
 
-# ACL논문 찾아보기
+## *음성인식 정리 잘된 프로젝트*
+
+- https://github.com/mozilla/DeepSpeech/blob/master/README.rst
+
+## ACL논문 찾아보기
 
 - ACL 2019 논문  <br>
 
 > https://www.aclweb.org/anthology/P19-1039.pdf
+
+
 
