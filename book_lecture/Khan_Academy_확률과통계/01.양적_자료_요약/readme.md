@@ -41,8 +41,9 @@ range : 4
 variance : 2
 ```
 
-> 대체분산 공식
+> 표준편차에서 n-1 쓰는 이유 
 
 ```
-
+https://jaehoo.tistory.com/entry/%ED%91%9C%EC%A4%80%ED%8E%B8%EC%B0%A8%EC%97%90%EC%84%9C-n-1-%EC%93%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0
++ 강의 https://ko.khanacademy.org/math/statistics-probability/summarizing-quantitative-data/more-on-standard-deviation/v/another-simulation-giving-evidence-that-n-1-gives-us-an-unbiased-estimate-of-variance
 ```

@@ -71,7 +71,4 @@ z-score를 구한 후에 정규 분포표를 이용하여 값을 찾는다.
 <img src="./pic/정규분포_공식.PNG" width="500px" height="400px"></img> <br>
 
 
-```
-
-```
 
