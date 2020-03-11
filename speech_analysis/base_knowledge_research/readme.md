@@ -7,7 +7,7 @@
 - https://www.youtube.com/watch?v=XhjPqGKF9Zs
 - https://www.youtube.com/watch?v=mAjvfIh2iXw
 
-## 음성처리 책 추천 블로그 
+## 음성처리 정리 블로그 
 
 > https://brunch.co.kr/@kakao-it/180 <br>
 > https://wikidocs.net/30651  -> 정리 엄청 잘되있음 <br>
