@@ -129,7 +129,7 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 - paper <br>
 https://www.frontiersin.org/articles/10.3389/fpsyg.2017.01180/full
 
-## *음성인식 정리 잘된 프로젝트*
+## *음성인식 정리 잘된 프로젝트 - Project DeepSpeech*
 
 - https://github.com/mozilla/DeepSpeech/blob/master/README.rst
 
