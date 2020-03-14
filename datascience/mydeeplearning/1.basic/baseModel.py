@@ -81,5 +81,5 @@ if __name__ == "__main__":
     plot_iter =  100
     # plot_iter =  False
     model = BasicModel()
-    model.fit(data,learning_late,epoch,plot_iter)
+    model.fit(data,learning_late,epoch,False)
 
