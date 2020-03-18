@@ -81,7 +81,6 @@ https://www.kaggle.com/c/freesound-audio-tagging-2019/discussion/97812#latest-56
 - **A Study on Speech Recognition Technology**
 
 > https://www.researchgate.net/publication/278811438_A_Study_on_Speech_Recognition_Technology <br>
--> 보고 정리 예정
 
 - **SpecAugmentation**
 
