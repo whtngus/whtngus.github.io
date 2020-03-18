@@ -13,6 +13,7 @@
 > https://wikidocs.net/30651  -> 정리 엄청 잘되있음 <br>
 > https://medium.com/@jongdae.lim/%EA%B8%B0%EA%B3%84-%ED%95%99%EC%8A%B5-machine-learning-%EC%9D%80-%EC%A6%90%EA%B2%81%EB%8B%A4-part-6-eb0ed6b0ed1d <br>
 > https://engineering.linecorp.com/ko/blog/voice-waveform-arbitrary-signal-to-noise-ratio-python/ <br>
+> https://heartbeat.fritz.ai/a-2019-guide-to-speech-synthesis-with-deep-learning-630afcafb9dd  --> 2019년도 음성분석 총 정리 <br>
 
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
 
