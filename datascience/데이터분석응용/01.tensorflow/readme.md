@@ -1,5 +1,21 @@
 # Tensroflow 사용 방법 
 
+> tf gpu 버전 사용하기 
+
+```
+nvidia 버전 확인
+nvidia-smi 로 장치가 있는지 확인
+cuda 릴리즈 버전 표를 확인하고 그것에 맞는 버전 설치
+tensorflow-gpu 로 설치
+
+jupyter notebook 사용시 
+- 가상환경 접속 후 jupyter 설치
+pip install jupyter 
+
+- gpu 사용 가능여부 확인
+tf.test.is_gpu_available()
+```
+
 > tf 다른 그래프 사용하기
 
 ```
