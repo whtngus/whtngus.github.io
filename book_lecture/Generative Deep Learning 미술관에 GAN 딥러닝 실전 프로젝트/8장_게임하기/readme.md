@@ -228,7 +228,7 @@ CMA-ES라는 진화 알고리즘을 통한 컨트롤러를 훈련
 
 > CMA_ES 병렬화
 
-<img src="./pic/MDN-ES-CMA_병렬화.PNG" width="350px" height="300px"></img> <br>
+<img src="./pic/ES-CMA_병렬화.PNG" width="350px" height="300px"></img> <br>
 
 ```
 CMA-ES의 장점 중 하나는 데이비드 하가 만든 es.py로 쉽게 병렬화 가능
