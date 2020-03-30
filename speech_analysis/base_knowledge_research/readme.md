@@ -16,7 +16,7 @@
 
 *아래 정리* <br>
 > https://heartbeat.fritz.ai/a-2019-guide-to-speech-synthesis-with-deep-learning-630afcafb9dd  --> 2019년도 음성분석 총 정리 <br>
-*노문 정리하기!* <br>
+*논문 리스트 정리하기!* <br>
 > https://medium.com/@saxenauts/speech-synthesis-techniques-using-deep-neural-networks-38699e943861 <br>
 
 ## 음성/음악신호 _ 머신러닝 초심자를 위한 가이드
