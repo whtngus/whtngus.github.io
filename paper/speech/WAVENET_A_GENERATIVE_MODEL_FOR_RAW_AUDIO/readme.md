@@ -14,7 +14,7 @@ WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다.
 
 ### 1. INTRODUCTION
 
-<img src="./pic/1_A_second_of_generated_speech.PNG" width="600px" height="300px"></img> <br>
+<img src="./pic/1_A_second_of_generated_speech.PNG" width="400px" height="200px"></img> <br>
  
 ```
 images (van den Oord et al.,2016a;b) and text (Jozefowicz et al., 2016)에서 아이디어를 얻어 WAVENET을 구상
@@ -35,7 +35,7 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 
 > Xt : 이전 시퀀스(음성)에 대한 timesteps -> 시계열 데이터 <br>
 
-<img src="./pic/수식_1.PNG" width="600px" height="300px"></img> <br>
+<img src="./pic/수식_1.PNG" width="200px" height="100px"></img> <br>
 
 - model output : categorical distribution 결과를 softmax 씌운  Xt <br>
 - optimize : maximize the log-likelihood
@@ -61,11 +61,11 @@ MCGSM : mixture of conditional Gaussian scale mixtures <br>
 (픽셀 오디오등 한정된 데이터에서 적용되는걸로 보임) <br>
 - categorical distribution 에서 더욱 좋은 교과를 보임
 
-<img src="./pic/수식_2.PNG" width="400px" height="200px"></img> <br>
+<img src="./pic/수식_2.PNG" width="200px" height="100px"></img> <br>
 
 #### 2.3 GATED ACTIVATION UNITS
 
-<img src="./pic/수식_3.PNG" width="400px" height="200px"></img> <br>
+<img src="./pic/수식_3.PNG" width="200px" height="100px"></img> <br>
 
 ```
 동그라미 2개 모양 : 행렬 곱
