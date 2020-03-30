@@ -39,7 +39,7 @@
 
 > 화자 인식 연구의 흐름 
 
-<img src="./pic/화자인식_역사02.PNG.PNG" width="350px" height="300px"></img> <br>
+<img src="./pic/화자인식_역사02.PNG" width="350px" height="300px"></img> <br>
 
 > GMM(Gaussian mixture model)
 
