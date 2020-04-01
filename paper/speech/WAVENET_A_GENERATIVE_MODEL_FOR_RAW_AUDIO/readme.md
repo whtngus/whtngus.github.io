@@ -35,7 +35,7 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 
 > Xt : 이전 시퀀스(음성)에 대한 timesteps -> 시계열 데이터 <br>
 
-<img src="./pic/수식_1.PNG" width="200px" height="100px"></img> <br>
+<img src="./pic/수식_1.PNG" width="200px" height="50px"></img> <br>
 
 - model output : categorical distribution 결과를 softmax 씌운  Xt <br>
 - optimize : maximize the log-likelihood
@@ -61,11 +61,11 @@ MCGSM : mixture of conditional Gaussian scale mixtures <br>
 (픽셀 오디오등 한정된 데이터에서 적용되는걸로 보임) <br>
 - categorical distribution 에서 더욱 좋은 교과를 보임
 
-<img src="./pic/수식_2.PNG" width="200px" height="100px"></img> <br>
+<img src="./pic/수식_2.PNG" width="200px" height="50px"></img> <br>
 
 #### 2.3 GATED ACTIVATION UNITS
 
-<img src="./pic/수식_3.PNG" width="200px" height="100px"></img> <br>
+<img src="./pic/수식_3.PNG" width="200px" height="50px"></img> <br>
 
 ```
 동그라미 2개 모양 : 행렬 곱
@@ -80,8 +80,51 @@ W : 학습 convolution filter
 
 <img src="./pic/그림_4.PNG" width="400px" height="200px"></img> <br>
 
+```
+network 에서  residual 과 skip connection을 사용하여 학습 
+사진처럼 위의 레이어를 K개를 사용하여 학습 (병럴 수행 가능해보임)
+```
+
+#### 2.5 CONDITIONAL WAVENETS
+
+<img src="./pic/수식_4.PNG" width="200px" height="50px"></img> <br>
+<img src="./pic/수식_5.PNG" width="200px" height="50px"></img> <br>
+
+```
+h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성
+* : convolution 연산자
+K : layer 번호
+f : filter
+g : gate
+V(*,k) : 학습가능한 직성 투영법 -> ??? 
+V(f,k)*y : 1*1 convolution
+```
+
+### EXPERIMENTS
+
+- MULTI-SPEAKER SPEECH GENERATION <br>
+- TEXT-TO-SPEECH <br>
+- MUSIC <br>
+- SPEECH RECOGNITION <br>
+
+
+
+```
+오디오 신호의 긴 부분을 처리하고 지역적으로 더 큰 WaveNet을 처리.
+더긴 오디오 시간에 상관 관계를 모형화
+```
 
 ## 관련 지식 
+
+### Skip connection
+
+```
+뉴럴넷은  H(x)−y 를 최소화 하는 방향으로 학습을 진행한다.
+이때 Skip network 는 
+입력과 출력의 잔차를  F(x)=H(x)−x 라고 정의를 하고 네트워크는 이  F(x) 를 찾는 것이다.
+최적의 경우  F(x)=0 이 되어야하므로 학습의 목표가 이미 정해져 있기 때문에 학습 속도가 빨라짐.
+네트워크가 잔차를 학습하고 나면, 입력값의 작은 변화에도 민감하게 반응한다는 가설
+```
 
 ### masked convolution
 
@@ -108,7 +151,7 @@ ex) 연속된 사진을 붙여놓은 데이터 혹은 음성,NLP 데이터 라�
 
 - AR model(Autoregressive Model) <br>
 
-<img src="./pic/AR_model.PNG" width="600px" height="400px"></img> <br>
+<img src="./pic/AR_model.PNG" width="600px" height="300px"></img> <br>
 
 ```
 현재 시점의 정상 시계열 (ex: 페어 트레이딩의 스프레드)은 이전 시점의 정상 시계열에 상수 (a)를 곱해준 것과 유사하고, 잔차 정도의 차이만 있음을 모형화 한 것이다. 
@@ -123,16 +166,18 @@ ex) 연속된 사진을 붙여놓은 데이터 혹은 음성,NLP 데이터 라�
 
 
 ## 참조
-- https://arxiv.org/pdf/1609.03499.pdf <br>
-WAVENET 논문 <br>
-- https://papers.nips.cc/paper/6527-conditional-image-generation-with-pixelcnn-decoders.pdf <br>
-pixelcnn 논문 <br>
-- https://tensorflow.blog/2016/11/29/pixelcnn-1601-06759-summary/ <br>
-pixelcnn 설명 블로그 <br>
-- https://ratsgo.github.io/generative%20model/2018/01/31/AR/ <br>
-pixelcnn 설명 블로그  <br>
-- https://blog.naver.com/PostView.nhn?blogId=chunjein&logNo=100173614389 <br>
-AR 모형 설명 블로그 <br>
+- WAVENET 논문 <br>
+https://arxiv.org/pdf/1609.03499.pdf <br>
+- pixelcnn 논문 <br>
+https://papers.nips.cc/paper/6527-conditional-image-generation-with-pixelcnn-decoders.pdf <br>
+- pixelcnn 설명 블로그 <br>
+https://tensorflow.blog/2016/11/29/pixelcnn-1601-06759-summary/ <br>
+- pixelcnn 설명 블로그  <br>
+https://ratsgo.github.io/generative%20model/2018/01/31/AR/ <br>
+- AR 모형 설명 블로그 <br>
+https://blog.naver.com/PostView.nhn?blogId=chunjein&logNo=100173614389 <br>
+- Skip connection 설명 <br>
+https://datascienceschool.net/view-notebook/958022040c544257aa7ba88643d6c032/ <br>
 
 
 
