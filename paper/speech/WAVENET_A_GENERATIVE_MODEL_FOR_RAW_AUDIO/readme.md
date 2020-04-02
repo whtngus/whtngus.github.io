@@ -178,7 +178,8 @@ https://ratsgo.github.io/generative%20model/2018/01/31/AR/ <br>
 https://blog.naver.com/PostView.nhn?blogId=chunjein&logNo=100173614389 <br>
 - Skip connection 설명 <br>
 https://datascienceschool.net/view-notebook/958022040c544257aa7ba88643d6c032/ <br>
-
+- 유튜브 논문 리뷰 <br>
+https://www.youtube.com/watch?v=GyQnex_DK2k&feature=youtu.be <br>
 
 
 
