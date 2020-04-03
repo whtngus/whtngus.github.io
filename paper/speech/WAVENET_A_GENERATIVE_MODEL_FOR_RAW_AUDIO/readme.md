@@ -161,6 +161,17 @@ ex) 연속된 사진을 붙여놓은 데이터 혹은 음성,NLP 데이터 라�
 [출처] 19. AR(1) 모형 (Autoregressive Model)|작성자 아마퀀트
 ```
 
+### 장단점 정리
+
+```
+powerfull 한 generate model
+
+단점 
+1. 매우느림 
+이유 : auto regresive 모델인데 audio의경우 매우 긴 입력데이터를 기반으로 하기때문에 
+2. end-to-end 모델이 아님
+
+```
 
 
 
