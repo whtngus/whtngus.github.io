@@ -1,6 +1,8 @@
+# keras v 2.0 class_weight
+
+
+
 # Tensorflow v1 -> v2 변경
-
-
 ## Tensorflow import v1 -> v2
 
 - from tensorflow.contrib import layers as contrib_layers <br>
