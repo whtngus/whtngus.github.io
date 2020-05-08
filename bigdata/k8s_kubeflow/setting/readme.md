@@ -70,6 +70,32 @@ minikube start --cpus 4 --memory 8895 --disk-size=60g
 
 sudo service docker start
 sudo minikube start --cpus 4 --memory 8895 --disk-size=60g  --vm-driver=docker
+
+
+
+### 2. kfctl 가져오기 <br>
+
+# kubectl 설치
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+# kubeflow install을 위해서 kfctl을 가져온다.
+# https://github.com/kubeflow/kfctl/releases 에서 원하는 버전 설치
+wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
+# 압축 해제 
+tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
+# kubeflow 설치 위치 지정 - 환경 변수
+export PATH=$PATH:$(pwd)
+export KF_NAME='kubeflow'
+export BASE_DIR=/home/sh/kubeflow
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
+# 지정된 환경변수 실행 - yaml 가져오기
+kfctl build -V -f ${CONFIG_URI}
+../kfctl apply -V -f ${CONFIG_FILE}
+# apply
+kfctl apply -V -f ${CONFIG_FILE}
  
 ```
 
@@ -96,43 +122,28 @@ sudo kubeadm init --pod-network-cidr=10.217.0.0/16
 
     - 쿠버네티스 설정
 # kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사
-mkdir -p HOME/.kube
+$ mkdir -p HOME/.kube
+# $HOME 대신 ~ 으로 사용
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 $ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # 쿠버네티스 접속 테스트
 $ kubectl cluster-info
 #  Cilium을 쿠버네티스에 설치
 $ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install/kubernetes/quick-install.yaml
+# 정상 실행여부 확인 하기
+kubectl get pods -n kube-system --selector=k8s-app=cilium
+ -> cilim 포드의 READY가 1/1이 되면, 쿠버네티스 클러스터를 사용할 수 있다.
 
+CrashLoopBackOff에러 발생
+의미 : crashing 충돌로 인해 start를 반복중 
+원인찾기 이벤트 로그 명렁어
+kubectl describe pod  "pod name"
+kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
 ```
 
-### 2. kfctl 가져오기 <br>
 
-```
-# kubectl 설치
-curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
-chmod +x ./kubectl
-sudo mv ./kubectl /usr/local/bin/kubectl
-# kubeflow install을 위해서 kfctl을 가져온다.
-# https://github.com/kubeflow/kfctl/releases 에서 원하는 버전 설치
-wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
-# 압축 해제 
-tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
-# kubeflow 설치 위치 지정 - 환경 변수
-export PATH=$PATH:$(pwd)
-export KF_NAME='kubeflow'
-export BASE_DIR=/home/sh/kubeflow
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
-# 지정된 환경변수 실행 - yaml 가져오기
-kfctl build -V -f ${CONFIG_URI}
-../kfctl apply -V -f ${CONFIG_FILE}
-# apply
-kfctl apply -V -f ${CONFIG_FILE}
-```
 
-### 3. 실행 확인 <br>
+### 2. 실행 확인 <br>
 
 ```
 # kubeflow 정상 설치 확인
