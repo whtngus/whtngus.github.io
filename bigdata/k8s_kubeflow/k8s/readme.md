@@ -5,8 +5,13 @@
 0. 자주 명령어 모음
 
 ```
-- 모든 pod상태 확인
+- 모든 pod상태 확인 및 확인
 kubectl get pods --all-namespaces
+kubectl get nodes
+kubectl get pods -o wide | grep <nodename>
+- pod제거 
+kubectl delete node <nodename>
+kubectl delete pod <podname>
 ```
 
 1. Kubernets network <br>
@@ -105,7 +110,57 @@ yum remove -y kubeadm
 systemctl start docker
 ```
 
+4. 이슈사항 정리 <br>
 
+```
+     1. 네트워크 DNS 문제로 ContainerCreating에 멈춘 경우
+실행 명령어 : kubectl get pods -n kube-system --selector=k8s-app=cilium
+
+CrashLoopBackOff 에러 발생
+의미 : crashing 충돌로 인해 start를 반복중 
+원인찾기 이벤트 로그 명렁어
+kubectl describe pod  "pod name"
+kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
+
+에러 문구 
+Events:
+  Type     Reason                  Age                   From                 Message
+  ----     ------                  ----                  ----                 -------
+  Warning  FailedScheduling        60m (x89 over 3h10m)  default-scheduler    0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled               54m                   default-scheduler    Successfully assigned kube-system/coredns-5d4dd4b4db-gdz8x to ~~~
+  Warning  FailedCreatePodSandBox  53m                   kubelet, ~~  Failed create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container "fb94e3727233dd3d5f1c968da061971e2ee07239dfbea54f9d4a8b82bcc8ba69" network for pod "coredns-5d4dd4b4db-gdz8x": NetworkPlugin cni failed to set up pod "coredns-5d4dd4b4db-gdz8x_kube-system" network: unable to connect to Cilium daemon: failed to create cilium agent client after 30.000000 seconds timeout: Get http:///var/run/cilium/cilium.sock/v1/config: dial unix /var/run/cilium/cilium.sock: connect: no such file or directory
+Is the agent running?
+
+예상 원인 cni 가 꼬임 ..
+https://stackoverflow.com/questions/60007464/nginx-kubernetes-pod-stays-in-containercreating
+
+해결방법 Cluster 다시 구성하기 
+# kubeadm reset
+# systemctl stop kubelet
+# systemctl stop docker
+# rm -rf /var/lib/cni/
+# rm -rf /var/lib/kubelet/*
+# rm -rf /etc/cni/
+# ifconfig cni0 down
+# ifconfig flannel.1 down
+# ifconfig docker0 down
+# ip link delete cni0
+# ip link delete flannel.1
+
+
+
+    2. 
+실행 명령어
+kubectl get pod --all-namespaces
+에러 내용
+error: no configuration has been provided, try setting KUBERNETES_MASTER environment variable
+
+해결 방법
+/etc/profile의 끝에 아래내용 추가
+export KUBECONFIG=/etc/kubernetes/admin.conf
+스크립트 실행 -> 환경 변수 업데이트
+9source /etc/profile
+```
 
 
 
