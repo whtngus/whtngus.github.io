@@ -17,11 +17,11 @@ tensorflow, pytorch, MxNet 등 지원  <br>
 5. 모델 서빙  <br>
 
 
-### 설치하기
+## 설치하기
 
-1. kubeflow를 설치하기 위해 kubernetes 설치 필요 <br>
+### 1. kubeflow를 설치하기 위해 kubernetes 설치 필요 <br>
 
-- minikube를 설치하기 <br>
+1. minikube를 설치하기 <br>
 
 ```
 https://kubernetes.io/ko/docs/tasks/tools/install-minikube/
@@ -73,7 +73,13 @@ sudo minikube start --cpus 4 --memory 8895 --disk-size=60g  --vm-driver=docker
  
 ```
 
-2. kfctl 가져오기 <br>
+2. kubernetes 설치 <br>
+
+```
+
+```
+
+### 2. kfctl 가져오기 <br>
 
 ```
 # kubectl 설치
@@ -94,8 +100,19 @@ export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
 # 지정된 환경변수 실행 - yaml 가져오기
 kfctl build -V -f ${CONFIG_URI}
+../kfctl apply -V -f ${CONFIG_FILE}
+# apply
+kfctl apply -V -f ${CONFIG_FILE}
+```
+
+### 3. 실행 확인 <br>
+
+```
 # kubeflow 정상 설치 확인
 kubectl -n kubeflow get all   
+# kubeflow 네임스페이스와, istio-system 네임스페이스 포드 조회
+kubectl -n kubeflow get pod
+kubectl -n istio-system get service istio-ingressgateway
 ```
 
 
@@ -107,9 +124,8 @@ kubectl -n kubeflow get all
 
 
 
+## 참조 <br>
 
-
-## 참조
 - https://bcho.tistory.com/1301 <br>
 kubeflow 설명 <br>
 - https://www.kubeflow.org/docs/started/getting-started/ <br>
