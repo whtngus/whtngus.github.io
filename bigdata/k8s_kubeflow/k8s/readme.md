@@ -65,13 +65,15 @@ eks ingress는 ingress 리소스를 읽어서 그에 맞는 리버스 프록시�
     - 네트워킹 애드온
 k8s는 클러스터 내부에 가상네트워크를 구성해서 사용하는데, 이때 kuby-proxy이외에 네트워킹 관련한 애드온을 사용한다.
 ACI, Calico, Canal, Cilium, CNI-Genie, Contiv, Falannel, Multus, NSX-T, Nuage, Romana, Weave Net등이 있고, OCI의 CNI(Container Network, Interface) 를 구현하고 있다면 다른 애드온들도 사용할 수 있다.
+
+Cilium - Docker 및 Kubernetes와 같은 Linux 컨테이너 관리 플랫폼을 사용하여 배포된 응용 프로그램 서비스 간의 네트워크 연결을 보호하는 오픈 소스 소프트웨어
+
     - DNS 애드온
 DNS 애드온의 경우 실제로 클러스터 내에서 작동하는 DNS 서버
 dns 서비스로는 kube-dns와 core-dns가 있습니다.
     - 대시보드 애드온
 kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다. 
  -> 웹 UI가 필요한 경우가 있을수도 있는데, 이런경우에 사용할수 있는 대시보드가 있습니다.
-
 ```
 
 
@@ -84,3 +86,4 @@ kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다.
 https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6 <br>
 - 에드온(Addons)
 https://arisu1000.tistory.com/27828 [아리수] <br>
+https://ddii.dev/kubernetes/cilium-1/ <br>
