@@ -76,6 +76,33 @@ sudo minikube start --cpus 4 --memory 8895 --disk-size=60g  --vm-driver=docker
 2. kubernetes 설치 <br>
 
 ```
+    - 쿠버네티스 실행을 위한 swap 비활성화
+sudo swapoff -a
+
+    - 쿠버네티스 설치에 필요한 kubelet, kubeadm, kubectl을 설치
+$ sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+$ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+$ cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+$ sudo apt-get update
+# 버전은 https://www.kubeflow.org/docs/started/k8s/overview/#minimum-system-requirements 참고
+$ sudo apt-get install -y kubelet=1.15.10-00 kubeadm=1.15.10-00 kubectl=1.15.10-00
+$ sudo apt-mark hold kubelet kubeadm kubectl
+
+    - 쿠버네티스 설치
+# 아이피 대역 겹치지 않도록 조심하기
+sudo kubeadm init --pod-network-cidr=10.217.0.0/16
+
+    - 쿠버네티스 설정
+# kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사
+mkdir -p HOME/.kube
+$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+$ sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# 쿠버네티스 접속 테스트
+$ kubectl cluster-info
+#  Cilium을 쿠버네티스에 설치
+$ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install/kubernetes/quick-install.yaml
 
 ```
 
