@@ -2,6 +2,13 @@
 
 ## 조사
 
+0. 자주 명령어 모음
+
+```
+- 모든 pod상태 확인
+kubectl get pods --all-namespaces
+```
+
 1. Kubernets network <br>
 
 ```
@@ -76,6 +83,28 @@ kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다.
  -> 웹 UI가 필요한 경우가 있을수도 있는데, 이런경우에 사용할수 있는 대시보드가 있습니다.
 ```
 
+3. k8s 삭제 방법 <br>
+
+```
+Kubernetes 삭제하는 방법
+kubeadm reset
+systemctl stop kubelet
+systemctl stop docker
+rm -rf /var/lib/cni/
+rm -rf /var/lib/kubelet/*
+rm -rf /run/flannel
+rm -rf /etc/cni/
+rm -rf /etc/kubernetes
+rm -rf /var/lib/etcd/
+
+ip link delete cni0
+ip link delete flannel.1
+yum remove -y kubelet
+yum remove -y kubectl
+yum remove -y kubeadm
+systemctl start docker
+```
+
 
 
 
@@ -84,6 +113,8 @@ kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다.
 ## 참조 
 - Kubernets network <br>
 https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6 <br>
-- 에드온(Addons)
+- 에드온(Addons) <br>
 https://arisu1000.tistory.com/27828 [아리수] <br>
 https://ddii.dev/kubernetes/cilium-1/ <br>
+- k8s 삭제 방법 <br>
+https://crystalcube.co.kr/202 [유리상자 속 이야기] <br>
