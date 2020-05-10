@@ -118,7 +118,7 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 
     - 쿠버네티스 설치
 # 아이피 대역 겹치지 않도록 조심하기
-sudo kubeadm init --pod-network-cidr=10.217.0.0/16
+sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.37.131
 
     - 쿠버네티스 설정
 # kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사
@@ -134,11 +134,7 @@ $ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install
 kubectl get pods -n kube-system --selector=k8s-app=cilium
  -> cilim 포드의 READY가 1/1이 되면, 쿠버네티스 클러스터를 사용할 수 있다.
 
-CrashLoopBackOff에러 발생
-의미 : crashing 충돌로 인해 start를 반복중 
-원인찾기 이벤트 로그 명렁어
-kubectl describe pod  "pod name"
-kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
+
 ```
 
 

@@ -156,10 +156,10 @@ kubectl get pod --all-namespaces
 error: no configuration has been provided, try setting KUBERNETES_MASTER environment variable
 
 해결 방법
-/etc/profile의 끝에 아래내용 추가
+/etc/profile의 끝에 아래내용 추가 -> config 위치는 본인 설정에 맞게
 export KUBECONFIG=/etc/kubernetes/admin.conf
 스크립트 실행 -> 환경 변수 업데이트
-9source /etc/profile
+source /etc/profile
 ```
 
 
