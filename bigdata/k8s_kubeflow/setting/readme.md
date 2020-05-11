@@ -72,7 +72,16 @@ minikube start --cpus 4 --memory 8895 --disk-size=60g
 sudo service docker start
 sudo minikube start --cpus 4 --memory 8895 --disk-size=60g  --vm-driver=docker
 
+-> 일단은 mminikube start 명령어로 사용 
 
+클러스터 정상실행여부 확인
+$kubectl get cs
+
+    5. cilum 실행
+cilium 의존성을 위해 etcd를 별도로 배포한다.
+$ kubectl create -n kube-system -f https://raw.githubusercontent.com/cilium/cilium/master/examples/kubernetes/addons/etcd/standalone-etcd.yaml
+-> port 충돌로 실행 안되서 일정시간 기다린 후 아래 명령어로 실행
+$ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install/kubernetes/quick-install.yaml
 
 ### 2. kfctl 가져오기 <br>
 
@@ -122,6 +131,7 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 # 아이피 대역 겹치지 않도록 조심하기
 sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.37.131
 sudo kubeadm init --pod-network-cidr=10.217.0.0/16
+
 ```
 <img src="./pic/set_0.JPG" width="200px" height="150px"></img>  <br>
 실행시 화면  -> 써있는대로 작업하기 <br>
@@ -139,8 +149,14 @@ $ kubectl cluster-info
 $ kubectl create -f https://raw.githubusercontent.com/cilium/cilium/v1.6/install/kubernetes/quick-install.yaml
 # 정상 실행여부 확인 하기
 kubectl get pods -n kube-system --selector=k8s-app=cilium
- -> cilim 포드의 READY가 1/1이 되면, 쿠버네티스 클러스터를 사용할 수 있다.
+ -> cilim 포드의 READY가 1/1이 되면, 쿠버네티스 클러스터를 사용할 수 있다. 
+ (1번의 minikube를 실행한 후 작업해야 실행회는걸로 보임)
+```
 
+- nvidia plugin 설치하기  <br>
+
+```
+kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml
 
 ```
 
@@ -175,3 +191,4 @@ https://www.kubeflow.org/docs/started/getting-started/ <br>
 https://lsjsj92.tistory.com/580 <br>
 https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0-2%eb%b6%80-kubernetes-nvidia-device-plugin-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0/ <br>
 https://monkey3199.github.io/develop/ai/kubeflow/2018/10/01/Getting_Started_with_Kubeflow.html <br>
+https://ddii.dev/kubernetes/cilium-1/# <br>
