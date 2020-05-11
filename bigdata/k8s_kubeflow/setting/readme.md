@@ -122,9 +122,13 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
 # 아이피 대역 겹치지 않도록 조심하기
 sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.37.131
 sudo kubeadm init --pod-network-cidr=10.217.0.0/16
+```
+<img src="./pic/set_0.JPG" width="200px" height="150px"></img>  <br>
+실행시 화면  -> 써있는대로 작업하기 <br>
 
+```
     - 쿠버네티스 설정
-# kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사
+# kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사 
 $ mkdir -p HOME/.kube
 # $HOME 대신 ~ 으로 사용
 $ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
