@@ -2,7 +2,7 @@
 
 ## 조사
 
-0. 자주 명령어 모음
+### 0. 자주 명령어 모음
 
 ```
 - 모든 pod상태 확인 및 확인
@@ -12,9 +12,29 @@ kubectl get pods -o wide | grep <nodename>
 - pod제거 
 kubectl delete node <nodename>
 kubectl delete pod <podname>
+- pod 조회
+kubectl get pods -n kube-system --selector=k8s-app=cilium
+kubectl get pods -o wide --all-namespaces 
+kubectl get pod --all-namespaces | grep -v Running
+- pod 상세정보 확인
+kubectl describe pod "pod 이름" -n kube-system
+kubectl logs "pod 이름"  -n kube-system
+- 모든 event 정보 확인
+kubectl get events -n kube-system
+- k8s에 join되어있는 node을의 상태정보 확인
+kubectl describe node master
+
+    - minikube
+- 기본
+minikube stop
+minikube start --cpus 4 --memory 8096 --disk-size=40g 
+minikube delete
+- minikube 접속하기
+minikube ssh
+minikube dashboard
 ```
 
-1. Kubernets network <br>
+### 1. Kubernets network <br>
 
 ```
 1. 서로 결합된 컨테이너와 컨테이너 간 통신
@@ -67,7 +87,7 @@ Ingress Controller는 다양하게 있으며, 대중적으로 많이 사용하�
 eks ingress는 ingress 리소스를 읽어서 그에 맞는 리버스 프록시를 구성하기 위해 Application Load Balancer 및 필수 지원 AWS 리소스가 만들어지도록 트리거하는 컨트롤러
 ```
 
-2. 에드온(Addons)
+### 2. 에드온(Addons)
 
 ```
 애드온은 클러스터 내부에서 필요한 기능들을 위해 실행되는 포드들
@@ -88,7 +108,7 @@ kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다.
  -> 웹 UI가 필요한 경우가 있을수도 있는데, 이런경우에 사용할수 있는 대시보드가 있습니다.
 ```
 
-3. k8s 삭제 방법 <br>
+### 3. k8s 삭제 방법 <br>
 
 ```
 Kubernetes 삭제하는 방법
@@ -110,17 +130,30 @@ yum remove -y kubeadm
 systemctl start docker
 ```
 
-4. 이슈사항 정리 <br>
+### 4. 이슈사항 정리 <br>
+
+##### 1. CrashLoopBackOff
 
 ```
-     1. 네트워크 DNS 문제로 ContainerCreating에 멈춘 경우
+    1. 네트워크 DNS 문제로 ContainerCreating에 멈춘 경우 <br>     
 실행 명령어 : kubectl get pods -n kube-system --selector=k8s-app=cilium
 
 CrashLoopBackOff 에러 발생
-의미 : crashing 충돌로 인해 start를 반복중 
+- 의미 
+crashing 충돌로 인해 start를 반복중 
+CrashLoopBackOff는 컨테이너가 다시 시작 후 반복적으로 비정상 종료됨을 나타냅니다. 
+컨테이너는 다양한 원인으로 인해 비정상 종료될 수 있습니다. 
+Pod의 로그를 확인하면 근본 원인을 해결할 수 있습니다.
+기본적으로 비정상 종료된 컨테이너는 5분으로 제한된 지수 지연으로 다시 시작됩니다.
+
 원인찾기 이벤트 로그 명렁어
 kubectl describe pod  "pod name"
-kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
+-> 안나오는 경우 아래 세가지 명령어로 명령어로 검색
+kubectl get pods -n kube-system --selector=k8s-app=cilium
+kubectl get pods -o wide --all-namespaces 
+# kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
+05-cilium.conf 설정파일 위치
+/etc/cni/net.d/05-cilium.conf
 
 에러 문구 
 Events:
@@ -134,7 +167,7 @@ Is the agent running?
 예상 원인 cni 가 꼬임 ..
 https://stackoverflow.com/questions/60007464/nginx-kubernetes-pod-stays-in-containercreating
 
-해결방법 Cluster 다시 구성하기 
+1. 해결방법 Cluster 다시 구성하기 
 # kubeadm reset
 # systemctl stop kubelet
 # systemctl stop docker
@@ -147,9 +180,24 @@ https://stackoverflow.com/questions/60007464/nginx-kubernetes-pod-stays-in-conta
 # ip link delete cni0
 # ip link delete flannel.1
 
+도커 및 데몬 재실행
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+클러스터 재실행
+kubectl drain <node_name> --delete-local-data --force --ignore-daemonsets
+kubectl delete node <node_name>
+kubeadm reset
+확인
+kubectl get pods --all-namespaces
+
+2. 원인 파악하기
 
 
-    2. 
+```
+
+##### 2. error: no configuration has been provided, try setting KUBERNETES_MASTER environment variable
+
+```
 실행 명령어
 kubectl get pod --all-namespaces
 에러 내용
@@ -173,3 +221,7 @@ https://arisu1000.tistory.com/27828 [아리수] <br>
 https://ddii.dev/kubernetes/cilium-1/ <br>
 - k8s 삭제 방법 <br>
 https://crystalcube.co.kr/202 [유리상자 속 이야기] <br>
+- 이슈처리 <br>
+CrashLoopBackOff <br>
+https://cloud.google.com/kubernetes-engine/docs/troubleshooting?hl=ko <br>
+https://waspro.tistory.com/563 <br>
