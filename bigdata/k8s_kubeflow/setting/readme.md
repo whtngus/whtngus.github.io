@@ -45,6 +45,7 @@ sudo apt-get install build-essential
 
     2. minikube 설치
 brew install gcc
+brew install kubectl
 brew install minikube
 or  (아래는 공식 홈페이지 설치 방법)
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -104,7 +105,8 @@ kfctl apply -V -f ${CONFIG_FILE}
 ```
     - 쿠버네티스 실행을 위한 swap 비활성화
 sudo swapoff -a
-
+    - iptables 설치하기
+sudo apt-get install -y iptables arptables ebtables
     - 쿠버네티스 설치에 필요한 kubelet, kubeadm, kubectl을 설치
 $ sudo apt-get update && sudo apt-get install -y apt-transport-https curl
 $ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
@@ -119,6 +121,7 @@ $ sudo apt-mark hold kubelet kubeadm kubectl
     - 쿠버네티스 설치
 # 아이피 대역 겹치지 않도록 조심하기
 sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.37.131
+sudo kubeadm init --pod-network-cidr=10.217.0.0/16
 
     - 쿠버네티스 설정
 # kubectl을 사용하기 위해서 관리자 설정 파일을 유저 디렉토리로 복사
@@ -160,10 +163,11 @@ kubectl -n istio-system get service istio-ingressgateway
 
 ## 참조 <br>
 
-- https://bcho.tistory.com/1301 <br>
-kubeflow 설명 <br>
-- https://www.kubeflow.org/docs/started/getting-started/ <br>
-document <br>
-- https://lsjsj92.tistory.com/580 <br>
-- https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0-2%eb%b6%80-kubernetes-nvidia-device-plugin-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0/ <br>
-셋팅 및 설치 정리 <br>
+- kubeflow 설명 <br>
+https://bcho.tistory.com/1301 <br>
+- document <br>
+https://www.kubeflow.org/docs/started/getting-started/ <br>
+- 셋팅 및 설치 정리 <br>
+https://lsjsj92.tistory.com/580 <br>
+https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0-2%eb%b6%80-kubernetes-nvidia-device-plugin-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0/ <br>
+https://monkey3199.github.io/develop/ai/kubeflow/2018/10/01/Getting_Started_with_Kubeflow.html <br>
