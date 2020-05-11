@@ -63,6 +63,16 @@ tf.get_variable  <br>
 + parameter initializer -> initial_value <br>
 -> 변경2 : tf.compat.v1.get_variable <br>
 
+tf.GraphDef() <br>
+-> 변경 : tf.compat.v1.GraphDef() <br>
+
+tf.gfile.GFile <br>
+-> 변경 : tf.compat.v2.io.gfile.GFile
+
+tf.ConfigProto() <br>
+-> 변경 : tf.compat.v1.ConfigProto()
+
+
 optimizer 설정 <br> 
 keras 2.2.4 => lr  <br>
 keras 2.3.0 => learning_rate <br>
