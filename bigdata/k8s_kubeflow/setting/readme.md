@@ -156,13 +156,107 @@ kubectl get pods -n kube-system --selector=k8s-app=cilium
 - nvidia plugin 설치하기  <br>
 
 ```
-kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/v1.12/nvidia-device-plugin.yml
+kubectl apply -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/master/nvidia-device-plugin.yml
 
+device-plugin 포드가 정상적으로 작동했는지 확인
+kubectl -n kube-system get pod -l name=nvidia-device-plugin-ds
+kubectl -n kube-system logs  -l name=nvidia-device-plugin-ds
 ```
 
+- jupyter 테스트
 
+```
+cat <<EOF | kubectl apply -f -
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: tf-gpu-jupyter
+  name: tf-gpu-jupyter
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tf-gpu-jupyter
+  template:
+    metadata:
+      labels:
+        app: tf-gpu-jupyter
+    spec:
+      containers:
+      - image: tensorflow/tensorflow:2.1.0-gpu-py3-jupyter
+        imagePullPolicy: IfNotPresent
+        name: tf-gpu-jupyter
+        ports:
+        - containerPort: 8888
+          protocol: TCP
+        resources:
+          limits:
+            nvidia.com/gpu: "1"
+EOF
 
-### 2. 실행 확인 <br>
+- 쥬피터 포드 생성 확인
+kubectl get pod -l app=tf-gpu-jupyter
+- 로그인정보 조회
+kubectl logs -l app=tf-gpu-jupyter
+
+- jupyter 디플로이먼트 삭제
+kubectl delete deploy tf-gpu-jupyter
+```
+
+- Service Account Token Volume 활성화
+
+```
+인증/권한 기능을 위해서 istio 를 사용합니다. 그래서 istio-system 이라는 네임스페이스에 istio 관련 컴포넌트가 설치된다.
+    - 기능활성화를 위한  kube-apiserver 매니페스트 파일 편집 
+sudo vim /etc/kubernetes/manifests/kube-apiserver.yaml
+추가
+- --service-account-signing-key-file=/etc/kubernetes/pki/sa.key
+- --service-account-issuer=api
+- --service-account-api-audiences=api,vault
+```
+
+- dynamic volume provisioner 설치 
+
+```
+kubeflow를 쉽게 설치하기 위해서는 동적 볼륨 프로비져너(dynamic volume provisioner)가 필요합니다. 
+참조한 블로그에서는 로컬 디렉토리를 이용하는 Local Path Provisioner 를 사용
+
+- Local Path Provisioner 설치 
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+- 스토리지클래스 조회
+kubectl get storageclass 
+```
+
+### 2. kubeflow 설치하기
+
+```
+mkdir ~/kubeflow
+cd ~/kubeflow
+- 릴리즈 버전 확인하고 최신버전 설치
+curl -L -O https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
+tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
+
+- kubeflow 배포를 위한 환경변수 설정
+export PATH=$PATH:"/home/sh/kubeflow"
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_istio_dex.v1.0.2.yaml"
+export KF_NAME=kf-test
+export BASE_DIR=/home/sh/kubeflow
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+
+- 블로그에서 kfctl_existing_arrikto.yaml 설정 파일을 이용해 kubeflow를 배포한다고함
+-> 나중에 내용 자세히 확인하기
+wget -O kfctl_istio_dex.yaml $CONFIG_URI
+export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
+kfctl apply -V -f ${CONFIG_FILE}
+-> 요명령어 사용시 kebeflow 설치 시작 
+
+- kubeflow 네임스페이스, istio-system 네임스페이스의 포드를 조회
+kubectl -n kubeflow get pod
+```
+
+### - 실행 확인 <br>
 
 ```
 # kubeflow 정상 설치 확인
