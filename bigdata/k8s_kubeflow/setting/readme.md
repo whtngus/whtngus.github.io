@@ -31,7 +31,6 @@ grep -E --color 'vmx|svm' /proc/cpuinfo
     1. brew install
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
 vi ./.bashrc
-
 # brew가 설치된 경로의 bin 패스 추가
 PATH=/home/linuxbrew/.linuxbrew/bin:$PATH
 export MANPATH=$(brew --prefix)/share/man:$MANPATH
@@ -60,6 +59,20 @@ sudo usermod -aG docker $USER # 현재 접속중인 사용자에게 권한주기
 sudo usermod -aG docker your-user # your-user 사용자에게 권한주기
 - KVM (Kernel-based Virtual Machine)등 기타 설치파일 
 sudo apt install virtualbox-dkms linux-headers-generic
+# centos의 경우 
+yum install kernel-devel
+yum install kernel-headers
+sudo yum install yum-plugin-copr
+sudo yum copr enable ngompa/snapcore-el7
+sudo yum -y install snapd
+sudo ln -s /var/lib/snapd/snap /snap
+- 도커 상태확인 
+service docker status
+systemctl status docker
+- 도커 데몬 실행
+dockerd
+service docker start 
+
 
     4. minikube 실행
 # 여유있는 사이즈를 할당해서 실행하기 
@@ -69,9 +82,7 @@ minikube start --cpus 4 --memory 8895 --disk-size=60g
  [VBOX_DEVICE_MISSING] Failed to start virtualbox VM. "minikube start" may fix it. creating host: create: precreate: We support Virtualbox starting with version 5. Your VirtualBox install is "WARNING: The character device /dev/vboxdrv does not exist.\n\t Please install the virtualbox-dkms package and the appropriate\n\t headers, most likely linux-headers-Microsoft.\n\n\t You will not be able to start VMs until this problem is fixed.\n5.2.34_Ubuntur133883". Please upgrade at https://www.virtualbox.org
 💡  Suggestion: Reinstall VirtualBox and reboot. Alternatively, try the kvm2 driver: https://minikube.sigs.k8s.io/docs/reference/drivers/kvm2/
 
-sudo service docker start
-sudo minikube start --cpus 4 --memory 8895 --disk-size=60g  --vm-driver=docker
-
+=> 해결 sudo service docker start
 -> 일단은 mminikube start 명령어로 사용 
 
 클러스터 정상실행여부 확인
@@ -102,11 +113,9 @@ export KF_DIR=${BASE_DIR}/${KF_NAME}
 export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
 # 지정된 환경변수 실행 - yaml 가져오기
-kfctl build -V -f ${CONFIG_URI}
-../kfctl apply -V -f ${CONFIG_FILE}
 # apply
-kfctl apply -V -f ${CONFIG_FILE}
- 
+kfctl build -V -f ${CONFIG_URI}
+../kfctl apply -V -f ${CONFIG_FILE} 
 ```
 
 2. kubernetes 설치 <br>
@@ -127,6 +136,27 @@ $ sudo apt-get update
 $ sudo apt-get install -y kubelet=1.15.10-00 kubeadm=1.15.10-00 kubectl=1.15.10-00
 $ sudo apt-mark hold kubelet kubeadm kubectl
 
+# centos
+- SELinux 설정을 permissive 모드로 변경
+sudo setenforce 0
+sudo sed -i 's/^SELINUX=enforcing$/SELINUapt-get update && apt-get install apt-transport-https ca-certificates curl software-properties-commonX=permissive/' /etc/selinux/config
+- 쿠버네티스 YUM 리포지토리 설정
+# cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kube*
+EOF
+- kubeadm 설치
+yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+systemctl enable kubelet && systemctl start kubelet
+
+
+kubeadm config images pull
     - 쿠버네티스 설치
 # 아이피 대역 겹치지 않도록 조심하기
 sudo kubeadm init --pod-network-cidr=172.16.0.0/16 --apiserver-advertise-address=192.168.37.131
@@ -227,6 +257,9 @@ kubeflow를 쉽게 설치하기 위해서는 동적 볼륨 프로비져너(dynam
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 - 스토리지클래스 조회
 kubectl get storageclass 
+- kubeflow는 기본 스토리지 클래스를 사용하기 때문에, local-path 스토리지 클래스를 기본 클래스로 설정해야함.
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+
 ```
 
 ### 2. kubeflow 설치하기
@@ -260,16 +293,13 @@ minikube stop
 
 - 네트워크 설정
 export NAMESPACE=istio-system
-kubectl port-forward -n istio-system svc/istio-in
--> 다음날 이슈발생 
-$kubectl -n kubeflow get pod
-The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
-이슈사항으로 정리
+kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
+
 
 - stio-ingressgateway 서비스를 조회
-kubectl -n istio-system get service istio-ingressg
+kubectl -n istio-system get service istio-ingressgateway
 
-- 
+ 
 
  
 
@@ -306,3 +336,4 @@ https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%
 -> 매우 잘되있음 "https://www.kangwoo.kr/"
 https://monkey3199.github.io/develop/ai/kubeflow/2018/10/01/Getting_Started_with_Kubeflow.html <br>
 https://ddii.dev/kubernetes/cilium-1/# <br>
+https://javacan.tistory.com/entry/k8s-install-in-centos7 <br>
