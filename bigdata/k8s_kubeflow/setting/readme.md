@@ -254,6 +254,25 @@ kfctl apply -V -f ${CONFIG_FILE}
 
 - kubeflow 네임스페이스, istio-system 네임스페이스의 포드를 조회
 kubectl -n kubeflow get pod
+
+- 정지 할때 명령어 
+minikube stop
+
+- 네트워크 설정
+export NAMESPACE=istio-system
+kubectl port-forward -n istio-system svc/istio-in
+-> 다음날 이슈발생 
+$kubectl -n kubeflow get pod
+The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+이슈사항으로 정리
+
+- stio-ingressgateway 서비스를 조회
+kubectl -n istio-system get service istio-ingressg
+
+- 
+
+ 
+
 ```
 
 ### - 실행 확인 <br>
@@ -284,5 +303,6 @@ https://www.kubeflow.org/docs/started/getting-started/ <br>
 - 셋팅 및 설치 정리 <br>
 https://lsjsj92.tistory.com/580 <br>
 https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0-2%eb%b6%80-kubernetes-nvidia-device-plugin-%ec%84%a4%ec%b9%98%ed%95%98%ea%b8%b0/ <br>
+-> 매우 잘되있음 "https://www.kangwoo.kr/"
 https://monkey3199.github.io/develop/ai/kubeflow/2018/10/01/Getting_Started_with_Kubeflow.html <br>
 https://ddii.dev/kubernetes/cilium-1/# <br>
