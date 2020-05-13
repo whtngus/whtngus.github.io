@@ -195,6 +195,26 @@ type : 다음과 같은 가능한 값들의 문자열이다.
 
 ```
 
+#### 6. 스토리지 클래스
+
+```
+스토리지클래스는 관리자가 제공하는 스토리지의 “classes"를 설명할 수 있는 방법을 제공
+다른 클래스는 서비스의 품질 수준 또는 백업 정책, 클러스터 관리자가 정한 임의의 정책에 매핑될 수 있다.
+쿠버네티스 자체는 클래스가 무엇을 나타내는지에 대해 상관하지 않는다. 다른 스토리지 시스템에서는 이 개념을 “프로파일"이라고도 한다.
+    - 프로비저너
+각 스토리지클래스에는 PV 프로비저닝에 사용되는 볼륨 플러그인을 결정하는 프로비저너가 있다. 
+내부” 프로비저너를 지정할 수 있다(이 이름은 “kubernetes.io” 가 접두사로 시작하고, 쿠버네티스와 함께 제공된다).
+    - 리클레임 정책
+스토리지클래스에 의해 동적으로 생성된 퍼시스턴트볼륨은 클래스의 reclaimPolicy 필드에 지정된 리클레임 정책을 가지는데, 
+이는 Dele스토리지클래스 오브젝트가 생성될 때 reclaimPolicy 가 지정되지 않으면 기본값은 Delete 이다.
+수동으로 생성되고 스토리지클래스를 통해 관리되는 퍼시스턴트볼륨에는 생성 시 할당된 리클레임 정책이 있다.
+     -볼륨 확장 허용
+퍼시스턴트볼륨은 확장이 가능하도록 구성할 수 있다. 이 기능을 true 로 설정하면 해당 PVC 오브젝트를 편집하여 볼륨 크기를 조정할 수 있다.
+다음 볼륨 유형은 기본 스토리지클래스에서 allowVolumeExpansion 필드가 true로 설정된 경우 볼륨 확장을 지원한다.
+
+자세한 내용 :https://kubernetes.io/ko/docs/concepts/storage/storage-classes/
+```
+
 
 ### - 이슈사항 정리 <br>
 
@@ -274,6 +294,18 @@ export KUBECONFIG=/etc/kubernetes/admin.conf
 source /etc/profile
 ```
 
+##### 3. The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+
+```
+$kubectl -n kubeflow get pod
+The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+    - 해결방법
+- 상태 확인 
+minikube status 
+minikube logs
+- 다시실행
+minikube delete && minikube start 
+```
 
 
 
