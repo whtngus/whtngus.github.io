@@ -24,6 +24,7 @@ tensorflow, pytorch, MxNet 등 지원  <br>
 1. minikube를 설치하기 <br>
 
 ```
+# centos 의경우 nvida driver 설치 방법 https://likefree.tistory.com/14
 https://kubernetes.io/ko/docs/tasks/tools/install-minikube/
 리눅스의 경우 아래 명령어 입력 후 가상화 지원 여부 확인
 grep -E --color 'vmx|svm' /proc/cpuinfo
@@ -70,9 +71,11 @@ sudo ln -s /var/lib/snapd/snap /snap
 service docker status
 systemctl status docker
 - 도커 데몬 실행
-dockerd
 service docker start 
-
+systemctl enable docker.service
+- firewalld 비활성화
+# systemctl stop firewalld
+# systemctl disable firewalld
 
     4. minikube 실행
 # 여유있는 사이즈를 할당해서 실행하기 
@@ -298,10 +301,6 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 
 - stio-ingressgateway 서비스를 조회
 kubectl -n istio-system get service istio-ingressgateway
-
- 
-
- 
 
 ```
 
