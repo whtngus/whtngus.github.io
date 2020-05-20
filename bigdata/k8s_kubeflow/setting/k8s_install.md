@@ -173,9 +173,22 @@ source /etc/profile
 
 ```
     - Local Path Provisioner 설치
-
+    
+https://github.com/rancher/local-path-provisioner
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+# install 확인
+kubectl -n local-path-storage get pod
+# log 확인
+kubectl -n local-path-storage logs -f "name 위 install 확인 명력어로 확인 가능"
 
     - NFS Client 설치
+    
+https://github.com/helm/charts/tree/master/stable/nfs-client-provisioner
+# helm 설치
+brew install helm
+# helm 을 이용해서 nfs-client-pro-visioner 패키지 설치
+
+# NFS 설치     
 sudo yum install -y nfs-utils
 sudo systemctl enable rpcbind
 sudo systemctl enable nfs-server
@@ -186,27 +199,106 @@ sudo systemctl start nfs-server
 mkdir /var/nfsshare
 chmod -R 755 /var/nfsshare
 chown nfsnobody:nfsnobody /var/nfsshare
-
-
- Share the NFS directory over the network, creating the /etc/exports file:
+# 마운트할 디렉토리 설정 - 서버
 vi /etc/exports
-/var/nfsshare * (rw,sync,no_root_squash,no_all_squash)
-Restart the nfs service to apply the content:
-systemctl restart nfs-server
-Add NFS and rpcbind services to firewall:
-firewall-cmd --permanent --zone=public --add-service=nfs
-firewall-cmd --permanent --zone=public --add-service=rpcbind
-firewall-cmd --reload
+/nfs/ *.*.*.*(rw,all_squash,sync)
+- 위에 처음은 공유할 대상 디렉토리 그다음아이피 (권한)
+# 옵션 
+ro                      -> 읽기 권한 부여 한다.
+rw                     -> 읽기 쓰기 권한 부여 한다.
+root_squash         -> 클라이언트에서 root를 서버상의 nobody 계정으로 매핑한다.
+no_root_squash    -> 클라이언트 및 서버 모두 root 계정 사용한다.
+sync                  -> 동기화한다.
+all_squash          -> root 계정이 아닌 다른 계정도 사용 할  수 있게한다.
+# 적용하기
+sudo systemctl restart nfs
+chmod o+w "대상 디렉토리"
+# 서비스 등록하기
+#systemctl   restart   rpcbind
+#systemctl   start   nfs-server
+#systemctl   start   nfs-lock
+#systemctl   start   nfs-idmap
+ 
+#systemctl   enable   rpcbind
+#systemctl   enable   nfs-server
+#systemctl   enable   nfs-lock
+#systemctl   enable   nfs-idmap
+
+ nfsstat -s ->로 마운트 확인
+
+# 클라이언트 설정
+sudo mount -t nfs "server ip":/nfs /nfs
+touch /nfs/client.txt
+yum install showmount  or sudo apt-get install nfs-common
+mount -t nfs <공유서버명>:<공유디렉토리명>  <연결디렉토리>
+
+showmount -e "공유서버 ip"
+# nfs를 재실행
+# systemctl stop nfs-server
+# systemctl start nfs-server
+
+kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
+./get_helm.sh
+kubectl -n kube-system create sa tiller
+kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+helm init --service-account tiller
+ -> error 
+helm init flag 없음
+해결
+# helm 3.x 이상부터 helm init가 사라짐  2버전으로 다운그래이드 하기
+brew uninstall helm
+brew install helm@2  
+brew link --force helm@2
+
+helm repo update
+
+#  여기서부터 nfs-client-provisioner install
+helm install --name my-release --set nfs.server="서버 ip" --set nfs.path="nfs directory" stable/nfs-client-provisioner
+kubectl patch storageclass nfs-client -p '{"metadata": { "annotations" : { "storageclass.kubernetes.io/is-default-class":"true"}}}'
+# 설치 확인
+kubectl get storageclass
+
+     - nvidia-gpu-plugin 설치
+kubectl create -f https://raw.githubusercontent.com/NVIDIA/k8s-device-plugin/1.0.0-beta6/nvidia-device-plugin.yml
+# 설치 확인
+kubectl get pod -n kube-system
+
+
+    - 도커 레지스트리 만들기
+도커 이미지를 저장할 프라이빗 도커 레지스트리를 설치해야함 
+docker pull registry:latest
+
+- 몰겠음 ㅠ일단 skip
+
+```
+
+### k9s <br>
+
+```
+k9s : 쿠버네티스 관리 툴 
+
+wget https://github.com/derailed/k9s/releases/download/v0.19.6/k9s_Linux_x86_64.tar.gz
+tar xvzf k9s_Linux_x86_64.tar.gz
+sudo mv k9s /usr/bin
+k9s 
+->  그래픽 기반 관리툴을 볼 수 있음
 ```
 
 
 
-
 # 참고 <br>
+- 책 <br>
+쿠버네티스에서 머신러닝이 처음이라면! 쿠브플로우 <br>
 - nvidia 설치 <br>
 https://coding-chobo.tistory.com/20 <br>
 - nvidia-docker 설치 <br>
 https://github.com/NVIDIA/nvidia-docker <br>
 - k8s 설치 <br>
 https://phoenixnap.com/kb/how-to-install-kubernetes-on-centos <br>
+- nfs 설정 <br>
+https://epdl-studio.tistory.com/43 <br>
+- 도커 레지스트리 만들기 <br>
+https://www.44bits.io/ko/post/running-docker-registry-and-using-s3-storage <br>
+
 
