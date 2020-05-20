@@ -215,6 +215,25 @@ type : 다음과 같은 가능한 값들의 문자열이다.
 자세한 내용 :https://kubernetes.io/ko/docs/concepts/storage/storage-classes/
 ```
 
+### 6.1 볼륨 상세
+
+```
+쿠버네티스의 볼륨은 다양 타입을 지원
+NFS, iSCI(스토리지 형태), Chphfs, StoragesOS, Glusterfs 와 Azure, S3, 구글 스토리지를 지원한다.
++ 디스크(hostPaht, emptyDir)도 사용 가능.
+
+    - 볼륨은 크게 PV(PersistentVolume)와 PVC(PersistentVolumeClaim)로 나뉜다.
+PV는 볼륨 자체를 의미, 직접적으로 컨테이너와 연결되지 않는다.
+PVC는 사용자가 요청하는 볼륨 
+
+바인딩 : PVC조건에 맞는 PV가 존재하면 PVC는 조건에 맞게 특정 PV에 그 영역으로 연결
+-> 파드는 그 PVC를 볼륨으로 인식하여 사용 
+
+    - PV를 만드는것(Provisioning)은 정적방법과 동적방법이 있다.
+정적(static)방법은 PV를 먼저 만들어 놓는 방법 동적(dynamic)은 요청이 올 때 자동으로 만드는것.
+
+```
+
 
 ### - 이슈사항 정리 <br>
 
