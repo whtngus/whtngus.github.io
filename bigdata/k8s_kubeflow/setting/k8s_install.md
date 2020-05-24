@@ -269,7 +269,102 @@ kubectl get pod -n kube-system
 도커 이미지를 저장할 프라이빗 도커 레지스트리를 설치해야함 
 docker pull registry:latest
 
-- 몰겠음 ㅠ일단 skip
+wget https://raw.githubusercontent.com/mojokb/handson-kubeflow/master/registry/kubeflow-registry-deploy.yaml
+wget https://raw.githubusercontent.com/mojokb/handson-kubeflow/master/registry/kubeflow-registry-svc.yaml
+
+sudo kubectl apply -f kubeflow-registry-deploy.yaml
+kubectl apply -f kubeflow-registry-svc.yaml
+
+ 
+내용 : kubeflow-registry-deploy.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "1"
+  generation: 1
+  labels:
+    run: kubeflow-registry
+  name: kubeflow-registry
+  namespace: default
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      run: kubeflow-registry
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: kubeflow-registry
+    spec:
+      containers:
+      - image: registry:2
+        imagePullPolicy: IfNotPresent
+        name: kubeflow-registry
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      
+내용 : kubeflow-registry-svc.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    run: kubeflow-registry
+  name: kubeflow-registry
+  namespace: default
+spec:
+  ports:
+  - name: registry
+    port: 30000
+    protocol: TCP
+    targetPort: 5000
+    nodePort: 30000
+  selector:
+    run: kubeflow-registry
+  sessionAffinity: None
+  type: NodePort
+status:
+  loadBalancer: {}
+
+** deploy 다운받아서 하는경우 변경해줘야 정상실행됨 -> apiVersion: apps/v1 
+
+# /etc/hosts 에 아래 내용 추가  ip는 본인 아이피
+10.X.X.X     kubeflow-registry.defalut.svc.cluster.local
+# 명령어로 실행 여부 확인 
+curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
+{"repositories":[]} -> 등록된 이미지가 없어서 이렇게 반환됨 
+
+# 프라이빗 레지스트리에서 보안 허용체크 하기 
+#vi /etc/docker/daemon.json  아래내용 추가 
+"insecure-registries" : [
+    "kubeflow-registry.defalut.svc.cluster.local:30000"
+ ]
+
+sudo systemctl restart docker
+
+# 이미지 올리기 
+sudo docker login
+sudo docker pull busybox
+sudo docker tag busybox:latest kubeflow-registry.defalut.svc.cluster.local:30000/busybox:latest
+sudo docker push kubeflow-registry.defalut.svc.cluster.local:30000/busybox:latest
+
+# 다시 확인 
+curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
+{"repositories":["busybox"]}
 
 ```
 
