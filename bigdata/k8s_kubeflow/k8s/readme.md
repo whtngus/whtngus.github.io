@@ -292,7 +292,7 @@ sudo systemctl restart docker
 kubectl drain <node_name> --delete-local-data --force --ignore-daemonsets
 kubectl delete node <node_name>
 kubeadm reset
-확인
+확인 
 kubectl get pods --all-namespaces
 
 2. 원인 파악하기
