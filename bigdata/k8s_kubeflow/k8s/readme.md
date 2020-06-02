@@ -285,7 +285,7 @@ https://stackoverflow.com/questions/60007464/nginx-kubernetes-pod-stays-in-conta
 # ip link delete cni0
 # ip link delete flannel.1
 
-도커 및 데몬 재실행
+도커 및 데몬 재실행 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 클러스터 재실행
