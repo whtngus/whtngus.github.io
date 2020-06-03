@@ -63,8 +63,35 @@ kubectl get ns $NAMESPACE -o json > ${NAMESPACE}.json
 vi ${NAMESPACE}.json 
 # 지우기
  kubectl replace --raw "/api/v1/namespaces/istio-system/finalize" -f ./istio-system.json
+ 
 ```
 
+- 위방식대로 시도후 실패 지운 후 Istio document 참조해서 다시 설치 시작 
+
+```
+    - V 1.0 아래 1.0.2 위 두개 동시 적어둠 하나 선택 
+wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
+wget https://github.com/kubeflow/kfctl/releases/download/v1.0/kfctl_v1.0-0-g94c35cf_linux.tar.gz
+tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
+tar -xvf kfctl_v1.0-0-g94c35cf_linux.tar.gz
+# tar 압축 푼 디렉토리 위치 
+export PATH=$PATH:"<path-to-kfctl>"
+# kubeflow 설치할 이름
+export KF_NAME=<your choice of name for the Kubeflow deployment>
+# kubeflow설치할 이름 base 디렉토리
+export BASE_DIR=<path to a base directory>
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+# 설치 컨피그 셋팅
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.0.yaml"
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
+# 설치할 디렉토리로 이동해서 설치시작 - 오래걸림 
+mkdir -p ${KF_DIR}
+cd ${KF_DIR}
+kfctl apply -V -f ${CONFIG_URI}
+# 설치확인 
+kubectl -n kubeflow get all
+kubectl get pods -n istio-system
+```
 
 
 
@@ -75,3 +102,5 @@ https://gruuuuu.github.io/cloud/service-mesh-istio/# <br>
 https://github.com/istio/istio/issues/21058 <br>
 https://github.com/kubeflow/kubeflow/issues/4762 <br>
 https://success.docker.com/article/kubernetes-namespace-stuck-in-terminating <br>
+- Istio document <br>
+https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/
