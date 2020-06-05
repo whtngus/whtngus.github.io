@@ -91,6 +91,10 @@ kfctl apply -V -f ${CONFIG_URI}
 # 설치확인 
 kubectl -n kubeflow get all
 kubectl get pods -n istio-system
+
+-> istio.io 미리 설치 필요
+helm repo add istio.io https://storage.googleapis.com/istio-release/releases/charts
+
 ```
 
 
