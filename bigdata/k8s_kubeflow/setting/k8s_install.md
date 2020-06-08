@@ -7,22 +7,47 @@
 ```
     0. nvidia 설치
 # yum -y install gcc gcc-c++ make binutils libtool autoconf automake patch pkgconfig redhat-rpm-config gettext
-# yum -y install kernel-devel-$(uname -r) kernel-headers-$(uname -r) dkms
 # yum -y install epel-release
 
-# cat <<HERE > /etc/modprobe.d/nvidia-installer-disable-nouveau.conf 
+# cat /etc/modprobe.d/nvidia-installer-disable-nouveau.conf 
+# cat /etc/modprobe.d/blacklist.conf
 blacklist nouveau
 options nouveau modeset=0
-HERE
-# cd /boot
-# mv initramfs-$(uname -r).img{,_backup}
-# dracut
-# ls initramfs-$(uname -r).img -> 파일 목록이 생성되지 않으면 부팅 시 Error가 발생합니다.
+# mv /boot/initramfs-$(uname -r).img /boot/initramfs-$(uname -r).img.bak    
+-> 파일 목록이 생성되지 않으면 부팅 시 Error가 발생합니다.
+# dracut -v /boot/initramfs-$(uname -r).img $(uname -r)
+# reboot
 # systemctl isolate multi-user.target
+# sudo service lightdm stop
+# sudo init 3
+
+- 그래픽 드라이버 확인
+# lspci -k | grep -EA3 'VGA|3D|Display'
+- https://www.nvidia.co.kr/Download/index.aspx?lang=kr 드라이버 다운받기
 # chmod +x NVIDIA-Linux-x86_64-xxx.xx.run -> xxx.xx는 설치한 nvidia 그래픽 드라이버 version 입니다.
 # ./NVIDIA-Linux-x86_64-xxx.xx.run
 
-    1. docker 설치 
+
+
+    1. nvidia-docker 설치
+sudo yum install -y docker docker-registry
+
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
+
+sudo yum install -y nvidia-container-toolkit
+sudo systemctl restart docker
+or
+yum install nvidia-docker2
+
+
+# nvidai docker 실행 테스트 
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+docker pull nvidia/cuda
+sudo docker run --runtime=nvidia --rm nvidia/cuda nvidia-smi
+
+    2. 도커 설정 - 설정하면 에러남 나중에 확인해보기 
 $ sudo su
 $ cat > /etc/docker/daemon.json <<EOF
 {
@@ -31,21 +56,21 @@ $ cat > /etc/docker/daemon.json <<EOF
   "log-opts": {
     "max-size": "100m"
   },
-  "storage-driver": "overlay2"
+  "storage-driver": "overlay2",
+  "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
 }
+
 $ mkdir -p /etc/systemd/system/docker.service.d
+sudo systemctl restart docker
 $ systemctl daemon-reload
 $ systemctl restart docker
-$ exit
 
-    2. nvidia-docker 설치
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.repo | sudo tee /etc/yum.repos.d/nvidia-docker.repo
-
-sudo yum install -y nvidia-container-toolkit
-sudo systemctl restart docker
-or
-yum install nvidia-docker2
     3. k8s 설치
 # cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -57,9 +82,11 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 
-sudo yum install -y kubelet kubeadm kubectl
-systemctl enable kubelet
-systemctl start kubelet
+# sudo yum install -y kubelet kubeadm kubectl
+sudo yum install -y kubelet-1.15.1 kubeadm-1.15.1 kubectl-1.15.1
+ 
+sudo systemctl enable kubelet
+sudo systemctl start kubelet
 
 - set hostname on nodes
 sudo hostnamectl set-hostname master-node
@@ -122,10 +149,9 @@ sysctl -p
 
 해결
 sudo systemctl stop kubelet
-나머지 3개 에러는 해당 데이터 삭제 
-    -> 갑자기 sudo 느려짐
-service rsyslog restart
-재부팅 ㅠ 
+or 
+kubeadm reset
+-> 나머지 3개 에러는 해당 데이터 삭제 
 
 
 $ mkdir -p $HOME/.kube
@@ -396,5 +422,7 @@ https://phoenixnap.com/kb/how-to-install-kubernetes-on-centos <br>
 https://epdl-studio.tistory.com/43 <br>
 - 도커 레지스트리 만들기 <br>
 https://www.44bits.io/ko/post/running-docker-registry-and-using-s3-storage <br>
+- 도커 설치 문제시 삭제 방법 <br>
+https://docs.docker.com/engine/install/centos/ <br>
 
 
