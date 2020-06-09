@@ -84,7 +84,10 @@ EOF
 
 # sudo yum install -y kubelet kubeadm kubectl
 sudo yum install -y kubelet-1.15.1 kubeadm-1.15.1 kubectl-1.15.1
- 
+# ubuntu 
+apt-mark unhold kubeadm 
+apt-get update && apt-get install -y kubeadm=1.15.x-00 
+
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
 
@@ -147,16 +150,16 @@ sysctl -p
 [ERROR Port-10250]: Port 10250 is in use
 [ERROR FileAvailable--etc-kubernetes-pki-ca.crt]: /etc/kubernetes/pki/ca.crt already exists
 
-해결
+* 해결
 sudo systemctl stop kubelet
 or 
 kubeadm reset
 -> 나머지 3개 에러는 해당 데이터 삭제 
 
 
-$ mkdir -p $HOME/.kube
-$ sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-$ sudo chown $(id -u):$(id –g) $HOME/.kube/config
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # enable master node scheduling
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 $ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
@@ -208,12 +211,15 @@ kubectl -n local-path-storage get pod
 kubectl -n local-path-storage logs -f "name 위 install 확인 명력어로 확인 가능"
 
     - NFS Client 설치
-    
-https://github.com/helm/charts/tree/master/stable/nfs-client-provisioner
-# helm 설치
-brew install helm
-# helm 을 이용해서 nfs-client-pro-visioner 패키지 설치
+ # brew 설치
+yum install curl git irb m4 ruby texinfo bzip2-devel curl-devel expat-devel ncurses-devel zlib-devel
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+source /etc/profile
 
+# https://github.com/helm/charts/tree/master/stable/nfs-client-provisioner
+# helm 을 이용해서 nfs-client-pro-visioner 패키지 설치
 # NFS 설치     
 sudo yum install -y nfs-utils
 sudo systemctl enable rpcbind
@@ -221,13 +227,9 @@ sudo systemctl enable nfs-server
 sudo systemctl start rpcbind
 sudo systemctl start nfs-server
 # NFS change the permission 
-# 원하는 위치에 
-mkdir /var/nfsshare
-chmod -R 755 /var/nfsshare
-chown nfsnobody:nfsnobody /var/nfsshare
-# 마운트할 디렉토리 설정 - 서버
+# 원하는 위치에  마운트할 디렉토리 설정 - 서버
 vi /etc/exports
-/nfs/ *.*.*.*(rw,all_squash,sync)
+/nfs/ *.*.*.*(rw,all_squash,sync,no_root_squash)
 - 위에 처음은 공유할 대상 디렉토리 그다음아이피 (권한)
 # 옵션 
 ro                      -> 읽기 권한 부여 한다.
@@ -239,18 +241,25 @@ all_squash          -> root 계정이 아닌 다른 계정도 사용 할  수 �
 # 적용하기
 sudo systemctl restart nfs
 chmod o+w "대상 디렉토리"
-# 서비스 등록하기
-#systemctl   restart   rpcbind
-#systemctl   start   nfs-server
-#systemctl   start   nfs-lock
-#systemctl   start   nfs-idmap
- 
-#systemctl   enable   rpcbind
-#systemctl   enable   nfs-server
-#systemctl   enable   nfs-lock
-#systemctl   enable   nfs-idmap
+# 서비스 등록하기 - 관리자권한에서 
+systemctl   restart   rpcbind
+systemctl   start   nfs-server
+systemctl   start   nfs-lock
+systemctl   start   nfs-idmap
 
- nfsstat -s ->로 마운트 확인
+systemctl   enable   rpcbind
+systemctl   enable   nfs-server
+systemctl   enable   nfs-lock
+systemctl   enable   nfs-idmap
+
+
+# 보안 해제
+firewall-cmd --permanent --zone public --add-service mountd
+firewall-cmd --permanent --zone public --add-service rpc-bind
+firewall-cmd --permanent --zone public --add-service nfs
+firewall-cmd --reload
+
+nfsstat -s ->로 마운트 확인
 
 # 클라이언트 설정
 sudo mount -t nfs "server ip":/nfs /nfs
@@ -260,8 +269,8 @@ mount -t nfs <공유서버명>:<공유디렉토리명>  <연결디렉토리>
 
 showmount -e "공유서버 ip"
 # nfs를 재실행
-# systemctl stop nfs-server
-# systemctl start nfs-server
+systemctl stop nfs-server
+systemctl start nfs-server
 
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
@@ -269,14 +278,13 @@ curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.s
 kubectl -n kube-system create sa tiller
 kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
 helm init --service-account tiller
- -> error 
+    -> error 
 helm init flag 없음
 해결
 # helm 3.x 이상부터 helm init가 사라짐  2버전으로 다운그래이드 하기
 brew uninstall helm
 brew install helm@2  
 brew link --force helm@2
-
 helm repo update
 
 #  여기서부터 nfs-client-provisioner install
