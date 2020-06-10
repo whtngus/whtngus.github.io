@@ -11,6 +11,24 @@ export KF_DIR=${BASE_DIR}/${KF_NAME}
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.0.yaml"
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.v1.0.1.yaml"  
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
+
+export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_k8s_istio.0.6.2.yaml"
+```
+
+- kubectl 설치 <br>
+
+```
+# kubectl 설치
+curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+sudo mv ./kubectl /usr/local/bin/kubectl
+# kubeflow install을 위해서 kfctl을 가져온다.
+# https://github.com/kubeflow/kfctl/releases 에서 원하는 버전 설치
+wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
+# 압축 해제 
+tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
+# kubeflow 설치 위치 지정 - 환경 변수
+export PATH=$PATH:$(pwd)
 ```
 
 - kustomize 패키지 빌드하기
@@ -20,7 +38,7 @@ mkdir -p ${KF_DIR}
 cd ${KF_DIR}
 kfctl build -V -f ${CONFIG_URI}
 
-export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
+export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.0.yaml
 kfctl apply -V -f ${CONFIG_FILE}
 
 
@@ -46,17 +64,28 @@ kubectl -n istio-system get svc istio-sidecar-injector
 - 해결 2 istio-system 지우고 다시 시도
 # 삭제
 kubectl delete namespaces istio-system
+kubectl delete apiservice v1beta1.webhook.cert-manager.io
+kubectl delete namespace cert-manager
 kubectl label default your-namespace istio-injection=disabled
 -> 삭제가안됨 아래 내용에 삭제방법 기제
 # 네임스페이스 생성
 kubectl create namespace kubeflow-anonymous
 # 다시적용해보기 
 
-     - istio-system 삭제 
+- 해결 3 
+https://docs.projectcalico.org/getting-started/kubernetes/flannel/flannel
+위 사이트대로 적용후 다시 설치 시도 
+
+
+```
+
+     - **istio-system 삭제**
+```
 # 아래명령어를 치면 응답이 안옴
 kubectl delete ns istio-system
 # 종료상태에 걸린 네임스페이스 제거하기
 
+-> 최종 
 NAMESPACE=istio-system
 kubectl get ns $NAMESPACE -o json > ${NAMESPACE}.json
 # 아래 텍스트 파일을 생성해서 finalizers안의 내용을 전부 비우기 
@@ -81,6 +110,7 @@ export KF_NAME=<your choice of name for the Kubeflow deployment>
 # kubeflow설치할 이름 base 디렉토리
 export BASE_DIR=<path to a base directory>
 export KF_DIR=${BASE_DIR}/${KF_NAME}
+
 # 설치 컨피그 셋팅
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.0.yaml"
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
@@ -88,15 +118,48 @@ export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-bra
 mkdir -p ${KF_DIR}
 cd ${KF_DIR}
 kfctl apply -V -f ${CONFIG_URI}
-# 설치확인 
-kubectl -n kubeflow get all
-kubectl get pods -n istio-system
+
 
 -> istio.io 미리 설치 필요  
 helm repo add istio.io https://storage.googleapis.com/istio-release/releases/charts
 
-```
 
+->문제가 있어 검색해본 결과 해당 이슈 해결안되어 있고 gcp로 설치해야 한다고 나와 설치해보기 - 여전히 에러 
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_gcp_iap.yaml"
+export BASE_DIR=/home/sh
+export KF_NAME=kf_sh
+kfctl build -V -f ${CONFIG_URI}
+export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
+kfctl apply -V -f ${CONFIG_URI}
+
+다시
+https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
+tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
+export BASE_DIR=/home/sh
+export KF_NAME=kf-sh
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.2.yaml"
+cd ${KF_DIR}
+wget -O kfctl_istio_dex.yaml $CONFIG_URI
+export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
+
+```
+ 
+- 설치 확인 <br>
+
+```
+# 설치확인 
+kubectl -n kubeflow get all
+kubectl get pods -n istio-system
+kubectl get service -n istio-system
+
+- 기타 확인
+ kubectl get po -n cert-manager
+ kubectl describe po ~~~ -n cert-manager
+ 
+ kubectl get po -n istio-system
+ sudo vi /etc/environment -> no procxy
+```
 
 
 # 참고
@@ -106,5 +169,7 @@ https://gruuuuu.github.io/cloud/service-mesh-istio/# <br>
 https://github.com/istio/istio/issues/21058 <br>
 https://github.com/kubeflow/kubeflow/issues/4762 <br>
 https://success.docker.com/article/kubernetes-namespace-stuck-in-terminating <br>
+https://github.com/kubeflow/kubeflow/issues/4856  - gcp로 설치 <br>
 - Istio document <br>
-https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/
+https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/ <br>
+https://www.kubeflow.org/docs/started/k8s/kfctl-istio-dex/#notes-on-the-configuration-file <br>
