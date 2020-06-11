@@ -84,9 +84,14 @@ EOF
 
 # sudo yum install -y kubelet kubeadm kubectl
 sudo yum install -y kubelet-1.15.1 kubeadm-1.15.1 kubectl-1.15.1
-# ubuntu 
-apt-mark unhold kubeadm 
-apt-get update && apt-get install -y kubeadm=1.15.x-00 
+sudo yum install -y kubelet-1.14.5 kubeadm-1.14.5 kubectl-1.14.5
+# ubuntu 관리자 권한
+apt-get update && apt-get install -y apt-transport-https curl
+-s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
+deb http://apt.kubernetes.io/ kubernetes-xenial main > /etc/apt/sources.list.d/kubernetes.list
+apt-get update
+apt-get install -y kubelet=1.15.5-00 kubeadm=1.15.5-00 kubectl=1.15.5-00 
+
 
 sudo systemctl enable kubelet
 sudo systemctl start kubelet
@@ -108,7 +113,22 @@ sudo firewall-cmd --permanent --add-port=10251/tcp
 sudo firewall-cmd --permanent --add-port=10252/tcp
 sudo firewall-cmd --permanent --add-port=10255/tcp
 sudo firewall-cmd –-reload
--> FirewallD is not running 으로 일단 pass , 나중에 firewall 실행시키면 명령어 적용하기
+-> ubuntu
+sudo ufw allow 6443/tcp
+sudo ufw allow 2379-2380/tcp
+sudo ufw allow 10250/tcp
+sudo ufw allow 10251/tcp
+sudo ufw allow 10252/tcp
+sudo ufw allow 10255/tcp
+sudo ufw allow from "허용할 아이피"
+# http 열기
+sudo ufw allow http
+sudo ufw allow https
+or
+sudo ufw allow 80/tcp
+sudo ufw allow 443/tcp
+
+sudo ufw status verbose
 
 - Disable SELinux
 컨테이너가 filesystem의 접근권한을 허용해주기 위해
@@ -136,7 +156,8 @@ sudo ln -s /var/lib/snapd/snap /snap
     - 쿠버네티스 초기화
 
 # 아이피 기존 네트워크와 안겹치게 조심하기 
-sudo kubeadm init --pod-network-cidr=172.16.0.0/16
+sudo kubeadm init --pod-network-cidr=172.16.0.0/16  --apiserver-advertise-address="내서버 ip"
+
     -> error 
 [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1
 해결
@@ -161,11 +182,20 @@ mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # enable master node scheduling
+export KUBECONFIG=/etc/kubernetes/kubelet.conf
+kubectl get nodes
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 $ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
+-> 에러시 calico.yaml 설치 
+curl -O https://docs.projectcalico.org/v3.9/manifests/calico.yaml
+sed s/192.168.0.0\\/16/20.96.0.0\\/12/g -i calico.yaml
+kubectl apply -f calico.yaml
 
 -> 위 명령어실행 시 kubeadm ~~ 어쩌구 나옴 salve sever에서 해당 명령어 실행해서 join
 sudo kubeadm join 211.39.140.225:6443 --token 1kjhqe.02wl7j80euplruj6 --discovery-token-ca-cert-hash sha256:8e95e3278fc0af5283760d65ae66adcff733fe25dfee1e651dc64ae2ed9217bf
+
+# 대쉬보드 띄우기 
+nohup kubectl proxy --port=8001 --address=192.168.0.30 --accept-hosts='^*$' >/dev/null 2>&1 &
 
     -> error
 error execution phase preflight: couldn't validate the identity of the API Server: could not find a JWS signature in the cluster-info ConfigMap for token ID 
@@ -177,7 +207,9 @@ sysctl -p
 해결 2
 # centos REdhat 인경우 보안끄기
 systemctl stop firewalld
-systemctl disable firwalld
+systemctl stop iptables
+systemctl stop ip6tables
+# disable은 영구 해지 -> systemctl disable firwalld
 
     -> error
 [kubelet-check] The HTTP call equal to 'curl -sSL http://localhost:10248/~~' failed with error: Get http://localhost:10248/~~: dial tcp 127.0.0.1:10248: connect: connection refused.
@@ -196,6 +228,25 @@ error: no configuration has been provided, try setting KUBERNETES_MASTER environ
 해결
 export KUBECONFIG=/etc/kubernetes/admin.conf
 source /etc/profile
+
+    -> error
+error execution phase kubelet-start: error uploading crisocket: timed out waiting for the conditio
+해결 -> 보안 확인 
+# 확인방법
+getenforce
+# selinux 끄기
+vi /etc/sysconfig/selinux
+SELINUX=enforcing 을 SELINUX=disabled 로 변경후 저장한다.
+reboot
+# 혹은 초기화
+kubeadm reset
+ifconfig cni0 down && ip link delete cni0
+ifconfig flannel.1 down && ip link delete flannel.1
+rm -rf /var/lib/cni/
+
+kubectl get --raw /api/v1/namespaces/istio-system/services/https:istio-galley:https-validation/proxy/ready -v9 --request-timeout=2s
+
+
 ```
 
 ### StorageClass
@@ -203,7 +254,7 @@ source /etc/profile
 ```
     - Local Path Provisioner 설치
     
-https://github.com/rancher/local-path-provisioner
+# https://github.com/rancher/local-path-provisioner
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 # install 확인
 kubectl -n local-path-storage get pod
@@ -286,6 +337,7 @@ brew uninstall helm
 brew install helm@2  
 brew link --force helm@2
 helm repo update
+
 
 #  여기서부터 nfs-client-provisioner install
 helm install --name my-release --set nfs.server="서버 ip" --set nfs.path="nfs directory" stable/nfs-client-provisioner
@@ -383,7 +435,7 @@ curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
 {"repositories":[]} -> 등록된 이미지가 없어서 이렇게 반환됨 
 
 # 프라이빗 레지스트리에서 보안 허용체크 하기 
-#vi /etc/docker/daemon.json  아래내용 추가 
+# vi /etc/docker/daemon.json  아래내용 추가 
 "insecure-registries" : [
     "kubeflow-registry.defalut.svc.cluster.local:30000"
  ]
@@ -432,5 +484,5 @@ https://epdl-studio.tistory.com/43 <br>
 https://www.44bits.io/ko/post/running-docker-registry-and-using-s3-storage <br>
 - 도커 설치 문제시 삭제 방법 <br>
 https://docs.docker.com/engine/install/centos/ <br>
-
-
+- istio 설치문제 <br>
+https://github.com/kubeflow/kfctl/issues/237 <br>

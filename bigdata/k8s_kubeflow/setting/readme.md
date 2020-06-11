@@ -318,7 +318,7 @@ kubectl -n istio-system get service istio-ingressgateway
 
 ```
 # 버전 체크
-kubernetes version check
+kubectl version check
 # k8s 버전 실행
 kubeadm init --kubernetes-version=1.15.0 --apiserver-advertise-address=192.168.3.70 --image-repository registry.aliyuncs.com/google_containers --service-cidr=10.1.0.0/16 --pod-network-cidr=10.244.0.0/16
 ```
