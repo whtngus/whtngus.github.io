@@ -303,7 +303,6 @@ systemctl   enable   nfs-server
 systemctl   enable   nfs-lock
 systemctl   enable   nfs-idmap
 
-
 # 보안 해제
 firewall-cmd --permanent --zone public --add-service mountd
 firewall-cmd --permanent --zone public --add-service rpc-bind
@@ -340,7 +339,7 @@ helm repo update
 
 
 #  여기서부터 nfs-client-provisioner install
-helm install --name my-release --set nfs.server="서버 ip" --set nfs.path="nfs directory" stable/nfs-client-provisioner
+helm install --name my-release --set nfs.server="서버 ip" --set nfs.path="nfs 위치" stable/nfs-client-provisioner
 kubectl patch storageclass nfs-client -p '{"metadata": { "annotations" : { "storageclass.kubernetes.io/is-default-class":"true"}}}'
 # 설치 확인
 kubectl get storageclass
@@ -430,6 +429,7 @@ status:
 
 # /etc/hosts 에 아래 내용 추가  ip는 본인 아이피
 10.X.X.X     kubeflow-registry.defalut.svc.cluster.local
+
 # 명령어로 실행 여부 확인 
 curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
 {"repositories":[]} -> 등록된 이미지가 없어서 이렇게 반환됨 
