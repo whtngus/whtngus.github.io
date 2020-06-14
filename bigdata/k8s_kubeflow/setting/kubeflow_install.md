@@ -42,6 +42,42 @@ export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.0.yaml
 kfctl apply -V -f ${CONFIG_FILE}
 
 
+# /etc/kubernetes/manifests/kube-apiserver.yaml 에 아래 두줄 추가
+- --service-account-issuer=kubernetes.default.svc
+- --service-account-signing-key-file=/etc/kubernetes/pki/sa.key
+
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.2.yaml"
+export KF_NAME=kf-sh
+export BASE_DIR=/home/sh
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+mkdir -p ${KF_DIR}
+cd ${KF_DIR}
+wget -O kfctl_istio_dex.yaml $CONFIG_URI
+export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
+kfctl apply -V -f ${CONFIG_FILE}
+# Kubeflow will be available at localhost:8080
+kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
+
+
+
+
+
+
+
+
+export PATH=$PATH:"/home/kangwoo/kubeflow"
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.1.yaml"
+export KF_NAME=kf-test
+export BASE_DIR=/home/kangwoo/kubeflow
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+mkdir -p ${KF_DIR}
+cd ${KF_DIR}
+# Download the config file and change the default login credentials.
+wget -O kfctl_istio_dex.yaml $CONFIG_URI
+export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
+kfctl apply -V -f ${CONFIG_FILE}
+
+
     -> 에러발생 
 WARN[0122] Encountered error applying application cert-manager:  (kubeflow.error): Code 500 with messageError error when creating "/tmp/kout023299073": Internal error occurred: failed calling webhook "webhook.io": the server is currently unable to handle the request  filename="kustomize/kustomize.go:202"
 WARN[0122] Will retry in 21 seconds.  
@@ -144,6 +180,14 @@ wget -O kfctl_istio_dex.yaml $CONFIG_URI
 export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
 
 ```
+
+- 포트 포워딩 하기
+
+```
+export NAMESPACE=istio-system
+kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
+
+```
  
 - 설치 확인 <br>
 
@@ -159,6 +203,7 @@ kubectl get service -n istio-system
  
  kubectl get po -n istio-system
  sudo vi /etc/environment -> no procxy
+ 
 ```
 
 
