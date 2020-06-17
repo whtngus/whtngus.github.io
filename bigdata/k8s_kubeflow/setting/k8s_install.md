@@ -144,8 +144,8 @@ sudo swapoff -a
 ### Setup K8s
 
 ```
-curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
-sudo install minikube-linux-amd64 /usr/local/bin/minikube
+<!--curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64-->
+<!--sudo install minikube-linux-amd64 /usr/local/bin/minikube-->
 yum install kernel-devel
 yum install kernel-headers
 sudo yum install yum-plugin-copr
@@ -156,7 +156,7 @@ sudo ln -s /var/lib/snapd/snap /snap
     - 쿠버네티스 초기화
 
 # 아이피 기존 네트워크와 안겹치게 조심하기 
-sudo kubeadm init --pod-network-cidr=172.16.0.0/16  --apiserver-advertise-address="내서버 ip"
+sudo kubeadm init --pod-network-cidr=172.16.0.0/16  --apiserver-advertise-address="내서버 ip" --kubernetes-version=1.14.5
 
     -> error 
 [ERROR FileContent--proc-sys-net-bridge-bridge-nf-call-iptables]: /proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1
@@ -174,7 +174,7 @@ sysctl -p
 * 해결
 sudo systemctl stop kubelet
 or 
-kubeadm reset
+sudo kubeadm reset
 -> 나머지 3개 에러는 해당 데이터 삭제 
 
 
