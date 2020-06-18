@@ -181,6 +181,25 @@ export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
 
 ```
 
+
+- snap을 이용해서 설치 후 사용해보기 <br>
+
+```
+sudo yum install snapd
+sudo systemctl start snapd.service
+sudo ln -s /var/lib/snapd/snap /snap
+
+sudo snap install microk8s --classic
+snap refresh microk8s --beta
+microk8s.enable dns storage dashboard
+# gpu가 있는경우에 
+microk8s.enable gpu
+
+# kubeflow 활성화
+microk8s.enable kubeflow
+
+```
+
 - 포트 포워딩 하기
 
 ```
@@ -218,3 +237,7 @@ https://github.com/kubeflow/kubeflow/issues/4856  - gcp로 설치 <br>
 - Istio document <br>
 https://www.kubeflow.org/docs/started/k8s/kfctl-k8s-istio/ <br>
 https://www.kubeflow.org/docs/started/k8s/kfctl-istio-dex/#notes-on-the-configuration-file <br>
+- snap 을 이용한 설치 추천 <br>
+https://github.com/kubeflow/kubeflow/issues/4198 <br>
+https://ubuntu.com/kubeflow/install <br>
+
