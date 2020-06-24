@@ -442,7 +442,7 @@ curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
 
 sudo systemctl restart docker
 
-# 이미지 올리기 
+# 이미지 올리기   
 sudo docker login
 sudo docker pull busybox
 sudo docker tag busybox:latest kubeflow-registry.defalut.svc.cluster.local:30000/busybox:latest
