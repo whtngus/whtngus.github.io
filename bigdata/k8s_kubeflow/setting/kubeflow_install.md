@@ -206,6 +206,12 @@ microk8s.enable kubeflow
 export NAMESPACE=istio-system
 kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 
+ kubectl port-forward -n istio-system service/istio-ingressgateway 8081:80 --address=0.0.0.0
+ -> 에러 발생 an error occurred forwarding 8081 -> 443: error forwarding port 443 to pod 959e20b90486ab491d4dec86c25c4756bf0ead30f81f2bcd9a6d0b02aa0181b5, uid : exit status 1: 2020/06/25 16:31:35 socat[17328] E connect(5, AF=2 127.0.0.1:443, 16): Connection refused
+해결 
+kubectl create deployment nginx --image=nginx
+kubectl create service nodeport nginx --tcp=80:80
+
 ```
  
 - 설치 확인 <br>
