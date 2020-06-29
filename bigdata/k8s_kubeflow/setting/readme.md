@@ -302,7 +302,7 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 - stio-ingressgateway 서비스를 조회
 kubectl -n istio-system get service istio-ingressgateway
 
-```
+
 
 ### - 실행 확인 <br>
 
@@ -321,6 +321,26 @@ kubectl -n istio-system get service istio-ingressgateway
 kubectl version check
 # k8s 버전 실행
 kubeadm init --kubernetes-version=1.15.0 --apiserver-advertise-address=192.168.3.70 --image-repository registry.aliyuncs.com/google_containers --service-cidr=10.1.0.0/16 --pod-network-cidr=10.244.0.0/16
+
+
+- 잡다
+ 1004  kubectl -n kubeflow get deployment
+ 1005  kubectl get po -n kubeflow
+ 1006  kubectl describe po -n kubeflow ml-pipeline-persistenceagent-645cb66874-qmj9l
+ 1007  kubectl get po -n istio-system
+ 1008  kubectl describe po -n istio-system istio-ingressgateway-565b894b5f-fcgtl
+ 1009  kubectl get po -n kubeflow
+ 1010  kubectl describe po -n kubeflow ml-pipeline-persistenceagent-645cb66874-qmj9l
+ 1011  sudo kubeadm init --feature-gates CoreDNS=true
+ 1012  kubectl get nodes
+ 1013  kubectl get po -n kubeflow
+ 1014  kubectl describe po -n kubeflow ml-pipeline-persistenceagent-645cb66874-qmj9l
+ 1015  kubelet --version
+ 1016  kubectl get po -n cert-manager
+ 1017  kubectl describe po -n cert-manager cert-manager-webhook-755d75845c-xjxxf
+
+
+
 ```
 
 
@@ -345,3 +365,5 @@ https://www.kangwoo.kr/2020/02/17/pc%ec%97%90-kubeflow-%ec%84%a4%ec%b9%98%ed%95%
 https://monkey3199.github.io/develop/ai/kubeflow/2018/10/01/Getting_Started_with_Kubeflow.html <br>
 https://ddii.dev/kubernetes/cilium-1/# <br>
 https://javacan.tistory.com/entry/k8s-install-in-centos7 <br>
+- 파이프라인 죽은 경우 <br>
+https://github.com/kubeflow/pipelines/issues/741 <br>
