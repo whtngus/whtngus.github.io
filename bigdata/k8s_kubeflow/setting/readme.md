@@ -302,17 +302,17 @@ kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 - stio-ingressgateway 서비스를 조회
 kubectl -n istio-system get service istio-ingressgateway
 
-
+```
 
 ### - 실행 확인 <br>
+- kubeflow 정상 설치 확인 <br> 
+kubectl -n kubeflow get all <br>
+- kubeflow 네임스페이스와, istio-system 네임스페이스 포드 조회 <br>
+kubectl -n kubeflow get pod kubectl -n istio-system get service<br>
+istio-ingressgateway <br>
 
-```
-# kubeflow 정상 설치 확인
-kubectl -n kubeflow get all   
-# kubeflow 네임스페이스와, istio-system 네임스페이스 포드 조회
-kubectl -n kubeflow get pod
-kubectl -n istio-system get service istio-ingressgateway
-```
+
+
 
 ### - 명령어들 <br>
 
