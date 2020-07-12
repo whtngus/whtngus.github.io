@@ -83,7 +83,8 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 EOF
 
 # sudo yum install -y kubelet kubeadm kubectl
-sudo yum install -y kubelet-1.15.1 kubeadm-1.15.1 kubectl-1.15.1
+-> 이미 설치시 지우고 버전 변경 sudo yum remove  -y kubelet kubeadm kubectl
+sudo yum install -y kubelet-1.15.5 kubeadm-1.15.5 kubectl-1.15.5
 sudo yum install -y kubelet-1.14.5 kubeadm-1.14.5 kubectl-1.14.5
 # ubuntu 관리자 권한
 apt-get update && apt-get install -y apt-transport-https curl
@@ -148,14 +149,15 @@ sudo swapoff -a
 <!--sudo install minikube-linux-amd64 /usr/local/bin/minikube-->
 yum install kernel-devel
 yum install kernel-headers
-sudo yum install yum-plugin-copr
-sudo yum copr enable ngompa/snapcore-el7
+sudo yum install -y yum-plugin-copr
+sudo yum -y copr enable ngompa/snapcore-el7
 sudo yum -y install snapd
 sudo ln -s /var/lib/snapd/snap /snap
 
     - 쿠버네티스 초기화
 
 # 아이피 기존 네트워크와 안겹치게 조심하기 
+sudo sysctl net.bridge.bridge-nf-call-iptables=1
 sudo kubeadm init --pod-network-cidr=172.16.0.0/16  --apiserver-advertise-address="내서버 ip" --kubernetes-version=1.14.5
 
     -> error 
@@ -175,6 +177,8 @@ sysctl -p
 sudo systemctl stop kubelet
 or 
 sudo kubeadm reset
+or
+microk8s.reset
 -> 나머지 3개 에러는 해당 데이터 삭제 
 
 
@@ -184,6 +188,8 @@ sudo chown $(id -u):$(id -g) $HOME/.kube/config
 # enable master node scheduling
 export KUBECONFIG=/etc/kubernetes/kubelet.conf
 kubectl get nodes
+
+# calico 사용시 쿠버네티스 레디상태로 이동
 $ kubectl taint nodes --all node-role.kubernetes.io/master-
 $ kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml
 -> 에러시 calico.yaml 설치 
@@ -192,10 +198,7 @@ sed s/192.168.0.0\\/16/20.96.0.0\\/12/g -i calico.yaml
 kubectl apply -f calico.yaml
 
 -> 위 명령어실행 시 kubeadm ~~ 어쩌구 나옴 salve sever에서 해당 명령어 실행해서 join
-sudo kubeadm join 211.39.140.225:6443 --token 1kjhqe.02wl7j80euplruj6 --discovery-token-ca-cert-hash sha256:8e95e3278fc0af5283760d65ae66adcff733fe25dfee1e651dc64ae2ed9217bf
-
-# 대쉬보드 띄우기 
-nohup kubectl proxy --port=8001 --address=192.168.0.30 --accept-hosts='^*$' >/dev/null 2>&1 &
+sudo kubeadm join "서버 ip"5:6443 --token 1kjhqe.02wl7j80euplruj6 --discovery-token-ca-cert-hash sha256:8e95e3278fc0af5283760d65ae66adcff733fe25dfee1e651d64ae2d9217bf
 
     -> error
 error execution phase preflight: couldn't validate the identity of the API Server: could not find a JWS signature in the cluster-info ConfigMap for token ID 
@@ -206,9 +209,9 @@ net.ipv6.conf.default.disable_ipv6 = 1
 sysctl -p
 해결 2
 # centos REdhat 인경우 보안끄기
-systemctl stop firewalld
-systemctl stop iptables
-systemctl stop ip6tables
+sudo systemctl stop firewalld
+sudo systemctl stop iptables
+sudo systemctl stop ip6tables
 # disable은 영구 해지 -> systemctl disable firwalld
 
     -> error
@@ -218,8 +221,8 @@ error execution phase kubelet-start: error uploading crisocket: timed out waitin
 # /etc/systemd/system/kubelet.service.d/10-kubeadm.conf 아래내용 추가
 Environment="KUBELET_EXTRA_ARGS=--fail-swap-on=false"
 
-systemctl daemon-reload
-systemctl restart kubelet
+sudo systemctl daemon-reload
+sudo systemctl restart kubelet
 kubeadm init --skip-preflight-checks
 
     -> error
@@ -281,6 +284,10 @@ sudo systemctl start nfs-server
 # 원하는 위치에  마운트할 디렉토리 설정 - 서버
 vi /etc/exports
 /nfs/ *.*.*.*(rw,all_squash,sync,no_root_squash)
+# 변경된 내용 반영
+exportfs -r
+-> (rw,insecure,sync,no_subtree_check,no_root_squash)
+
 - 위에 처음은 공유할 대상 디렉토리 그다음아이피 (권한)
 # 옵션 
 ro                      -> 읽기 권한 부여 한다.
@@ -319,8 +326,11 @@ mount -t nfs <공유서버명>:<공유디렉토리명>  <연결디렉토리>
 
 showmount -e "공유서버 ip"
 # nfs를 재실행
-systemctl stop nfs-server
-systemctl start nfs-server
+sudo systemctl stop nfs-server
+sudo systemctl start nfs-server
+
+    -> tiller 삭제시
+kubectl delete all -l app=helm -n kube-system
 
 kubectl apply -f https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
 curl https://raw.githubusercontent.com/helm/helm/master/scripts/get > get_helm.sh
@@ -337,8 +347,8 @@ brew install helm@2
 brew link --force helm@2
 helm repo update
 
-
 #  여기서부터 nfs-client-provisioner install
+helm repo update
 helm install --name my-release --set nfs.server="서버 ip" --set nfs.path="nfs 위치" stable/nfs-client-provisioner
 kubectl patch storageclass nfs-client -p '{"metadata": { "annotations" : { "storageclass.kubernetes.io/is-default-class":"true"}}}'
 # 설치 확인
@@ -357,73 +367,12 @@ docker pull registry:latest
 wget https://raw.githubusercontent.com/mojokb/handson-kubeflow/master/registry/kubeflow-registry-deploy.yaml
 wget https://raw.githubusercontent.com/mojokb/handson-kubeflow/master/registry/kubeflow-registry-svc.yaml
 
-sudo kubectl apply -f kubeflow-registry-deploy.yaml
+kubectl apply -f kubeflow-registry-deploy.yaml
 kubectl apply -f kubeflow-registry-svc.yaml
 
  
-내용 : kubeflow-registry-deploy.yaml
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  generation: 1
-  labels:
-    run: kubeflow-registry
-  name: kubeflow-registry
-  namespace: default
-spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      run: kubeflow-registry
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        run: kubeflow-registry
-    spec:
-      containers:
-      - image: registry:2
-        imagePullPolicy: IfNotPresent
-        name: kubeflow-registry
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
-      
-내용 : kubeflow-registry-svc.yaml
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    run: kubeflow-registry
-  name: kubeflow-registry
-  namespace: default
-spec:
-  ports:
-  - name: registry
-    port: 30000
-    protocol: TCP
-    targetPort: 5000
-    nodePort: 30000
-  selector:
-    run: kubeflow-registry
-  sessionAffinity: None
-  type: NodePort
-status:
-  loadBalancer: {}
+내용 : kubeflow-registry-deploy.yaml 파일 참조 
+내용 : kubeflow-registry-svc.yaml 파일 참조
 
 ** deploy 다운받아서 하는경우 변경해줘야 정상실행됨 -> apiVersion: apps/v1 
 
@@ -439,6 +388,19 @@ curl kubeflow-registry.defalut.svc.cluster.local:30000/v2/_catalog
 "insecure-registries" : [
     "kubeflow-registry.defalut.svc.cluster.local:30000"
  ]
+
+-> full file   
+{
+    "runtimes": {
+        "nvidia": {
+            "path": "nvidia-container-runtime",
+            "runtimeArgs": [
+                "kubeflow-registry.defalut.svc.cluster.local:30000"
+            ]
+        }
+    },
+    "insecure-registries": ["kubeflow-registry.defalut.svc.cluster.local:30000"]
+}
 
 sudo systemctl restart docker
 
@@ -464,6 +426,8 @@ tar xvzf k9s_Linux_x86_64.tar.gz
 sudo mv k9s /usr/bin
 k9s 
 ->  그래픽 기반 관리툴을 볼 수 있음
+
+
 ```
 
 ### 다음은 kubeflow_install 로 <br>
