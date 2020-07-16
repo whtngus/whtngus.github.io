@@ -11,8 +11,17 @@ export KF_DIR=${BASE_DIR}/${KF_NAME}
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.0.yaml"
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.v1.0.1.yaml"  
 export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
+export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_istio_dex.v1.0.2.yaml"
 
-export CONFIG="https://raw.githubusercontent.com/kubeflow/kubeflow/v0.6-branch/bootstrap/config/kfctl_k8s_istio.0.6.2.yaml"
+
+export KF_NAME=kf-sh
+export BASE_DIR=/home/sh
+export KF_DIR=${BASE_DIR}/${KF_NAME}
+mkdir -p ${KF_DIR}
+cd ${KF_DIR}
+kfctl build -V -f ${CONFIG_URI}
+export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.0.yaml
+kfctl apply -V -f ${CONFIG_FILE}
 ```
 
 - kubectl 설치 <br>
@@ -34,48 +43,14 @@ export PATH=$PATH:$(pwd)
 - kustomize 패키지 빌드하기
 
 ```
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-kfctl build -V -f ${CONFIG_URI}
 
-export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.0.yaml
-kfctl apply -V -f ${CONFIG_FILE}
+
+
 
 
 # /etc/kubernetes/manifests/kube-apiserver.yaml 에 아래 두줄 추가
 - --service-account-issuer=kubernetes.default.svc
 - --service-account-signing-key-file=/etc/kubernetes/pki/sa.key
-
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.2.yaml"
-export KF_NAME=kf-sh
-export BASE_DIR=/home/sh
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-wget -O kfctl_istio_dex.yaml $CONFIG_URI
-export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
-kfctl apply -V -f ${CONFIG_FILE}
-# Kubeflow will be available at localhost:8080
-kubectl port-forward svc/istio-ingressgateway -n istio-system 8080:80
-
-
-
-
-
-
-
-
-export PATH=$PATH:"/home/kangwoo/kubeflow"
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.1.yaml"
-export KF_NAME=kf-test
-export BASE_DIR=/home/kangwoo/kubeflow
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-# Download the config file and change the default login credentials.
-wget -O kfctl_istio_dex.yaml $CONFIG_URI
-export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
-kfctl apply -V -f ${CONFIG_FILE}
 
 
     -> 에러발생 
@@ -127,64 +102,13 @@ kubectl get ns $NAMESPACE -o json > ${NAMESPACE}.json
 # 아래 텍스트 파일을 생성해서 finalizers안의 내용을 전부 비우기 
 vi ${NAMESPACE}.json 
 # 지우기
- kubectl replace --raw "/api/v1/namespaces/istio-system/finalize" -f ./istio-system.json
- 
+kubectl replace --raw "/api/v1/namespaces/istio-system/finalize" -f ./istio-system.json 
 ```
-
-- 위방식대로 시도후 실패 지운 후 Istio document 참조해서 다시 설치 시작 
-
-```
-    - V 1.0 아래 1.0.2 위 두개 동시 적어둠 하나 선택 
-wget https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
-wget https://github.com/kubeflow/kfctl/releases/download/v1.0/kfctl_v1.0-0-g94c35cf_linux.tar.gz
-tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
-tar -xvf kfctl_v1.0-0-g94c35cf_linux.tar.gz
-# tar 압축 푼 디렉토리 위치 
-export PATH=$PATH:"<path-to-kfctl>"
-# kubeflow 설치할 이름
-export KF_NAME=<your choice of name for the Kubeflow deployment>
-# kubeflow설치할 이름 base 디렉토리
-export BASE_DIR=<path to a base directory>
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-
-# 설치 컨피그 셋팅
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.0.yaml"
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_k8s_istio.v1.0.2.yaml"
-# 설치할 디렉토리로 이동해서 설치시작 - 오래걸림 
-mkdir -p ${KF_DIR}
-cd ${KF_DIR}
-kfctl apply -V -f ${CONFIG_URI}
-
-
--> istio.io 미리 설치 필요  
-helm repo add istio.io https://storage.googleapis.com/istio-release/releases/charts
-
-
-->문제가 있어 검색해본 결과 해당 이슈 해결안되어 있고 gcp로 설치해야 한다고 나와 설치해보기 - 여전히 에러 
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/master/kfdef/kfctl_gcp_iap.yaml"
-export BASE_DIR=/home/sh
-export KF_NAME=kf_sh
-kfctl build -V -f ${CONFIG_URI}
-export CONFIG_FILE=${KF_DIR}/kfctl_k8s_istio.v1.0.2.yaml
-kfctl apply -V -f ${CONFIG_URI}
-
-다시
-https://github.com/kubeflow/kfctl/releases/download/v1.0.2/kfctl_v1.0.2-0-ga476281_linux.tar.gz
-tar -xvf kfctl_v1.0.2-0-ga476281_linux.tar.gz
-export BASE_DIR=/home/sh
-export KF_NAME=kf-sh
-export KF_DIR=${BASE_DIR}/${KF_NAME}
-export CONFIG_URI="https://raw.githubusercontent.com/kubeflow/manifests/v1.0-branch/kfdef/kfctl_istio_dex.v1.0.2.yaml"
-cd ${KF_DIR}
-wget -O kfctl_istio_dex.yaml $CONFIG_URI
-export CONFIG_FILE=${KF_DIR}/kfctl_istio_dex.yaml
-
-```
-
 
 - snap을 이용해서 설치 후 사용해보기 <br>
 
 ```
+snap 사용 x 버전문제 확인 완료 
 sudo yum install snapd
 sudo systemctl start snapd.service
 sudo ln -s /var/lib/snapd/snap /snap
@@ -206,13 +130,23 @@ microk8s.enable kubeflow
 export NAMESPACE=istio-system
 kubectl port-forward -n istio-system svc/istio-ingressgateway 8080:80
 
- kubectl port-forward -n istio-system service/istio-ingressgateway 8081:80 --address=0.0.0.0
+kubectl port-forward -n istio-system service/istio-ingressgateway 8080:80 --address=0.0.0.0
  -> 에러 발생 an error occurred forwarding 8081 -> 443: error forwarding port 443 to pod 959e20b90486ab491d4dec86c25c4756bf0ead30f81f2bcd9a6d0b02aa0181b5, uid : exit status 1: 2020/06/25 16:31:35 socat[17328] E connect(5, AF=2 127.0.0.1:443, 16): Connection refused
 해결 
 kubectl create deployment nginx --image=nginx
 kubectl create service nodeport nginx --tcp=80:80
 
+    이슈
+-> 파이프라인이 충돌로 죽어있음
+kubeadm init --feature-gates CoreDNS=true
+확인
+kubectl -n kubeflow get pods --selector=app=ml-pipeline
+kubectl -n kubeflow get pods --selector=app=ml-pipeline-persistenceagent
+kubectl logs -n kubeflow ml-pipeline-persistenceagent-645cb66874-qmj9l --previous
+ 
 ```
+
+
  
 - 설치 확인 <br>
 
@@ -229,6 +163,75 @@ kubectl get service -n istio-system
  kubectl get po -n istio-system
  sudo vi /etc/environment -> no procxy
  
+ 프록시 열기
+ kubectl proxy --address 0.0.0.0 --accept-hosts '.*'
+ 
+```
+
+- kubeflow 설치 에러 하나씩 해결하기 
+
+```
+    - 대시보드 접속시 UNAVAILABLE:upstream connect error or disconnect/reset before headers. reset reason: connection failure
+    
+
+    - 확인 
+ kubectl get pod -n kubeflow
+NAME                                                           READY   STATUS             RESTARTS   AGE
+admission-webhook-bootstrap-stateful-set-0                     1/1     Running            0          11m
+admission-webhook-deployment-569558c8b6-gnl4k                  1/1     Running            0          11m
+application-controller-stateful-set-0                          1/1     Running            0          12m
+argo-ui-7ffb9b6577-gtv5x                                       1/1     Running            0          11m
+centraldashboard-659bd78c-hn7zr                                1/1     Running            0          11m
+jupyter-web-app-deployment-679d5f5dc4-j7l89                    1/1     Running            0          11m
+katib-controller-7f58569f7d-jqxb2                              1/1     Running            1          11m
+katib-db-manager-54b66f9f9d-mnkld                              0/1     CrashLoopBackOff   6          11m
+katib-mysql-dcf7dcbd5-dqldn                                    0/1     Pending            0          11m
+katib-ui-6f97756598-8fk75                                      1/1     Running            0          11m
+kfserving-controller-manager-0                                 2/2     Running            1          11m
+metacontroller-0                                               1/1     Running            0          11m
+metadata-db-65fb5b695d-fxpd4                                   0/1     Pending            0          11m
+metadata-deployment-65ccddfd4c-zjxr6                           0/1     Running            0          11m
+metadata-envoy-deployment-7754f56bff-5bf7q                     1/1     Running            0          11m
+metadata-grpc-deployment-75f9888cbf-ksq77                      1/1     Running            4          11m
+metadata-ui-7c85545947-gwn9g                                   1/1     Running            0          11m
+minio-69b4676bb7-h9vgf                                         0/1     Pending            0          11m
+ml-pipeline-5cddb75848-rf2xk                                   1/1     Running            1          11m
+ml-pipeline-ml-pipeline-visualizationserver-7f6fcb68c8-x96sw   1/1     Running            0          11m
+ml-pipeline-persistenceagent-6ff9fb86dc-cqqr5                  0/1     CrashLoopBackOff   3          11m
+ml-pipeline-scheduledworkflow-7f84b54646-7vhjm                 1/1     Running            0          11m
+ml-pipeline-ui-6758f58868-tsz6h                                1/1     Running            0          11m
+ml-pipeline-viewer-controller-deployment-745dbb444d-js4xw      1/1     Running            0          11m
+mysql-6bcbfbb6b8-kxddt                                         0/1     Pending            0          11m
+notebook-controller-deployment-5c55f5845b-4w2tl                1/1     Running            0          11m
+profiles-deployment-78f694bffb-brkgw                           2/2     Running            0          11m
+pytorch-operator-cf8c5c497-9mdcd                               1/1     Running            0          11m
+seldon-controller-manager-6b4b969447-hrv97                     1/1     Running            0          11m
+spark-operatorcrd-cleanup-nch68                                0/2     Completed          0          11m
+spark-operatorsparkoperator-76dd5f5688-bht8b                   1/1     Running            0          11m
+spartakus-volunteer-5dc96f4447-l882f                           1/1     Running            0          11m
+tensorboard-5f685f9d79-6mnbc                                   1/1     Running            0          11m
+tf-job-operator-5fb85c5fb7-sz7k2                               1/1     Running            0          11m
+workflow-controller-689d6c8846-p56g7                           1/1     Running            0          11m
+
+    1. spark 에러부터 확인하기
+kubectl describe pod -n kubeflow spark-operatorcrd-cleanup-nch68
+Events:
+  Type     Reason                  Age   From                     Message
+  ----     ------                  ----  ----                     -------
+  Normal   Scheduled               12m   default-scheduler        Successfully assigned kubeflow/spark-operatorcrd-cleanup-nch68 to master-node-40
+  Normal   Pulled                  12m   kubelet, master-node-40  Container image "gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4" already present on machine
+  Normal   Created                 12m   kubelet, master-node-40  Created container delete-sparkapp-crd
+  Normal   Started                 12m   kubelet, master-node-40  Started container delete-sparkapp-crd
+  Normal   Pulled                  12m   kubelet, master-node-40  Container image "gcr.io/spark-operator/spark-operator:v1beta2-1.0.0-2.4.4" already present on machine
+  Normal   Created                 12m   kubelet, master-node-40  Created container delete-scheduledsparkapp-crd
+  Normal   Started                 12m   kubelet, master-node-40  Started container delete-scheduledsparkapp-crd
+  Normal   SandboxChanged          12m   kubelet, master-node-40  Pod sandbox changed, it will be killed and re-created.
+  Warning  FailedCreatePodSandBox  12m   kubelet, master-node-40  Failed create pod sandbox: rpc error: code = Unknown desc = failed to start sandbox container for pod "spark-operatorcrd-cleanup-nch68": Error response from daemon: OCI runtime create failed: container_linux.go:349: starting container process caused "process_linux.go:315: copying bootstrap data to pipe caused \"write init-p: broken pipe\"": unknown
+
+-> 커널 업데이트 필요
+https://myksb1223.github.io/develop_diary/2018/08/01/Centos-kernel-update.html
+
+
 ```
 
 
