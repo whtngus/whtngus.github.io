@@ -4,6 +4,7 @@
 
 - 19 Sep 2016
 - google 에서 발표
+- https://arxiv.org/pdf/1609.03499.pdf
 
 ### - ABSTRACT
 
@@ -14,11 +15,10 @@ WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다.
 
 ### 1. INTRODUCTION
 
-<img src="./pic/1_A_second_of_generated_speech.PNG" width="400px" height="200px"></img> <br>
+<img src="./pic/1_A_second_of_generated_speech.PNG" width="350px" height="150px"></img> <br>
  
 ```
 images (van den Oord et al.,2016a;b) and text (Jozefowicz et al., 2016)에서 아이디어를 얻어 WAVENET을 구상
-
 WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)을 기반으로 작성됨  
 ```
 
@@ -60,8 +60,13 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 MCGSM : mixture of conditional Gaussian scale mixtures <br> 
 (픽셀 오디오등 한정된 데이터에서 적용되는걸로 보임) <br>
 - categorical distribution 에서 더욱 좋은 교과를 보임
+- 개별 오디오 샘플에 대한 조건부 분포를 모델링하는 방법중 하나 <br>
+- 데이터가 연속적인 경우에 softmax distribution이 다른 것들보다 잘 동작하는 경향이 있음 <br>
 
 <img src="./pic/수식_2.PNG" width="200px" height="50px"></img> <br>
+
+- u-law companding기법을 사용해 65,536개의 확률을 256개의 값으로 정량화<br>
+
 
 #### 2.3 GATED ACTIVATION UNITS
 
@@ -87,8 +92,8 @@ network 에서  residual 과 skip connection을 사용하여 학습
 
 #### 2.5 CONDITIONAL WAVENETS
 
-<img src="./pic/수식_4.PNG" width="200px" height="50px"></img> <br>
-<img src="./pic/수식_5.PNG" width="200px" height="50px"></img> <br>
+<img src="./pic/수식_4.PNG" width="150px" height="50px"></img> <br>
+<img src="./pic/수식_5.PNG" width="150px" height="50px"></img> <br>
 
 ```
 h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성
