@@ -35,7 +35,7 @@ MFCC를 기술적으로 이해하려면 선행으로 다음 개념들을 알아�
 
 ### MFCC의 단계
 
-<img src="./pic/MFCC_추출_과정.PNG" width="300px" height="250px"></img> <br>
+<img src="./pic/MFCC_추출_과정.PNG" width="600px" height="300px"></img> <br>
 
 1. 입력 시간 도메인의 소리 신호를 작은 크기 프레임으로 자른다. <br>
 
