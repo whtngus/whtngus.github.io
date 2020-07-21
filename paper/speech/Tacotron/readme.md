@@ -153,22 +153,6 @@ a는 postnet 없이 바로 Linear Spectrogram을 생성한 경우  b는 중간 �
 ```
 
 
-### 학습 방법 
-
-- loss
-
-<img src="./pic/로스_1.PNG" width="200px" height="300px"></img> <br>
-
-```
-Adam Optimizer 사용  
--> 논문에서는 Learning rate를 순차적으로 줄여 나감
-(decay 와 크래핑? 을 사용)
-
-Linear-scale spectrogram 을 만드는걸 최종 목표로 함.
--> mel spectogram을 거친 후에 Linear spectogram을 생성하면 낮은 주파수(400이하)에서 더 좋은 결과가 나옴
-```
-
-
 ## 정리 참고 
 - 설명 유튜브 <br>
 https://www.youtube.com/watch?v=02odSrfgasI
