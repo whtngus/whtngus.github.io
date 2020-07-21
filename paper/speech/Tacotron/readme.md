@@ -142,7 +142,7 @@ Ground truth 는 실제 음성 데이터
 Tacotron 2 의 경우 실제 음성과 거의 비슷한 성능을 보여주고 있다.
 ```
 
-<img src="./pic/result3.JPG" width="300px" height="600px"></img> ㄴ
+<img src="./pic/result3.JPG" width="300px" height="600px"></img> 
 <img src="./pic/result4.JPG" width="300px" height="600px"></img> <br>
 
 ```
