@@ -36,8 +36,8 @@ End to End 이기때문에 방대한 Domain 전문 지식이 비교적 덜 필�
 노이즈 데이터에 더욱 강하다  <br>
 발화자, 언어, 감정 등의 Feature 등을 손쉽게 조절이 가능하다.  <br>
 
-
-# tactron 설명 
+<br><br>
+# tactron 설명 <br><br>
 
 <img src="./pic/그림_1.PNG" width="500px" height="400px"></img> <br>
 
@@ -46,8 +46,8 @@ End to End 이기때문에 방대한 Domain 전문 지식이 비교적 덜 필�
 Atention RNN 은 GRU Cell을 사용
 3개의 output중 가장 오른쪽 하나의 spectrogram이 다음 시퀀스의 인풋으로 들어감
 ```
-
-### Encoder 설명 
+<br><br>
+### Encoder 설명 <br><br>
 
 <img src="./pic/그림_2.PNG" width="500px" height="400px"></img> <br>
 
@@ -113,8 +113,8 @@ Forward 시퀀스와 Backward 시퀀스를 Concat하여 출력
 - 논문에서 인코더, 디코더 의 경우
 128 cells
 ```
-
-### Decoder 설명 
+<br><br>
+### Decoder 설명 <br><br>
 
 ```
 Encoder와 매우 유사하여 설명 생략
@@ -131,8 +131,8 @@ Decoder RNN 셀은 Residual GRU Cell로 구성
 Mel-Spectrogram은 PostNet에 해당하는 CBHG를 거치게 되며 최종적으로 Linear-Spectrogram을 생성
 Linear-Spectrogram은 Griffin-Lim Algorithm이라는 음성 재구성 알고리즘을 통해서 음성으로 변환
 ```
-
-### 성능 
+<br><br>
+### 성능 <br><br>
 
 <img src="./pic/result1.JPG" width="300px" height="200px"></img> 
 <img src="./pic/result2.JPG" width="300px" height="300px"></img> <br>
@@ -157,7 +157,7 @@ a는 postnet 없이 바로 Linear Spectrogram을 생성한 경우  b는 중간 �
 
 - loss
 
-<img src="./pic/로스_1.PNG" width="500px" height="400px"></img> <br>
+<img src="./pic/로스_1.PNG" width="200px" height="300px"></img> <br>
 
 ```
 Adam Optimizer 사용  
@@ -167,11 +167,6 @@ Adam Optimizer 사용
 Linear-scale spectrogram 을 만드는걸 최종 목표로 함.
 -> mel spectogram을 거친 후에 Linear spectogram을 생성하면 낮은 주파수(400이하)에서 더 좋은 결과가 나옴
 ```
-
-
-
-
-
 
 
 ## 정리 참고 
