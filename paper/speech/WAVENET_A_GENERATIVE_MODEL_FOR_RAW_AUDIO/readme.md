@@ -66,28 +66,32 @@ wavenet에서는 위의 그림과 같이 오직 과거의 파형 정보만 접�
 위 그림에서 4개의 층을 쌓았자민 receptive field 가 5(layers + filter_length) 밖에 되지 않는 문제가 생김 
 ```
 
-<img src="./pic/그림_3.PNG" width="600px" height="400px"></img> <br>
+<img src="./pic/stacked_dilated_convolutions.gif" width="600px" height="400px"></img> <br>
 
 ```
      - stacked dilated convolutions
 dilated convolutional layers를 사용하여 시퀀셜한 데이터 문제를 해결
 데이터의 길이에 따라 dilation이 n으로 늘어남 -> receptive field 는 2^n 개 
 
+논문에서 dilation을 512까지 1,2,4,8...512를 만드는 레이어를 3번 반복 해서 만듦
 ```
 
 #### 2.2 SOFTMAX DISTRIBUTIONS
 
-- "van den Oord et al. (2016)"이 MCGSM보다 softmax distribution이 더 효과가 좋다고 함 <br>
-MCGSM : mixture of conditional Gaussian scale mixtures <br> 
-(픽셀 오디오등 한정된 데이터에서 적용되는걸로 보임) <br>
-- categorical distribution 에서 더욱 좋은 교과를 보임
-- 개별 오디오 샘플에 대한 조건부 분포를 모델링하는 방법중 하나 <br>
-- 데이터가 연속적인 경우에 softmax distribution이 다른 것들보다 잘 동작하는 경향이 있음 <br>
-
 <img src="./pic/수식_2.PNG" width="200px" height="50px"></img> <br>
 
-- u-law companding기법을 사용해 65,536개의 확률을 256개의 값으로 정량화<br>
+```
+- "van den Oord et al. (2016)"이 MCGSM보다 softmax distribution이 더 효과가 좋다고 함 
+MCGSM : mixture of conditional Gaussian scale mixtures (픽셀 오디오등 한정된 데이터에서 적용되는걸로 보임) 
+- categorical distribution 에서 더욱 좋은 교과를 보임
+- 개별 오디오 샘플에 대한 조건부 분포를 모델링하는 방법중 하나 
+- 데이터가 연속적인 경우에 softmax distribution이 다른 것들보다 잘 동작하는 경향이 있음 
 
+    - 설명
+일반적으로 오디오는 16bit 정수 값으로 저장하기 때문에 그대로 사용하면 스탭마다 65536개의 확률을 다뤄야 한다.
+-> 이 수를 줄이기 위해서 u-law companding을 적용해서 256개 중 하나의 값으로 정량화
+-> 비선형 정량화를 하면 재구성된 신호가 원래의 신호와 매우 유사함
+```
 
 #### 2.3 GATED ACTIVATION UNITS
 
@@ -100,6 +104,10 @@ k : layer index
 f : filter
 g : gate
 W : 학습 convolution filter
+
+tanh(Wfx * x) -> 의 결과를 시그모이드를 이용해서 얼마나 통과시킬지 조절 
+sigmoid(Wgk * x) ->  요게 gate units 역할
+PixcelCNN에서 사용하는 것과 같은 Gated Activation Unit을 사용.
 ```
 
 #### 2.4 RESIDUAL AND SKIP CONNECTIONS
@@ -109,6 +117,8 @@ W : 학습 convolution filter
 ```
 network 에서  residual 과 skip connection을 사용하여 학습 
 사진처럼 위의 레이어를 K개를 사용하여 학습 (병럴 수행 가능해보임)
+위에서는 1*1이 하나로 되어있지만 블로그에서 1*1이 residual 용 skip-connections 따로 있음.
+또 병렬로 쌓는게 아니라 수직으로 쌓여있는 모델 구조
 ```
 
 #### 2.5 CONDITIONAL WAVENETS
@@ -132,8 +142,8 @@ V(f,k)*y : 1*1 convolution
 - TEXT-TO-SPEECH <br>
 - MUSIC <br>
 - SPEECH RECOGNITION <br>
-
-
+- 실제 데이터 확인 <br>
+https://deepmind.com/blog/article/wavenet-generative-model-raw-audio <br>
 
 ```
 오디오 신호의 긴 부분을 처리하고 지역적으로 더 큰 WaveNet을 처리.
