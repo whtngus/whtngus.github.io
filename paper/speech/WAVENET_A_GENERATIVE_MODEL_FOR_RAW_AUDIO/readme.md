@@ -2,21 +2,31 @@
 
 #### 메타 정보
 
-- 19 Sep 2016
-- google 에서 발표
-- https://arxiv.org/pdf/1609.03499.pdf
+- 19 Sep 2016 <br>
+- 딥마인드에서 오디오 생성 모델인 wavenet에 관한 논문을 공개  <br>
+- https://arxiv.org/pdf/1609.03499.pdf  <br>
+- gif 출처 
+https://deepmind.com/blog/article/wavenet-generative-model-raw-audio
 
 ### - ABSTRACT
 
+- WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다. <br>
+- 2016년도 당시 WaveNet을 통하여 TTS sota를 찍음 <br>
+
+![음성 생성]("./pic/1_A_second_of_generated_speech.PNG")
+<!--<img src="./pic/1_A_second_of_generated_speech.PNG" width="350px" height="150px"></img> <br>-->
+
+
 ```
-WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다.
-2016년도 당시 WaveNet을 통하여 TTS sota를 찍음 
+이 당시 대부분의 TTS 모델은 녹음된 음성 데이터를 쪼개고 조합해서 음성을 생성하는 방식인 Concatenative TTS를 기반으로 구현되었습니다
+-> 많은 데이터 필요, 아웃라이어 데이터나 새로운 환경의 데이터시에는 학습하기위해 다시 많은 데이터가 필요 
+혹은 통계 기반의 음성을 생성하는 TTS기반으로 구현 
+
+wavenet은 오디오의 파형을 직접 모델링하여 훨씬 자연스러운 음성을 생성.
 ```
 
 ### 1. INTRODUCTION
 
-<img src="./pic/1_A_second_of_generated_speech.PNG" width="350px" height="150px"></img> <br>
- 
 ```
 images (van den Oord et al.,2016a;b) and text (Jozefowicz et al., 2016)에서 아이디어를 얻어 WAVENET을 구상
 WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)을 기반으로 작성됨  
@@ -27,15 +37,16 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 - WaveNet의 음성 신호 생성 모델에 대한 소개 <br>
 - 긴 음성 데이터에 대한 처리 방법과 시간 제약 설명 <br>
 - 화자분리 음성 데이터 생성 방법 소개 <br>
-- 다른 모델과의 결과 비교 (+ 작은 데이터셋에서도 높은 성능을 보여줌)
+- 다른 모델과의 결과 비교 (+ 작은 데이터셋에서도 높은 성능을 보여줌) <br>
 
 ### 2. WAVENET
 
 - joint probability 수식 <br>
 
-> Xt : 이전 시퀀스(음성)에 대한 timesteps -> 시계열 데이터 <br>
-
 <img src="./pic/수식_1.PNG" width="200px" height="50px"></img> <br>
+
+> Xt : 이전 시퀀스(음성)에 대한 timesteps -> 시계열 데이터 <br>
+> 일반적인 시퀀스 데이터와 비슷하게 이전 시퀀스를 알면 다음 시퀀스를 예측할 수 있다 <br>
 
 - model output : categorical distribution 결과를 softmax 씌운  Xt <br>
 - optimize : maximize the log-likelihood
@@ -44,15 +55,26 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 
 <img src="./pic/그림_2.PNG" width="600px" height="400px"></img> <br>
 
-- 위 그림은 convolution 네트워크를 기반으로 되어 있음. <br>
-- 1-D 데이터를 사용하여 연산량이 비교적 적음 ?!? <br>
-- convolution network의 경우 시퀀셜한 데이터를 처리하기힘들기 때문에  introduction에서 PixelCNN 을 언급한듯 
-- dilated convolutional layers를 사용하여 시퀀셜한 데이터 문제를 해결 
+```
+convolution 네트워크를 기반으로 되어 있음.
+
+일반적인 convolution network의 경우 시퀀셜한 데이터를 처리하기힘들기 때문에  introduction에서 PixelCNN을 언급하며 이야기를 꺼냄
+wavenet에서는 위의 그림과 같이 오직 과거의 파형 정보만 접근할 수 있도록 causal convolutional layer를 여러겹 쌓았습니다.
+실제 구현할 때에는 단순히 이전 층의 결과를 쉬프팅하면서 1d convolutional laeyr를 여러겹 쌓으면 된다. 
+1-D 데이터를 사용하여 RNN혹은 전체 데이터에 대한 CNN에 비하여 연산량이 비교적 적음 
+
+-> 문제점 발생 
+위 그림에서 4개의 층을 쌓았자민 receptive field 가 5(layers + filter_length) 밖에 되지 않는 문제가 생김 
+```
 
 <img src="./pic/그림_3.PNG" width="600px" height="400px"></img> <br>
 
-- 위 그림은 stacked dilated convolutions <br>
-- 데이터의 길이에 따라 dilation이 n으로 늘어남 <br>
+```
+     - stacked dilated convolutions
+dilated convolutional layers를 사용하여 시퀀셜한 데이터 문제를 해결
+데이터의 길이에 따라 dilation이 n으로 늘어남 -> receptive field 는 2^n 개 
+
+```
 
 #### 2.2 SOFTMAX DISTRIBUTIONS
 
@@ -196,7 +218,8 @@ https://blog.naver.com/PostView.nhn?blogId=chunjein&logNo=100173614389 <br>
 https://datascienceschool.net/view-notebook/958022040c544257aa7ba88643d6c032/ <br>
 - 유튜브 논문 리뷰 <br>
 https://www.youtube.com/watch?v=GyQnex_DK2k&feature=youtu.be <br>
-
+- wavenet 설명 블로그 <br>
+http://www.secmem.org/blog/2019/08/18/wavenet/ <br>
 
 
 
