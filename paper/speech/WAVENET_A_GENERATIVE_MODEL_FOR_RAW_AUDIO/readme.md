@@ -13,8 +13,7 @@ https://deepmind.com/blog/article/wavenet-generative-model-raw-audio
 - WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다. <br>
 - 2016년도 당시 WaveNet을 통하여 TTS sota를 찍음 <br>
 
-![음성 생성]("./pic/1_A_second_of_generated_speech.PNG")
-<!--<img src="./pic/1_A_second_of_generated_speech.PNG" width="350px" height="150px"></img> <br>-->
+<img src="./pic/1_A_second_of_generated_speech.gif" width="350px" height="150px"></img> <br>
 
 
 ```
