@@ -123,8 +123,8 @@ network 에서  residual 과 skip connection을 사용하여 학습
 
 #### 2.5 CONDITIONAL WAVENETS
 
-<img src="./pic/수식_4.PNG" width="400px" height="100px"></img> <br><br>
-<img src="./pic/수식_5.PNG" width="400px" height="100px"></img> <br>
+<img src="./pic/수식_4.PNG" width="300px" height="100px"></img> <br><br>
+<img src="./pic/수식_5.PNG" width="300px" height="100px"></img> <br>
 
 ```
 h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성 -> 모든 시점에서 결과 분포에 영향을 끼치는 h에 의해서 특징 지어 짐
