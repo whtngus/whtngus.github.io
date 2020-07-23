@@ -151,7 +151,7 @@ Vf,k∗y 는 1x1 convoltion
 
 ### EXPERIMENTS
 
-<img src="./pic/score.PNG" width="500px" height="500px"></img> <br>
+<img src="./pic/score.JPG" width="500px" height="500px"></img> <br>
 
 
 
