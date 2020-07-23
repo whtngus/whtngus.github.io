@@ -127,16 +127,33 @@ network 에서  residual 과 skip connection을 사용하여 학습
 <img src="./pic/수식_5.PNG" width="500px" height="100px"></img> <br>
 
 ```
-h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성
+h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성 -> 모든 시점에서 결과 분포에 영향을 끼치는 h에 의해서 특징 지어 짐
 * : convolution 연산자
 K : layer 번호
 f : filter
 g : gate
-V(*,k) : 학습가능한 직성 투영법 -> ??? 
+V(*,k) : 학습가능한 linear projection 
 V(f,k)*y : 1*1 convolution
+
+위 식은 wavenet의 조건을 설정하는 전역적인 방법(global conditioning)과 지역적인 방법(local conditioning)이 있다. 
+- 전역적인 방법
+위의 식
+주어진 조건 정보가 모든 스탭에 동일한 영향을 줌  
+ex)화자에 대한 정보   
+- 지역적인 방법
+아래 식
+시계열 ht로 주어졌을 때 activation function에 적용하기 위해서 ht의 타임 스탭 수를 오디오의 타임스탭 수와 똑같이 맞춰줘야함
+이를 위해 transposed convolution을 사용하거나 단순히 각 스탭을 복제해서 맞춰줄 수 있습니다. 스탭 수를 맞춰준 조건 정보를 
+y= f(h)
+라고 할 때 activation function은 다음과 같이 변하게 됩니다.
+Vf,k∗y 는 1x1 convoltion
 ```
 
 ### EXPERIMENTS
+
+<img src="./pic/score.PNG" width="500px" height="500px"></img> <br>
+
+
 
 - MULTI-SPEAKER SPEECH GENERATION <br>
 - TEXT-TO-SPEECH <br>
@@ -144,6 +161,9 @@ V(f,k)*y : 1*1 convolution
 - SPEECH RECOGNITION <br>
 - 실제 데이터 확인 <br>
 https://deepmind.com/blog/article/wavenet-generative-model-raw-audio <br>
+
+
+
 
 ```
 오디오 신호의 긴 부분을 처리하고 지역적으로 더 큰 WaveNet을 처리.
