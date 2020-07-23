@@ -112,7 +112,7 @@ PixcelCNN에서 사용하는 것과 같은 Gated Activation Unit을 사용.
 
 #### 2.4 RESIDUAL AND SKIP CONNECTIONS
 
-<img src="./pic/그림_4.PNG" width="400px" height="200px"></img> <br>
+<img src="./pic/그림_4.PNG" width="600px" height="500px"></img> <br>
 
 ```
 network 에서  residual 과 skip connection을 사용하여 학습 
