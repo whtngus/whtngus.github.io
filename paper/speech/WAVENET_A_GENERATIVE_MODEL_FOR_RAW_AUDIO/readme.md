@@ -177,6 +177,7 @@ Vf,k∗y 는 1x1 convoltion
 - SPEECH RECOGNITION <br>
 - 실제 데이터 확인 <br>
 https://deepmind.com/blog/article/wavenet-generative-model-raw-audio <br>
+
 ```
 오디오 신호의 긴 부분을 처리하고 지역적으로 더 큰 WaveNet을 처리.
 더긴 오디오 시간에 상관 관계를 모형화
