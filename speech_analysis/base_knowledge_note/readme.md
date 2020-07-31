@@ -73,6 +73,12 @@ DCT는 n개의 데이터를 n개의 코사인 함수의 합으로 표현하여 �
 - 저 주파수에 에너지가 집중되고 고 주파수 영역에 에너지가 감소합니다.
 ```
 
+### 양자화 (Quantization)
+
+```
+진폭(amplitude) 에 관련된 정보를 얼마나 자세히 담을 것인가를 결정하는 과정이며, 
+단위는 2진법을 기초로 하는 비트(bit)라는 단 위를 사용한다
+```
 
 
 
@@ -94,11 +100,12 @@ DCT는 n개의 데이터를 n개의 코사인 함수의 합으로 표현하여 �
 
 
 
-
-# 참고 
-### tactron 관련
+# 참고
+- tactron 관련 <br>
 http://www.ktword.co.kr/abbr_view.php?m_temp1=2056 <br>
 https://newsight.tistory.com/294 <br>
 http://contents.kocw.net/KOCW/document/2015/pusan/kwonsoonbok/9.pdf <br>
 https://m.blog.naver.com/PostView.nhn?blogId=vmv-tech&logNo=220936084562&targetKeyword=&targetRecommendationCode=1 -> stfp <br>
+- 양자화 Quantization <br>
+http://www.kjorl.org/upload/pdf/0012004174.pdf <br>
 
