@@ -203,7 +203,7 @@ unvoice구간이 잘 살지 않는 문제가 있음
 3. Greedy sampling
 음성 구간에서는 2번을 사용하고, un voice 구간에서는 1번을 사용하는 방법
 4. Mode sampling -> (유튜브 보고 정리중 바표자가 제안한 방식)
-un voice 구간에서는 1번을 사용 
+un voice 구간에서는 1번을 사용  
 voice 구간에서는 argmax대신 scale파라미터들을 조절을 해나가면서 랜덤샘플링을 진행
 ```
 

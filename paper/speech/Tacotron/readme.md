@@ -134,16 +134,14 @@ Linear-Spectrogram은 Griffin-Lim Algorithm이라는 음성 재구성 알고리�
 <br><br>
 ### 성능 <br><br>
 
-<img src="./pic/result1.JPG" width="300px" height="200px"></img> 
-<img src="./pic/result2.JPG" width="300px" height="300px"></img> <br>
+<img src="./pic/result1.JPG" width="300px" height="200px"></img> <img src="./pic/result2.JPG" width="300px" height="300px"></img> <br>
 
 ```
 Ground truth 는 실제 음성 데이터
 Tacotron 2 의 경우 실제 음성과 거의 비슷한 성능을 보여주고 있다.
 ```
 
-<img src="./pic/result3.JPG" width="300px" height="600px"></img> 
-<img src="./pic/result4.JPG" width="300px" height="600px"></img> <br>
+<img src="./pic/result3.JPG" width="300px" height="600px"></img> <img src="./pic/result4.JPG" width="300px" height="600px"></img> <br>
 
 ```
 좌측 사진의 경우 Tactron 모델이 입력 데이터에 대해서 Attention이 더욱 뚜렷한것을 볼 수 있다.
