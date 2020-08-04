@@ -3,7 +3,7 @@ layout: post
 title: "03_and_04_HDFS사용법"
 date: 2020-08-04 19:20:23 +0900
 category: 빅데이터_컴퓨팅_강의
----
+---bigdata_computing
 
 # HDFS 사용법
 

@@ -2,7 +2,7 @@
 layout: post
 title: "02.분산처리시스템_구성요소"
 date: 2020-08-04 19:20:23 +0900
-category: 빅데이터_컴퓨팅_강의
+category: bigdata_computing
 ---
 
 # 2. 분산처리시스템 구성요소

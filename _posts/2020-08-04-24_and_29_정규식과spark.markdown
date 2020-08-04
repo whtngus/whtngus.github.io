@@ -2,7 +2,7 @@
 layout: post
 title: "24_and_29_정규식과spark"
 date: 2020-08-04 19:20:23 +0900
-category: 빅데이터_컴퓨팅_강의
+category: bigdata_computing
 ---
 
 # 24-25. 정규식

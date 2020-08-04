@@ -2,7 +2,7 @@
 layout: post
 title: "19_and_23_pyspark_기초"
 date: 2020-08-04 19:20:23 +0900
-category: 빅데이터_컴퓨팅_강의
+category: bigdata_computing
 ---
 
 # 19. Pyspark의 RDD 사용법

@@ -2,7 +2,7 @@
 layout: post
 title: "14_and_18_pySpark를_위한_python"
 date: 2020-08-04 19:20:23 +0900
-category: 빅데이터_컴퓨팅_강의
+category: bigdata_computing
 ---
 
 # 14. pySpark를 위한 Python

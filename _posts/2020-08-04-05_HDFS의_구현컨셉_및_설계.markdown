@@ -2,7 +2,7 @@
 layout: post
 title: "05_HDFS의_구현컨셉_및_설계"
 date: 2020-08-04 19:20:23 +0900
-category: 빅데이터_컴퓨팅_강의
+category: bigdata_computing
 ---
 
 # 5.HDFS의_구현컨셉_및_설계
