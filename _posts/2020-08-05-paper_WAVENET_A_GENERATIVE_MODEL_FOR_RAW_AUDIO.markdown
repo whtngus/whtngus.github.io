@@ -20,7 +20,7 @@ https://deepmind.com/blog/article/wavenet-generative-model-raw-audio
 - WaveNet은 원본 음성파형을 생성한는 딥러닝 모델이다. <br>
 - 2016년도 당시 WaveNet을 통하여 TTS sota를 찍음 <br>
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/1_A_second_of_generated_speech.gif" width="350px" height="150px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/1_A_second_of_generated_speech.gif" width="350px" height="150px"> <br>
 
 
 ```
@@ -49,7 +49,7 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 
 - joint probability 수식 <br>
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_1.PNG" width="200px" height="50px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_1.PNG" width="200px" height="50px"> <br>
 
 > Xt : 이전 시퀀스(음성)에 대한 timesteps -> 시계열 데이터 <br>
 > 일반적인 시퀀스 데이터와 비슷하게 이전 시퀀스를 알면 다음 시퀀스를 예측할 수 있다 <br>
@@ -59,7 +59,7 @@ WAVENET은 음성 생성모델 이고,  PixelCNN (van den Oord et al., 2016a;b)�
 
 #### 2.1 DILATED CAUSAL CONVOLUTIONS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/그림_2.PNG" width="600px" height="400px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/그림_2.PNG" width="600px" height="400px"> <br>
 
 ```
 convolution 네트워크를 기반으로 되어 있음.
@@ -73,7 +73,7 @@ wavenet에서는 위의 그림과 같이 오직 과거의 파형 정보만 접�
 위 그림에서 4개의 층을 쌓았자민 receptive field 가 5(layers + filter_length) 밖에 되지 않는 문제가 생김 
 ```
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> <br>
 
 ```
      - stacked dilated convolutions
@@ -85,7 +85,7 @@ dilated convolutional layers를 사용하여 시퀀셜한 데이터 문제를 �
 
 #### 2.2 SOFTMAX DISTRIBUTIONS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_2.PNG" width="200px" height="50px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_2.PNG" width="200px" height="50px"> <br>
 
 ```
 - "van den Oord et al. (2016)"이 MCGSM보다 softmax distribution이 더 효과가 좋다고 함 
@@ -120,7 +120,7 @@ MCGSM : mixture of conditional Gaussian scale mixtures (픽셀 오디오등 한�
 
 #### 2.3 GATED ACTIVATION UNITS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_3.PNG" width="200px" height="50px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_3.PNG" width="200px" height="50px"> <br>
 
 ```
 동그라미 2개 모양 : 행렬 곱
@@ -137,7 +137,7 @@ PixcelCNN에서 사용하는 것과 같은 Gated Activation Unit을 사용.
 
 #### 2.4 RESIDUAL AND SKIP CONNECTIONS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/그림_4.PNG" width="600px" height="500px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/그림_4.PNG" width="600px" height="500px"> <br>
 
 ```
 network 에서  residual 과 skip connection을 사용하여 학습 
@@ -148,8 +148,8 @@ network 에서  residual 과 skip connection을 사용하여 학습
 
 #### 2.5 CONDITIONAL WAVENETS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_4.PNG" width="400px" height="100px"></img> <br><br>
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_5.PNG" width="400px" height="100px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_4.PNG" width="400px" height="100px"> <br><br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/수식_5.PNG" width="400px" height="100px"> <br>
 
 ```
 h : 캐릭터 하나에 대한 잠재 벡터, Speaker의 특성 -> 모든 시점에서 결과 분포에 영향을 끼치는 h에 의해서 특징 지어 짐
@@ -176,7 +176,7 @@ Vf,k∗y 는 1x1 convoltion
 
 ### EXPERIMENTS
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/score.JPG" width="500px" height="500px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/score.JPG" width="500px" height="500px"> <br>
 
 - MULTI-SPEAKER SPEECH GENERATION <br>
 - TEXT-TO-SPEECH <br>
@@ -231,7 +231,7 @@ voice 구간에서는 argmax대신 scale파라미터들을 조절을 해나가�
 
 - PixelCNN 논문에서 masked convolution 방법 제안
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/pixcelCNN_1.PNG" width="600px" height="400px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/pixcelCNN_1.PNG" width="600px" height="400px"> <br>
 
 - 필터를 마스크하기 위해서는 필터의 중심에서 우측과 아래의 가중치를 0 으로 셋팅
 
@@ -252,7 +252,7 @@ ex) 연속된 사진을 붙여놓은 데이터 혹은 음성,NLP 데이터 라�
 
 - AR model(Autoregressive Model) <br>
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/AR_model.PNG" width="600px" height="300px"></img> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/AR_model.PNG" width="600px" height="300px"> <br>
 
 ```
 현재 시점의 정상 시계열 (ex: 페어 트레이딩의 스프레드)은 이전 시점의 정상 시계열에 상수 (a)를 곱해준 것과 유사하고, 잔차 정도의 차이만 있음을 모형화 한 것이다. 
