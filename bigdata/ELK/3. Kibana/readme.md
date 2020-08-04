@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "3. Kibana"
+date:   2020-01-02 19:31:29 +0900
+categories: ELK
+---
+
 # 3. 키바나 (Kibana)
 
 ## 1. Kibana setup & install

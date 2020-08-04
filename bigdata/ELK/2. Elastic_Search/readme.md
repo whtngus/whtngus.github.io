@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "2. Elastic_Search"
+date:   2020-01-02 19:31:29 +0900
+categories: ELK
+---
+
 ## 1.	엘라스틱서치 기본 개념 정리
 <img src="./pic/1-1.PNG" width="300px" height="300px"></img> 
 <img src="./pic/1-2.PNG" width="300px" height="300px"></img> <br>

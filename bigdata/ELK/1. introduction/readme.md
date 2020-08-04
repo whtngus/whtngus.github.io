@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "1. introduction"
+date:   2020-01-02 19:31:29 +0900
+categories: ELK
+---
+
 # session 1 환경 구축
 
 ELK 스택(ElasticSearch, Logstash Kibana)으로 데이터 분석
