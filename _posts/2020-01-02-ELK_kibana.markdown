@@ -77,7 +77,7 @@ curl -XPUT localhost':9200/basketball/record/_mapping?include_type_name=true&pre
 # 값 삽입
 아래 에러 발생 
 ```
-<img src="./pic/bulk_error_01.PNG" width="500px" height="300px"></img> <br>
+<img src="/img/elk/bulk_error_01.PNG" width="500px" height="300px"></img> <br>
 ```
 값 삽입시 아래 명령어로 해결 
 
