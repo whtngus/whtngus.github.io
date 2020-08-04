@@ -1,0 +1,37 @@
+---
+layout: post
+title: "pyspark 데이터분석을 위한 준비 작업"
+date: 2020-08-04 19:20:23 +0900
+category: pyspark
+---
+
+# 01.데이터 저장소 연결하기
+
+*AWS를 안쓰고 로컬 연결 도전!* <br>
+
+> 강의 에서의 명령어 
+
+```
+%python
+
+ACCESS_KEY_ID = "<aws-access-key-id>"
+SECRET_ACCESS_KEY = "<aws-secret-access-key>"
+ENCODED_SECRET_ACCESS_KEY = SECRET_ACCESS_KEY.replace("/", "%2F")
+
+dbutils.fs.mount("s3a://%s:%s@edwith-pyspark-dataset" % (ACCESS_KEY_ID, ENCODED_SECRET_ACCESS_KEY), "/mnt/us-carrier-dataset")
+```
+
+> 내 생각과 비슷한 질문 
+
+https://forums.databricks.com/questions/12810/how-to-reference-a-local-file-on-my-pc-in-a-notebo.html <br>
+답변이 없음 ㅠㅠ <br>
+
+- 직접 업로드해서 사용해야 할듯 <br>
+
+url : https://forums.databricks.com/questions/1850/loading-and-saving-to-local-directory.htmlhttps://forums.databricks.com/questions/1850/loading-and-saving-to-local-directory.html <br>
+
+<img src="/img/pyspark/mount01.PNG" width="350px" height="300px"></img> <br>
+
+
+# 02. SparkSession 객체 생성 후, 데이터 Load, 데이터 확인하기
+
