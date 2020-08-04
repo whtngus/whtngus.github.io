@@ -1,3 +1,10 @@
+---
+layout: post
+title: "virtualenv_test"
+date: 2020-08-05 19:20:23 +0900
+category: python
+---
+
 # vitualenv 환경 만들기 
 > 목표 리눅스 깡똥 서버에서 offline 에서
 > python tensorflow 돌릴 수 있도록 환경 설정
@@ -104,4 +111,5 @@ Add it to “Administrators” group (also in properties of that user).
 Share the drive where projects reside with the newly created user. i.e. C:/ (Properties of drive → sharing tab → Advanced sharing → Permissions → add the newly created user for docker → give it full access ). Repeat process for specific path to projects folder (for example of another user C:/Users/OtherUser/projects) and make sure it has permissions for full access. Sometimes this is handy for refreshing sharing and make it work.
 Shared Drives in docker settings - Add user credentials to Docker for Windows, using the newly created user with its password.
 ```
+
 

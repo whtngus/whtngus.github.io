@@ -1,3 +1,10 @@
+---
+layout: post
+title: "base"
+date: 2020-08-05 19:20:23 +0900
+category: python
+---
+
 # keras v 2.0 class_weight, sample_weight
 
 ### class_weight

@@ -30,7 +30,7 @@ Tacotron v2 논문에서 사람이 직접 내는 음성과 비슷한 퀄리티�
 간단하게 <text, audio> 페어를 이용하여 End-to-End로 학습이 가능함<br>
 
 
-<img src="/img/paper/tacotrontactron2_architecture.JPG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/tactron2_architecture.JPG" width="500px" height="400px"></img> <br>
 
 ```
 위 사진(tacotron 2 system architecture)을 보면 
@@ -46,7 +46,7 @@ End to End 이기때문에 방대한 Domain 전문 지식이 비교적 덜 필�
 <br><br>
 # tactron 설명 <br><br>
 
-<img src="/img/paper/tacotron그림_1.PNG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/그림_1.PNG" width="500px" height="400px"></img> <br>
 
 ```
 기본적인 구조는 Encoder-Decoder 구조와 Attention Mechanism을 적용한 구조이다.
@@ -56,7 +56,7 @@ Atention RNN 은 GRU Cell을 사용
 <br><br>
 ### Encoder 설명 <br><br>
 
-<img src="/img/paper/tacotron그림_2.PNG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/그림_2.PNG" width="500px" height="400px"></img> <br>
 
 ```
 인코더 부분과 CBHG (1-D convolution bank + highway network + bidirectional GRU) 설명 
@@ -86,7 +86,7 @@ Conv1D bank: K=8, conv-k-128-ReLU Max pooling: stride=1, width=2 Conv1D projecti
 (각각의 1D Convolution 이후에 Batch Normalization을 수행)
 ```
 
-<img src="/img/paper/tacotronhighway.JPG" width="600px" height="300px"></img> <br>
+<img src="/img/paper/tacotron/highway.JPG" width="600px" height="300px"></img> <br>
 
 ```
     - highway network
@@ -141,14 +141,14 @@ Linear-Spectrogram은 Griffin-Lim Algorithm이라는 음성 재구성 알고리�
 <br><br>
 ### 성능 <br><br>
 
-<img src="/img/paper/tacotronresult1.JPG" width="300px" height="200px"></img> <img src="/img/paper/tacotronresult2.JPG" width="300px" height="300px"></img> <br>
+<img src="/img/paper/tacotron/result1.JPG" width="300px" height="200px"></img> <img src="/img/paper/tacotron/result2.JPG" width="300px" height="300px"></img> <br>
 
 ```
 Ground truth 는 실제 음성 데이터
 Tacotron 2 의 경우 실제 음성과 거의 비슷한 성능을 보여주고 있다.
 ```
 
-<img src="/img/paper/tacotronresult3.JPG" width="300px" height="600px"></img> <img src="/img/paper/tacotronresult4.JPG" width="300px" height="600px"></img> <br>
+<img src="/img/paper/tacotron/result3.JPG" width="300px" height="600px"></img> <img src="/img/paper/tacotron/result4.JPG" width="300px" height="600px"></img> <br>
 
 ```
 좌측 사진의 경우 Tactron 모델이 입력 데이터에 대해서 Attention이 더욱 뚜렷한것을 볼 수 있다.

@@ -1,3 +1,10 @@
+---
+layout: post
+title: "python_pyx_import_error"
+date: 2020-08-05 19:20:23 +0900
+category: python
+---
+
 # pyx import error 해결하기 
 
 ### 나의 에러 로그
