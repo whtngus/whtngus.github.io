@@ -18,7 +18,7 @@ sudo apt-get update
 sudo apt-get -y install aracle-java8-installer
 java –version
 * 에러 발생 
-<img src="./pic/error1.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/elk/error1.PNG" width="350px" height="300px"></img> <br>
 
 -> 위가 강의내용이나 되지않아 다른 방식으로 진행
 apt-get install openjdk-8-jdk

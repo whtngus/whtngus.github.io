@@ -21,7 +21,7 @@
 title: Self Study
 email: whtngus3232@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Themed by ejjoo
+  Themed by ejjoo and write suhyun
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "http://whtngus.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username: whtngus
