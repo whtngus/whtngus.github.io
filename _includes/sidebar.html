@@ -1,52 +1,58 @@
-<div class="sidebar-item sidebar-header">
-	<div class='sidebar-brand'>
-		<a href="/about/">{{ site.title }}</a>
-	</div>
-	<p class="lead">{{ site.description }}</p>
-	{%- if social.github -%}
-		<a rel="me" href="https://github.com/{{ social.github | cgi_escape | escape }}" title="{{ social.github | escape }}">
-			<svg class="svg-icon grey">
-				<use xlink:href="{{ '/assets/minima-social-icons.svg#github' | relative_url }}" />
-			</svg></a></li>
-	{%- endif -%}
-</div>
+{% assign sidebar = site.data.sidebars[page.sidebar].entries %}
 
-<div class="sidebar-item sidebar-nav">
-	<ul class="nav">
-      <li class="nav-title">Pages</li>
-	  <li>
-	  	<a class="nav-item" href="/">Articles</a>
-	  </li>
-	  {% assign pages_list = site.pages %}
-	  {% for node in pages_list %}
-	    {% if node.title != null %}
-	      {% if node.layout == "page" %}
-	        <li>
-	        	<a class="nav-item" href="{{ node.url }}">
-	            	{{ node.title }}
-	            </a>
-	        </li>
-	      {% endif %}
-	    {% endif %}
-	  {% endfor %}
-	</ul>
-</div>
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">{{sidebar[0].product}} {{sidebar[0].version}}</li>
+  {% for entry in sidebar %}
+  {% for folder in entry.folders %}
+  {% if folder.output contains "web" %}
+  <li>
+      <a title="{{folder.title}}" href="#">{{folder.title}}</a>
+      <ul>
+          {% for folderitem in folder.folderitems %}
+          {% if folderitem.output contains "web" %}
+          {% if folderitem.external_url %}
+          <li><a title="{{folderitem.title}}" href="{{folderitem.external_url}}" target="_blank" rel="noopener">{{folderitem.title}}</a></li>
+          {% elsif page.url == folderitem.url %}
+          <li class="active"><a title="{{folderitem.title}}" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+          {% elsif folderitem.type == "empty" %}
+          <li><a title="{{folderitem.title}}" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
 
-<div class="sidebar-item sidebar-nav">
-  	<ul class="nav">
-			<li class="nav-title">Categories</li>
-	    {% for category in site.categories %}
-	    <li>
-	    	<a class="nav-item" href="{{ root_url }}/{{ site.category_dir }}#{{ category | first }}">
-				<span class="name">{{ category | first }}</span>
-				<span class="badge">{{ category | last | size }}</span>
-	    	</a>
- 		</li>
-	    {% endfor %}
-	  </nav>
-	</ul>
-</div>
+          {% else %}
+          <li><a title="{{folderitem.title}}" href="{{folderitem.url | remove: "/"}}">{{folderitem.title}}</a></li>
+          {% endif %}
+          {% for subfolders in folderitem.subfolders %}
+          {% if subfolders.output contains "web" %}
+          <li class="subfolders">
+              <a title="{{subfolders.title}}" href="#">{{ subfolders.title }}</a>
+              <ul>
+                  {% for subfolderitem in subfolders.subfolderitems %}
+                  {% if subfolderitem.output contains "web" %}
+                  {% if subfolderitem.external_url %}
+                  <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.external_url}}" target="_blank" rel="noopener">{{subfolderitem.title}}</a></li>
+                  {% elsif page.url == subfolderitem.url %}
+                  <li class="active"><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                  {% else %}
+                  <li><a title="{{subfolderitem.title}}" href="{{subfolderitem.url | remove: "/"}}">{{subfolderitem.title}}</a></li>
+                  {% endif %}
+                  {% endif %}
+                  {% endfor %}
+              </ul>
+          </li>
+          {% endif %}
+          {% endfor %}
+          {% endif %}
+          {% endfor %}
+      </ul>
+   </li>
+     {% endif %}
+      {% endfor %}
+      {% endfor %}
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
 
-<div class="sidebar-item sidebar-footer">
-	<p>Powered by <a href="https://github.com/jekyll/jekyll">Jekyll</a></p>
-</div>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
