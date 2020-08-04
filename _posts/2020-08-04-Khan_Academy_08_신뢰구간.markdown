@@ -35,7 +35,7 @@ SE = root( p(1-p) / n)
 모집단의 표준 편차 : root( p/(1-p)  / n) 
 ```
 
-<img src="./pic/표본공간_신뢰도.PNG" width="500px" height="300px"></img> <br>
+<img src="/img/book/Khan_Academy_확률과통계표본공간_신뢰도.PNG" width="500px" height="300px"></img> <br>
 
 
 
