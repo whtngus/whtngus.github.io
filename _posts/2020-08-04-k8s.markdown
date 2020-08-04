@@ -1,0 +1,376 @@
+---
+layout: post
+title: "k8s"
+date: 2020-08-04 19:20:23 +0900
+category: k8s and k9s
+---
+
+# Kubernets
+
+## 조사
+
+### 0. 자주 명령어 모음
+
+```
+- 모든 pod상태 확인 및 확인
+kubectl get pods --all-namespaces
+kubectl get nodes
+kubectl get pods -o wide | grep <nodename>
+- pod제거 
+kubectl delete node <nodename>
+kubectl delete pod <podname>
+- pod 조회
+kubectl get pods -n kube-system --selector=k8s-app=cilium
+kubectl get pods -o wide --all-namespaces 
+kubectl get pod --all-namespaces | grep -v Running
+- pod 상세정보 확인
+kubectl describe pod "pod 이름" -n kube-system
+kubectl logs "pod 이름"  -n kube-system
+- 모든 event 정보 확인
+kubectl get events -n kube-system
+- k8s에 join되어있는 node을의 상태정보 확인
+kubectl describe node master
+- kubelet 재실행
+systemctl restart kubelet
+- deployment 체크
+kubectl get daemonsets -n kube-system
+- 스토리지클래스 조회
+kubectl get storageclass 
+    - minikube
+- 기본
+minikube stop
+minikube start --cpus 4 --memory 8096 --disk-size=40g 
+minikube delete
+- minikube 접속하기
+minikube ssh
+minikube dashboard
+- 클러스터 상태 확인
+kubectl get cs
+```
+
+### 1. Kubernets network <br>
+
+```
+1. 서로 결합된 컨테이너와 컨테이너 간 통신
+    - 도커로 생성된 컨테이너 구조의 경우
+기본적으로 같은 노드(host) 내의 컨테이너 끼리 통신은 "docker0" 가상 네트워크 인터페이스 (172.17.0.0/24)를 통해 가능
+각 컨테이너는 "veth"라느 가상 네트워크 인터페이스를 고유하게 가지며 각각의 "veth" ip 주소 값으로 통신할 수 있다.
+    - Kubernetes Pod 내의 컨테이너 끼리의 통신
+여러개의 컨테이너가 하나의 "veth" 가상 네트워크 인터페이스에 할당된다.
+**veth0 안에서 각 컨테이너는 고유한 port 번호로 서로를 구분한다.**
+
+2. Pod와 Pod 간의 통신
+k8s는 kubenet이라는 간단한 네트워크 플러그인을 제공해주지만, 크로스 노드 네트워킹이나 네트워크 정책 설정 기능은 구현되어있지 안핟.
+-> pod 네트워킹 인터페이스로 "CNI 스펙"을 준수하는 다양한 네트워크 플러그인을 사용하는것을 권장.(kubeadm은 기본적으로 CNI 기반 네트워크 플러그인만 사용 가능)
+kubeadm : k8s에서 제공해주는 클러스터 빌드 전용 커맨드라인 인터페이스
+
+Pod는 고유한 IP주소를 가진다.(가상 네트워크 인터페이스 "veth"를 가짐)
+ -> 각 Pod는 kubenet 혹은 CNI로 구성된 네트워크 인터페이스를 통하여 고유한 ip주소로 통신 가능
+
+3. Pod와 Service간의 통신
+Pod는 기본적으로 쉽게 대체될 수 있는 존재이기 때문에 Pod to Pod Network만으로는 Kubernetes 시스템을 내구성있게 구축할 수 없다.
+
+Pod는 계속해서 생성 소멸하기때문에 IP주소가 엔드포인트와 동일하다고 보장할 수 없다 -> 서비스 앞단에 everse-proxy(혹은 Load Balancer)를 위치시키는 방법이 있다.
+    - proxy 요구사항
+proxy 서버 스스로 내구성이 있어야 하며 장애에 대응할 수 있어야 한다.
+트래픽을 전달할 서버 리스트를 가지고 있어야 한다.
+서버 리스트 내 서버들이 정상적인지 확인할 수 있는 방법을 알아야 한다.
+
+=> k8s는 "service" 리소스 타입을 만들어서 이를 해결함
+    - service 특징
+Pod로 액세스 할 수 있는 정책을 정의하는 추상화된 개념이다.+
+kubernetes 리소스 타입 중 하나로 각 Pod로 트래픽을 포워딩 해주는 프록시 역할을 한다.
+service 네트워크 또한 가상 IP주소
+"selector" 라는 것을 이용하여 트래픽을 전달받을 Pod들을 결정
+Pod 네트워크는 가상 이더넷 네트워크 인터페이스(veth)가 세팅되서 ifconfig로 조회 가능하지만, service 네트워크는 조회할 수 없다.
+
+
+3. 외부와 Service 간의 통신
+Service 에서 외부 통신을 가능하게 해주는 Service의 타입 -> NodePort, Load Balancer
+    - NodePort
+ClusterIP 타입(default)과 동일하지만 몇가지 기능들을 더 가지고 있다.
+노드 네트워크의 IP를 통하여 접근 할 수 있을 뿐만 아니라 ClusterIP로도 접근이 가능하다.
+ -> k8s가 NodePort 타입의 서비스를 생성하면 kube-proxy가 각 노드의 eth0 네트워크 interface에 30000–32767 포트 사이의 임의의 포트를 할당한다. 
+    - Load Balancer
+외부 클라우드 서비스를 사용하여 로드밸런서를 프로비저닝 할 수 있는 경우에 사용할 수 있는 Service 타입이다.
+로드밸런서의 실제 생성은 비동기적으로 수행되며 프로비저닝 될 로드 밸런서에 대한 정보는 Service의 .status.loadBalancer필드에 작성된다.
+    - Ingress
+Ingress란 리버스 프록시를 통해 클러스터 내부 Service로 어떻게 패킷을 포워딩 시킬 것인지 명시한 쿠버네티스 리소스이다.
+Ingress는 Ingress Controller와 짝지어진다.
+Ingress Controller는 다양하게 있으며, 대중적으로 많이 사용하는 Ingress Controller는 nginx-ingress 이다.
+eks ingress는 ingress 리소스를 읽어서 그에 맞는 리버스 프록시를 구성하기 위해 Application Load Balancer 및 필수 지원 AWS 리소스가 만들어지도록 트리거하는 컨트롤러
+```
+
+### 2. 에드온(Addons)
+
+```
+애드온은 클러스터 내부에서 필요한 기능들을 위해 실행되는 포드들
+애드온에 사용되는 포드들은 디플로이먼트, 리플리케이션컨트롤러등에 의해 관리됩니다. 
+애드온이 사용하는 네임스페이스는 kube-system입니다. 애드온에는 몇가지 종류들이 있습니다.
+
+    - 네트워킹 애드온
+k8s는 클러스터 내부에 가상네트워크를 구성해서 사용하는데, 이때 kuby-proxy이외에 네트워킹 관련한 애드온을 사용한다.
+ACI, Calico, Canal, Cilium, CNI-Genie, Contiv, Falannel, Multus, NSX-T, Nuage, Romana, Weave Net등이 있고, OCI의 CNI(Container Network, Interface) 를 구현하고 있다면 다른 애드온들도 사용할 수 있다.
+
+    - Cilium 
+Docker 및 Kubernetes와 같은 Linux 컨테이너 관리 플랫폼을 사용하여 배포된 응용 프로그램 서비스 간의 네트워크 연결을 보호하는 오픈 소스 소프트웨어
+
+    - DNS 애드온
+DNS 애드온의 경우 실제로 클러스터 내에서 작동하는 DNS 서버
+dns 서비스로는 kube-dns와 core-dns가 있습니다.
+    - 대시보드 애드온
+kubectl이라는 CLI(Command Line Interface)를 많이 사용합니다. 
+ -> 웹 UI가 필요한 경우가 있을수도 있는데, 이런경우에 사용할수 있는 대시보드가 있습니다.
+```
+
+### 3. k8s 삭제 방법 <br>
+
+```
+Kubernetes 삭제하는 방법
+kubeadm reset
+systemctl stop kubelet
+systemctl stop docker
+rm -rf /var/lib/cni/
+rm -rf /var/lib/kubelet/*
+rm -rf /run/flannel
+rm -rf /etc/cni/
+rm -rf /etc/kubernetes
+rm -rf /var/lib/etcd/
+
+ip link delete cni0
+ip link delete flannel.1
+yum remove -y kubelet
+yum remove -y kubectl
+yum remove -y kubeadm
+systemctl start docker
+```
+### 4. 파드
+
+```
+    - 파드란?
+쿠버네티스 객체 모델 중 가장 작은 배포 가능한 객체
+    - 파드 이해하기
+파드 는 쿠버네티스 애플리케이션의 기본 실행 단위
+파드는 클러스터(Cluster) 에서의 Running 프로세스를 나타낸다.
+파드는 배포의 단위
+- 단일 컨테이너만 동작하는 파드
+한 개의 파드가 단일 컨테이너를 감싸고 있다고 생각할 수 있으며, 쿠버네티스는 컨테이너가 아닌 파드를 직접 관리한다고 볼 수 있다.
+-> 흔한 케이스
+- 함께 동작하는 작업이 필요한 다중 컨테이너가 동작하는 파드
+파드는 강하게 결합되어 있고 리소스 공유가 필요한 다중으로 함께 배치된 컨테이너로 구성되어 있을 것이다. 
+이렇게 함께 배치되어 설치된 컨테이너는 단일 결합 서비스 단위일 것이다.
+한 컨테이너는 공유 볼륨에서 퍼블릭으로 파일들을 옮기고, 동시에 분리되어 있는 “사이드카” 컨테이너는 그 파일들을 업데이트 하거나 복구한다
+```
+
+- 파드의 단계 (phase) <br>
+
+<img src="/img/k8s_kubeflow/pod_0.JPG" width="200px" height="150px"></img>  <br>
+
+```
+파드는 하나의 PodStatus를 가지며, 그것은 파드가 통과했거나 통과하지 못한 조건에 대한 PodConditions 배열을 가진다.
+- pod의 여섯가지 필드 상태
+lastProbeTime : 파드의 조건이 마지막으로 조사된 시점의 타임스탬프를 제공한다.
+lastTransitionTime : 파드가 마지막으로 한 상태에서 다른 상태로 전환된 시점의 타임스탬프를 제공한다.
+message : 전환에 대한 세부 정보를 표시한, 사람이 읽을 수 있는 메시지이다.
+reason : 마지막으로 발생한 전환의 이유다. 이유는 유일하게, 한 단어로, 카멜 표기법(CamelCase)으로 표기된다.
+status : True”, “False”, 그리고 “Unknown“으로 지정될 수 있는 문자열이다.
+type : 다음과 같은 가능한 값들의 문자열이다.
+    PodScheduled: 파드가 하나의 노드로 스케줄 완료되었음.
+    Ready: 파드는 요청들을 수행할 수 있으며 모든 매칭 서비스들의 로드밸런싱 풀에 추가되어야 함.
+    Initialized: 모든 초기화 컨테이너가 성공적으로 시작 완료되었음.
+    ContainersReady: 파드 내의 모든 컨테이너가 준비 상태임.
+```
+
+
+### 5. 레플리카셋의 작동 방식
+
+```
+- 리플리카셋 이란? 
+레플리카셋의 목적은 레플리카 파드 집합의 실행을 항상 안정적으로 유지하는 것이다. 
+이처럼 레플리카셋은 보통 명시된 동일 파드 개수에 대한 가용성을 보증하는데 사용한다.
+- 레플리카셋을 정의하는 필드
+흭득 가능한 파드를 식별하는 방법이 명시된 셀렉터
+유지해야 하는 파드 개수를 명시하는 레플리카의 수
+레플리카 수 유지를 위해 생성하는 신규 파드에 대한 데이터를 명시하는 피드 템플릿
+...
+- 사용하는 시기
+레플리카셋은 지정된 수의 파드 레플리카가 항상 실행되도록 보장한다.
+디플로이먼트는 레플리카셋을 관리하고 다른 유용한 기능과 함께 파드에 대한 선언적 업데이트를 제공하는 상위 개념
+-> 레프리카셋을 직접적으로 사용하기 보다는 디플로이먼트를 사용하는것을 권장
+
+```
+
+### 6. 스토리지 클래스
+
+```
+스토리지클래스는 관리자가 제공하는 스토리지의 “classes"를 설명할 수 있는 방법을 제공
+다른 클래스는 서비스의 품질 수준 또는 백업 정책, 클러스터 관리자가 정한 임의의 정책에 매핑될 수 있다.
+쿠버네티스 자체는 클래스가 무엇을 나타내는지에 대해 상관하지 않는다. 다른 스토리지 시스템에서는 이 개념을 “프로파일"이라고도 한다.
+    - 프로비저너
+각 스토리지클래스에는 PV 프로비저닝에 사용되는 볼륨 플러그인을 결정하는 프로비저너가 있다. 
+내부” 프로비저너를 지정할 수 있다(이 이름은 “kubernetes.io” 가 접두사로 시작하고, 쿠버네티스와 함께 제공된다).
+    - 리클레임 정책
+스토리지클래스에 의해 동적으로 생성된 퍼시스턴트볼륨은 클래스의 reclaimPolicy 필드에 지정된 리클레임 정책을 가지는데, 
+이는 Dele스토리지클래스 오브젝트가 생성될 때 reclaimPolicy 가 지정되지 않으면 기본값은 Delete 이다.
+수동으로 생성되고 스토리지클래스를 통해 관리되는 퍼시스턴트볼륨에는 생성 시 할당된 리클레임 정책이 있다.
+     -볼륨 확장 허용
+퍼시스턴트볼륨은 확장이 가능하도록 구성할 수 있다. 이 기능을 true 로 설정하면 해당 PVC 오브젝트를 편집하여 볼륨 크기를 조정할 수 있다.
+다음 볼륨 유형은 기본 스토리지클래스에서 allowVolumeExpansion 필드가 true로 설정된 경우 볼륨 확장을 지원한다.
+
+자세한 내용 :https://kubernetes.io/ko/docs/concepts/storage/storage-classes/
+```
+
+### 6.1 볼륨 상세
+
+```
+쿠버네티스의 볼륨은 다양 타입을 지원
+NFS, iSCI(스토리지 형태), Chphfs, StoragesOS, Glusterfs 와 Azure, S3, 구글 스토리지를 지원한다.
++ 디스크(hostPaht, emptyDir)도 사용 가능.
+
+    - 볼륨은 크게 PV(PersistentVolume)와 PVC(PersistentVolumeClaim)로 나뉜다.
+PV는 볼륨 자체를 의미, 직접적으로 컨테이너와 연결되지 않는다.
+PVC는 사용자가 요청하는 볼륨 
+
+바인딩 : PVC조건에 맞는 PV가 존재하면 PVC는 조건에 맞게 특정 PV에 그 영역으로 연결
+-> 파드는 그 PVC를 볼륨으로 인식하여 사용 
+
+    - PV를 만드는것(Provisioning)은 정적방법과 동적방법이 있다.
+정적(static)방법은 PV를 먼저 만들어 놓는 방법 동적(dynamic)은 요청이 올 때 자동으로 만드는것.
+
+```
+
+### 7. 기본 개념 정리 
+
+```
+     - 기본 용어 
+노드 : 컨테이너가 배치되는 서버
+네임스페이스 : 쿠버네티스 클러스터 안의 가상 클러스터
+파드 : 컨테이너의 집합 중 가장 작은 단위 
+레플리카세트 : 같은 스펙을 갖는 파드를 여러 개 생성하고 관리 
+디플로이먼트 : 레플리카 세트의 리비전을 관리
+서비스 : 파드의 집합에 접근하기 우한 경로를 정의
+인그레서 : 서비스 쿠버네티스 클러스터 외부로 노출
+컨피그맵 : 설정 정보를 정의하고 파드에 전달
+퍼시스턴트볼륨 : 파드가 사용할 스토리지의 크기 및 종류
+퍼시스턴트볼륨클레임 : 퍼시스턴트 볼륨을 동적으로 확보
+스토리지클래스 : 퍼시스턴트 볼륨이 확보하는 스토리지의 종류를 정의
+스테이트풀세트 : 같은 스펙으로 모두 동일한 파드를 여러 개생성하고 관리
+잡 : 상주 실행을 목적으로 하지 않는 파드를 여러 개 생성하고 정상적인 종료를 보장
+크론잡 : 크론 문법으로 스케줄링되는 잡 .
+시크릿 : 인증 정보 같은 기밀 데이터를 정의
+롤 : 네임스페이스 안에서 조작 가능한 쿠버네티스 리소스의 규칙을 정의
+롤바인딩 : 쿠버네티스 리소스 사용자와 롤을 연결
+클러스터롤 : 클러스터 전체적으로 조작 가능한 쿠버네티스 리소스의 규칙을 정의
+클러스터롤바인딩 : 쿠버네티스 리소스 사용자와 클러스터롤을 연결
+서비스 계정 : 파드가 쿠버네티스 리소스를 조작할 때 사용하는 계정
+helm : 쿠버네티스 차트를 관리하기 위한 도구 
+차트 : 사전 구성된 쿠버네티스 리소스의 패키지
+```
+
+### - 이슈사항 정리 <br>
+
+##### 1. CrashLoopBackOff
+
+```
+    1. 네트워크 DNS 문제로 ContainerCreating에 멈춘 경우 <br>     
+실행 명령어 : kubectl get pods -n kube-system --selector=k8s-app=cilium
+
+CrashLoopBackOff 에러 발생
+- 의미 
+crashing 충돌로 인해 start를 반복중 
+CrashLoopBackOff는 컨테이너가 다시 시작 후 반복적으로 비정상 종료됨을 나타냅니다. 
+컨테이너는 다양한 원인으로 인해 비정상 종료될 수 있습니다. 
+Pod의 로그를 확인하면 근본 원인을 해결할 수 있습니다.
+기본적으로 비정상 종료된 컨테이너는 5분으로 제한된 지수 지연으로 다시 시작됩니다.
+
+원인찾기 이벤트 로그 명렁어
+kubectl describe pod  "pod name"
+-> 안나오는 경우 아래 세가지 명령어로 명령어로 검색
+kubectl get pods -n kube-system --selector=k8s-app=cilium
+kubectl get pods -o wide --all-namespaces 
+# kubectl describe pod  -A >> log.txt  #  검색 안나와서 -A로 전체 출력해서봄  
+05-cilium.conf 설정파일 위치
+/etc/cni/net.d/05-cilium.conf
+
+에러 문구 
+Events:
+  Type     Reason                  Age                   From                 Message
+  ----     ------                  ----                  ----                 -------
+  Warning  FailedScheduling        60m (x89 over 3h10m)  default-scheduler    0/1 nodes are available: 1 node(s) had taints that the pod didn't tolerate.
+  Normal   Scheduled               54m                   default-scheduler    Successfully assigned kube-system/coredns-5d4dd4b4db-gdz8x to ~~~
+  Warning  FailedCreatePodSandBox  53m                   kubelet, ~~  Failed create pod sandbox: rpc error: code = Unknown desc = failed to set up sandbox container "fb94e3727233dd3d5f1c968da061971e2ee07239dfbea54f9d4a8b82bcc8ba69" network for pod "coredns-5d4dd4b4db-gdz8x": NetworkPlugin cni failed to set up pod "coredns-5d4dd4b4db-gdz8x_kube-system" network: unable to connect to Cilium daemon: failed to create cilium agent client after 30.000000 seconds timeout: Get http:///var/run/cilium/cilium.sock/v1/config: dial unix /var/run/cilium/cilium.sock: connect: no such file or directory
+Is the agent running?
+
+예상 원인 cni 가 꼬임 ..
+https://stackoverflow.com/questions/60007464/nginx-kubernetes-pod-stays-in-containercreating
+
+1. 해결방법 Cluster 다시 구성하기 
+# kubeadm reset
+# systemctl stop kubelet
+# systemctl stop docker
+# rm -rf /var/lib/cni/
+# rm -rf /var/lib/kubelet/*
+# rm -rf /etc/cni/
+# ifconfig cni0 down
+# ifconfig flannel.1 down
+# ifconfig docker0 down
+# ip link delete cni0
+# ip link delete flannel.1
+
+도커 및 데몬 재실행 
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+클러스터 재실행
+kubectl drain <node_name> --delete-local-data --force --ignore-daemonsets
+kubectl delete node <node_name>
+kubeadm reset
+확인 
+kubectl get pods --all-namespaces
+
+2. 원인 파악하기
+```
+
+##### 2. error: no configuration has been provided, try setting KUBERNETES_MASTER environment variable
+
+```
+실행 명령어
+kubectl get pod --all-namespaces
+에러 내용
+error: no configuration has been provided, try setting KUBERNETES_MASTER environment variable
+
+해결 방법
+/etc/profile의 끝에 아래내용 추가 -> config 위치는 본인 설정에 맞게
+export KUBECONFIG=/etc/kubernetes/admin.conf
+스크립트 실행 -> 환경 변수 업데이트
+source /etc/profile
+```
+
+##### 3. The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+
+```
+$kubectl -n kubeflow get pod
+The connection to the server 192.168.99.100:8443 was refused - did you specify the right host or port?
+    - 해결방법
+- 상태 확인 
+minikube status 
+minikube logs
+- 다시실행
+minikube delete && minikube start 
+```
+
+
+
+## 참조 
+- Kubernets network <br>
+https://medium.com/finda-tech/kubernetes-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%A6%AC-fccd4fd0ae6 <br>
+- 에드온(Addons) <br>
+https://arisu1000.tistory.com/27828 [아리수] <br>
+https://ddii.dev/kubernetes/cilium-1/ <br>
+- k8s 삭제 방법 <br>
+https://crystalcube.co.kr/202 [유리상자 속 이야기] <br>
+- 이슈처리 <br>
+CrashLoopBackOff <br>
+https://cloud.google.com/kubernetes-engine/docs/troubleshooting?hl=ko <br>
+https://waspro.tistory.com/563 <br>
+- documents <br>
+https://kubernetes.io/ko/docs/concepts/workloads/controllers/replicaset/ <br>
