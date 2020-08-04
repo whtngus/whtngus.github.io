@@ -30,7 +30,7 @@ Tacotron v2 논문에서 사람이 직접 내는 음성과 비슷한 퀄리티�
 간단하게 <text, audio> 페어를 이용하여 End-to-End로 학습이 가능함<br>
 
 
-<img src="/img/paper/tacotron/tactron2_architecture.JPG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/tactron2_architecture.JPG" width="500px" height="400px"> <br>
 
 ```
 위 사진(tacotron 2 system architecture)을 보면 
@@ -46,7 +46,7 @@ End to End 이기때문에 방대한 Domain 전문 지식이 비교적 덜 필�
 <br><br>
 # tactron 설명 <br><br>
 
-<img src="/img/paper/tacotron/그림_1.PNG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/그림_1.PNG" width="500px" height="400px"> <br>
 
 ```
 기본적인 구조는 Encoder-Decoder 구조와 Attention Mechanism을 적용한 구조이다.
@@ -56,7 +56,7 @@ Atention RNN 은 GRU Cell을 사용
 <br><br>
 ### Encoder 설명 <br><br>
 
-<img src="/img/paper/tacotron/그림_2.PNG" width="500px" height="400px"></img> <br>
+<img src="/img/paper/tacotron/그림_2.PNG" width="500px" height="400px"> <br>
 
 ```
 인코더 부분과 CBHG (1-D convolution bank + highway network + bidirectional GRU) 설명 
@@ -86,7 +86,7 @@ Conv1D bank: K=8, conv-k-128-ReLU Max pooling: stride=1, width=2 Conv1D projecti
 (각각의 1D Convolution 이후에 Batch Normalization을 수행)
 ```
 
-<img src="/img/paper/tacotron/highway.JPG" width="600px" height="300px"></img> <br>
+<img src="/img/paper/tacotron/highway.JPG" width="600px" height="300px"><br>
 
 ```
     - highway network
