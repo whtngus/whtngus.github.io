@@ -13,7 +13,7 @@ category: Khan_Academy_Probability_and_Statistics
 2. 제시한 보다 크거나 같은 값들의 백분율을 구하는 방법 (대상 데이터 포함)
 ```
 
-<img src="/img/book/Khan_Academy_확률과통계/분위01.PNG" width="500px" height="400px"></img> <br>
+<img src="/img/book/Khan_Academy_확률과통계/백분위01.PNG" width="500px" height="400px"> <br>
 
 ```
 위 예 에서 6의 백분위를 구하는 방법
@@ -75,7 +75,6 @@ z-score를 구한 후에 정규 분포표를 이용하여 값을 찾는다.
 
 - 정규 분포 공식
 
-<img src="/img/book/Khan_Academy_확률과통계/정규분포_공식.PNG" width="500px" height="400px"></img> <br>
-
+<img src="/img/book/Khan_Academy_확률과통계/정규분포_공식.PNG" width="500px" height="400px"></img> 
 
 
