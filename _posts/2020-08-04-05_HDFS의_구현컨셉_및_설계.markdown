@@ -1,0 +1,100 @@
+---
+layout: post
+title: "05_HDFS의_구현컨셉_및_설계"
+date: 2020-08-04 19:20:23 +0900
+category: 빅데이터_컴퓨팅_강의
+---
+
+# 5.HDFS의_구현컨셉_및_설계
+
+> HDFS는 file 저장 방식
+
+```
+    - File은 block 단위로 분할
+각 block은 기본적으로 64MB 또는 128MB 크기로 나눠서 저장됨
+
+데이터 file들은 block으로 분할되고, 데이터 노드에 분산되어 저장
+
+각 block은 여러 node에 복제 되어 저장(default 3x)
+-> 구글에서 돈이부족하여 저렴한 PC를 이용하다보니 고장이 잘나서 이걸 방지하기 위해 데이터를 3군대 나누어 저장
+(put 커맨드 사용시)
+
+하나의 Master Node(Name Node라고 도 불림)가 파일을 block을 3개로 나누워 저장하고 
+어디에 저장되있는지(meta data)를 기록
+
+사용자는 hadoop fs -ls put 이 명령어로 사용 가능 
+
+NameNode의 metadata를 사용하지 않으면, HDFS에 접근할 수가 없음(어디있는지 모르기 때문에)
+```
+
+> HDFS 접근 방법
+
+```
+- Shell 커맨드 라인을 사용 :hadoop fs
+- Java API
+- Ecosystem 컴포넌트
+```
+
+> Storing and Retrieving Files
+
+```
+두 개의 테이블이 존재
+파일이 어떤 블록으로 존재하는지 (Block id)
+블록이 어느 서버들에 저장되어 있는지
+```
+
+> HDFS NameNode Availability
+
+```
+- NameNode daemon은 반드시 항상 실행되고 있어야 함
+NameNode가 중단되면, 클러스터는 접근이 불가능
+- High Availability mode (in CDH4 and later)
+2개의 NameNode : Active 와 Standby
+- Classic mode
+1개의 NameNode
+또 다른 Helper node 는 SecondaryNameNode
+
+```
+
+<img src="/img/빅데이터_컴퓨팅_강의/hadoop_server01.PNG" width="350px" height="300px"></img> <br>
+
+```
+Job Tracker - Job 수행을 관리 
+각각의 slave를 task tracker라고 한다.
+
+주황색 : master  안에있는 영역
+파란색 : slave 안에 있는 영역
+```
+
+> Haddop의 구성 요소
+
+```
+- Client
+Name Node를 통해 정보를 받고 이후 직접적으로 Data Node와 통신을 한다.
+- Maser Node
+물리적으로 Master Node의 역할(Job Tracker, Name Node)을 하는 노드
+slave node에 대한 정보와  Tasks에 대한 관리를 담당
+- Slave node
+물리적으로 Slave Node 역할(Data Node, Task Node)을 하는 노드
+실제로 데이터를 분산되어 가지고 있으면 Client 에서 요청이 오면 데이터를 전달하는 역할 및 담당 Task를 수행하는 역할
+```
+
+> 맵리듀스(MapReduce)란?
+
+```
+- 맵리듀스는 여러 노드에 태스크를 분배하는 방법
+- 각 노드 프로세스 데이터는 해당 노에 저장
+- 두 단개로 구성
+맵(Map)
+리듀스(Reduce)
+```
+
+
+
+
+
+
+
+
+
+
