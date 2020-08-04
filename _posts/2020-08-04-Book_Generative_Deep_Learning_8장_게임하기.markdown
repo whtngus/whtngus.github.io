@@ -72,7 +72,7 @@ ex) 선수가 기물을 다음 위치로 옮기는 것과 같은 게임의 정�
 이산적인(discrete) 이벤트 환경을 위해 모든 상태, 행동, 보상의 값은 타임스텝 t의 첨자로 표시
 ```
 
-<img src="./pic/용어관계.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/용어관계.PNG" width="350px" height="300px"></img> <br>
 
 ### 8.1.1 오픈 AI Gym
 
@@ -135,7 +135,7 @@ python3 car_racing --total_episodes 125 --time_steps 300 --render 0 --action_ref
 
 > 실행 화면
 
-<img src="./pic/데이터수집_실행화면.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/데이터수집_실행화면.PNG" width="350px" height="300px"></img> <br>
 
 ### 8.5 VAE 훈련 및 구조
 
@@ -175,13 +175,13 @@ encoder 모델과 달리 이 모델을 여러 번 호출하면 동일한 출력�
 z벡터를 입력으로 받아 64*64*3크기의 재구성된 관측을 반환
 ```
 
-<img src="./pic/모델전체구조01.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/모델전체구조01.PNG" width="350px" height="300px"></img> <br>
 
 ### 8.6 RNN 훈련 데이터 수집 후 MDN-RNN
 
 > MDN_RNN 구조
 
-<img src="./pic/MDN-RNN구조.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/MDN-RNN구조.PNG" width="350px" height="300px"></img> <br>
 
 > MDN_RNN 설명
 
@@ -235,7 +235,7 @@ CMA-ES라는 진화 알고리즘을 통한 컨트롤러를 훈련
 
 > CMA_ES 병렬화
 
-<img src="./pic/ES-CMA_병렬화.PNG" width="350px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/ES-CMA_병렬화.PNG" width="350px" height="300px"></img> <br>
 
 ```
 CMA-ES의 장점 중 하나는 데이비드 하가 만든 es.py로 쉽게 병렬화 가능

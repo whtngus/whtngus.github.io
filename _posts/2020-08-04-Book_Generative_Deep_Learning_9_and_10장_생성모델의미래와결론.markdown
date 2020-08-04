@@ -10,7 +10,7 @@ category: Book_Generative_Deep_Learning
 
 > 생성 모델의 역사 <br>
 
-<img src="./pic/생성모델_역사.PNG" width="300px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/생성모델_역사.PNG" width="300px" height="300px"></img> <br>
 
 ```
 ** 위 책의 사진은 대략적인 것이며 많은 생략된 모델이 있음
@@ -35,7 +35,7 @@ category: Book_Generative_Deep_Learning
 
 - 수식 <br>
 
-<img src="./pic/position_encoding.PNG" width="300px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/position_encoding.PNG" width="300px" height="300px"></img> <br>
 
 ```
 i가 작으면 삼각 함수의 파장이 짧아지므로 함숫값은 위치 축을 따라 빠르게 변한다.
@@ -93,7 +93,7 @@ BigGan은 DeepMind에서 개발한 모델로 SAGAN논문의 아이더를 확장�
 
 shared_embedding<br>
 
-<img src="./pic/shared_embedding.PNG" width="300px" height="300px"></img> <br>
+<img src="/img/book/Generative_Deep_Learning_미술관에_GAN_딥러닝_실전_프로젝트/shared_embedding.PNG" width="300px" height="300px"></img> <br>
 
 > 4. StyleGAN
 
