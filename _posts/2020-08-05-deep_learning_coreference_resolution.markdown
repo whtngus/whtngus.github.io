@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "coreference_resolution"
-date: 2020-08-05 19:20:23 +0900
+date: 2020-08-06 19:20:23 +0900
 category: deep_learning
 ---
 
@@ -123,6 +123,16 @@ span의 길이를 geometric distribution에 의해 선택되고, 랜덤하게 sp
 2020년 1월 15일 보고서 작성 
 
 데이터는 보이지않는걸로 봐서 아직은 미공개로 보임. 
+
+
+
+- ETRI
+
+엑소브레인 언어분석 말뭉치 
+
+http://aiopen.etri.re.kr/service_dataset.php 
+
+ 퀴즈 도메인(장학퀴즈와 위키백과QA)의 질문문서, 말뭉치
 
 
 
