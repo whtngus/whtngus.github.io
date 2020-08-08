@@ -134,6 +134,16 @@ http://aiopen.etri.re.kr/service_dataset.php
 
  퀴즈 도메인(장학퀴즈와 위키백과QA)의 질문문서, 말뭉치
 
+| 필드    | 설명                           |
+| ------- | ------------------------------ |
+| id      | 엔티티의 인덱스                |
+| type    | 개체명 레이블 정보             |
+| number  | 엔티티의 단 , 복수 정보        |
+| gender  | 엔티티의 성별 정보             |
+| person  | 엔티티의 인칭 정보             |
+| animacy | 엔티티의 생물/무생물 구분 정보 |
+| mention | 엔티티에 포함된 멘션들의 정보  |
+
 
 
 - **국전자통신연구원_한국어 언어분석 통합 말뭉치**
@@ -158,9 +168,19 @@ https://github.com/ontonotes/conll-formatted-ontonotes-5.0
 
 https://catalog.ldc.upenn.edu/LDC2001T02
 
+http://conll.cemantix.org/2011/data.html
 
 
 
+
+
+# 벤치마크 깃허브
+
+- RGCN-with-BERT
+
+https://github.com/ianycxu/RGCN-with-BERT
+
+- 
 
 
 
