@@ -62,6 +62,8 @@ griffin-lim : 스팩트로그램을 음성으로 만들어주는 알고리즘
 즉,  STFT는 데이터에서 시간에 대해 구간을 짧게 나누어 나누어진 여러 구간의 데이터를 각각 푸리에 변환하는 방법
 시계열을 일정한 시간 구간으로 나누고 각 구간에 대해 스펙트럼을 구한 데이터이다. 
 시간-주파수의 2차원 데이터로 나타난다.
+-> 직관적인 설명
+프리퀀시가 시간에따라서 변화가 되는 것을 알기위해 사용
 ```
 
 ###  필터 뱅크 (Filter Bank)
@@ -87,8 +89,31 @@ DCT는 n개의 데이터를 n개의 코사인 함수의 합으로 표현하여 �
 단위는 2진법을 기초로 하는 비트(bit)라는 단 위를 사용한다
 ```
 
+### 푸리에 변환 (Fourier transform)
 
+```
+임의의 입력 신호를 다양한 주파수를 갖는 주기 함수(복수 지수함수)들의 합으로 분해하여 표현하는것
+ex) 입력 신호의 주기와  신호(음성)의 주기에 따른 진폭
+-> 오일러 공식을 이용해서 사용 
+결과 : 주기적으로 나오느 시퀀스를 얻어 내는것 
+```
 
+### 음성인식 세대 분류 
+
+```
+    - 1 세대
+큰 서버를 이용하여 음소 음절을 인식하는 단계
+    - 2 세대
+DTW(Dynamic Time Warping)
+같은 단어를 패턴 매칭을 이용해서 단어를 매칭하는 방법
+-> 서로 같은 말을해도 말을 하는 길이가다름 이 길이를 정규화 하는 방법
+(일부 사용화 되기 시작)
+    - 3 세대
+HMM, Viterbi decoding 이 나오기 시작
+각 자모의 통계모델을 가지고 분석을 싲가
+    - 4 세대
+딥러닝 모델 분석의 시작
+```
 
 # 참고
 - tactron 관련 <br>
@@ -98,4 +123,7 @@ http://contents.kocw.net/KOCW/document/2015/pusan/kwonsoonbok/9.pdf <br>
 https://m.blog.naver.com/PostView.nhn?blogId=vmv-tech&logNo=220936084562&targetKeyword=&targetRecommendationCode=1 -> stfp <br>
 - 양자화 Quantization <br>
 http://www.kjorl.org/upload/pdf/0012004174.pdf <br>
-
+- 음성신호 유튜브 <br>
+https://www.youtube.com/watch?v=FjYNM3YGFB4 <br>
+- 음성인식 딥러닝
+https://www.youtube.com/watch?v=nzZkwMCH6V4&t=1s <br>
