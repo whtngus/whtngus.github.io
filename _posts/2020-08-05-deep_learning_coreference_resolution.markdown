@@ -29,7 +29,7 @@ Coreference  :  텍스트 안에서 Real world 에 존재하는 entity를 모두
 
 상호 참조 해결 : 명사구 간의 참조 관계를 명확히 밝혀 주는 과정
 
-대용어해결(anaphora resolution) :  문서 내에서 이전에 언급된 표현이나 의미를 받 아와 다시 사용하는 것
+대용어해결(anaphora resolution) :  문서 내에서 이전에 언급된 표현이나 의미를 받아와 다시 사용하는 것
 
 ​																 문맥상에서 전이 적인 특징만 가진다(즉, A -> B)
 
@@ -149,18 +149,13 @@ http://aiopen.etri.re.kr/service_dataset.php
 - **국전자통신연구원_한국어 언어분석 통합 말뭉치**
 
 최종 수정 : 2020-02-04
-
 url : https://www.data.go.kr/data/15042734/fileData.do
-
+전화로 물어본 결과 : 2021년 데이터 오픈 예정 
 
 
 - github ? 
-
 https://github.com/shingiyeon/KoreanCoreferenceResolution
-
 -> 확인해보기
-
-
 
 - 영어
 
