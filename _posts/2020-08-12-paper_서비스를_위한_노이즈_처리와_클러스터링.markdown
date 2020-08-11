@@ -7,4 +7,4 @@ category: paper
 
 [Intro.pdf](/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링.pdf).
 
-<iframe style="width:100%;height:100%;" src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스.pdf"> </iframe>
+<iframe style="width:100%;height:400%;" src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링.pdf"> </iframe>
