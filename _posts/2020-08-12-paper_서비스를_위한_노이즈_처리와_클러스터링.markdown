@@ -1,0 +1,142 @@
+---
+layout: post
+title: "회의분석 서비스를 위한 노이즈 처리와 클러스터링"
+date: 2020-08-12 19:20:23 +0900
+category: paper
+---
+
+회의분석서비스를 위한
+
+노이즈 처리와클러스터링
+
+* 논문개요
+* 단어임베딩\(Word Embedding\)
+    * <span style="color:#1F3263">\-</span>  <span style="color:#1F3263">tf\-idf</span>  <span style="color:#1F3263">를 이용한 회의 기반의 중요 키워드 추출</span>
+  * <span style="color:#000000">3\.</span>  <span style="color:#000000">잡담</span>  <span style="color:#000000">\(Noise\)</span>  <span style="color:#000000">처리</span>
+    * <span style="color:#1F3263">word2vec</span>  <span style="color:#1F3263">을 이용한 블록단위 노이즈 처리</span>
+  * <span style="color:#1F3263">4\.</span>  <span style="color:#1F3263">클러스터링</span>  <span style="color:#1F3263">\(Clustering\)</span>
+  * <span style="color:#1F3263">\- word2vec</span>  <span style="color:#1F3263">블록단위</span>  <span style="color:#1F3263">유사도를</span>  <span style="color:#1F3263">이용한</span>  <span style="color:#1F3263">클러스터링</span>
+  * <span style="color:#1F3263">5\.</span>  <span style="color:#1F3263">결론</span>
+
+<span style="color:#1F3263">회의 분석 서비스</span>
+
+<span style="color:#1F3263">사용 데이터</span>
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링0.jpg" width=500px />
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링1.png" width=500px />
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링2.png" width=500px />
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링3.png" width=500px />
+
+\<u who="P2">\<s n="00001">예\,\</s>
+
+\<s n="00002">그럼 마지막으로\,\</s>
+
+\<s n="00003">이익환\,\</s>
+
+\<s n="00004">원장님의\,\</s>
+
+\<s n="00005">말씀을 듣겠는데요?\</s>
+
+\<s n="00006">이익환원장님은\.\</s>
+
+\<s n="00007">이번 행사의\,\</s>
+
+그 제가 약간 이거안넣어도될거같은데
+
+제생각에는컬랙션을나누어서
+
+차라리디비를크게 만들면 퍼포먼스에는 지장이없을것같아요
+
+메모리 걱정도 안해도 되고
+
+그냥디비를크게만들면
+
+거기 지원되는 메모리가 작으니까\.\.
+
+녹음 파일 전사 예시–개인별 녹음
+
+02
+
+단어임베딩\(Word Embedding\)
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링4.png" width=500px />
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링5.png" width=101px />
+
+V=  Virtual document size
+
+Term <span style="color:#29AFDF">x</span> within document <span style="color:#29AFDF">y</span>
+
+Tern <span style="color:#29AFDF">x</span> within virtual document
+
+<span style="color:#1F3263">Word2vec</span>
+
+<span style="color:#1F3263">토큰화</span>  <span style="color:#1F3263">\(Tokenization\)</span>
+
+<span style="color:#1F3263">토큰</span>  <span style="color:#1F3263">유사도를</span>  <span style="color:#1F3263">이용한 잡담 처리</span>
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링6.png" width=377px />
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링7.png" width=296px />
+
+예시 문장:단어임베딩에대한 설명을 한다\.
+
+토큰화\(Tokenization\)
+
+웹 개발은 이렇게 하면 되겠네 텍스트 분석의 경우에는 유사 논문이 잘 안보\.\.
+
+특정 개수로 자른 후word2vec을 이용한벡터화
+
+웹\(0\.123\, …\)\,개발\(\-0\.12…\)\, …
+
+각벡터의 평균을 하나의 토큰으로 정의
+
+웹 개발은 이렇게 하면 되겠네 텍스트 분석의 경우에는 유사 논문이 잘 안보\.\.
+
+__Token size__ 전체 단어 토큰의 수\* 0\.1%  Ex\) 100
+
+__step size	Token size__ 의 절반Ex\)  50
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링8.png" width=500px />
+
+배가 고프네 회의 끝나고 곱창 아니면 피자 먹을까 여기 배달 가능한 곳인…
+
+04
+
+클러스터링\(Clustering\)
+
+<span style="color:#1F3263">\(1\)</span>  <span style="color:#1F3263">토큰</span>  <span style="color:#1F3263">유사도를</span>  <span style="color:#1F3263">이용한</span>  <span style="color:#1F3263">클러스트링</span>
+
+연속된 대화 데이터로 주제는 시간에 따라 변한다고 가정
+
+__Token size__ 전체 단어 토큰의 수\* <span style="color:#FF0000">5%</span> Ex\) 100
+
+__step size	Token size__ 의 절반Ex\)  50
+
+Token size크게 조절
+
+<img src="/img/paper/회의분석_서비스를_위한_노이즈_처리와_클러스터링/조수현-회의분석_서비스를_위한_노이즈_처리와_클러스터링9.png" width=500px />
+
+웹 개발은 이렇게 하면 되겠네 텍스트 분석의 경우에는 유사 논문이 잘 안보\.\.
+
+1\.서비스 이용
+
+회의 관리 서비스
+
+회의록 요약 및 문서화
+
+회의록 분석 서비스
+
+2\.확장성
+
+이전 회의와 연동하여 회의 주제 관리 시스템
+
+\->프로젝트 주제 분석
+
+프로젝트 진행상황 도표화 및 개발 문서로도 이용 가능
+
+집단\(회사\,정부\,팀 단위 등\)의 지식 관리 가능
+
