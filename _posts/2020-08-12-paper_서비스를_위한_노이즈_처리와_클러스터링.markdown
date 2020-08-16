@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "회의분석 서비스를 위한 노이즈 처리와 클러스터링"
+title: "paper : 회의분석 서비스를 위한 노이즈 처리와 클러스터링"
 date: 2020-08-12 19:20:23 +0900
 category: paper
 ---
