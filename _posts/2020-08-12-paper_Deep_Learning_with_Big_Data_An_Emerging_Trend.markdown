@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "paper : Deep Learning with Big Data An Emerging Trend.pdf"
+title: "paper : Deep Learning with Big Data An Emerging Trend"
 date: 2020-08-16 19:20:23 +0900
 category: paper
 ---
