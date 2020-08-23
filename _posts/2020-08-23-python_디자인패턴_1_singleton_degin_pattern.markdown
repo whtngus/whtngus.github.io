@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "python 디자인 패턴 1_singleton_degin_pattern"
-date: 2020-08-023 19:20:23 +0900
+date: 2020-08-23 19:20:23 +0900
 category: python
 ---
 # The Singleton Design Pattern
