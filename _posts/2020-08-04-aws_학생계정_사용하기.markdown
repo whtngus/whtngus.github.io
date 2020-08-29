@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "수업 정리"
-date: 2020-08-04 19:20:23 +0900
-category: skku_bigdata
+title: "AWS 학생계정 사용하기"
+date: 2020-08-24 19:20:23 +0900
+category: Bigdata_computing
 ---
 
 ============= 2 주차 ====================== <br>
@@ -39,7 +39,7 @@ Master - Slave(Woker) 구조로 데이터를 분산 처리 <br>
 한대가 장애가 나더라도 작업을 분산처리 하기 때문에 결함 허용 시스템이 적용되어 있음 <br>
 
 하둡1.0 <br>
-<img src="./pictures/hadoop1.0.PNG" width="350px" height="300px"></img> <br>
+<img src="./img/skku_bigdata/hadoop1.0.PNG" width="350px" height="300px"></img> <br>
 Processing Layer(MapReduce layer)과 Storage Layer(HDFS layer)를 나눠서 처리하도록 설계
 mater : jab tracker 와 name node가 main 업무
 slave : 데이터 처리하도록
@@ -50,7 +50,7 @@ Name node : Name Space를 관리하는 노드
 ---
 
 ## AWS 사용하기 
-<img src="./pictures/aws_student.PNG" width="350px" height="300px"> 학생 계정 AWS</img> <br>
+<img src="./img/skku_bigdata/aws_student.PNG" width="350px" height="300px"> 학생 계정 AWS</img> <br>
 > AWS student 계정으로 계정 생성하면 100$ 무료 사용 가능
 
 # 3주차
@@ -63,7 +63,7 @@ Name node : Name Space를 관리하는 노드
 > 데이터를 처리하는 프로그래밍 모델
 - 데이터 처리 방식 
 - word count 같은 집계하는 작업에 강함
-<img src="./pictures/MapReduce01.PNG" width="350px" height="300px"></img> <br>
+<img src="./img/skku_bigdata/MapReduce01.PNG" width="350px" height="300px"></img> <br>
 ```
 - 맵(Map) 단계
     분산된 데이터를 키(key)와 값(value)의 리스트로 만드는 단계
@@ -119,7 +119,7 @@ map을 분산하여 나눠준 후 모든 노드가 처리를 다 끝낸 경우 �
 
 ``` 
 
-<img src="./pictures/hadoop01.PNG" width="350px" height="300px"></img> <br>
+<img src="./img/skku_bigdata/hadoop01.PNG" width="350px" height="300px"></img> <br>
 ```
 map의 결과는 중복저장을 하지 않기 위해 로컬에 저장하고 
 reduce의 결과물은 중요하기 때문에 HDFS replication으로 전달 
@@ -129,7 +129,7 @@ c.
 rack이 죽은경우 job을 다른 node로 이동 
 ```
 
-<img src="./pictures/hadoop02.PNG" width="350px" height="300px"></img> <br>
+<img src="./img/skku_bigdata/hadoop02.PNG" width="350px" height="300px"></img> <br>
 ```
 1. 하나의 리듀스가 있는경우 
 큰 데이터 하나를 3개로 스플릿 (YARN이 스플릿 및 job할당을 관리)
@@ -139,7 +139,7 @@ rack이 죽은경우 job을 다른 node로 이동
 -> part0의 결과를 HDFS로 file write 
 결과물은 중요하기때문에 신뢰성을 가지기 위해서 
 ```
-<img src="./pictures/hadoop03.PNG" width="400px" height="400px"></img> <br>
+<img src="./img/skku_bigdata/hadoop03.PNG" width="400px" height="400px"></img> <br>
 ```
 2. 멀티플 리듀스 테스크의 경우 
 리듀스의 개수만큼 파티션이 생김 
@@ -147,7 +147,7 @@ rack이 죽은경우 job을 다른 node로 이동
 각각의 맵이 리듀스 개수만큼 나눠서 작업한 후 각각의 리듀스로 전달
 yarn -> 각 프로세스로 모든 노드에 저장되있어서 각 싱크가 자동으로 됨 
 ```
-<img src="./pictures/hadoop04.PNG" width="450px" height="400px"></img> <br>
+<img src="./img/skku_bigdata/hadoop04.PNG" width="450px" height="400px"></img> <br>
 ```
 3. 리듀스 테스크가 없는경우
 HDFS에게 write를 함 (리듀서가 없어서 최종 결과물이기 때문에 )
@@ -258,7 +258,7 @@ block을 저장하고 탐색함
 %hadoop fs -ls
 ```
 > HDFS의 Interfaces <br>
-<img src="./pictures/interface_01.PNG" width="350px" height="300px"></img> <br>
+<img src="./img/skku_bigdata/interface_01.PNG" width="350px" height="300px"></img> <br>
 
 > ZooKeeper
 ```
