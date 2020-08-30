@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tacotron"
-date: 2020-08-05 19:20:23 +0900
+date: 2020-08-30 19:20:23 +0900
 category: paper
 ---
 
@@ -157,8 +157,57 @@ a는 postnet 없이 바로 Linear Spectrogram을 생성한 경우  b는 중간 �
 ```
 
 <br><br>
+
+
+
+## 실제 실행
+
+default로 500 epoch 이지만 1070-TI GPU 기준으로 약 2주간 학습시켜 330 epoch 에서 일단 중지 
+
+
+
+##### tensorboard
+
+<img src="/img/paper/tacotron/my_result_01.png" alt="my_result_01" style="zoom:60%;" />
+
+<img src="/img/paper/tacotron/my_result_02.png" alt="my_result_02" style="zoom:67%;" />
+
+위 사진은 최종 스텝에서 찍은 그래프 아래 찍은 사진은 best로 보이는 스텝
+
+-> tensorboard에서는 안보이지만 172000step 까지 진행
+
+
+
+##### 실행 테스트 
+
+1. 영어로 한국말을 적은 경우 
+
+<audio src="/img/paper/tacotron/han_kuk_mal_test.mp3"></audio>
+
+실행 대본 : han kuk mal test
+
+2. 영어로 한국 한 경우 테스트
+
+<audio src="/img/paper/tacotron/welcome_to_ladies_and_gentlemen.mp3"></audio>
+
+실행 대본 : welcome to ladies and gentlemen
+
+3. 느낌표(!) 사용시 변화 테스트
+
+<audio src="/img/paper/tacotron/help_me_please.mp3"></audio>
+
+실행 대본 : help me please
+
+<audio src="/img/paper/tacotron/help_me_please!!!.mp3"></audio>
+
+실행 대본 : help me please!!!
+
+
+
 ### 시현 링크  <br><br>
 https://google.github.io/tacotron/publications/tacotron2/index.html <br>
+
+
 
 ## 정리 참고 
 - 설명 유튜브 <br>
