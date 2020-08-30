@@ -183,6 +183,7 @@ default로 500 epoch 이지만 1070-TI GPU 기준으로 약 2주간 학습시켜
 1. 영어로 한국말을 적은 경우 
 
 <audio src="/img/paper/tacotron/han_kuk_mal_test.mp3"></audio>
+![attached audio](/img/paper/tacotron/han_kuk_mal_test.mp3)
 
 실행 대본 : han kuk mal test
 
