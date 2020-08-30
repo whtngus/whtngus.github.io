@@ -182,27 +182,40 @@ default로 500 epoch 이지만 1070-TI GPU 기준으로 약 2주간 학습시켜
 
 1. 영어로 한국말을 적은 경우 
 
-<audio src="/img/paper/tacotron/han_kuk_mal_test.mp3"></audio>
-![audio](/img/paper/tacotron/han_kuk_mal_test.mp3)
 [audio](/img/paper/tacotron/han_kuk_mal_test.mp3)
 
 실행 대본 : han kuk mal test
 
 2. 영어로 한국 한 경우 테스트
 
-<audio src="/img/paper/tacotron/welcome_to_ladies_and_gentlemen.mp3"></audio>
+[audio](/img/paper/tacotron/welcome_to_ladies_and_gentlemen.mp3)
 
 실행 대본 : welcome to ladies and gentlemen
 
 3. 느낌표(!) 사용시 변화 테스트
 
-<audio src="/img/paper/tacotron/help_me_please.mp3"></audio>
+[audio](/img/paper/tacotron/help_me_please.mp3)
+
+[audio](https://github.com/whtngus/whtngus.github.io/tree/master/img/paper/tacotron/help_me_please.mp3)
 
 실행 대본 : help me please
 
-<audio src="/img/paper/tacotron/help_me_please!!!.mp3"></audio>
+[audio](/img/paper/tacotron/help_me_please!!!.mp3)
 
 실행 대본 : help me please!!!
+
+4. 긴 문장에 대한 테스트
+
+[audio](/img/paper/tacotron/long_sentence.mp3)
+
+- 실행 대본 
+
+The current fire house installed within the building used by South Korea’s agency for managing the industrial zone will move to the newly built three-story building, the official said. 
+
+- 긴 문장에 대한 attention 그래프 
+
+![long_sentence](/img/paper/tacotron/long_sentence.png)
+
 
 
 
