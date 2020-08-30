@@ -196,8 +196,6 @@ default로 500 epoch 이지만 1070-TI GPU 기준으로 약 2주간 학습시켜
 
 [audio](/img/paper/tacotron/help_me_please.mp3)
 
-[audio](https://github.com/whtngus/whtngus.github.io/tree/master/img/paper/tacotron/help_me_please.mp3)
-
 실행 대본 : help me please
 
 [audio](/img/paper/tacotron/help_me_please!!!.mp3)
