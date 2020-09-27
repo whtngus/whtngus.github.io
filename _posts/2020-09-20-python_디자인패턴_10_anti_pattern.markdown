@@ -1,4 +1,4 @@
----
+---  
 layout: post
 title: "python 디자인 패턴 10.  The Anti Pattern "
 date: 2020-09-21 19:20:23 +0900
