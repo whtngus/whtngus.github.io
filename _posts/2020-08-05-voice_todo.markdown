@@ -18,4 +18,4 @@ https://github.com/tugstugi/dl-colab-notebooks <br>
 
 - 읽어야할 논문  <br>
 https://arxiv.org/pdf/1904.03522.pdf <br>
-tacotron base음성 변환 논문 아이디어 겹침 및 확인 필요 <br>
+tacotron base음성 변환 논문 아이디어 겹침 및 확인 필요 <br> 
