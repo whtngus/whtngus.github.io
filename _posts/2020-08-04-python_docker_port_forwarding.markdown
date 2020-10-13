@@ -64,7 +64,7 @@ LANGUAGE="ko_KR:ko:en_GB:en"
 
 vi /etc/profile 마지막 줄 삽입
 LANG="ko_KR.UTF-8"
-
+  
 vi /etc/default/locale 
 LANG="ko_KR.UTF-8"
 LANGUAGE="ko_KR_UTF-8"
