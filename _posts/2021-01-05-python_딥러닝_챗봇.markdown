@@ -1,0 +1,69 @@
+---
+layout: post
+title: "딥러닝 챗봇 구축하기"
+date: 2021-01-05 19:20:23 +0900
+category: python_deeplearning_chatbot
+---
+
+# 책 - 처음 배우는 딥러닝 챗봇
+
+- 1 ~ 6 장은 기본 내용으로 생략
+
+- 코드정리 URL :  정리 후 변경 예정
+
+- 책 github URL : https://github.com/keiraydev/chatbot
+
+# 7장 DB
+
+- 우선 데이터베이스 설치 필요 
+
+```
+설명을 위해 id pw db 모두 chatbot으로 생성
+	- mariadb 설치
+설치 url : https://mariadb.org/
+	- DB 접속 후 계정 생성
+1. 계정 생성
+create user chatbot@localhost identified by 'chatbot';
+->          계정 명 chatbot                  암호 chatbot
+2. 계정 생성 확인
+use mysql
+select host, user, password from user;
+3. 외부접속 허용하기
+create user chatbot@'%' identified by 'chatbot';
+	- 스키마 및 DB 생성
+1. 스키마 생성
+create schema chatbot;
+use chatbot;
+2. 스키마에 권한 부여 (모든 권한 CIUD)
+// grant all privileges on '스키마명'.'테이블명' to '계정명'@'호스트' identified by '계정비밀번호' with grant option;
+grant all privileges on chatbot.* to chatbot@'%' identified by 'chatbot' with grant option;
+```
+
+
+
+- DB 테이블 생성 및 코드 실행순서
+
+```
+/train_tools/qna 패키지 에서
+create_train_data_table.py
+load_train_data.py
+순서로 실행
+```
+
+
+
+# 8장 챗봇 엔진
+
+
+
+
+
+# 참고
+
+- 책 
+
+딥러닝 챗봇
+
+- 블로그
+
+https://2dubbing.tistory.com/13  (mysql)
