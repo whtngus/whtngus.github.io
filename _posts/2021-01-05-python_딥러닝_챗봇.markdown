@@ -56,6 +56,40 @@ load_train_data.py
 
 
 
+- 쳇봇 엔진 구조
+
+```
+1. 질문 의도 분류
+화자의 질문 의도를 파악 -> 상황에 따라 딥러닝 분류 모델 혹은 선택받는 방식을 사용함
+2. 개체명 인식
+어떤 개체에 대한 질문인지를 파악하기 위해 
+3. 핵심 키워드 추출
+핵심이 될 의미를 파악하기 위해
+4. 답변 검색
+해당 질문의 의도, 게체명, 핵심 키워드 드응ㄹ 기반으로 답변을 DB에서 검색 또는 생성
+5. 소켓 서버
+서비스를 하기위한 서버 (카카오톡, 네이버톡 등)
+```
+
+- 코드실행 에러 변경
+
+```
+	Konlpy 실행 시 실행 에러 발생 
+- JAVA 및 환경설정 확인
+pip install JPype1-py3
+JAVA_HOME 및 path에 java 설정 유무 확인하기
+- 코드 변경 jvm.py
+    if jvmpath:
+        jpype.startJVM(jvmpath, '-Djava.class.path=%s' % classpath,
+                                '-Dfile.encoding=UTF8',
+                                '-ea', '-Xmx{}m'.format(max_heap_size))
+->startJVM 파라미터에  convertStrings=True 가 있는데 제거                                
+```
+
+
+
+
+
 
 
 # 참고
