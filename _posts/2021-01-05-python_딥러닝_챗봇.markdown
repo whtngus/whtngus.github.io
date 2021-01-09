@@ -4,7 +4,7 @@ title: "딥러닝 챗봇 구축하기"
 date: 2021-01-05 19:20:23 +0900
 category: python_deeplearning_chatbot
 ---
-
+ 
 # 책 - 처음 배우는 딥러닝 챗봇
 
 - 1 ~ 6 장은 기본 내용으로 생략
@@ -85,6 +85,10 @@ JAVA_HOME 및 path에 java 설정 유무 확인하기
                                 '-ea', '-Xmx{}m'.format(max_heap_size))
 ->startJVM 파라미터에  convertStrings=True 가 있는데 제거                                
 ```
+
+# 9장 카카오 챗봇 만들기
+
+...
 
 
 
