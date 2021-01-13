@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Longformer: The Long-Document Transformer"
-date: 2021-01-12 19:20:23 +0900
+date: 2021-01-13 19:20:23 +0900
 category: paper
 ---
 
@@ -20,8 +20,6 @@ category: paper
 
 
 
-
-
 ## 리뷰
 
 ### 1. 도입
@@ -30,7 +28,7 @@ Transformer-based models은 긴 텍스트에 대해서 분석할 수없다.(Atte
 
 이를 해결하기 위한 방법을 제시하고 "text8" 및 "enwik8" 데이터셋 평가(SOTA)
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_comparison.PNG" width="400px" height="200px"></img> 
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_comparison.PNG" width="400px" height="200px"> 
 
 위의 그림처럼 긴 텍스트를 이해하기 위해서 접근한 방식 연산속도 및 메모리 비교  
 
@@ -66,7 +64,7 @@ Downstream Task를 하는 경우에도 긴 문장에서는 RoBERTa 보다 좋은
 
 ### 2. 모델
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="400px" height="200px"></img> <br>
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="700px" height="200px"></img> <br>
 
 Bert-base 모델에서 긴 텍스트를 임베딩 하기위한 방법
 
@@ -90,8 +88,9 @@ Dilated  방법을 사용하여 Attention을 쌓는 방법
 
 - Dilated
 
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> 
+
 ```
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.PNG" width="600px" height="400px"> 
 Dilated는 더 멀리 떨어진 정보를 입력 데이터로 받기 위해 n칸씩 떨어진 값을 입력으로 받음 (설명이 이상해서 하단 그림 참조)
 장점으로 많은 토큰의 정보를 취하려면 파라미터가 커져야 하지만 파라미터의 개수를 늘리지 않기 때문에 연산량 관점에서 탁월한 효과를 가지고 있음.
 ```
@@ -144,9 +143,9 @@ RoBERTa 의 경우 512 size가최대 값이지만 Longformer에서는 max 값을
 
 - 스코어 비교
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/score_1.PNG" width="600px" height="400px">
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_1.PNG" width="600px" height="400px">
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/score_2.PNG" width="600px" height="400px">
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_2.PNG" width="600px" height="400px">
 
 
 
