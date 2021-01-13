@@ -142,7 +142,7 @@ RoBERTa 의 경우 512 size가최대 값이지만 Longformer에서는 max 값을
 
 - 스코어 비교
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_1.PNG" width="400px" height="250px"/>
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_1.PNG" width="600px" height="250px"/>
 
 <img src="/img/paper/Longformer_The_Long-Document_Transformer/score_2.PNG" width="400px" height="250px"/>
 
