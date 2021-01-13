@@ -64,7 +64,7 @@ Downstream Task를 하는 경우에도 긴 문장에서는 RoBERTa 보다 좋은
 
 ### 2. 모델
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="700px" height="200px"></img> 
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="600px" height="200px"></img> 
 
 Bert-base 모델에서 긴 텍스트를 임베딩 하기위한 방법
 
