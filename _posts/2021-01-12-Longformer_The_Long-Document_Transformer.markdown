@@ -30,8 +30,8 @@ Transformer-based models은 긴 텍스트에 대해서 분석할 수없다.(Atte
 
 <img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_comparison.PNG" width="600px" height="200px"> 
 
+```
 위의 그림처럼 긴 텍스트를 이해하기 위해서 접근한 방식 연산속도 및 메모리 비교  
-
 - Full self-attention
 
 Attention을 늘린 경우 토큰 길이 n에 따라 메모리가 n^2으로 상승 
@@ -55,8 +55,7 @@ Attention의 입력인 Q와 K값을 중복되는 값을 연산 ? -> 자세한 �
 TVM(Tensor Virtual Machine)라이브러리를 사용하여 CUDA kernel을 구현 
 
 적은 메모리와 빠른 연산속도를 보임  
-
-
+```
 
 Downstream Task를 하는 경우에도 긴 문장에서는 RoBERTa 보다 좋은 성능을 보임
 
@@ -64,7 +63,7 @@ Downstream Task를 하는 경우에도 긴 문장에서는 RoBERTa 보다 좋은
 
 ### 2. 모델
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="600px" height="200px"> 
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="700px" height="200px"> 
 
 Bert-base 모델에서 긴 텍스트를 임베딩 하기위한 방법
 
