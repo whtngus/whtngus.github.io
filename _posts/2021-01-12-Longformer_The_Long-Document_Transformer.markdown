@@ -64,7 +64,7 @@ Downstream Task를 하는 경우에도 긴 문장에서는 RoBERTa 보다 좋은
 
 ### 2. 모델
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="700px" height="200px"></img> <br>
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_patterns_in_longformer.PNG" width="700px" height="200px"></img> 
 
 Bert-base 모델에서 긴 텍스트를 임베딩 하기위한 방법
 
@@ -88,7 +88,7 @@ Dilated  방법을 사용하여 Attention을 쌓는 방법
 
 - Dilated
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> 
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> </img>
 
 ```
 Dilated는 더 멀리 떨어진 정보를 입력 데이터로 받기 위해 n칸씩 떨어진 값을 입력으로 받음 (설명이 이상해서 하단 그림 참조)
