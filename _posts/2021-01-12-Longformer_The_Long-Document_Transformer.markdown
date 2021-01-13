@@ -28,7 +28,7 @@ Transformer-based models은 긴 텍스트에 대해서 분석할 수없다.(Atte
 
 이를 해결하기 위한 방법을 제시하고 "text8" 및 "enwik8" 데이터셋 평가(SOTA)
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_comparison.PNG" width="400px" height="200px"> 
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/attention_comparison.PNG" width="400px" height="200px"> </img>
 
 위의 그림처럼 긴 텍스트를 이해하기 위해서 접근한 방식 연산속도 및 메모리 비교  
 
