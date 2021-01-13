@@ -88,7 +88,7 @@ Dilated  방법을 사용하여 Attention을 쌓는 방법
 
 - Dilated
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> </img>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> <br>
 
 ```
 Dilated는 더 멀리 떨어진 정보를 입력 데이터로 받기 위해 n칸씩 떨어진 값을 입력으로 받음 (설명이 이상해서 하단 그림 참조)
@@ -143,9 +143,9 @@ RoBERTa 의 경우 512 size가최대 값이지만 Longformer에서는 max 값을
 
 - 스코어 비교
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_1.PNG" width="600px" height="400px">
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_1.PNG" width="600px" height="400px"/>
 
-<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_2.PNG" width="600px" height="400px">
+<img src="/img/paper/Longformer_The_Long-Document_Transformer/score_2.PNG" width="600px" height="400px"/>
 
 
 
