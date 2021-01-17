@@ -13,10 +13,17 @@ category: paper
 
 ## 정보
 
-- URL  https://arxiv.org/pdf/2004.05150.pdf
+- 논문 URL  
 
-- git URL https://github.com/allenai/longformer
-- 게재일 2020-04-10
+https://arxiv.org/pdf/2004.05150.pdf
+
+- git URL 
+
+https://github.com/allenai/longformer
+
+- 게재일 
+
+2020-04-10
 
 
 
@@ -87,7 +94,7 @@ Dilated  방법을 사용하여 Attention을 쌓는 방법
 
 - Dilated
 
-<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="400px"> <br>
+<img src="/img/paper/WAVENET_A_GENERATIVE_MODEL_FOR_RAW_AUDIO/stacked_dilated_convolutions.gif" width="600px" height="300px"> <br>
 
 ```
 Dilated는 더 멀리 떨어진 정보를 입력 데이터로 받기 위해 n칸씩 떨어진 값을 입력으로 받음 (설명이 이상해서 하단 그림 참조)
