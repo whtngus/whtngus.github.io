@@ -62,7 +62,7 @@ z는 아래에서 설명(입력 문장에서 필요한 텍스트만을 추출한
 
 ### 3. 모델 설명
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_1.PNG" width="800px" height="200px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_1.PNG" width="800px" height="50px"/>
 
 ```
 x는 입력 텍스트 z는 논문에서 제시한 방법론을 통해 만들어진 변형된 입력 텍스트 이다.
@@ -76,7 +76,7 @@ BERT large 기준으로 512토큰이며 64토큰씩 자르면 8개의 텍스트 
 
 MemRecall 방법은 입력 텍스트에서 자른 텍스트 블럭들 중 정답을 유추하는데 관련된 블럭들을 추출하는 방법이다.
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_2.PNG" width="800px" height="200px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_2.PNG" width="800px" height="50px"/>
 
 ```
 MemRecall 이 각 텍스트블럭이 결과를 도출하는데 관려이 있는지 판별하는 방법이다.
@@ -87,7 +87,7 @@ MemRecall 이 각 텍스트블럭이 결과를 도출하는데 관려이 있는�
 
 MemRecall을 사용하는 CogLTX의 학습 방법은 아래와 같다. 
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_3.PNG" width="800px" height="400px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_3.PNG" width="800px" height="100px"/>
 
 ```
 loss 는 CrossEntropy로 구해지며 
@@ -98,7 +98,7 @@ relv_label은 토큰단위로 query와 관련있는 토큰이 어떤 토큰인�
 
 <img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_4.PNG" width="800px" height="400px"/>
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="800px" height="700px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="800px" height="800px"/>
 
 ```
 위 t는 threshold 이며 Z-zi 는 Z에서 zi를 제거한 입력이다. 모든 블럭에 대해 진행하며  loss가 증가하면 필요한 블럭 z로 추출할 수 있다.
@@ -114,18 +114,18 @@ relv_label은 토큰단위로 query와 관련있는 토큰이 어떤 토큰인�
 
 ### 실험
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/data_1.PNG" width="400px" height="400px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/data_1.PNG" width="700px" height="300px"/>
 
 ```
 위 사진은 데이터별 토큰 길이분포도 이다.
 lr=4*e05를 사용했으며 옵티마이저는 Adam Warmup을 사용했다.
 ```
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_1.PNG" width="400px" height="400px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_1.PNG" width="400px" height="400px"/><img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_2.PNG" width="400px" height="400px"/><img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_2.PNG" width="400px" height="400px"/>
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_2.PNG" width="400px" height="400px"/>
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/result_2.PNG" width="400px" height="400px"/>
+
+
 
 ```
 긴 텍스트기반 이어서 그런지 BERT가 sota는 아니다.
