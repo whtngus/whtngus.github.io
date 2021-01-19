@@ -98,7 +98,7 @@ relv_label은 토큰단위로 query와 관련있는 토큰이 어떤 토큰인�
 
 <img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_4.PNG" width="800px" height="100px"/>
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="800px" height="600px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="1200px" height="400px"/>
 
 ```
 위 t는 threshold 이며 Z-zi 는 Z에서 zi를 제거한 입력이다. 모든 블럭에 대해 진행하며  loss가 증가하면 필요한 블럭 z로 추출할 수 있다.
