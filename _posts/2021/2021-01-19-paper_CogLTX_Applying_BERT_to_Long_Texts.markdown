@@ -96,9 +96,9 @@ relv_label은 토큰단위로 query와 관련있는 토큰이 어떤 토큰인�
 
 그러나 관련있는 문장인지 관려있지않은 문장인지 체크되어있는 데이터는 많지 않아 구축되어있지 않는 데이터에 대해서도 학습할수 있는 방법을 제시한다.
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_4.PNG" width="800px" height="400px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/formula_4.PNG" width="800px" height="100px"/>
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="800px" height="800px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/train_1.PNG" width="800px" height="600px"/>
 
 ```
 위 t는 threshold 이며 Z-zi 는 Z에서 zi를 제거한 입력이다. 모든 블럭에 대해 진행하며  loss가 증가하면 필요한 블럭 z로 추출할 수 있다.
@@ -134,7 +134,7 @@ table3 - classification
 table4 - Multi-label-classification 
 ```
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/benchmark.PNG" width="400px" height="400px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/benchmark.PNG" width="800px" height="400px"/>
 
 ```
 위 사진은 텍스트 길이에 따른 메모리 크기(좌 사진)와 속도(우 사진)을 비교한 그림이다.
