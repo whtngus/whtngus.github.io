@@ -39,7 +39,7 @@ BERT는 좋지만 긴 텍스트에 대해서 모델의 입력으로 쓸기 힘�
 
 너무 커지는 메모리를 해결하고 긴 텍스트를 문장단위로 임베딩 하기 위한 방법을 제시 
 
-<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/model_input.PNG" width="800px" height="500px"/>
+<img src="/img/paper/CogLTX_Applying_BERT_to_Long_Texts/model_input.PNG" width="1400px" height="500px"/>
 
 ```
 각 테스크에 따라 입력 테스트를 MemRecall 모델을 통해 z를 추출 
