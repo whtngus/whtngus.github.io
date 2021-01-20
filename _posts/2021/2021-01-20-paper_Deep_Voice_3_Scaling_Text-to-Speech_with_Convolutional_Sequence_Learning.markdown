@@ -96,9 +96,7 @@ L1 loss(출력 멜 스펙트럼) 와  binary cross-entropy loss(최종 프레임
 <img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/attention_block.PNG" width="700px" height="700px"> <br>
 
 dot-product attention 방식을 사용하며  position embedding은 아래 수식과 같다.
-$$
-h_p(i) = sin(w_s^i / 10000^{k/d}) \quad or \quad cos(w_s^i / 10000^{k/d})
-$$
+$$h_p(i) = sin(w_s^i / 10000^{k/d}) \quad or \quad cos(w_s^i / 10000^{k/d})$$
 i는 timestep, k는 channel index, d는 채널 수 이다. (이때 단일 발화지인 경우에는 w를 1로 설정)
 
 ### 3. CONVERTER
@@ -108,6 +106,16 @@ i는 timestep, k는 channel index, d는 채널 수 이다. (이때 단일 발화
 Grimffin-Lim은 spectogram을 시간에 따른 오디오 파형으로 바꿔주는  알고리즘이다. 
 
 ##### 2. WORLD vocoder
+
+1. 현재 프레임이 음성인지 아닌지 -> 음성인 경우 F0 vlaue
+2. spectral envelope
+3. 주기성 매개변수
+
+위 3가지를 예측하며 cross-entropy loss(음성인지 아닌지)와 L1 loss를 사용하여 예측한다.
+
+##### 3. WaveNet vocoder
+
+wavenet을 vocoder로 사용 (tacotron2 논문의 아이디어와 유사)
 
 
 
