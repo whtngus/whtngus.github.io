@@ -154,7 +154,7 @@ wavenet을 vocoder로 사용 (tacotron2 논문의 아이디어와 유사)
 
 - Result
 
-<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/result.PNG" width="700px" height="900px"> <br>
+<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/result.PNG" width="1100px" height="900px"> <br>
 
 ```
 tacotron에 비해 학습속도도 빠르고 모델도 가벼운데 비슷한 정확도를 보인다 (MOS는 개인적으로 언제나 신뢰가 안가지만)
