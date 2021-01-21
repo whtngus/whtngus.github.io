@@ -45,7 +45,7 @@ Tacotron에서 사용하는 recurrent models을 사용하지 않음으로써 모
 
 ### 2. Model
 
-<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/model_architecture.PNG" width="400px" height="800px"> <br>
+<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/model_architecture.PNG" width="800px" height="400px"> <br>
 
 ```
 모델의 전체적인 구조이다.
@@ -96,6 +96,8 @@ L1 loss(출력 멜 스펙트럼) 와  binary cross-entropy loss(최종 프레임
 <img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/attention_block.PNG" width="500px" height="700px"> <br>
 
 dot-product attention 방식을 사용하며  position embedding은 아래 수식과 같다.
+
+$ h_p(i) = sin(w_s^i / 10000^{k/d}) \quad or \quad cos(w_s^i / 10000^{k/d}) $
 $$
 h_p(i) = sin(w_s^i / 10000^{k/d}) \quad or \quad cos(w_s^i / 10000^{k/d})
 $$
@@ -121,4 +123,42 @@ Grimffin-Lim은 spectogram을 시간에 따른 오디오 파형으로 바꿔주�
 wavenet을 vocoder로 사용 (tacotron2 논문의 아이디어와 유사)
 
 
+
+### 4. Result
+
+- 특징
+
+> 1. Recurrent network를 사용하지 않아 tacotron 에 비해 빠른 학습 가능 
+>
+> 500K iter로 학습이 되나 tacotron은 2M  iter정도 학습해야함으로 한 배치당 속도 뿐만 아니라 빠른 학습
+>
+> 2.  Data
+>
+> VCTK 와 LibriSpeech 데이터셋 사용
+>
+> VCTK : 108명의 발화자와 약 44시간의 녹음파일
+>
+> LibriSpeech : 2484명의 발화자와 약 820시간의 녹음파일 
+>
+> 3. Attention Error Modes
+>
+> 반복 단어, 오발음, 생략 단어등으로 음성합성 품질을 저하시킬 수 있다.
+>
+> 오류발생을 추적하기 위해 100문장 테스트 세트(날짜, 머리글자, URL, 반복 단어, 고유명사, 외래어 등)을 정의하여 표준 주의 메커니즘을 적용
+>
+> 4. Multi-Speaker Synthesis
+>
+> 다중 스피커 음성 합성을 효과적으로 처리하기 위해 표준 노이즈 제거를 사용하고 긴 발음을 여러 개로 분할하는 사전 처리 단계를 적용
+>
+> 
+
+- Result
+
+<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/result.PNG" width="500px" height="700px"> <br>
+
+```
+tacotron에 비해 학습속도도 빠르고 모델도 가벼운데 비슷한 정확도를 보인다 (MOS는 개인적으로 언제나 신뢰가 안가지만)
+tacotron2모델이 정확도가 더 좋을테지만, 논문에서 제시하는 모델이 더 가벼워지지 않음으로(오히려 추가)
+tacotron2에 비해 Deep voice 3의 장점은 다중 발화자와 가벼운 모델로 보인다.
+```
 
