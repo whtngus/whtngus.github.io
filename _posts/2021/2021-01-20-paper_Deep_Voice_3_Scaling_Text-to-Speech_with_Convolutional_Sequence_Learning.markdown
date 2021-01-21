@@ -93,7 +93,7 @@ L1 loss(출력 멜 스펙트럼) 와  binary cross-entropy loss(최종 프레임
 
 - ATTENTION BLOCK
 
-<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/attention_block.PNG" width="500px" height="700px"> <br>
+<img src="/img/paper/Deep_Voice_3_Scaling_Text-to-Speech_with_Convolutional_Sequence_Learning/attention_block.PNG" width="500px" height="500px"> <br>
 
 dot-product attention 방식을 사용하며  position embedding은 아래 수식과 같다.
 
