@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "voice todo list"
-date: 2020-10-03 19:20:23 +0900
-category: voice
+title: "2021 todo list"
+date: 2020-10-24 19:20:23 +0900
+category: todo
 ---
 # 다양한 음성 발화
 
@@ -28,3 +28,12 @@ tacotron base음성 변환 논문 아이디어 겹침 및 확인 필요 <br>
 
 
 # transformer 및 구조설정 
+
+... 구축 예정
+
+# text - vision multi modal task
+- DF-GAN  <br>
+https://arxiv.org/pdf/2008.05865v1.pdf <br>
+- Net2Net <br>
+
+
