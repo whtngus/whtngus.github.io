@@ -27,13 +27,10 @@ https://arxiv.org/pdf/1904.03522.pdf <br>
 tacotron base음성 변환 논문 아이디어 겹침 및 확인 필요 <br> 
 
 
-# transformer 및 구조설정 
+# Visual Question Answering
+https://greeksharifa.github.io/computer%20vision/2019/04/17/Visual-Question-Answering/ <br>
+https://vizwiz.org/workshops/2021-workshop/ -> challenge   자세히 알아보기 
 
-... 구축 예정
-
-# text - vision multi modal task
-- DF-GAN  <br>
-https://arxiv.org/pdf/2008.05865v1.pdf <br>
-- Net2Net <br>
-
-
+# model 압축
+TinyBERT <br>
+fastformer <br>
