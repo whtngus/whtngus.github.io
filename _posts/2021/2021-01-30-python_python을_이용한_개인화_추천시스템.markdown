@@ -4,6 +4,7 @@ title: "python을 이용한 개인화 추천시스템"
 date: 2021-01-30 19:20:23 +0900
 use_math: true
 category: python_deeplearning_chatbot
+comments: true
 ---
 
 # 책 - python을 이용한 개인화 추천시스템 <br>
