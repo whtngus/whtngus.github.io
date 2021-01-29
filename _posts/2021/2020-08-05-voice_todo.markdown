@@ -10,7 +10,6 @@ category: todo
 https://github.com/r9y9/deepvoice3_pytorch  <br>
 -> 한국어 음성발화도 잘되는듯 tactron2 base 의 모델 과 비슷함 (pytorch)<br>
 
-
 # 음성 인식 
 
 - 간단한 블로그 <br>
