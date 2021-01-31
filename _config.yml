@@ -61,3 +61,4 @@ markdown: kramdown
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
+use_math: true
