@@ -10,7 +10,7 @@ category: todo
 https://github.com/r9y9/deepvoice3_pytorch  <br>
 -> 한국어 음성발화도 잘되는듯 tactron2 base 의 모델 과 비슷함 (pytorch)<br>
 
-# 음성 인식 
+### 음성 인식 
 
 - 간단한 블로그 <br>
 https://www.assemblyai.com/blog/end-to-end-speech-recognition-pytorch <br>
@@ -31,5 +31,9 @@ https://greeksharifa.github.io/computer%20vision/2019/04/17/Visual-Question-Answ
 https://vizwiz.org/workshops/2021-workshop/ -> challenge   자세히 알아보기 
 
 # model 압축
-TinyBERT <br>
-fastformer <br>
+- TinyBERT <br>
+작업 중 <br>
+- fastformer <br>
+
+# chatbot
+리스트 업하기 
