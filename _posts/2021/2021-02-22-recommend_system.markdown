@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "recommend system : 토크ON세미나_SKplanet Tacademy 정리_1강"
-date: 2021-01-19 19:20:23 +0900
+date: 2021-02-22 19:20:23 +0900
 category: recommend system
 ---
 # recommend system : 토크ON세미나 _ SKplanet Tacademy 정리
