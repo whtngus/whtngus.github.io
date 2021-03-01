@@ -10,7 +10,7 @@ category: recommend system
 
 
 
-### 1. edwith
+### 1. edwith 강의 사이트
 
 - AI/딥러닝 입문자 학습 가이드
 
@@ -18,4 +18,9 @@ category: recommend system
 
 ### 2. github
 
-https://github.com/hongleizhang/RSPapers
+https://github.com/hongleizhang/RSPapers <br>
+-> 논문 리스트 하나씩 정리하기 (02-General RS, 04-Deep Learning-based RS)
+
+### 3. blog
+
+http://hoondongkim.blogspot.com/2019/03/recommendation-trend.html <br>
