@@ -1,0 +1,8 @@
+---
+layout: post
+title: "2021-03-02-인공지능_및_기계학습_심화_1 : Dirichlet Process: Gaussian Mixture Model and Dirichlet Distribution Review"
+date: 2021-03-22 19:20:23 +0900
+category: recommend system
+---
+
+#### 마구잡이 필기 글씨체 ㅠ 
