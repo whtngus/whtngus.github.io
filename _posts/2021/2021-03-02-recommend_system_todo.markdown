@@ -24,3 +24,8 @@ https://github.com/hongleizhang/RSPapers <br>
 ### 3. blog
 
 http://hoondongkim.blogspot.com/2019/03/recommendation-trend.html <br>
+
+https://github.com/grahamjenson/list_of_recommender_systems
+
+https://github.com/robi56/Deep-Learning-for-Recommendation-Systems
+
