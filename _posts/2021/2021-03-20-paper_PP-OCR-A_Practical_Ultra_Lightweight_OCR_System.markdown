@@ -77,19 +77,19 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > 자연스러운 장면의 사진에서 텍스트를 인식하는 것 
 >
-> <img src="/img/paper/pp-ocr/nature_ocr.PNG" width="600px" height="400px"> 
+> <img src="/img/paper/pp-ocr/nature_ocr.PNG" width="600px" height="300px"> 
 >
 > 이런 사진을 인식하기 위해서는 
 >
 > perspective, scaling, bending, clutter, fonts, multilingual, blur, illumination등의 처리 기술이 필요하다.
 >
-> <img src="/img/paper/pp-ocr/nature_image_problem.PNG" width="800px" height="400px"> 
+> <img src="/img/paper/pp-ocr/nature_image_problem.PNG" width="800px" height="300px"> 
 >
 > 2. 문서 텍스트 인식
 >
 > 문서에서 텍스트를 인식하는것 
 >
-> <img src="/img/paper/pp-ocr/document_ocr.PNG" width="800px" height="400px"> 
+> <img src="/img/paper/pp-ocr/document_ocr.PNG" width="800px" height="300px"> 
 >
 > 장면 텍스트 인식과 같고  high density, long text, 문서 구조 파악 등의 기술이 필요함
 
@@ -99,7 +99,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > PP-OCR은 OCR System을 제시를 하고 어떻게 모델 리소스를 줄일 수 있을지를 제시한다.
 >
-> <img src="/img/paper/pp-ocr/framwork.PNG" width="800px" height="500px"> 
+> <img src="/img/paper/pp-ocr/framwork.PNG" width="800px" height="400px"> 
 >
 > 위 사진에서 처럼 PP-OCR은 3가지 부분으로 구성되어 있음
 >
@@ -141,7 +141,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > backbone이 모델에서 차지하는 용량은 무시할 수 없기 때문에 이를 줄이기 위한 방법을 채택하게 됨. 
 >
-> <img src="/img/paper/pp-ocr/light_backbone.PNG" width="800px" height="500px"> 
+> <img src="/img/paper/pp-ocr/light_backbone.PNG" width="800px" height="400px"> 
 >
 > 많은 방법을 시도하였고  MobileNetV3 모델이 가장 효과적이라고 판단 함 
 >
@@ -179,7 +179,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > Pruning은 모델의 효율성을 증가시키기 위한 방법으로 모델의 크기를 줄이는데 효과적
 >
-> <img src="/img/paper/pp-ocr/FPGM.PNG" width="800px" height="400px"> 
+> <img src="/img/paper/pp-ocr/FPGM.PNG" width="800px" height="300px"> 
 >
 > FPGM (He et al. 2019b) 의 방법을 기본으로 사용
 >
@@ -221,7 +221,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 > >
 > > less quantization loss 를 사용 
 > >
-> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="100px"> 
+> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="50px"> 
 > >
 > > RELU 와 swish 를 사용하였고(위 수식은 swish), L2정규화를 적용
 
@@ -229,7 +229,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 
 3. Text Recognition
 
-> <img src="/img/paper/pp-ocr/CRNN.PNG" width="800px" height="300px"> 
+> <img src="/img/paper/pp-ocr/CRNN.PNG" width="800px" height="200px"> 
 >
 > 위 그림은 CRNN 적용 구조 
 >
@@ -243,7 +243,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 >  BDA (Base Data Augmentation) 와 TIA (Luo et al. 2020) 기법을 적용
 >
-> <img src="/img/paper/pp-ocr/TIA.PNG" width="600px" height="400px"> 
+> <img src="/img/paper/pp-ocr/TIA.PNG" width="600px" height="200px"> 
 >
 > 3. Cosine Learning Rate Decay 
 >
@@ -289,13 +289,13 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 
 > - text detection
 >
-> <img src="/img/paper/pp-ocr/text_detection.PNG" width="900px" height="300px"> 
+> <img src="/img/paper/pp-ocr/text_detection.PNG" width="900px" height="200px"> 
 >
 > - Direction Classification
 >
 > <img src="/img/paper/pp-ocr/direction_1.PNG" width="900px" height="200px"> 
 >
-> <img src="/img/paper/pp-ocr/direction_2.PNG" width="600px" height="300px">
+> <img src="/img/paper/pp-ocr/direction_2.PNG" width="600px" height="200px">
 >
 > - Text Recognition
 >
