@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "paper :PP-OCR: A Practical Ultra Lightweight OCR System"
+title: "paper :PP-OCR A Practical Ultra Lightweight OCR System"
 date: 2021-03-20 19:20:23 +0900
 category: paper
 ---
@@ -77,7 +77,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > 자연스러운 장면의 사진에서 텍스트를 인식하는 것 
 >
-> <img src="/img/paper/pp-ocr/nature_ocr.PNG" width="400px" height="600px"> 
+> <img src="/img/paper/pp-ocr/nature_ocr.PNG" width="600px" height="400px"> 
 >
 > 이런 사진을 인식하기 위해서는 
 >
@@ -159,7 +159,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > - Remove SE
 >
-> <img src="/img/paper/pp-ocr/FPN.PNG" width="800px" height="400px"> 
+> <img src="/img/paper/pp-ocr/FPN.PNG" width="800px" height="300px"> 
 >
 > SE는 short for squeeze-and-excitation (Hu, Shen, and Sun 2018)
 >
@@ -179,7 +179,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 >
 > Pruning은 모델의 효율성을 증가시키기 위한 방법으로 모델의 크기를 줄이는데 효과적
 >
-> <img src="/img/paper/pp-ocr/FPGM.PNG" width="800px" height="600px"> 
+> <img src="/img/paper/pp-ocr/FPGM.PNG" width="800px" height="500px"> 
 >
 > FPGM (He et al. 2019b) 의 방법을 기본으로 사용
 >
@@ -221,7 +221,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 > >
 > > less quantization loss 를 사용 
 > >
-> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="400px"> 
+> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="200px"> 
 > >
 > > RELU 와 swish 를 사용하였고(위 수식은 swish), L2정규화를 적용
 
@@ -229,7 +229,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 
 3. Text Recognition
 
-> <img src="/img/paper/pp-ocr/CRNN.PNG" width="600px" height="800px"> 
+> <img src="/img/paper/pp-ocr/CRNN.PNG" width="800px" height="500px"> 
 >
 > 위 그림은 CRNN 적용 구조 
 >
@@ -289,13 +289,13 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 
 > - text detection
 >
-> <img src="/img/paper/pp-ocr/text_detection.PNG" width="900px" height="400px"> 
+> <img src="/img/paper/pp-ocr/text_detection.PNG" width="900px" height="300px"> 
 >
 > - Direction Classification
 >
-> <img src="/img/paper/pp-ocr/direction_1.PNG" width="900px" height="400px"> 
+> <img src="/img/paper/pp-ocr/direction_1.PNG" width="900px" height="300px"> 
 >
-> <img src="/img/paper/pp-ocr/direction_2.PNG" width="600px" height="500px">
+> <img src="/img/paper/pp-ocr/direction_2.PNG" width="600px" height="400px">
 >
 > - Text Recognition
 >
