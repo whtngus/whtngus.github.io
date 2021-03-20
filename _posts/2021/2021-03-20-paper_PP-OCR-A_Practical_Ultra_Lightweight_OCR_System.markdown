@@ -221,7 +221,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 > >
 > > less quantization loss 를 사용 
 > >
-> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="50px"> 
+> > <img src="/img/paper/pp-ocr/PACT.PNG" width="800px" height="100px"> 
 > >
 > > RELU 와 swish 를 사용하였고(위 수식은 swish), L2정규화를 적용
 
@@ -229,7 +229,7 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 
 3. Text Recognition
 
-> <img src="/img/paper/pp-ocr/CRNN.PNG" width="800px" height="200px"> 
+> <img src="/img/paper/pp-ocr/CRNN.PNG" width="800px" height="300px"> 
 >
 > 위 그림은 CRNN 적용 구조 
 >
