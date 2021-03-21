@@ -300,4 +300,6 @@ OCR은 문서 전자화, 금융, 제품 및 자동차 번호판 인식 , 공장 
 > - Text Recognition
 >
 > <img src="/img/paper/pp-ocr/recognition.PNG" width="600px" height="300px">
+>
+> 정확도가 예상한것 처럼 많이 높진 않지만 모델 크기를 생각하면 모바일 에서 접근하기 좋아 보임 
 
