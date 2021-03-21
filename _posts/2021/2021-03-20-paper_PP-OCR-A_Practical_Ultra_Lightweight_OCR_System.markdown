@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper :PP-OCR A Practical Ultra Lightweight OCR System"
-date: 2021-03-20 19:20:23 +0900
+date: 2021-03-21 19:20:23 +0900
 category: paper
 ---
 
