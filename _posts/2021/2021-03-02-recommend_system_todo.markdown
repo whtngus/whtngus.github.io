@@ -9,7 +9,7 @@ category: recommend system
 # 공부 참조 리스트 정리
 
 
-
+  
 ### 1. edwith 강의 사이트
 
 - AI/딥러닝 입문자 학습 가이드
