@@ -1,11 +1,11 @@
 ---
 layout: post
 title: "book : pyspark 배우기"
-date: 2021-03-21 19:20:23 +0900
+date: 2021-04-03 19:20:23 +0900
 category: book
 ---
 
-# PySpark 배우기 책 정리 
+# PySpark 배우기 책 정리
 
 
 
@@ -87,6 +87,46 @@ JVM 객체 모델의 메모리를 관리
 > >
 > > 루프 언롤링과 SIMD - cpu 최적화
 
+- pyspark 환경설정하기
+
+```
+anaconda 가상환경 생성 후 진행
+1. python, java 설치 완료된 상태여야 함
+java 1.8 설치및 버전 변경
+sudo apt-get install openjdk-8-jdk-headless  -> 1.8 버전 설치
+update-alternatives --config java -> 환경변수 java 버전 변경
+2. pyspark install
+pip install pyspark
+3. Hodoop 설치하기
+http://hadoop.apache.org/releases.html 에서 바이너리파일 다운로드
+복사된 tar를 압축을 /usr/local/ 에 풀어준다.
+sudo tar -zxvf ./hadoop-* -C /usr/local
+버전이 붙어있으면 사용하기 귀찮음으로 mv를 통해 이름을 바꿔줌
+sudo mv /usr/local/hadoop-* /usr/local/hadoop
+4. spark 설치
+
+5. 환경변수 등록하기
+echo "
+export JAVA_HOME=$(readlink -f /usr/bin/java | sed "s:bin/java::")
+export PATH=\$PATH:\$JAVA_HOME/bin
+export HADOOP_HOME=/usr/local/hadoop
+export PATH=\$PATH:\$HADOOP_HOME/bin
+export HADOOP_CONF_DIR=\$HADOOP_HOME/etc/hadoop
+export YARN_CONF_DIR=\$HADOOP_HOME/etc/hadoop
+" >> ~/.bashrc
+5. 명령어로 환경변수 등록 여부 확인
+/usr/local/hadoop/bin/hadoop
+-> JAVA_HOME이 없는경우 등록 필수
+
+- import list
+from pyspark import SparkContext
+from pyspark.context import SparkContext
+from pyspark.sql.session import SparkSession
+sc =SparkContext()
+# sc = SparkContext('local')
+spark = SparkSession(sc)
+```
+
 
 
 ## 2장 RDD(Resilient Distributed Datasets)
@@ -95,7 +135,7 @@ JVM 객체 모델의 메모리를 관리
 
 - dataset
 
->  데이터셋은 키를 기반으로 Chunk단위로 쪼개져 있고 executor node로 분산돼 있다.
+> 데이터셋은 키를 기반으로 Chunk단위로 쪼개져 있고 executor node로 분산돼 있다.
 >
 > 연산속도를 빠르게 하고 문제로 인해 데이터 손실이 발생했을 경우 대비책을 제공
 >
@@ -133,11 +173,11 @@ JVM 객체 모델의 메모리를 관리
 >
 > - map()
 >
-> 각 엘리먼트에 적용시 사용 
+> 각 엘리먼트에 적용시 사용
 >
 > - filter()
 >
-> 데이터셋으로부터 특정 조건에 맞는 엘리먼트를 선택 
+> 데이터셋으로부터 특정 조건에 맞는 엘리먼트를 선택
 >
 > - flatMap()
 >
@@ -198,3 +238,19 @@ JVM 객체 모델의 메모리를 관리
 > - foreach
 >
 > RDD의 각 엘리먼트에 반복적으로 적용되는 함수
+
+## 3장 데이터프레임
+
+데이터프레임은 RDD의 테이블에서 named columns로 구성된 변경 불가능한 분산 데이터 컬렉션이다.
+
+-> 아파치 스파크 1.3 버전에서 도입
+
+- 데이터프레임을 이용한 파이스파크 스피드업
+
+> stringJSONRDD 를 이용해 RDD를 생성하고, 데이터프레임으로 변환
+>
+>
+>
+> - json 데이터 생성하기
+>
+>
