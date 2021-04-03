@@ -3,6 +3,7 @@ layout: post
 title: "book : pyspark 배우기"
 date: 2021-04-03 19:20:23 +0900
 category: book
+
 ---
 
 # PySpark 배우기 책 정리
@@ -96,7 +97,7 @@ java 1.8 설치및 버전 변경
 sudo apt-get install openjdk-8-jdk-headless  -> 1.8 버전 설치
 update-alternatives --config java -> 환경변수 java 버전 변경
 2. pyspark install
-pip install pyspark
+pip install pyspark==2.4.7
 3. Hodoop 설치하기
 http://hadoop.apache.org/releases.html 에서 바이너리파일 다운로드
 복사된 tar를 압축을 /usr/local/ 에 풀어준다.
@@ -119,9 +120,11 @@ export YARN_CONF_DIR=\$HADOOP_HOME/etc/hadoop
 -> JAVA_HOME이 없는경우 등록 필수
 
 - import list
+import findspark
 from pyspark import SparkContext
 from pyspark.context import SparkContext
 from pyspark.sql.session import SparkSession
+findspark.init()
 sc =SparkContext()
 # sc = SparkContext('local')
 spark = SparkSession(sc)
@@ -249,8 +252,116 @@ spark = SparkSession(sc)
 
 > stringJSONRDD 를 이용해 RDD를 생성하고, 데이터프레임으로 변환
 >
+> 
 >
+> - json 명령어 실행
 >
-> - json 데이터 생성하기
+> ```
+>    - jupyter 에서 spark 쉘 실행하기
+> pip install spylon-kernel
+> python -m spylon_kernel install
+> -> 이후 jupyter 키면 spylon-kernel이 추가된것을 확인할 수 있음
+> 책에 있는 sql을 실행시 에러 발생 -> 해결필요 
+> ```
+
+## 4장 데이터모델링 준비하기
+
+- 중복, 미관찰 값, 아웃라이어 확인하기
+
+> - 중복값
 >
+> count와 distinct().count() 를 통해 갯수 비교
 >
+> ```
+> print('Count of rows: {0}'.format(df.count()))
+> print('Count of distinct rows: {0}'.format(df.distinct().count()))
+> # 값이 다르다면 중복 제거
+> df = df.dropDuplicates()
+> ```
+>
+> - 관찰되지 않은 데이터
+>
+> ```
+>    - 미관찰값 체크 예시 코드
+> df_miss.rdd.map(
+>     lambda row: (row['id'], sum([c == None for c in row]))
+> ).collect()
+>    - 미관찰값 비율 체크
+> df_miss.agg(*[
+>     (1 - (fn.count(c) / fn.count('*'))).alias(c + '_missing')
+>     for c in df_miss.columns
+> ]).show()
+> 
+> ```
+>
+> - 아웃라이어
+>
+> ```
+>    - IQR을 이용한 아웃라이어 범위 생성
+> cols = ['weight', 'height', 'age']
+> bounds = {}
+> 
+> for col in cols:
+>     quantiles = df_outliers.approxQuantile(col, [0.25, 0.75], 0.05)
+>     IQR = quantiles[1] - quantiles[0]
+>     bounds[col] = [quantiles[0] - 1.5 * IQR, quantiles[1] + 1.5 * IQR]
+> 
+>    - 아웃라이어 데이터 체크
+> df_outliers = df_outliers.join(outliers, on='id')
+> df_outliers.filter('weight_o').select('id', 'weight').show()
+> df_outliers.filter('age_o').select('id', 'age').show()
+> 
+> 
+> ```
+
+- 데이터 친숙해지기
+
+> - 기술 통계
+>
+> ```
+> import pyspark.sql.types as typ
+> 라이브러리 사용 
+> ```
+
+- 시각화
+
+```
+   - jupyter에서 셋팅
+%matplotlib inline
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
+import bokeh.charts as chrt
+from bokeh.io import output_notebook
+
+output_notebook()
+
+   - 히스토그램
+1. 데이터를 워커 노드에서 집계해 우커 노드가 bin 리스트를 드라이버 노드에게 리턴하고 각 bin의 개수를 드라이버 노드가 세는 방법
+2. 데이터를 모두 드라이버 노드에 리턴, 시각화 라이브러리 함수를 이용
+3. 데이터를 샘플링해 드라이버에 노드에 리턴, 드라이버는 해당 데이터를 시각화
+-> 행의 개수가 많아지면 2번 방법은 사용 힘들어짐 
+
+```
+
+## 5장 MLlib
+
+ MLlib은 현재 스트리밍에 대해 학습 모델링을 지원하는 유일한 라이브러리
+
+- 패키지 개요
+
+> 1. 데이터 전처리
+>
+> 피처 추출, 변형, 선택, 해싱, nlp
+>
+> 2. 머신 러닝 알고리즘
+>
+> 회귀, 분류, 군집화 알고리즘
+>
+> 3. 유틸리티
+>
+> 기술 통계, Chi-square 테스트, 선형 대수, 모델 평가
+
+
+
+
