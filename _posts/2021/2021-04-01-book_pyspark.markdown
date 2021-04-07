@@ -362,6 +362,128 @@ output_notebook()
 >
 > 기술 통계, Chi-square 테스트, 선형 대수, 모델 평가
 
+## ML 패키지 
+
+RDD로만 동작하는 스파크의 MLlib 패키지
+
+- 패키지 개요
+
+> - 트랜스포머
+>
+> 데이터프레임에 새로운 칼럼을 추가하고 데이터를 변형
+>
+> 트랜스포머의 추상 클래스를 상속할때 각 트랜스포머는 trasnform() 함수를 구현해야 한다.
+>
+> > - Binarizer
+> >
+> > 주어진 임계치를 기준으로 연속적인 변수를 이진 변수로 변환
+> >
+> > - Bucketizer
+> >
+> > Binarizer와 비슷, 임계치의 리스트를 기반으로 쪼개여 몇 개의 범위로 변환
+> >
+> > - ChisqSelector
+> >
+> > 카테고리 변수들 중에서 파라미터로 주어진 numTopFeatures 개의 카테고리 변수들을 선택
+> >
+> > -> 타깃으 분산을 가장 잘 나타내는 변수들
+> >
+> > 차이-스케어 테스트를 통해 추출 
+> >
+> > - ContVectorizer
+> >
+> > 분리된 텍스트에 유용
+> >
+> > - DCT
+> >
+> > 실수로 이뤄진 벡터를 입력, 다른 빈도로 진동하는같은 길이의 벡터를 반환
+> >
+> > -> 데이터의 기본 빈도를 추출하거나 압축시 사용 
+> >
+> > - ElmentwiseProduct
+> >
+> > 벡터와 scalingVec 파라미터를 곱한것을 반환
+> >
+> > ... 나머지는 정리 생략 
+
+- 에스티메이터
+
+관찰된 데이터들에 대해 예측이나 분류를 수행하는 데 필요한 통계 모델 
+
+추사 에시트메이터 클래스로부터 상속받으려면, 새로운 모델은 데이터프레임에 있는 데이터와 디폴트 또는 사용자가 제공해야 하는 파라미터를 기반으로 모델을 학습하는 fit()함수 구현해야함
+
+> - 분류 모델
+>
+> LogisticRegression
+>
+> DecisionTreeClassifier
+>
+> GBTClassifier (GBT : Gradient Boosted Tree) - 이진, 연속, 카테고리 피처를 지원
+>
+> RandomForestClassifier
+>
+> NaiveBayse
+>
+> MultilayerPreceptronClassifier
+>
+> OneVsRest
+>
+> - 회귀 모델
+>
+> AFTSurvialRegression (AFT : Accelerated Failure Time) - 미개변수 모델
+>
+> DecisionTreeRegressor
+>
+> GBTRegressor
+>
+> GeneralizedLinearRegression
+>
+> IsotonicRegression
+>
+> LinearRegression
+>
+> RandomForestRegerssor
+>
+> - 군집화 모델
+>
+> BisectingKMeans
+>
+> KMeams
+>
+> GaussianMixture
+>
+> LDA
+
+- 파이프라인
+
+.. 너무 많고 다 새로워서 정리 힘듦
+
+- 피처 추출
+
+> - NLP
+>
+> NGram
+>
+> StopWordsRemover
+
+...
+
+## 7장 그래프프라임
+
+그래프 처리를 지원하기 위해 아파치 스파크 데이터프레임을 사용 
+
+GraphX 라이브러리와 비슷
+
+- 차이점
+
+> 성능 개선과 데이터프레임 API단순화에 영향
+>
+> python, java, scala api를 지원
+
+-> 따로 설치해야함 
+
+python2버전을 사용하는거 같아서 읽어보기만 하고 pass 
+
 
 
 
