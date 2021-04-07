@@ -486,4 +486,43 @@ python2버전을 사용하는거 같아서 읽어보기만 하고 pass
 
 
 
+## 8장 텐서프레임
+
+- 텐서프레임
+
+> 아파치 스파크에서 텐서플로우가 배포되고 조금 지난 후인 2016년 처음 소개
+>
+> 스파크 데이터프레임과 텐서플로우간 다리역할을 수행 
+>
+> - 최적의 하이퍼파라미터 찾기위한 병렬 수행
+>
+> - 빠르게 실행하기
+>
+> ```
+> $SPARK_HOME/bin/pyspark --pacakge tjhunter:tensorframes:~버전~
+> 
+> import tensorframes as tfs
+> from pyspark.sql import Row
+> ...
+> 
+> 	- 텐서 그래프 실행
+> x = tfs.block(df,"x")  -> 데이터프레임의 칼럼의 타입
+> z = tf.add(x,3)
+> df2 = tfs.map_blocks(z,df)
+>  	- 블록단위 연산자 reduce 연산자
+> tfs.print_schema(df) ->데이터 형식 출력
+> df2 = tfs.analyze(df)  -> 벡터의 차원을 알아보기 위해
+> tfs.print_schema(df2) ->데이터 형식 출력 - 차원 수도 나옴
+> 
+> tf.readuce_sum : 엘리먼트들의 합을 계산
+> tf.reduce_min :  엘리먼트들의 최솟값을 계산
+> 
+> ```
+>
+> 
+>
+> 
+
+
+
 
