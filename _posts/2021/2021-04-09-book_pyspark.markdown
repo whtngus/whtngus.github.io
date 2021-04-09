@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "book : pyspark 배우기"
-date: 2021-04-03 19:20:23 +0900
+date: 2021-04-09 19:20:23 +0900
 category: book
 
 ---
@@ -519,10 +519,158 @@ python2버전을 사용하는거 같아서 읽어보기만 하고 pass
 > 
 > ```
 >
-> 
+
+
+
+## 9장 블레이즈를 이용한 다언어 지속성
+
+- 블레이즈
+
+대부분의 기술을 추상화해 간단한 형태의 데이터 구조와 API를 제공 
+
+- 블레이즈 설치하기
+
+conda install blaze  # 위 명령어로 가능 
+
+conda install sqlalchemy # postgreSQL 
+
+conda install pymong	#mongoDB 연결 
+
+-> import blaze as bl 로 설치 확인하기 
+
+```
+AttributeError: module 'pandas' has no attribute 'tslib'
+위 오류 발생 의존성 문제로 확인됨 
+ - 해결방법
+
+python 설치위치\\Lib\site-packages\odo\backends\pandas.py 파일 오픈
+
+102 라인에 
+@convert.register((pd.Timestamp, pd.Timedelta), (pd.tslib.NaTType, type(None)))
+를 아래라인으로 수정 
+@convert.register((pd.Timestamp, pd.Timedelta), (type(pd.NaT), type(None)))
+
+-> 변경후 아래 에러 발생
+AttributeError: module 'sqlalchemy.engine' has no attribute 'RowProxy'
+odo 패키지에 문제가 있는거같음 . #odo 버전을 내리거나 올려도 오류가 바뀌지않음
+-> 에러 해결 못함 ㅠ
+```
+
+- 다언어 코드 지속성
+
+> bl.data(np.array(~)) # 블레이즈 datashape구조체로 변경
+>
+> ~.peek()를 통해 구조체 내부 구조를 확인 가능
 >
 > 
 
 
 
+-> 이번장은 설치가 안되서 일단 킵 
+
+
+
+## 구조적 스트리밍
+
+- 스파크 스트리밍이란?
+
+스파크 스트리밍의 코어는 확장 가능하고 fault-tolerant를 지원하는 스트리밍 시스템
+
+RDD배치 패러다임 개념을 사용하고 처리속도를 향상시킴
+
+미니배치 or 일정한 간격으로 배치 작동(최소 500ms간격)
+
+스파크 스트리밍은 DStream(Discretized Stream)으로 추상화돼 있음
+
+- 스파크 스트리밍이 필요한 이유
+
+> - 스트리밍 ETL
+>
+> 데이터가 다운스트림에 들어가기 전에 계속해서 클리닝 또는 집계를 수행 
+>
+> -> 최종적으로 저장되는 데이터의 양을 줄이기 위해
+>
+> - 트리거
+>
+> 이상 행위 등에 대한 실시간 탐지와 다운스트림 액션
+>
+> - 데이터 enrichment
+>
+> 풍부한 데이터 분석을 위한 실시간 데이터 조인
+>
+> - 복잡한 세션과 지속적인 학습
+>
+> 여러 데이터셋을 합쳐 실시간 데이터들을 지속적으로 분석 모델을 통해 업데이트 
+
+- 스파크 스트리밍 애플리케이션의 데이터 흐름
+
+> 1. 스파크 스트리밍 컨텍스트가 구동될 때, 드라이버가 실행 노드에서(스파크 워커) 작업 수행
+> 2. 리시버에 있는 실행 노드는 데이터 스트리밍을 출발지로부터 받아들임 -> 리시버는 스트림을 블록단위로 나눠 블록을 메모리에 저장
+> 3. 블록 데이터 유실을 방지하기 위해 다른 실행 노드에 복제
+> 4. 블록ID 정보는 드라이버에 있는 블록 관리 마스터로 전달
+> 5. 스파크 스트리밍 컨텍스트에서 설정된 모든 배치 데이터에 대해 드라이버는 해당 블록을 처리하기 위해 스파크 태스크를 실행
+
+- 스트리밍 구조
+
+> 스파크 SQL 엔진과 카탈리스트 옵티마이저에서 발생하는 sQL/데이트프레임 쿼리 수행은 아래 3단계를 거침
+>
+> 1. 논리적플랜과 여러 물리적 플랜을 빌드
+> 2. 비용 옵티마이저를 이용해 여러 물리적 플랜 중에서 최적의 물리적 플랜을 찾음
+> 3. 최적의 물리적 플랜에 기반해 성능이 좋은 코드를 생성
+
+
+
+## 11장 스파크 애플리케이션 패키지화
+
+- spark-submit 명령어
+
+로컬 or 클러스터에서 스파크 잡을 서브미샇는 시작점은 spark-submit 스크립트
+
+잡을 서브밋하는 것뿐만 아니라 상태를 체크하는 부분이나 잡을 종료하는 부분에도 관여 
+
+> - 명령 파라미터
+>
+> ```
+> --master
+> 마스터 노드의 URL을 명시하기 위한 파라미터
+> 	local : 로컬 컴퓨터를 싱행하기 위해 사용 (default - 하나의 스레드)
+> 	spark://host:port : 스파크 standalone 클러스터를 사용할 경우
+> 	mesos://host:port : 스파크 클러스터가 Mesos를 이용해 실행될 경우
+> 	yarn : workload 균형을 맞추는 경우
+> --deploy-mode
+> 스파크 드라이버 프로세스를 로컬 컴퓨터에서 실행하거나 클러스터 내부의 다른 워커 머신을 이용해 실행할 경우 사용하는 옵션  -> defulat client
+> --name
+> 애플리케이션 이름
+> --py-files
+> 콤마로 분리된 .py .egg .zip파일 리스트
+> 파이썬 애플리케이션에 포함될 리스트를 명시
+> --files
+> 각 실행 노드가 사용할 수 있는 파이을을 전달, 콤마로 분리
+> --conf
+> 애플리케이션의 설정을 명령행으로부터 동적으로 변경할 수 있는 파라미터
+> --properties-file
+> 설정 파일
+> --driver-memory
+> 드라이버에 할당할 메모리 default=1024M
+> --executor-memory
+> 각 실행 노드에 할당될 메모리 defulat=1G
+> --verbose
+> 애플리케이션 실행 시 추가적인 디버그 정보 프린트
+> --version
+> 버전 출력
+> --supervise
+> 드라이버가 사라지거나 에러발생시 드라이버를 재시작
+> --kill
+> submission_id에 해당하는 프로레스 종료
+> --status
+> 애플리케이션의 상태를 요청
+> --queue
+> 잡을 서브밋할 YARN 큐를 명시하기 위해 
+> default : default
+> --num-executors
+> 잡을 요청할 실행 머신의 개수를 명시하기 위한 옵션
+> 동적 할당시, 최소 실행 노드 개수가 적어도 명시된 숫자만큼은 할당
+> ```
+>
+> 
 
