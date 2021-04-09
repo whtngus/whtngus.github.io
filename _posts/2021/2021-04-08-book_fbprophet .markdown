@@ -101,9 +101,104 @@ fig2 = m.plot_components(forecast) #  예측 및 구성 요소의 그림
 > >
 > > 회귀분석과 매우 유사하여 생소한 시계열 분석보다 빠르게 적응 가능
 >
-> 
+> > - 3.1 The Trend Model
+> >
+> > > trend model로 saturating growth model, piecewise liner model을 사용
+> > >
+> > > - Nonlinear, Saturating Growth
+> > >
+> > > growth예측을 위해서 핵심요소는 얼마나 population이 성장, 지속될것지
+> > >
+> > > 자연 생태계서의 인구성장 모델과 유사
+> > >
+> > > nonlinear성장이 있는데 이는 수용가능한 용량에 영향을 받음
+> > >
+> > > g(t) = C /  ( 1 + exp(-k(t-m)))
+> > >
+> > > C : carrying capacity -> 시간에 따라 변화하기 때문에 time-varyin capacity C(t)로 사용 
+> > >
+> > > k : growth rate -> 역사적인 데이터를 맞추기 위해 다양한 rate를 통합해야함 
+> > >
+> > > m : an offset parmater
+> > >
+> > > 최종 모델 수식
+> > >
+> > > g(t) = C(t) / (1 + exp(-...))  복잡 논문 참조 
+> > >
+> > > - Linear Trend with Changepoints
+> > >
+> > > 성장 모델에 포화상태가 일어나지 않는 경우(용량이 제한되지 않은 경우 linear로 해결 가능)
+> > >
+> > > - automatic Changepoint selection
+> > >
+> > > 분석가에 의해 정의
+> > >
+> > > - Trend Forecast Uncertainty
+> > >
+> > > 모델의 불확실성을 추정 
+> > >
+> > > 라플라스를 이용 해서 평균 changepoints빈도, (즉 미래의 chagnepoints를 설정)
+> > >
+> > > 즉, 미래에도 과거와 같은 평균의 빈도의 변화가 있을 것이라는 가정 
+> >
+> > - Seasonality
+> >
+> > > p라는 파라미터를 통해서 주기를 설정 가능
+> > >
+> > > ex) p=365.25 는 1년 p=7이면 1주일
+> >
+> > - Holidays and Events
+> >
+> > > 과거 데이터에서 특정 이벤트가 있는 것들의 리스트를 넣을 수 있고, 이를 반영하게 만듦
 >
-> 
+> 4. Model Fitting
+>
+> > Stan's L-BFGS을 사용
+>
+> 5. Analyst-in-the-Loop Modeling
+>
+> > 분석 전문가가 모델을 적용할때 도메인 지식을 이용해서 파라미터를 조정가능하게 함
+> >
+> > - Capacities : 시장 규모와 어떤 것에 대한 용량 수준
+> > - ChangePoints : 상품이 바뀌거나 신제품이 출시되는 changepoints
+> > - Holiday and Seasonality : 영향을 미치는 특별한 휴일이나 이벤트 기간
+> > - Smoothing Parameter : 주기마다 변동을 줄 수준
+
+4. Automating Evaluation of Forecasts
+
+> 1. Use of Beseline Forecasts
+>
+> 어떤 모델을 비교할 때 baseline과 비교하는 것이 중요 
+>
+> last value, sample mean으로 단순한 모델 비교
+>
+> 2. Modeling Forecst Accuracy
+>
+> 예측은 특정 horizon H에 대해 이루어짐
+>
+> 시간별 추정된 값과 실제값 사이의 MAE, MAPE(요걸 더 많이씀)
+>
+> 3. Simulated Historical Forecasts
+>
+> cross validation과 같은 방법을 사용하기 어려움 -> 시계열 데이터 여서 셔플 힘듦
+>
+> SHFs(simulated historical forcasts)를 사용 -> 다양한 cutoff point에서 예측치 k를 ㅔㅈ공
+>
+> 4. Identifying Large Forecasts Errors
+>
+> 분석가는 잘못된 예측 결과에 대해서도 확인하고, 이를 수정할 필요가 있음 -> 서포트 필요
+>
+> > 처리방법
+> >
+> > 1. baseline 모델과 비교하여 큰 에러가 있으면 trend, seasnoality등 수정
+> > 2. 특정 일자에 예측률이 떨어진다면, 아웃라이어 제거
+> > 3. 특정 cutoff에 예측률이 떨어지면 chagepoint를 추가
+
+
+
+
+
+ 
 
 
 
