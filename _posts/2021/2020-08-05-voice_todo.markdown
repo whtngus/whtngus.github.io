@@ -29,7 +29,7 @@ tacotron base음성 변환 논문 아이디어 겹침 및 확인 필요 <br>
 # Visual Question Answering
 https://greeksharifa.github.io/computer%20vision/2019/04/17/Visual-Question-Answering/ <br>
 https://vizwiz.org/workshops/2021-workshop/ -> challenge   자세히 알아보기 
-
+  
 # model 압축
 - TinyBERT <br>
 작업 중 <br>
