@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "9_recommend_system"
+title: "python_machinelearning_perfect_guide 9_recommend_system"
 date: 2020-08-04 19:20:23 +0900
-category: python_machinelearning_perfect_guide
+category: book
 ---
 
 # 9. 추천 시스템(Recommendations)

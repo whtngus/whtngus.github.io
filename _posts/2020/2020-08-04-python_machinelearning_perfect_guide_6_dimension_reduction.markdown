@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "6_dimension_reduction"
+title: "python_machinelearning_perfect_guide 6_dimension_reduction"
 date: 2020-08-04 19:20:23 +0900
-category: python_machinelearning_perfect_guide
+category: book
 ---
 
 # 차원 축소

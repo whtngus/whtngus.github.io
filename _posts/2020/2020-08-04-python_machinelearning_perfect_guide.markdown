@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Main"
+title: "python_machinelearning_perfect_guide Main"
 date: 2020-08-04 19:20:23 +0900
-category: python_machinelearning_perfect_guide
+category: book
 ---
 
 
