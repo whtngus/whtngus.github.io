@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "09_and_13_HIVE_언어"
+title: "bigdata_computing 09_and_13_HIVE_언어"
 date: 2020-08-04 19:20:23 +0900
-category: bigdata_computing
+category: lecture
 ---
 
 # 9.고수준언어_HIVE소개

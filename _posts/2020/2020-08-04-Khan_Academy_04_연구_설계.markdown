@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "04_연구_설계"
+title: "Khan_Academy_Probability_and_Statistics 04_연구_설계"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 
 # 04. 연구 설계

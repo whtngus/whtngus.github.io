@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "9_and_10장_생성모델의미래와결론"
+title: "Book_Generative_Deep_Learning 9_and_10장_생성모델의미래와결론"
 date: 2020-08-04 19:20:23 +0900
-category: Book_Generative_Deep_Learning
+category: book
 ---
 
 

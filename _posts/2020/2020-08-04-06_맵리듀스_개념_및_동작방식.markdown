@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "06_맵리듀스_개념_및_동작방식"
+title: "bigdata_computing 06_맵리듀스_개념_및_동작방식"
 date: 2020-08-04 19:20:23 +0900
-category: bigdata_computing
+category: lecture
 ---
 
 # 6.맵리듀스_개념_및_동작방식

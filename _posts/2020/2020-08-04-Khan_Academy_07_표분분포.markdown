@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "07_표분분포"
+title: "Khan_Academy_Probability_and_Statistics 07_표분분포"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 # 07. 표분분포
 

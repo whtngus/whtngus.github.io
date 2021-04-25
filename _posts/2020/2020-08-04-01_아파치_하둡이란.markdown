@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "01.아파치_하둡이란"
+title: "bigdata_computing 01.아파치_하둡이란"
 date: 2020-08-04 19:20:23 +0900
-category: bigdata_computing
+category: lecture
 ---
 
 # 1강 아파치 하둡이란

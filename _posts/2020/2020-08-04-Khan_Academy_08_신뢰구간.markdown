@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "08_신뢰구간"
+title: "Khan_Academy_Probability_and_Statistics 08_신뢰구간"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 
 # 08.신뢰구간

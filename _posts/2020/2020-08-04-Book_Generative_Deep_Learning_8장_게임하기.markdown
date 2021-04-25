@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "8장 게임하기"
+title: "Book_Generative_Deep_Learning 8장 게임하기"
 date: 2020-08-04 19:20:23 +0900
-category: Book_Generative_Deep_Learning
+category: book
 ---
 
 # 8장 게임하기 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "05_계산_순열_조합"
+title: "Khan_Academy_Probability_and_Statistics 05_계산_순열_조합"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 
 

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "02_자료_분포_모델링"
+title: "Khan_Academy_Probability_and_Statistics 02_자료_분포_모델링"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 
 ### 백분위수 계산

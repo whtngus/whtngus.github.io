@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "03_이변량_수적_자료"
+title: "Khan_Academy_Probability_and_Statistics 03_이변량_수적_자료"
 date: 2020-08-04 19:20:23 +0900
-category: Khan_Academy_Probability_and_Statistics
+category: lecture
 ---
 
 # 03.이변량_수적_자료

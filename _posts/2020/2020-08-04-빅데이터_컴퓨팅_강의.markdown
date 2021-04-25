@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "빅데이터_컴퓨팅_강의"
+title: "bigdata_computing 빅데이터_컴퓨팅_강의"
 date: 2020-08-04 19:20:23 +0900
-category: bigdata_computing
+category: lecture
 ---
 
 

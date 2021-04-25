@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "7장 작곡하기"
+title: "Book_Generative_Deep_Learning 7장 작곡하기"
 date: 2020-08-04 19:20:23 +0900
-category: Book_Generative_Deep_Learning
+category: book
 ---
 
 
