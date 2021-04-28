@@ -210,7 +210,7 @@ BLUE, MEMetrixs, ROUGE_L, SPICE, CIDEr  metrics 를 사욯하는데 해당 내�
 
 
 
-![base_line_2](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_2.PNG)
+![base_line_2](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_2.PNG)
 
 > 200개의 사진을 랜덤 샘플링 한 경우 정확도를 평가 (퀄리티 평균)
 >
