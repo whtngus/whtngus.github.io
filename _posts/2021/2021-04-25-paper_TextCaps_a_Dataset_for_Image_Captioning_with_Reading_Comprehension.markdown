@@ -216,7 +216,7 @@ BLUE, MEMetrixs, ROUGE_L, SPICE, CIDEr  metrics 를 사욯하는데 해당 내�
 >
 > 아직은 사람이 더 좋은 걸 알 수 있음 
 
-## 4~5 Results and Conclusion
+## 5~6 Results and Conclusion
 
 COCO dataset은 CIDEr 스코어가 더 낮게나오는것을 확인할 수 있음
 
