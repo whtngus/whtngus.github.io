@@ -162,7 +162,7 @@ URL : https://arxiv.org/pdf/2003.12462.pdf
 >
 > COCO, SBU, Conceptual Cations  데이터 셋과 VQA 데이터 셋인 TextVQA, ST-VQA, OCR-VQA 데이터 셋을 비교
 >
-> > ![data_set](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set.PNG)
+> > ![data_set](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set.PNG)
 > >
 > > - 평균 답변 길이
 > >
@@ -174,7 +174,7 @@ URL : https://arxiv.org/pdf/2003.12462.pdf
 > >
 > > 답변이 대체로 응답식이라 yes, two, coca coal 등 단답형이 있어 대체로 짧은 편
 > >
-> > ![data_set_2](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set_2.PNG)
+> > ![data_set_2](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set_2.PNG)
 > >
 > > 그러나 coco dataset 같은경우 ocr 토큰에 대한 정보가 없는경우가 많음
 
@@ -186,7 +186,7 @@ URL : https://arxiv.org/pdf/2003.12462.pdf
 
 1. Baselines
 
-![base_line_model](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_model.PNG)
+![base_line_model](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_model.PNG)
 
 > 위 모델은 image object detection한 정보와 ocr 토큰의 위치값을 Transformer 의 입력으로 받아 text를 출력하는 방식 -> 해당 논문 정리할 필요 있어보임 논문 명 - **M4C-Captioner architecture**
 
@@ -202,7 +202,7 @@ BLUE, MEMetrixs, ROUGE_L, SPICE, CIDEr  metrics 를 사욯하는데 해당 내�
 
 - 각 테스크 별 base-line
 
-![base_line](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line.PNG)
+![base_line](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line.PNG)
 
 > TextCaps (논문에서 제공한 데이터셋) 을 평가한 base-line - M4C-Captioner
 >
