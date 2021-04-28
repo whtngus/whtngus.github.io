@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "TextCaps: a Dataset for Image Captioning with Reading Comprehension"
-date: 2021-01-05 19:20:23 +0900
+title: "paper : TextCaps: a Dataset for Image Captioning with Reading Comprehension"
+date: 2021-04-29 19:20:23 +0900
 category: paper
 ---
 
@@ -160,7 +160,89 @@ URL : https://arxiv.org/pdf/2003.12462.pdf
 >
 > - Dataset statistics
 >
-> 
+> COCO, SBU, Conceptual Cations  데이터 셋과 VQA 데이터 셋인 TextVQA, ST-VQA, OCR-VQA 데이터 셋을 비교
+>
+> > ![data_set](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set.PNG)
+> >
+> > - 평균 답변 길이
+> >
+> > 1.53 - TextVQA
+> >
+> > 1.51 - ST-VQA
+> >
+> > 3.31 - OCR-VQA
+> >
+> > 답변이 대체로 응답식이라 yes, two, coca coal 등 단답형이 있어 대체로 짧은 편
+> >
+> > ![data_set_2](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set_2.PNG)
+> >
+> > 그러나 coco dataset 같은경우 ocr 토큰에 대한 정보가 없는경우가 많음
+
+
+
+## 4. Benchmark Evaluation
+
+
+
+1. Baselines
+
+![base_line_model](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_model.PNG)
+
+> 위 모델은 image object detection한 정보와 ocr 토큰의 위치값을 Transformer 의 입력으로 받아 text를 출력하는 방식 -> 해당 논문 정리할 필요 있어보임 논문 명 - **M4C-Captioner architecture**
+
+2. Experimental setup
+
+AoANet 을 베이스 라인 모델로 시작 -  TextVQA task 
+
+caption generation 을 할때 <unk> 토큰을 제거함 
+
+BLUE, MEMetrixs, ROUGE_L, SPICE, CIDEr  metrics 를 사욯하는데 해당 내용은 따로 정리 필요 
+
+-> 검색해도 잘 안나오는 메트릭스도 있음 ㅠ
+
+- 각 테스크 별 base-line
+
+![base_line](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line.PNG)
+
+> TextCaps (논문에서 제공한 데이터셋) 을 평가한 base-line - M4C-Captioner
+>
+> OCR입력에 대해 CIDEr이 높은 점수를 보이고 있음 
+
+
+
+![base_line_2](./\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\base_line_2.PNG)
+
+> 200개의 사진을 랜덤 샘플링 한 경우 정확도를 평가 (퀄리티 평균)
+>
+> 아직은 사람이 더 좋은 걸 알 수 있음 
+
+## 4~5 Results and Conclusion
+
+COCO dataset은 CIDEr 스코어가 더 낮게나오는것을 확인할 수 있음
+
+-> 도메인이 바껴서 그렇다고판단 (학습은 TextCaps로 하기 때문)
+
+TextCaps에서 제공하는 데이터는 Test set의 데이터도 많음으로 평가하기 좋음 (내용들이 쭉 자랑)
+
+
+
+Image captioning with reading comprehension 첼린지는 사진에서 텍스트를 읽고 사진의 문맥을 같이 이해하는것이 매우 중요하다. 
+
+그래서 ocr 모델과 사진 인식모델의 결합이 중요한 역할을 한다.
+
+이를 효율적으로 하기위해 ocr 토큰의 라벨과 Image captioning with reading comprehension라벨을 독립적을 제공 
+
+현제 Image captioning with reading comprehension sota 모델들은 COCO데이터 위주로 되어 있으로 이미지에서 텍스트를 읽고 설명해야하는 OCR문제를 잘 해결하지 못한다. 이를 해당 논문에서 제공한 데이터를 통해 해결해라!! 
+
+
+
+
+
+
+
+
+
+
 
 
 
