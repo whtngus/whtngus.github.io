@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : TextCaps: a Dataset for Image Captioning with Reading Comprehension"
-date: 2021-04-29 19:20:23 +0900
+date: 2021-04-30 19:20:23 +0900
 category: paper
 ---
 
@@ -234,16 +234,16 @@ Image captioning with reading comprehension 첼린지는 사진에서 텍스트�
 
 현제 Image captioning with reading comprehension sota 모델들은 COCO데이터 위주로 되어 있으로 이미지에서 텍스트를 읽고 설명해야하는 OCR문제를 잘 해결하지 못한다. 이를 해당 논문에서 제공한 데이터를 통해 해결해라!! 
 
+# TextCaps benchmark
+
+![base_line_2](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\TextCaps_benchmark.PNG)
 
 
+baseline model - https://github.com/ZephyrZhuQi/ssbaseline - 코드 확인 필요 
 
+https://github.com/vinojjayasundara/textcaps - OCR
 
-
-
-
-
-
-
+https://github.com/wzk1015/CNMT - 2021 AAAI 논문 
 
 
 
