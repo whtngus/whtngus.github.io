@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : TextCaps: a Dataset for Image Captioning with Reading Comprehension"
-date: 2021-04-29 19:20:23 +0900
+date: 2021-05-01 19:20:23 +0900
 category: paper
 ---
 
@@ -11,7 +11,7 @@ category: paper
 
 - 논문 정보 
 
-게재 일 : 2020년 8원 4일
+게재 일 : 2020년 8월 4일
 
 URL : https://arxiv.org/pdf/2003.12462.pdf
 
@@ -230,20 +230,20 @@ Image captioning with reading comprehension 첼린지는 사진에서 텍스트�
 
 그래서 ocr 모델과 사진 인식모델의 결합이 중요한 역할을 한다.
 
-이를 효율적으로 하기위해 ocr 토큰의 라벨과 Image captioning with reading comprehension라벨을 독립적을 제공 
+이를 효율적으로 하기위해 ocr 토큰의 라벨과 Image captioning with reading comprehension 라벨을 독립적을 제공 
 
 현제 Image captioning with reading comprehension sota 모델들은 COCO데이터 위주로 되어 있으로 이미지에서 텍스트를 읽고 설명해야하는 OCR문제를 잘 해결하지 못한다. 이를 해당 논문에서 제공한 데이터를 통해 해결해라!! 
 
+# TextCaps benchmark
+
+![base_line_3](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\TextCaps_benchmark.PNG)
 
 
+baseline model - https://github.com/ZephyrZhuQi/ssbaseline - 코드 확인 필요 
 
+https://github.com/vinojjayasundara/textcaps - OCR
 
-
-
-
-
-
-
+https://github.com/wzk1015/CNMT - 2021 AAAI 논문 
 
 
 
