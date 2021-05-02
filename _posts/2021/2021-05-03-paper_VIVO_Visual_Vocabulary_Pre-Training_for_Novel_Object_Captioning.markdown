@@ -116,7 +116,7 @@ Image captioning은 오래된 첼린지이다.
 
 ## 학습 방법
 
-![image-20210502221552976](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\vivo_model.png)
+![image-model](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\vivo_model.png)
 
 
 
