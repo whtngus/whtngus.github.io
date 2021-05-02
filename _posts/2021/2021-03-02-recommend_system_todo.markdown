@@ -2,7 +2,7 @@
 layout: post
 title: "recommend system : 토크ON세미나_SKplanet Tacademy 정리_4~6강"
 date: 2021-03-22 19:20:23 +0900
-category: recommend system
+category: recommend_system
 ---
 
 
