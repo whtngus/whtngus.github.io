@@ -245,7 +245,7 @@ https://github.com/vinojjayasundara/textcaps - OCR
 
 https://github.com/wzk1015/CNMT - 2021 AAAI 논문 
 
-
+https://github.com/xinke-wang/Awesome-Text-VQA  - textVQA 정리 잘되있음 
 
 
 
