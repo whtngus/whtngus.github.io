@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : TextCaps: a Dataset for Image Captioning with Reading Comprehension"
-date: 2021-05-01 19:20:23 +0900
+date: 2021-05-06 19:20:23 +0900
 category: paper
 ---
 
@@ -177,8 +177,10 @@ URL : https://arxiv.org/pdf/2003.12462.pdf
 > > ![data_set_2](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set_2.PNG)
 > >
 > > 그러나 coco dataset 같은경우 ocr 토큰에 대한 정보가 없는경우가 많음
-
-
+> > 
+> > ![data_set_2](\img\textcaps_a_dataset_for_image_cpationing_with_reading_comprehension\data_set_3.PNG)
+> >
+> >  평균 답변 텍스트 길이는 위 사진에서 보듯이 거의 yes no 로 짧은것을 확인 가능  5개의 단어로 제한되어 있다 
 
 ## 4. Benchmark Evaluation
 
@@ -216,6 +218,9 @@ BLUE, MEMetrixs, ROUGE_L, SPICE, CIDEr  metrics 를 사욯하는데 해당 내�
 >
 > 아직은 사람이 더 좋은 걸 알 수 있음 
 
+
+
+
 ## 5~6 Results and Conclusion
 
 COCO dataset은 CIDEr 스코어가 더 낮게나오는것을 확인할 수 있음
@@ -245,7 +250,7 @@ https://github.com/vinojjayasundara/textcaps - OCR
 
 https://github.com/wzk1015/CNMT - 2021 AAAI 논문 
 
-https://github.com/xinke-wang/Awesome-Text-VQA  - textVQA 정리 잘되있음 
+
 
 
 
