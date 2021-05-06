@@ -204,7 +204,7 @@ image-tag 페어를 통해 사전학습을 진행
 >
 > 위 식에서  α는  M(mask)지수의 순열 -> α(i)는 i번째 예측에 할당된 토큰의 인덱스
 >
-> ![image-20210502230654706](C:\Users\Suhyun\AppData\Roaming\Typora\typora-user-images\image-20210502230654706.png)
+> ![formula_9](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\formula_9.PNG)
 >
 > 모델에서 어떤 값이 할당된건지 알 수 없음으로 α는  T와 P사이에서 가장 좋은 매칭을 학습하는걸 목표로 한다.
 >
@@ -304,21 +304,21 @@ image-tag 페어를 통해 사전학습을 진행
 >
 > 캡션 텍스트 생성시에는 Constrained Beam Search (CBS) (Anderson et al. 2017) 을 사용
 >
-> ![table_1](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_1.PNG)
+> ![table_1](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_1.PNG)
 >
 > 위의 표에서 VIVO pre-training 데이터가 Human 보다 높은 점수르 달성한 것을 볼 수 있다.
 >
-> ![vivo_model_2](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\vivo_model_2.PNG)
+> ![vivo_model_2](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\vivo_model_2.PNG)
 >
 > vivo 모델은 위와 같은 방식으로 학습하며 학습 방식은 이전에 설명한 바와 같다.
 
 - Visual-Text Alignment, General Image Captioning
 
-> ![table_4](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_4.PNG)
+> ![table_4](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_4.PNG)
 >
-> ![table_2](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_2.PNG)
+> ![table_2](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_2.PNG)
 >
-> ![table_3](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_3.PNG)
+> ![table_3](\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_3.PNG)
 >
 > 이미지 여역을 객체 태그에 맞춰 정렬하는 것은 어휘 학습에서 VIVO 사전 훈련이 데이터를 더 잘이해할 수 있도록 한다.
 >
