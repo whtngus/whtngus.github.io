@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : VIVO: Visual Vocabulary Pre-Training for Novel Object Captioning"
-date: 2021-05-03 19:20:23 +0900
+date: 2021-05-08 19:20:23 +0900
 category: paper
 ---
 
@@ -296,11 +296,67 @@ image-tag 페어를 통해 사전학습을 진행
 
 - Novel Object Captioning
 
+ (Anderson et al. 2018; Agrawal et al. 2019) and OSCAR4 (Li et al. 2020) 논문들과 비교해서 nocaps benchmark 데이터 에서  state-of-the-art 를 달성  학습 데이터는 COCO 데이터셋을 사용 
+
+> - setting
+>
+>  SCST (Rennie et al. 2017) 옵티마이제이션 사용
+>
+> 캡션 텍스트 생성시에는 Constrained Beam Search (CBS) (Anderson et al. 2017) 을 사용
+>
+> ![table_1](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_1.PNG)
+>
+> 위의 표에서 VIVO pre-training 데이터가 Human 보다 높은 점수르 달성한 것을 볼 수 있다.
+>
+> ![vivo_model_2](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\vivo_model_2.PNG)
+>
+> vivo 모델은 위와 같은 방식으로 학습하며 학습 방식은 이전에 설명한 바와 같다.
+
+- Visual-Text Alignment, General Image Captioning
+
+> ![table_4](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_4.PNG)
+>
+> ![table_2](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_2.PNG)
+>
+> ![table_3](D:\code\whtngus.github.io\img\vivo_visual_vocabulrary_pre_training_for_novel_object_captioning\table_3.PNG)
+>
+> 이미지 여역을 객체 태그에 맞춰 정렬하는 것은 어휘 학습에서 VIVO 사전 훈련이 데이터를 더 잘이해할 수 있도록 한다.
+>
+> 또한 VIVO 모델 pre-training시에 이미지 캡션 데이터가 없어도 가능하다는 점에서 집중 
+
+-  Ablation Study
+
+10% Open Images training set을 추출하여 ablation을 수행
+
+fine-tuning을 cross-entropy로 진행하면서 COCO 데이터 셋을 학습하고 nocaps validation set을 이용
+
+> - Using a Larger Set of Tags
+>
+> 500개 이상의 객체와, 6.4K 개의 테그셋으로 모델을 학습
+>
+> - Using Humgarian Matching Loss
+>
+> Hungarian matching loss를 사용해서 효과적인 학습을 진행  (위 점수 사진의 Table 6 참조 )
+
+## Conclusions
+
+논문에서는 임지 캡션 모델을 두 단계로 훈련하는 모델을 제시 
+
+첫째, 트랜스포머 기반 모델은 얻기 어려운 이미지 캡션 쌍을 사용할 필요 없이 어휘 학습을 위해 대용량 데이터셋 사용
+
+-> 이미 object detection 데이터라 ...  이것도 없이 nlp처럼 학습할 방법은 없을까?
+
+둘째, 모델은 이미지 캡션 데이터를 통해 미세 조정하여 사전 훈련된 시각적 어휘 정보를 이용해 캡션 정보를 구성
+
+-> nocpas 데이터를 통해 zero-shot 에서도 잘 작동함을 보임 
+
+CIDEr 점수는 state-of-the-art 를 찍었다고 논문에서말함  
+
+-> 논문 읽는 내내 CIDEr만 언급하는걸 보니 다른 평가 메트릭스는.. 글쎄?
 
 
 
-
-
+결론으로 두 가지 스텝을 이용하니 첫 번째 데이터가 많은 object detction 데이터로 학습해서  모델이 사진에 대한 문맥 이해를 잘 하도로 만들었다는게 포인트
 
 
 
@@ -324,6 +380,6 @@ COCO 이미지-캡션 쌍과 Open Images 이미지 수준 레이블 및 개체 �
 
 -  Ground-truth
 
-학습하고자 하는 데이터의 원본 혹은 실제 값을 표현할 때 사용  
+이 논문에서 말하는 ground-truth는 학습하고자 하는 데이터의 원본 혹은 실제 값을 표현할 때 사용  
 
-ex) segmentation에서 객체 간의 경계선
+즉,  segmentation에서 객체 간의 경계선
