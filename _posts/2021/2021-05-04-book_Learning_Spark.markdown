@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "book : Learning Spark"
-date: 2021-05-05 19:20:23 +0900
+date: 2021-05-10 19:20:23 +0900
 category: book
 ---
 
@@ -214,3 +214,154 @@ sc.textFile("./path")
 여러번 반복 연산을 피하기 위해 영속화(persist/persistence) 요청을 할 수 있음
 
 persist()
+
+
+
+# 4장 키/값 페어로 작업하기
+
+key/value pair는 RDD집합연산에서 쓰이며 ETL(Extract, Transform and Load) 작업에도 데이터를 변환하는 방식으로 쓰임 
+
+- 페어 RDD
+
+> - 페어 RDD 생성
+>
+> ```
+> pairs = datas.map(lambda data: (x.split("\n")[0],x.split("\n")[1:]))
+> ```
+>
+> - 페어 RDD의 트랜스포메이션
+>
+> ```
+> - reduceByKey(func)
+> 동일 키에 대한 값을을 합침 
+> - groupByKeh()
+> 동일 키에 대한 값들을 그룹화
+> - combineByKey(createCombiner, mergeValue, mergeCombiners, partitionner)
+> 다른 결과 타입을 써서 동일 키의 값들을 합침
+> - mapValueS(func)
+> 키의 변경 없이 페어 RDD의 각 값에 함수를 적용
+> - flatMapValues(func)
+> 페어 RDD의 각 값에 대해 반복자를 리턴하는 함수를 적용
+> - keys(), values(), sortByKey()
+> - 두 페어 RDD 트랜스포메이션
+> subtractByKeu, join, rightOuterJoin, leftouterJoin, cogroup
+> ```
+>
+> - 데이터 그룹화
+>
+> groupByKey()와 reduce(), fold()를 사용시 키별 집합 연산함수를 사용하면 더 효율적이다.
+>
+> 메모리에 있는 값에 RDD를 합치는 대신 키별로 데이터를 합치고 합친값의 RDD를 받기 때문에 
+>
+> - 데이터 파티셔닝 - partitionBy()
+>
+> 네트워크 비용을 줄이기 위해 RDD의 파티셔닝 제어 방법을 사용
+>
+> 파티셔닝은 조인 같은 키중심의 연산에서 데이터세트가 여러번 재활용될 때만 의미가 있다.
+
+# 5장 데이터 불러오기/저장하기
+
+- 일반적으로 지원하는 파일 포맷
+
+텍스트 파일(구조화 x), json(구조화 일부), CSV, 시퀀스 파일, 프로토콜 버퍼, 오브젝트 파일
+
+> - 텍스트파일
+>
+> 각 라인이 RDD의 개별 데이터로 들어가게 됨 
+>
+> sc.textFile("경로")
+>
+> result.saveAsTextFile(outputFile)
+>
+> - json
+>
+> import json
+>
+> input.map(lambda x: json.loads(x))
+>
+> (dat.filer(lamda x: x["key"])).map(lambda x: json.dumps(X)).saveAsTextFile(outputFile))
+>
+> - 그 외에는 그떄그때 검색 ㄱㄱ
+
+- 파일 압축
+
+> 스파크에서 지원하는 압축 옵션들
+>
+> - gzip
+>
+> 분할 x, 빠름, 텍스트 우수
+>
+> - lzo
+>
+> 분할 o,매우 빠름, 텍스트 보통, 노드에 설치해야 사용 가능
+>
+> - bzip2
+>
+> 분할 o, 느림, 텍스트 매우 우수
+>
+> - zlib
+>
+> 분할 x, 느림, 텍스트 보통
+>
+> - Snappy
+>
+> 분할x, 매우빠름, 텍스트 x, 사용 불가능
+
+# 6장 스파크 프로그래밍
+
+accumulator는 정보들을 누산
+
+broadcast variable는 효과적으로 많은 값들을 분산시켜 줌
+
+- 어큐뮬레이터
+
+> 스파크의 공유 변수인 어큐뮬레이터와 브로드캐스트 변수는 일반적인 통신 타입인 결과의 집합 연산(aggregation)과 broadcast에 대해  map이나 filter 에서 복사볻을 받아 작업하면서 업데이트된 내용이 다시 드라이버 프로그램으로 돌아오지 않는 문제를 해결
+>
+>  
+>
+> 가장 흔한 수행방법 중 하나는 작업 수행 중에 발생하는 일에 대한 개수를 디버깅 목적으로 헤아리는 것 
+>
+> ```
+> def test(line):
+>    global blankLines # 접근할 전역변수로 지정
+>    ~~~
+>    
+> # 공유변수로 접근
+> print(blankLinkes.value)
+> ```
+>
+> pyspark는 여유로운 수행방식을 수행하기땜ㄴ에 saveAsTextFile 수행 후 사용 가능
+>
+> -  어큐뮬레이터의 동작 방식
+>
+> > - 드라이버에서 SparkContext.accumulator(initialValue)를 호출하여 초기 값을 가진 어큐뮬레이터를 생성 반환갑슨 org.apache.spark.Accumulator[T] T는 초기값 타입
+> > - 스파크 closure의 작업 노드 코드에서 어큐뮬레이터에 += 메소드를 써서 값을 더함
+> > - 드라이버 프로그램에서 value 속성을 불러 어큐뮬레이터 값에 접근
+>
+> 자세한 사용 방식은 그때그때 검색해서
+>
+> -> pyspark 작동시에 이방을 이용해서 변수 체크및 count 디버깅이 가능하다 에 중점을 두자!
+>
+> *액션에 사용되어있던 어큐뮬레이션들에 대한 것이며, 각 태스크의 업데이트는 스ㅏ크에 의해 각 어큐뮬레이션에 한 번씩만 반영된다* -> 장애나 방복연산 횟수에 의해 계속 누적될 수 있음
+
+- 브로드캐스트 변수
+
+스파크 연산에 쓸 크고 읽기 적욘인 값을 모든 작업 노드에 효과적으로 전송하는데 쓰임
+
+> 병렬 작업에서 동일 변수를 사용할 수 있으므로 효과적이지 못해 보이지만 스파크는 매 연산마다 그 변수를 보낸다.
+>
+> 예시코드 생략 (그냥 전체변수로 함수 밖에서 선언 )
+>
+> - 브로드캐스트 최적화
+>
+> > 빠르고 작은데이터의 직렬화가 필요
+> >
+> > spark.serializer 속성을 이용해 다른 직렬화 라이브러리 를 사용 혹은 카이로 등을 사용해야함
+
+파티션별로 작업하기
+
+> mapPartitions(), mapPartitionsWithIndex(), foreachPartiion()
+
+- 수치 RDD 연산들
+
+count, mean,sum, max,min, variance, sampleVariance, stdev, sampleStdev 
