@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "book : Learning Spark"
-date: 2021-05-10 19:20:23 +0900
+date: 2021-05-13 19:20:23 +0900
 category: book
 ---
 
@@ -11,6 +11,8 @@ category: book
   
 
 코드 관련 정리 x 
+
+pyspark 위주로 내용만 보기
 
 개념이랑 내부 구조 돌아가는걸 익히는걸 목표로! 
 
@@ -447,9 +449,185 @@ count, mean,sum, max,min, variance, sampleVariance, stdev, sampleStdev
 > >
 > > 모든 익스큐터가 사용할 코어 개수의 총합(default 무한대)
 >
-> 
+
+
+
+# 8장 스파크 최적화 및 디버깅
+
+- SparkConf로 스파크 설정
+
+SparkConf 객체는 SparkContext를 만들기 위해필요
+
+```
+conf = new SparkConf()
+conf.set("spark.app.name", "~~")
+...
+sc = new SparkContext(conf)
+```
+
+- 스파크의 실행 구성
+
+> 스파크를 실행시 명령어들의 결과 RDD인 counts는 각 로그 레벨 메시지의 개수를 갖고 있는다.
 >
-> 
+> 내부적으로 정의된 RDD 객체들의 지향성 비순환 그래프(DAG, Directed Acyclic Graph)를 갖게 되고, 이것이 나중에 액션을 수행할 때 쓰이게 된다.
+>
+> - RDD 그래프 예시
+>
+> HadoopRDD -> MappedRDD(sc.textFile(...)) -> MappedRDD(.map(...)) -> FilteredRDD(.filter(..)) -> SuffledRDD(reduceByKey(...))
+>
+> -  같은 순서의 물리적 실행 RDD 
+>
+> 단계1
+>
+> HadoopRDD -> MappedRDD -> MappedRDD -> FiltredRDD
+>
+> 단계2
+>
+> -> SuffledRDD
+
+- 병렬화 수준
+
+> RDD의 논리적인 표현은 객체들의 모음
+>
+> 기본적으로 spark는 병렬화를 자동적으로 수행해 대체로 좋은 성능을 보임 
+>
+> - 병렬화 수준이 서능에 영향을 미치는 경우
+>
+> > 1. 병렬화 개수가 너무 적은 경우
+> >
+> > 스파크 리소스들을 놀리게 되는 경우가 발생
+> >
+> > 이 경우 더 많은 코어를 더 많은 코어를 쓰도록 병렬화 수준을 올리는 것이 좋음
+> >
+> > 2. 병렬화가 너무 많은 경우
+> >
+> > 각 파티션에서의 작은 오버헤드라도 누적되면 성능 문제가 심각해짐
+> >
+> > 이런 단위는 밀리초 내로 순식간에 끝나는 테스크가 있거나 아무 데이터도 읽거나 쓰지 못하는 태스크가 있는 것을 확인해 파악 가능
+>
+> - 병렬화 수준 조절
+>
+> > 1. 데이터 셔플이 필요한 연산 간에 생성되는 RDD를 위한 병렬화 정도를 인자로 전달 
+> >
+> > 2. RDD를 더 적거나 더 많은 파티션을 갖도록 재배치
+> >
+> > repartition() 메소드는 RDD를 무작위로 섞어 원하는 개수의 파티션으로 다시 나눠줌 
+> >
+> > coalesce() 메소드를 통해 파티션의 개수를 줄일 수 있음
+
+- 직렬화 포맷
+
+> 스파크는 기본적으로 자바에서 내장된 직렬화를 이용
+
+- 메모리 관리
+
+각 익스큐터 내부에서 메모리는 다음의 여러 가지 목적으로 사용됨
+
+> - RDD 저장용
+>
+> persist()나 cache()를 호출할 때 그 파티션들은 메모리 버퍼에 저장된다.
+>
+> JVM의 힙 메모리 대비 spark.storage.memoryFraction 의 퍼센트로 저장되며 초과시 오래된 파티션들은 메모리에서 제거됨
+>
+> - 셔플 및 집합 연산 버퍼
+>
+> 셔플시 셔플 출력 데이터를 저장하는 중간 버퍼를 생성
+>
+> 이 버퍼는 집합 연산의 중간 결과를 저장하거나 결과 일부분으로 출력될 데이터를 저장하는 용도
+>
+> spark.shuffle.memoryFraction으로 설정
+>
+> - 사용자 코드
+>
+> 사용자 코드는 RDD 저장과 셔플 버퍼 등이 할당된 다음에 JVM 힙에 남아 있는 나머지를 모두 사용
+
+# 9장 스파크 SQL
+
+구조화된 데이터인 스키마(schema)를 가진 모든 데이터를 다룸
+
+- SQL의 세가지 주 기능
+
+> 1. 파이썬, 자바, 슼칼라에서 DataFrame 추상화 클래스를 제공
+> 2. 다양한 구조적 포맷의 데이터를 읽고 쓸 수 있음
+> 3. 스파크 프로그램 내부에서나 표준 데이터베이스 연결을 제공하는 외부 툴을 사용해 SQL로 데이터 질의 가능
+
+- SQL 라이브러리 링크
+
+> 스파크 SQL은 하둡의 SQL 엔진인 Apache Hive를 포함하거나 포함하지 않고 빌드 가능
+>
+> HIve는 하이브 테이블(UDF. User Defined Function), SerDes(serialization/deserialization), 하이브 QL(Query Language) 등에 접근할 수 있다.
+
+- SQL 사용 예시
+
+```
+# SparkSQL
+from pyspark.sql import HiveContext, Row
+# 하이브 의존성이 없는경우 
+from pyspark.sql import SQLContext, Row
+# 컨텍스트 생성
+sc = SparkContext(...)
+hiveCtx = HiveContet(sc)
+# 질의문
+hiveCtx.sql("sql query 내용")
+```
+
+- 데이터 프레임
+
+> - 기본 데이터 프레임 연산
+>
+> show() - 내용을 보여줌
+>
+> select() - 지정 필드나 함수 결과를 보여줌
+>
+> filter() - 조건에 맞는 레코드만을 가져옴
+>
+> groupBy() - 칼럼에 따라 그룹화, 이어서 min, max, mean, agg 같은 집합 연산을 필요로함
+
+- 캐싱
+
+각 컬럼의 타입을 알고 있으므로 스파크는 좀 더 효율적으로 데이터를 저장
+
+메모리 효율적인 형태로 캐싱하도록 하기 위해소 hiveCtx.cacheTable("~~") 메소드라는 특수한 메소드를 사용
+
+-> 캐시된 데이터프레임은 다른 RDD처럼 스파크 애플리케이션 UI에 표시된다.
+
+- 사용자 정의 함수
+
+사용자 정의 함수(UDF. User-defined function)은 직접 만든 로직의 함수를 등록하여 SQL 내에서 호출할 수 있게 해준다.
+
+> - 스파크 SQL UDF
+>
+> 프로그래밍 언어에서 함수만 전달해 쉽게 UDF를 등록할 수 있는 내장 메소드를 지원
+>
+> python은 람다나 함수를 넘기는 방식을 사용 (java는 적절한 UDF 클래스를 상속해서 사용)
+>
+> - 하이브 UDF
+>
+> 기존의 하이브 UDF를 쓸 수 있음
+>
+> HiveContext를 이용해  hiveContext.sql("~~") 로 사용
+
+- 성능 최적화 옵션
+
+> - spark.sql.codegen - default : false
+>
+> true이면 스파크 SQl이 쿼리문을 싱ㅎ행할 때마다 자바 바이트코드로 컴파일한다.
+>
+> 복잡한 쿼리에 대해서는 성능이 향상되지만 수행 시간이 짧으면 오히려 느려질 수 있음
+>
+> - spark.sql.inMemoryColumnarStroage.compressed - default : true
+>
+> 메모리에 저장하는 칼럼 지향 저장 포맷을 자동으로 압축
+>
+> - spark.sql.inMemoryColumnarStorage.batchsize - defulat : 1000
+>
+> 너무 큰 값은 out of memory 문제를 발생시킬 수 있음
+>
+> - spark.sql.parquet.compression.codec - default : snappy
+>
+> 사용할 합축 코덱을 정의 (uncompressed, snappy, gzip, lzo, ... 등)
+
+
 
 
 
