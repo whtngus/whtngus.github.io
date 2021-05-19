@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : The Hateful Memes Challenge: Detecting Hate Speech in Multimodal Memes"
-date: 2021-05-19 19:20:23 +0900
+date: 2021-05-20 19:20:23 +0900
 category: book
 ---
 
