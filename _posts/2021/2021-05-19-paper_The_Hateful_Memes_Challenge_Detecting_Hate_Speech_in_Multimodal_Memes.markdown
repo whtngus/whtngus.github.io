@@ -31,7 +31,7 @@ url : https://arxiv.org/abs/2005.04790
 
 해당 논문에서는 혐오성 있는 발언을 탐지하는것을 목표로 한다.
 
-![image-20210517205857958](C:\Users\whtng\AppData\Roaming\Typora\typora-user-images\image-20210517205857958.png)
+![example_image](\img\2021\The_Hateful_Memes_Challenge_Detecting_Hate_Speech_in_Multimodal_Memes\example_image.PNG)
 
 위의 사진 예시와 같이 같은 사진에서도 우측 사진은 좋은 글이지만 좌측 사진은 혐오성 있는 발언임을 알 수 있다.
 
@@ -47,7 +47,7 @@ url : https://arxiv.org/abs/2005.04790
 
 혐오스러움의 기준을 정하기가 어렵기 때문에 몇가지 예외를 둔다  유명인이나 개인에대한 공격을 허용(왜?) 또한  증오를 가하는 공격도 포함하지 않음 -> 애매한 경계에 있는 내용들을 제거하기 위해
 
-![image-20210517210707851](C:\Users\whtng\AppData\Roaming\Typora\typora-user-images\image-20210517210707851.png)
+![annotation](\img\2021\The_Hateful_Memes_Challenge_Detecting_Hate_Speech_in_Multimodal_Memes\annotation.PNG)
 
 
 
@@ -57,7 +57,7 @@ url : https://arxiv.org/abs/2005.04790
 
 # 데이터 분석
 
-![performance](D:\code\whtngus.github.io\img\2021\The_Hateful_Memes_Challenge_Detecting_Hate_Speech_in_Multimodal_Memes\performance.PNG)
+![performance](\img\2021\The_Hateful_Memes_Challenge_Detecting_Hate_Speech_in_Multimodal_Memes\performance.PNG)
 
 스코어를 보여줌으로써 데이터를 예측및 검증 
 
