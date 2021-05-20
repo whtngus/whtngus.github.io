@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Towards Accurate Scene Text Recognition with Semantic Reasoning Networks"
-date: 2021-05-19 19:20:23 +0900
+date: 2021-05-21 19:20:23 +0900
 category: book
 ---
 
