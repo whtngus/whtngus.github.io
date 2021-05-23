@@ -72,9 +72,62 @@ OCR에서도 텍스트는 많은 의미를 가지고 있으며 장면 텍스트 
 
 ![SRN](\img\2021\Towards_Accurate_Scene_Text_Recognition_with_Semantic_Reasoning_Networks\SRN.PNG)
 
+4가지 부분으로 구성된 모델
+
+백본 네트워크에서 2D V를 추출하고, PVAM은 각 기능에 해당하는 G를 생성 해서 텍스트의 오류와 정렬된 시각적 정보를 캡처
+
+N개의 병렬 1-D 를 GSRM에공급하여 의미정보인 S를 얻고 VSFD에 의해 융합되어 N자를 예측 
+
+N의 남은 부분 패딩은 'EOS' 토큰을 사용
+
+
+
+### 3.1 Backbone Network
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 참고
+
+- FPN(Feature Pyramid Network)
+
+> 1. Featurized Image Pyramid
+>
+> 각 라벨에서 독립적으로 특징을 추출하여객체를 탐지하는 방법 
+>
+> 연산량과 시간 관점에서 비효율적, 적용하기 어려운 담점 있음
+>
+> 2. Single Featur Map
+>
+> Conv layer를 이용해서 특징을 압축하는 방식
+>
+> 멀티 스케일을 사용하지 않기 때문에 성능이 떨어지는 단점 발생
+>
+> 3. Pyramidal Feature Hierarchy
+>
+> 서로 다른 특징 맵을 이용해 멀티 스케일 특징을 추출하는 방식
+>
+> 각 레벨에서 독립적으로 특징을 추출하여 객체를 탐지
+>
+> 4. Feature Pyramid network
+>
+> Top-down 바잇ㄱ으로 특징울 추출
+>
+> 각 추출된 결과들인 low-resolution 및 high-resolution 들을 묶는 방식
+>
+> 
