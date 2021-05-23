@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "pyspark 데이터분석을 위한 준비 작업"
+title: "pyspark 강의 : pyspark 데이터분석을 위한 준비 작업"
 date: 2020-08-04 19:20:23 +0900
-category: pyspark
+category: python
 ---
 
 # 01.데이터 저장소 연결하기

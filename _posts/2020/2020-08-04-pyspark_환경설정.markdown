@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "pyspark 환경설정"
+title: "pyspark 강의 : pyspark 환경설정"
 date: 2020-08-04 19:20:23 +0900
-category: pyspark
+category: python
 ---
 
 # 1. Databricks Cloud 가입하기
