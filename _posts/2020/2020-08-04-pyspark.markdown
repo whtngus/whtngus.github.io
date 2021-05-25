@@ -2,7 +2,7 @@
 layout: post
 title: "pyspark 강의"
 date: 2020-08-04 19:20:23 +0900
-category: pyton
+category: python
 ---
 
 # PySpark를 활용한 데이터분석
