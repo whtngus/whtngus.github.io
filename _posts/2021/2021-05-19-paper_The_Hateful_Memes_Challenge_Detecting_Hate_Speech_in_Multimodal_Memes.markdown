@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "paper : The Hateful Memes Challenge: Detecting Hate Speech in Multimodal Memes"
-date: 2021-05-20 19:20:23 +0900
-category: book
+date: 2021-05-28 19:20:23 +0900
+category: paper
 ---
 
 # 논문 정보 
@@ -63,4 +63,4 @@ url : https://arxiv.org/abs/2005.04790
 
 
 
-진짜 간단하게 끝(기술 논문인줄알고 열었는데 데이터셋 논문이여서 읽은김에 쭉 읽고 정리는 대충)
+진짜 간단하게 끝(기술 논문인줄알고   열었는데 데이터셋 논문이여서 읽은김에 쭉 읽고 정리는 대충)
