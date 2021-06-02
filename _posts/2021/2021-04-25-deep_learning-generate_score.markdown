@@ -27,7 +27,7 @@ BLEU, METEOR, ROUGE_L, SPICE, CIDEr1
 
 - BLEU algorithm
 
-![bleu_matrix](D:\code\whtngus.github.io\img\generate_score_matrix\bleu_matrix.PNG)
+![bleu_matrix](\img\generate_score_matrix\bleu_matrix.PNG)
 
 > n-gram을 통한 순서쌍들이 정답 순서쌍들과 얼마나 겹치는 지를 측정(Precision) -> 1~4 gram 
 >
@@ -49,7 +49,7 @@ Uni-gram의 Precision과 Recall의 조화 평균을 기반으로 재현율을 �
 
 > BLEU와 마찬가지로 문장 단위의 평가
 >
-> ![meteor_sort](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_sort.PNG)
+> ![meteor_sort](\img\generate_score_matrix\meteor_sort.PNG)
 >
 > 정답 문장가 후보 문자열 사이에 정렬을 만듦 (위 그림 참조)
 >
@@ -61,7 +61,7 @@ Uni-gram의 Precision과 Recall의 조화 평균을 기반으로 재현율을 �
 > >
 > > Uni-Gram의 정밀도는 아래와 같음
 > >
-> > ![meteor_formula_1](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_formula_1.PNG)
+> > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_1.PNG)
 > >
 > > m은 정답 문자열과 후보 문자열 모두 발견되는 유니 그램의 수 
 > >
@@ -71,17 +71,17 @@ Uni-gram의 Precision과 Recall의 조화 평균을 기반으로 재현율을 �
 > >
 > > 
 > >
-> > ![meteor_formula_1](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_formula_2.PNG)
+> > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_2.PNG)
 > >
 > > wr은 접답 문자열의 유니 그램 수
 > >
 > > METEOR 스코어 에서는 재현율을 높게 평가함 
 > >
-> > ![meteor_formula_1](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_formula_3.PNG)
+> > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_3.PNG)
 > >
 > > 위의 방법을 사용해 더 긴 n-gram 일치를 사용하여 정렬에 대한 패널티 p를 계산 
 > >
-> > ![meteor_formula_1](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_formula_4.PNG)
+> > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_4.PNG)
 > >
 > > c : 청크의 수  => 정답과 후보 번역의 인접한 유니 그램 집합(인접한 매핑이 길수록 더 적은 청크가 있음)
 > >
@@ -91,7 +91,7 @@ Uni-gram의 Precision과 Recall의 조화 평균을 기반으로 재현율을 �
 > >
 > > 
 > >
-> > ![meteor_formula_1](D:\code\whtngus.github.io\img\generate_score_matrix\meteor_formula_5.PNG)
+> > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_5.PNG)
 
 
 
@@ -181,6 +181,7 @@ SPICE는 *의미 론적 명제 콘텐츠가 인간 캡션 평가의 중요한 �
 
 -> 어렵 나중에 추가정리하기 !!! 
 
+https://www.youtube.com/watch?v=YHVox8yjMUI
 
 
 
