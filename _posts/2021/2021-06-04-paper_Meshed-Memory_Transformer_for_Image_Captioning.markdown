@@ -109,9 +109,37 @@ W와 M은 다른 프로젝션 레이어를 가지며 concatenate를 통해 다�
 
 - Encoding layer
 
+![modification_4](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_4.PNG)
+
+memory-augmented 연산자를 트랜스포머형식의 레이어에 저장한다.
+
+위 수식에서 Xi는 입력 벡터 셋이고, F(x)i는 i vector에 대한 output 이다 .
+
+σ(·)는 ReLU V와 U는 학습 파라미터 b와 c는 바이어스 텀 이다. (그냥 일반 네트워크)
+
+![modification_5](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_5.PNG)
 
 
 
+위에서의 각 레이어는 residual connection과 노멀라이제이션으로 한번더 감싸진다.
 
+위 식의 AddNorm은 residual connection + normalization
 
+- Full encoder
+
+여러 인코딩을 순차적으로 쌓아서 output을 계싼하는데 쓰인다 X² = (X²1, ..., X²N)  이전 타임까지 내용을 전부 고려 
+
+### Meshed Decoder
+
+디코더에서는 인코더에서 출력된 모든 벡터를 사용해서 다음 토큰을 생성
+
+multi-level representation을 사용해서 이미지에서 문장을 생성중에 인코딩 계층을 활용할 수 있는 mashed 구조 연산을 할 수 있도록 유도한다.
+
+- Meshed Cross-Attention
+
+![modification_6](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_6.PNG)
+
+인코더의 출력 정보를 모두 사용해서 계산!
+
+Y는 시퀀스 벡터이고, X는 인코딩 레이어  -> Y는 Masehd Attention 커넥션을 통해  X의 모든 요소르 연결한다. 
 
