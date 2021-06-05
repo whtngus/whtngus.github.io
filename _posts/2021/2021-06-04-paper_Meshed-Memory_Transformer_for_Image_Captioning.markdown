@@ -129,7 +129,7 @@ memory-augmented 연산자를 트랜스포머형식의 레이어에 저장한다
 
 여러 인코딩을 순차적으로 쌓아서 output을 계싼하는데 쓰인다 X² = (X²1, ..., X²N)  이전 타임까지 내용을 전부 고려 
 
-### Meshed Decoder
+### 3.2 Meshed Decoder
 
 디코더에서는 인코더에서 출력된 모든 벡터를 사용해서 다음 토큰을 생성
 
@@ -141,5 +141,52 @@ multi-level representation을 사용해서 이미지에서 문장을 생성중�
 
 인코더의 출력 정보를 모두 사용해서 계산!
 
-Y는 시퀀스 벡터이고, X는 인코딩 레이어  -> Y는 Masehd Attention 커넥션을 통해  X의 모든 요소르 연결한다. 
+Y는 시퀀스 벡터이고, X는 인코딩 레이어  -> Y는 Masehd Attention 커넥션을 통해  X의 모든 요소를연결한다. 
 
+그후 연산된 결과를 합침 
+
+![modification_7](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_7.PNG)
+
+C는 그냥 셀프어텐션인거 같은데 cross attention 이라고 명명 한다 
+
+![modification_8](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_8.PNG)
+
+ai는 cross attention 결과 이고 서로 다른 계층의 중요성을 나타낸다~  [] 는 attention을 나타내고 이를 뉴럴네트워크와 Lelu로 감싼다 
+
+- Architecture of decodnig layers
+
+![modification_9](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_9.PNG)
+
+문장 생성은 이전에 예측된 단어에 의존해야 하므로, 디코더 계층의 입력 시퀀스 Y의 t번째 요소이전에 파생된 쿼리를 self attention 연산을 통해 계산한다.  Y는 입력벡터의 시퀀스, Smask는 시간에 따른 self-attention 결과 벡터이다. 그 결과로 뉴럴네트워크를 통과 후 softmax를 통해  t+1의 단어를 예측한다.
+
+###  3.3 Trainig details
+
+![modification_10](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_10.PNG)
+
+기존의 다른 이미지 캡션 모델들 처럼 word-level crossentropy loss (XE) 를 사용하여 학습을 한다. 
+
+훈련시에는 이전 단어가 주어진 경우 다음 단어를 예측하는 방식으로 (일반적인 방식)예측을 통해 학습한다.
+
+위처럼 강화학습을 통해 학습할때 빔서치 알고리즘을 사용 (연산량 ㄷㄷ) 이때, 출력 토큰을 계싼하는 데 사용되는 중간 key value는 병렬 연산이 가능!
+
+메트릭스 평가는 CIDEr-D를 사용하는데 요건 정리가 따로 필요해보인다 ㅠ (인간의 판단과 가장 유사하다고 한다)
+
+평균을 보상으로 삼았고(label 값) 이경우 스코어가 더 상승한다고 한다. ->  b = P i r(wi ) 
+
+# 4. Experiments
+
+COCO 데이터셋을 통해 모델을 평가하고 TextCaps로 모델을 평가(TextCaps로 평가하는 코드는 자세히 살펴보자!)
+
+COCO는 이미지다 5개의 캡션 120,000개의 이미지가 있다.
+
+![table_2](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_2.PNG)
+
+![table_3](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_3.PNG)
+
+![table_1](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_1.PNG)
+
+
+
+![example_2](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_2.PNG)![example_1](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_1.PNG)
+
+결과와 예시드 설명 생략 (그림 을보면 M2가 다른모델애 비해 확실히 좋은지는 판단이 안된다 더 보면서 정리를 해야할듯!)
