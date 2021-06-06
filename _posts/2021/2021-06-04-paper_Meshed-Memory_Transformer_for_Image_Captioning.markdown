@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Meshed-Memory Transformer for Image Captioning"
-date: 2021-06-03 19:20:23 +0900
+date: 2021-06-07 19:20:23 +0900
 category: paper
 ---
 
