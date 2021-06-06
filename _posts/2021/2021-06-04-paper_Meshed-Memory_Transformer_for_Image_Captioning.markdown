@@ -37,7 +37,7 @@ BERT에서 기술적 영감을 얻어 두 가지 캡션 알고리즘을 통합�
 1.  이미지 영역과 각 객체들의 관계는 저수준 및 고수준 관계를 고려해 인코딩 된다.(이때 메모리 벡터를 사용해 사전 지식을 학습)
 2. 문장 생성시에 낮은레벨과 높은 레벨을 모두 이용해야함. -> 인코더와 디코더 계층 사이에 메쉬 연결을 함으로 M2 Trasnformer 라고 함
 
-![approach](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\approach.PNG)
+![approach](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\approach.PNG)
 
 위 그림은 아키텍처 인데 그냥 보면 이전의 일반 Transformer모델 사용과 크게 달라보이지 않는다 
 
@@ -67,7 +67,7 @@ COCO 데이터셋을 통해 학습하며 Karpathy 테스트 세트에서 소타 
 
 # 3. Meshed-Memory Transformer
 
-![architecture](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\architecture.PNG)
+![architecture](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\architecture.PNG)
 
 위 모델은 인코더와 디코더 모듈로 나눠서 볼 수 있다.
 
@@ -75,7 +75,7 @@ COCO 데이터셋을 통해 학습하며 Karpathy 테스트 세트에서 소타 
 
 디코더는 각 인코딩 계층의 출력에서 단어별로 출력캡션을 생성
 
-![modification_1](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_1.PNG)
+![modification_1](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_1.PNG)
 
 수식은 일반적인 트랜스포머에서 쓰이는 수식과 같다.
 
@@ -85,7 +85,7 @@ Q 는 Nq의 query vector 이고 K, V는 nk를 포함하는(salf attention이여�
 
 ### 3.1 Memory-Augmented Encoder
 
-![modification_2](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_2.PNG)
+![modification_2](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_2.PNG)
 
 X에 대한 재해석을 하는역할 S(X)인데 이미지가 정확히 어떤식으로 입력되는지는 코드를 확인해봐야 알것같다.
 
@@ -95,7 +95,7 @@ X에 대한 재해석을 하는역할 S(X)인데 이미지가 정확히 어떤�
 
 - Memory-Augmented Attention
 
-![modification_3](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_3.PNG)
+![modification_3](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_3.PNG)
 
 개체관의 관계성을 알수 없는 문제점을 해결하기 위해 memory-Augmented Attention 방식을 제안 
 
@@ -109,7 +109,7 @@ W와 M은 다른 프로젝션 레이어를 가지며 concatenate를 통해 다�
 
 - Encoding layer
 
-![modification_4](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_4.PNG)
+![modification_4](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_4.PNG)
 
 memory-augmented 연산자를 트랜스포머형식의 레이어에 저장한다.
 
@@ -117,7 +117,7 @@ memory-augmented 연산자를 트랜스포머형식의 레이어에 저장한다
 
 σ(·)는 ReLU V와 U는 학습 파라미터 b와 c는 바이어스 텀 이다. (그냥 일반 네트워크)
 
-![modification_5](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_5.PNG)
+![modification_5](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_5.PNG)
 
 
 
@@ -137,7 +137,7 @@ multi-level representation을 사용해서 이미지에서 문장을 생성중�
 
 - Meshed Cross-Attention
 
-![modification_6](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_6.PNG)
+![modification_6](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_6.PNG)
 
 인코더의 출력 정보를 모두 사용해서 계산!
 
@@ -145,23 +145,23 @@ Y는 시퀀스 벡터이고, X는 인코딩 레이어  -> Y는 Masehd Attention 
 
 그후 연산된 결과를 합침 
 
-![modification_7](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_7.PNG)
+![modification_7](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_7.PNG)
 
 C는 그냥 셀프어텐션인거 같은데 cross attention 이라고 명명 한다 
 
-![modification_8](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_8.PNG)
+![modification_8](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_8.PNG)
 
 ai는 cross attention 결과 이고 서로 다른 계층의 중요성을 나타낸다~  [] 는 attention을 나타내고 이를 뉴럴네트워크와 Lelu로 감싼다 
 
 - Architecture of decodnig layers
 
-![modification_9](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_9.PNG)
+![modification_9](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_9.PNG)
 
 문장 생성은 이전에 예측된 단어에 의존해야 하므로, 디코더 계층의 입력 시퀀스 Y의 t번째 요소이전에 파생된 쿼리를 self attention 연산을 통해 계산한다.  Y는 입력벡터의 시퀀스, Smask는 시간에 따른 self-attention 결과 벡터이다. 그 결과로 뉴럴네트워크를 통과 후 softmax를 통해  t+1의 단어를 예측한다.
 
 ###  3.3 Trainig details
 
-![modification_10](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_10.PNG)
+![modification_10](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\modification_10.PNG)
 
 기존의 다른 이미지 캡션 모델들 처럼 word-level crossentropy loss (XE) 를 사용하여 학습을 한다. 
 
@@ -179,14 +179,14 @@ COCO 데이터셋을 통해 모델을 평가하고 TextCaps로 모델을 평가(
 
 COCO는 이미지다 5개의 캡션 120,000개의 이미지가 있다.
 
-![table_2](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_2.PNG)
+![table_2](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_2.PNG)
 
-![table_3](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_3.PNG)
+![table_3](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_3.PNG)
 
-![table_1](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_1.PNG)
+![table_1](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\table_1.PNG)
 
 
 
-![example_2](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_2.PNG)![example_1](D:\code\whtngus.github.io\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_1.PNG)
+![example_2](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_2.PNG)![example_1](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_1.PNG)
 
 결과와 예시드 설명 생략 (그림 을보면 M2가 다른모델애 비해 확실히 좋은지는 판단이 안된다 더 보면서 정리를 해야할듯!)
