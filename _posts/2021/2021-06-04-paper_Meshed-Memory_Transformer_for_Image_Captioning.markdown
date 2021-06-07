@@ -190,3 +190,11 @@ COCO는 이미지다 5개의 캡션 120,000개의 이미지가 있다.
 ![example_2](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_2.PNG)![example_1](\img\2021\Meshed-Memory_Transformer_for_Image_Captioning\example_1.PNG)
 
 결과와 예시드 설명 생략 (그림 을보면 M2가 다른모델애 비해 확실히 좋은지는 판단이 안된다 더 보면서 정리를 해야할듯!)
+
+
+
+# 실행 및 변경테스트
+
+1070ti 기준으로 default setting(100epoch) 약 11일 걸린다.
+
+처음 100batch 사이즈로 학습하다가 메모리 에러나서 50batch사이즈로 다시 돌리는중 ㅠ  계속해서 실험하며 기록하자!
