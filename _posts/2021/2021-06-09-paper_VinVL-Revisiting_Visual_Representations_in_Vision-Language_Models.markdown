@@ -9,8 +9,9 @@ category: paper
 
 논문 명 : VinVL: Revisiting Visual Representations in Vision-Language Models
 
-2021년  CVPR 2021 게재
+2021년 3월 11일 CVPR 2021 게재
 
+기관 - Microsoft
 
 url : https://arxiv.org/abs/2101.00529
 
