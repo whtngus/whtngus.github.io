@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Generate model score matrix"
-date: 2021-04-28 19:20:23 +0900
+title: "deep_learning : Generate model score matrix"
+date: 2021-06-10 19:20:23 +0900
 category: deep_learning
 ---
 # Generate model matrix 정리 
@@ -177,7 +177,7 @@ SPICE는 *의미 론적 명제 콘텐츠가 인간 캡션 평가의 중요한 �
 
 
 
-## CIDEr1
+## CIDEr(Consensus-based Image Description Evaluation)
 
 -> 어렵 나중에 추가정리하기 !!! 
 
@@ -185,7 +185,9 @@ https://www.youtube.com/watch?v=YHVox8yjMUI
 
 
 
+- todo
 
+평가 메트릭스 코드 : https://github.com/tylin/coco-caption/tree/master/pycocoevalcap
 
 
 
@@ -207,6 +209,8 @@ https://ichi.pro/ko/jadong-tegseuteu-yoyag-pyeong-ga-50788783524155
 - SPICE 참고
 
 https://link.springer.com/chapter/10.1007%2F978-3-319-46454-1_24
+
+https://panderson.me/spice/
 
 - CIDEr1 참고
 
