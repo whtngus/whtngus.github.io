@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : VinVL: Revisiting Visual Representations in Vision-Language Models"
-date: 2021-06-14 19:20:23 +0900
+date: 2021-06-15 19:20:23 +0900
 category: paper
 ---
 
@@ -41,7 +41,7 @@ VLP는 일반적으로 두 가지 스텝으로 구성됨
 
 2. 멀티모달모델을 통해 시각적 특징을 텍스트와 혼합
 
- ![OB_score](D:\code\whtngus.github.io\img\2021\VinVL_Revisiting_Visual_Representations_in_Vision-Lanaguage_models\OB_score.PNG)
+ ![OB_score](\img\2021\VinVL_Revisiting_Visual_Representations_in_Vision-Lanaguage_models\OB_score.PNG)
 
 기존 모델들은 두 가지 스텝이서 자연어와 vision을 융합하는 모델에 초점을 두고 있지만 해당 논문에서는 object detection 모델에서 시각적인 표현을 개선하는데 초점을 둠
 
@@ -53,7 +53,7 @@ VLP는 일반적으로 두 가지 스텝으로 구성됨
 
 VL 모델은 두 가지로 구성됨 -> image understanding Vision module, 멀티모달인 VL
 
-![formula_1](D:\code\whtngus.github.io\img\2021\VinVL_Revisiting_Visual_Representations_in_Vision-Lanaguage_models\formula_1.PNG)
+![formula_1](\img\2021\VinVL_Revisiting_Visual_Representations_in_Vision-Lanaguage_models\formula_1.PNG)
 
 > 위 식에서 Img와 w는 입력 vision 과 언어 이다.
 >
