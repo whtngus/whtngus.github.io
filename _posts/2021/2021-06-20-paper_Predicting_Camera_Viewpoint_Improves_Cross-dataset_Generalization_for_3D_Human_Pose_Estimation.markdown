@@ -18,7 +18,7 @@ University of California + (NVIDA지원 받음)
 
 url : https://arxiv.org/abs/2004.03143
 
-git url : - 코드 없음ㅁ
+git url : - 코드 없음
 
 
 
