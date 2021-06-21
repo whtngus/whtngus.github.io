@@ -36,7 +36,7 @@ git url : - 코드 없음ㅁ
 
 
 
-![pic_1](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_1.PNG)
+![pic_1](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_1.PNG)
 
 많은 vision연구가 들은 특정 작업에 사용할 수 있는 데이터의 양과 품질을 향상시키기 위해 노력하고 있다.
 
@@ -78,11 +78,11 @@ CNN 베이스의 모델을 이용해 많은 연구가 있었고 동공 감지, �
 
 # 3. Variation in 3D Human Pose Dataset
 
-![table_1](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\table_1.PNG)
+![table_1](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\table_1.PNG)
 
-![pic_2](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_2.PNG)
+![pic_2](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_2.PNG)
 
-![pic_3](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_3.PNG)
+![pic_3](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_3.PNG)
 
 분석을 위해 잘 구성된 3개의 데이터 세트 
 
@@ -114,7 +114,7 @@ SEPRRISTOR은 방위 위에 균일한 분포로 카메라 위치를 합성해서
 
 신체 중심 좌표 프레임 계산 관점에 독립적인 자세를 정의하려면 표준 신체 중심 좌표 프레임을 지정해야 한다.  위의 Fig2와 같이 원점을 root joint형(일반적으로 골반)을 카메라의 중심 좌표로 보고 pp = (xp, yp, zp)으로 설정 - 방향은 왼쪽 어깨와 오른쪽 어깨에 의해 고정됨!
 
-![formula_0](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_0.PNG)
+![formula_0](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_0.PNG)
 
 위의 내용을 기본으로 전면 f, 위쪽 u 그리고 오른쪽 r로 구성된 직교 프레임을 위의 수식과 같이 정의한다.
 
@@ -122,7 +122,7 @@ SEPRRISTOR은 방위 위에 균일한 분포로 카메라 위치를 합성해서
 
 ex) u 는 골반에서 두 어깨의 가운대 위치한 방향 ! (f r은 음...)
 
-![formula_1](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_1.PNG)
+![formula_1](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_1.PNG)
 
 그럼 위의 수식처럼 중심 프레임과 카메라 프레임사이의 회전은 R = - [r, u, f]에 의해서 정해진다.
 
@@ -134,9 +134,9 @@ ex) u 는 골반에서 두 어깨의 가운대 위치한 방향 ! (f r은 음...
 
 ### 1.  Baseline architecture
 
-![pic_4](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_4.PNG)
+![pic_4](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_4.PNG)
 
-![formula_2](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_2.PNG)
+![formula_2](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_2.PNG)
 
 base line은 2 step으로 구성됨
 
@@ -150,7 +150,7 @@ loss함수는 예측 포인트와 실제 포인트와의 거리를 사용함
 
 ### 2. Predicting the camera viewpoint
 
-![pic_5](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_5.PNG)
+![pic_5](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_5.PNG)
 
 해당 논문에서는 3가지 접근 방법을 고려함 
 
@@ -160,7 +160,7 @@ loss함수는 예측 포인트와 실제 포인트와의 거리를 사용함
 
 결국 좌표 분류기반 손실이기 때문에 정확한 프레임을 예측을 산출하지 않으면 포스 예측에서 개선을 하지 않는것을 발견해 이를 정량화하기 위해 k-means를 사용해 사분원을 k-100인 군집으로 나눠서 군집화를 수행 해 각 데이터세트에 대한 분수를 무작위로 셈플링함.
 
-![formula_3](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_3.PNG)
+![formula_3](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_3.PNG)
 
 100개에서 어떤 좌표인지를 예측하는것을 목표로 함 
 
@@ -168,13 +168,13 @@ loss함수는 예측 포인트와 실제 포인트와의 거리를 사용함
 
 
 
-![formula_4](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_4.PNG)
+![formula_4](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_4.PNG)
 
 negative log-likelihood를 통해 로스를 전달 
 
 최종 로스는
 
- ![formula_5](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_5.PNG)
+ ![formula_5](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\formula_5.PNG)
 
 이다
 
@@ -188,7 +188,7 @@ negative log-likelihood를 통해 로스를 전달
 
 ### 1. Cross-dataset evaluation
 
-![table_2](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\table_2.PNG)
+![table_2](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\table_2.PNG)
 
 위의 표2 그림을 참조 
 
@@ -206,7 +206,7 @@ negative log-likelihood를 통해 로스를 전달
 
 ### 3.  Comparison with state-of-the-art performance
 
-![pic_6](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_6.PNG)
+![pic_6](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_6.PNG)
 
 표5는 제안 접근방식을 모든 5개의 데이터세트를 사용한 경우를 비교 
 
@@ -214,7 +214,7 @@ negative log-likelihood를 통해 로스를 전달
 
 아래는 결과 예시
 
-![pic_7](D:\code\whtngus.github.io\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_7.PNG)
+![pic_7](\img\2021\Predicting_Camera_Viewpoint_Improves_Cross-dataset_Generalization_for_3D_Human_Pose_Estimation\pic_7.PNG)
 
 # 6. Conclusions
 
