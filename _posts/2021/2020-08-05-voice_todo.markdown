@@ -8,8 +8,7 @@ category: todo
 
 # 스터디
 
-코드실행, baseline 돌려서 제출하기 
--> augmentation 찾기
+-> augmentation 찾기 -> 적용 및 학습
 
 
 # textcaption
