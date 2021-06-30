@@ -1,14 +1,14 @@
 ---
 layout: post
 title: "2021 todo list"
-date: 2021-06-22 19:20:23 +0900
+date: 2021-06-27 19:20:23 +0900
 category: todo
 ---
 
 
 # 스터디
 
-코드실행, baseline 돌려서 제출하기 
+-> augmentation 찾기 -> 적용 및 학습
 
    
 # textcaption
@@ -16,3 +16,5 @@ category: todo
 Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
 
 -> 논문 정리 하기 
+
+아이디어하나 꼭 추출 
