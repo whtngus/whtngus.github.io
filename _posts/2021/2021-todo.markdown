@@ -15,6 +15,6 @@ category: todo
 
 Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
 
--> 논문 정리 하기 
+-> 논문 정리 하기  지금!
 
 아이디어하나 꼭 추출 
