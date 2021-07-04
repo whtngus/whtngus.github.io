@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks"
-date: 2021-07-03 19:20:23 +0900
+date: 2021-07-05 19:20:23 +0900
 category: paper
 ---
 # Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
@@ -28,7 +28,7 @@ category: paper
 
 # 1. Introduction
 
-![fig_1](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_1.PNG)
+![fig_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_1.PNG)
 
 cross modal representations 학습을 위해서 이미지 캡션과 같은 다양한 V(Vision) + L(Language) 에 대한 연구는 필수 작업이다.
 
@@ -58,7 +58,7 @@ VLP(Vision Language Pretraining) 의 최근 연구로는 대규모 이미지-텍
 
 # 2. Background
 
-![fig_2](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_2.PNG)
+![fig_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_2.PNG)
 
 위 그림과 같이 많은 V+L 연구에서 영상-텍스트 쌍으로 구성된 데이터를 사용해 Transformer 기반의 모델을 학습한다. -> VLP의 품질은 입력 데이터의 품질에 의존한다
 
@@ -80,7 +80,7 @@ N - Data Size
 
 예는 위 사진의 dog와 couch의 영역이 많이 겹치는것을 보면 알 수 있음 
 
-2. 
+2. 학습 
 
  VLP는 영상의 영역 또는 개체와 텍스트의 단어나 구 사이에 라벨이 명시적으로 지정된 정렬이 없기 때문에 자연스럽게 약하게 감독되는 학습 문제
 
@@ -90,7 +90,7 @@ N - Data Size
 
 # 3. Oscar Pre-training
 
-![fig_3](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_3.PNG)
+![fig_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_3.PNG)
 
 인간은 많은 경로를 통해 세상을 인지한다. 개별 채널이 불완전하거나 소음이 발생하더라도, 여러 채널 간에 공유되는 경향이 있기 때문에 중요한 요소는 여전히 지각할 수 있다
 
@@ -106,7 +106,7 @@ q : 이미지에서 감지된 개체 태그의 워드 임베딩 시퀀스
 
 v : 이미지의 영역 벡터 세트
 
-다. 오스카는 이미지와 텍스트 정렬을 쉽게 배울 수 있도록 q를 핵심 포인트로 소개
+오스카는 이미지와 텍스트 정렬을 쉽게 배울 수 있도록 q를 핵심 포인트로 소개
 
  텍스트로 된 q와 w 사이의 정렬은 오스카의 VLP에 대한 초기화로 사용되는 사전 훈련된 BERT 모델을 사용하여 비교적 쉽게 식별할 수 있으므로, 객체 태그가 감지되는 영상 영역은 의미론적으로 관련된 단어로 쿼리할 때 다른 영역보다 주의 가중치가 높을 수 있다.
 
@@ -114,7 +114,7 @@ v : 이미지의 영역 벡터 세트
 
 ### Pre-Training Objective
 
-![formular_1](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_1.PNG)
+![formular_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_1.PNG)
 
  x : 텍스트와 이미지 사이의 표현을 구분하는 modality view
 
@@ -124,11 +124,11 @@ v : 이미지의 영역 벡터 세트
 
 -> BERT 처럼 15%확률로 각 입력 토큰을 무작위 마스킹하고 이를 예측
 
-![formular_2](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_2.PNG)
+![formular_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_2.PNG)
 
 negative log-likelihood 를 통해 마스크된 토큰을 학습 
 
-![formular_4](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_4.PNG)
+![formular_4](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_4.PNG)
 
 
 
@@ -136,7 +136,7 @@ q를 데이터 세트 D에서 무작위로 샘플링된 다른 태그 시퀀스�
 
 -> BERT를 그대로 따라 사용 
 
-![formular_3](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_3.PNG)
+![formular_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_3.PNG)
 
 
 
@@ -196,17 +196,15 @@ VQA와 비슷 질문에 대답할 수 있는 모델의 추론 능력을 테스�
 
 ### Natural Language Visual Reasoning for Real (NLVR2)
 
- 이미지 쌍에 대한 자연어 문장이 참인지 확인하는 것
+ 이미지 쌍에 대한  자연어 문장이 참인지 확인하는 것
 
 # 5. Experimental Results & Analysis
 
-![table_1](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_1.PNG)
+![table_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_1.PNG)
 
-![table_3](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_3.PNG)
+![table_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_3.PNG)
 
-![table_2](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_2.PNG)
+![table_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_2.PNG)
 
-
-
-![fig_4](E:\code\whtngus.github.io\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_4.PNG)
+![fig_4](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_4.PNG)
 
