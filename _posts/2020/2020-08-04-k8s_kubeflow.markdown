@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "개념 정리"
+title: "k8s_and_k9s - 개념 정리"
 date: 2020-08-04 19:20:23 +0900
-category: k8s_and_k9s
+category: python
 ---
 
 # Kubeflow

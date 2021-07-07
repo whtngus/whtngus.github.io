@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "kubeflow install"
+title: "k8s_and_k9s - kubeflow install"
 date: 2020-08-04 19:20:23 +0900
-category: k8s_and_k9s
+category: python
 ---
 
 
