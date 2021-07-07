@@ -2,7 +2,7 @@
 layout: post
 title: "voice - base"
 date: 2020-08-05 19:20:23 +0900
-category: Deep_learning
+category: deep_learning
 ---
 
 # 기본 지식

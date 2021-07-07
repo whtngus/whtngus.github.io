@@ -2,7 +2,7 @@
 layout: post
 title: "voice - base_knowledge_research"
 date: 2020-08-05 19:20:23 +0900
-category: Deep_learning
+category: deep_learning
 ---
 
 # 음성 분석 기초지식을 위한 리서치

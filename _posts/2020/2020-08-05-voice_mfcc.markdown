@@ -2,7 +2,7 @@
 layout: post
 title: "voice - mfcc"
 date: 2020-08-05 19:20:23 +0900
-category: Deep_learning
+category: deep_learning
 ---
 
 # MFCC(Mel Frequency Cepstral Coefficient)

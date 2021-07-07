@@ -2,7 +2,7 @@
 layout: post
 title: "nlp 한국어 기초"
 date: 2020-08-10 19:20:23 +0900
-category: Deep_learning
+category: deep_learning
 ---
 
 

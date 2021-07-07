@@ -2,7 +2,7 @@
 layout: post
 title: "voice - youtube 음성인식 역사"
 date: 2020-08-05 19:20:23 +0900
-category: Deep_learning
+category: deep_learning
 ---
 
 # naver d2 -  화자인식 기술 및 관련 연구 소개
