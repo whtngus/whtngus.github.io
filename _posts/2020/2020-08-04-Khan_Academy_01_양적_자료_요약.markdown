@@ -2,7 +2,7 @@
 layout: post
 title: "Khan_Academy_Probability_and_Statistics 01_양적_자료_요약"
 date: 2020-08-04 19:20:23 +0900
-category: lectre
+category: lecture
 ---
 
 ## 평균, 중앙값, 최빈값
