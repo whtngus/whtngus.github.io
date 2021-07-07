@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "wikidocs"
+title: "voice - wikidocs"
 date: 2020-08-05 19:20:23 +0900
-category: voice
+category: Deep_learning
 ---
 
 # 블로그 내용중 필요해 보이는것만 따로 추출하여 정리
