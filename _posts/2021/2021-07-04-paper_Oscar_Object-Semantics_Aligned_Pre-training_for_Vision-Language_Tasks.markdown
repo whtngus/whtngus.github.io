@@ -9,7 +9,7 @@ category: paper
 # 논문 정보 
 
 학회 : 	ECCV 2020
-
+ 
 논문 URL : https://arxiv.org/abs/2004.06165
 
 코드 URL : https://github.com/microsoft/Oscar
