@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks"
-date: 2021-07-05 19:20:23 +0900
+date: 2021-07-06 19:20:23 +0900
 category: paper
 ---
 # Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
@@ -28,7 +28,7 @@ category: paper
 
 # 1. Introduction
 
-![fig_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_1.PNG)
+![fig_1](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_1.PNG)
 
 cross modal representations 학습을 위해서 이미지 캡션과 같은 다양한 V(Vision) + L(Language) 에 대한 연구는 필수 작업이다.
 
@@ -58,7 +58,7 @@ VLP(Vision Language Pretraining) 의 최근 연구로는 대규모 이미지-텍
 
 # 2. Background
 
-![fig_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_2.PNG)
+![fig_2](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_2.PNG)
 
 위 그림과 같이 많은 V+L 연구에서 영상-텍스트 쌍으로 구성된 데이터를 사용해 Transformer 기반의 모델을 학습한다. -> VLP의 품질은 입력 데이터의 품질에 의존한다
 
@@ -90,7 +90,7 @@ N - Data Size
 
 # 3. Oscar Pre-training
 
-![fig_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_3.PNG)
+![fig_3](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_3.PNG)
 
 인간은 많은 경로를 통해 세상을 인지한다. 개별 채널이 불완전하거나 소음이 발생하더라도, 여러 채널 간에 공유되는 경향이 있기 때문에 중요한 요소는 여전히 지각할 수 있다
 
@@ -114,7 +114,7 @@ v : 이미지의 영역 벡터 세트
 
 ### Pre-Training Objective
 
-![formular_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_1.PNG)
+![formular_1](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_1.PNG)
 
  x : 텍스트와 이미지 사이의 표현을 구분하는 modality view
 
@@ -124,11 +124,11 @@ v : 이미지의 영역 벡터 세트
 
 -> BERT 처럼 15%확률로 각 입력 토큰을 무작위 마스킹하고 이를 예측
 
-![formular_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_2.PNG)
+![formular_2](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_2.PNG)
 
 negative log-likelihood 를 통해 마스크된 토큰을 학습 
 
-![formular_4](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_4.PNG)
+![formular_4](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_4.PNG)
 
 
 
@@ -136,7 +136,7 @@ q를 데이터 세트 D에서 무작위로 샘플링된 다른 태그 시퀀스�
 
 -> BERT를 그대로 따라 사용 
 
-![formular_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_3.PNG)
+![formular_3](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_3.PNG)
 
 
 
@@ -200,11 +200,11 @@ VQA와 비슷 질문에 대답할 수 있는 모델의 추론 능력을 테스�
 
 # 5. Experimental Results & Analysis
 
-![table_1](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_1.PNG)
+![table_1](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_1.PNG)
 
-![table_3](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_3.PNG)
+![table_3](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_3.PNG)
 
-![table_2](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_2.PNG)
+![table_2](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_2.PNG)
 
-![fig_4](img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_4.PNG)
+![fig_4](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_4.PNG)
 

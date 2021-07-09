@@ -2,7 +2,7 @@
 layout: post
 title: "nlp_coreference_resolution"
 date: 2020-08-13 19:20:23 +0900
-category: NLP
+category: deep_learning
 ---
 
 # coreference resolution

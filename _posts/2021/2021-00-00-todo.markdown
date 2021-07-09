@@ -1,0 +1,23 @@
+---
+layout: post
+title: "2021 todo list"
+date: 2021-07-07 19:20:23 +0900
+category: todo
+---
+
+# 스터디
+
+-> OCR 이어서 
+
+   
+# text caption
+
+- 대상 논문 
+
+Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
+
+-> 논문 정리 하기
+
+정리 했으나 이해를 잘 못함 논문 반복 읽고 코드 실행까지 
+
+생각해둔 아이디어 체계화 및 관련 코드 조사
