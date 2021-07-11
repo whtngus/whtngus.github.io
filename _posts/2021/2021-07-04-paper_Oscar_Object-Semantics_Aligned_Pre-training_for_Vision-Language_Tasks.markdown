@@ -93,7 +93,7 @@ N - Data Size
 ![fig_3](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_3.PNG)
 
 인간은 많은 경로를 통해 세상을 인지한다. 개별 채널이 불완전하거나 소음이 발생하더라도, 여러 채널 간에 공유되는 경향이 있기 때문에 중요한 요소는 여전히 지각할 수 있다
-
+  
 이러한 점을 바탕으로 오스카는 이미지-텍스트 쌍 및 새로운 Pre-training 표현방식을 제시한다
 
 ### Input
