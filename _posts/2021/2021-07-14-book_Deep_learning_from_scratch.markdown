@@ -15,3 +15,5 @@ category: book
 
  [2장_퍼셉트론.ipynb](\img\2021\밑바닥부터_시작하는_딥러닝\2장_퍼셉트론.ipynb) 
 
+https://drive.google.com/file/d/1R6fnSlqxRn7-YLpO36awbcBzPMKwq6SC/view?usp=sharing
+
