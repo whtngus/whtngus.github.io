@@ -25,3 +25,7 @@ https://drive.google.com/file/d/1R6fnSlqxRn7-YLpO36awbcBzPMKwq6SC/view?usp=shari
 
 https://drive.google.com/file/d/12NlA3RnembSHwNsHZpNimtTXxC1aj1_u/view?usp=sharing
 
+
+
+# 4장 신경망 학습
+
