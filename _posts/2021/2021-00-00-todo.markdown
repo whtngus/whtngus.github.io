@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2021 todo list"
-date: 2021-07-07 19:20:23 +0900
+date: 2021-07-20 19:20:23 +0900
 category: todo
 ---
 
@@ -9,7 +9,7 @@ category: todo
 
 -> OCR 이어서 
 
-   
+
 # image caption
 
 - 대상 논문 
@@ -30,11 +30,10 @@ https://arxiv.org/pdf/2101.09698.pdf
 
 IEEE 2021
 
-
 2. Iterative Shrinking for Referring Expression Grounding Using Deep Reinforcement Learning
 
 https://openaccess.thecvf.com/content/CVPR2021/papers/Sun_Iterative_Shrinking_for_Referring_Expression_Grounding_Using_Deep_Reinforcement_Learning_CVPR_2021_paper.pdf
-   
+
 CVPR 2021 (코드제공 https://github.com/insomnia94/ISREG 단 python2.7) - 학생
 
 3. Vocabulary-Wide Credit Assignment for Training Image Captioning Models
@@ -54,7 +53,6 @@ CVPR (https://wenjiaxu.github.io/ciderbtw/  코드제공 아직 x) - 학생
 https://arxiv.org/abs/2005.04690
 
 IJCAI 2020 - 학생 
-
 
 6. Learning Compact Reward for Image Captioning
 
@@ -79,5 +77,4 @@ https://github.com/Shiyang-Yan/image-captioning-with-hierarchical-attention-and-
 https://openaccess.thecvf.com/content_CVPR_2020/papers/Cornia_Meshed-Memory_Transformer_for_Image_Captioning_CVPR_2020_paper.pdf
 
 CVPR 2020 (https://github.com/aimagelab/meshed-memory-transformer 코드제공)
-
 
