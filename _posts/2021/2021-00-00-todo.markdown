@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2021 todo list"
-date: 2021-07-07 19:20:23 +0900
+date: 2021-07-20 19:20:23 +0900
 category: todo
 ---
 
@@ -9,8 +9,8 @@ category: todo
 
 -> OCR 이어서 
 
-   
-# text caption
+
+# image caption
 
 - 대상 논문 
 
@@ -21,3 +21,60 @@ Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
 정리 했으나 이해를 잘 못함 논문 반복 읽고 코드 실행까지 
 
 생각해둔 아이디어 체계화 및 관련 코드 조사
+
+### 논문 리스트 
+
+1. Fast Sequence Generation with Multi-Agent Reinforcement Learning
+
+https://arxiv.org/pdf/2101.09698.pdf
+
+IEEE 2021
+
+2. Iterative Shrinking for Referring Expression Grounding Using Deep Reinforcement Learning
+
+https://openaccess.thecvf.com/content/CVPR2021/papers/Sun_Iterative_Shrinking_for_Referring_Expression_Grounding_Using_Deep_Reinforcement_Learning_CVPR_2021_paper.pdf
+
+CVPR 2021 (코드제공 https://github.com/insomnia94/ISREG 단 python2.7) - 학생
+
+3. Vocabulary-Wide Credit Assignment for Training Image Captioning Models
+
+https://wenj.github.io/pub/caption_tip.pdf
+
+IEEE 2021
+
+4. Compare and Reweight: Distinctive Image Captioning Using Similar Images Sets
+
+https://arxiv.org/abs/2007.06877
+
+CVPR (https://wenjiaxu.github.io/ciderbtw/  코드제공 아직 x) - 학생
+
+5. Non-Autoregressive Image Captioning  with Counterfactuals-Critical Multi-Agent Learning
+
+https://arxiv.org/abs/2005.04690
+
+IJCAI 2020 - 학생 
+
+6. Learning Compact Reward for Image Captioning
+
+https://arxiv.org/abs/2003.10925
+
+CVPR 2020 - 학생
+
+7. AutoCaption: Image Captioning with Neural Architecture Search
+
+https://arxiv.org/abs/2012.09742
+
+학생
+
+8. Image captioning via hierarchical attention mechanism and policy gradient optimization
+
+file:///C:/Users/NIPA/Downloads/main.pdf
+
+https://github.com/Shiyang-Yan/image-captioning-with-hierarchical-attention-and-policy-gradient-optimisation
+
+9. Meshed-Memory Transformer for Image Captioning
+
+https://openaccess.thecvf.com/content_CVPR_2020/papers/Cornia_Meshed-Memory_Transformer_for_Image_Captioning_CVPR_2020_paper.pdf
+
+CVPR 2020 (https://github.com/aimagelab/meshed-memory-transformer 코드제공)
+
