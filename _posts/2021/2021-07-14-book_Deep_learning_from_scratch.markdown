@@ -29,4 +29,4 @@ https://drive.google.com/file/d/12NlA3RnembSHwNsHZpNimtTXxC1aj1_u/view?usp=shari
 
 # 4장 신경망 학습
 
- 
+ [4장_신경망_학습.ipynb](\img\2021\밑바닥부터_시작하는_딥러닝\4장_신경망_학습.ipynb) 
