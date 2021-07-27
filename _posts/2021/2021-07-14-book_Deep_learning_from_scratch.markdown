@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "book : 밑바닥부터 시작하는 딥러닝"
-date: 2021-07-27 19:20:23 +0900
+date: 2021-07-28 19:20:23 +0900
 category: book
 ---
 
@@ -33,6 +33,16 @@ https://drive.google.com/file/d/12NlA3RnembSHwNsHZpNimtTXxC1aj1_u/view?usp=shari
 
 
 # 5장 오차역전파법
+
+수치 미분은 단순하고 구현이 쉽지만 계산이 오래걸리는 단점이 있음
+
+이를 해결하기 위해 가중치 매개변수의 기울기를 효율적으로 계산하는 backpropagation을 하게 됨
+
+- 오차역전파법을 이해하는 두 가지 방법
+
+> 수식을 이해하는것
+> 
+> 그림으로 이해 (요건 생략)
 
 ### 5.2 연쇄 법칙
 
