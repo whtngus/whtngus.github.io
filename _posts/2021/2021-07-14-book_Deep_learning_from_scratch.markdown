@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "book : 밑바닥부터 시작하는 딥러닝"
-date: 2021-07-14 19:20:23 +0900
+date: 2021-07-27 19:20:23 +0900
 category: book
 ---
 
@@ -30,3 +30,11 @@ https://drive.google.com/file/d/12NlA3RnembSHwNsHZpNimtTXxC1aj1_u/view?usp=shari
 # 4장 신경망 학습
 
  [4장_신경망_학습.ipynb](\img\2021\밑바닥부터_시작하는_딥러닝\4장_신경망_학습.ipynb) 
+
+
+# 5장 오차역전파법
+
+### 5.2 연쇄 법칙
+
+연쇄법칙은 합성 함수란 여런 함수로 구성된 함수 
+
