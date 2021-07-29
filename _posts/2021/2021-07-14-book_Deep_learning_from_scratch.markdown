@@ -48,3 +48,4 @@ https://drive.google.com/file/d/12NlA3RnembSHwNsHZpNimtTXxC1aj1_u/view?usp=shari
 
 연쇄법칙은 합성 함수란 여런 함수로 구성된 함수 
 
+
