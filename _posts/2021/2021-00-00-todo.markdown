@@ -90,3 +90,9 @@ OSCAR, Meshed-Memory Transformer for Image Captioning
 코드 실행도 하면서 내용 전체 보기 
 
 -> Meshed-Memory Transformer for Image Captioning 같은 경우 강화학습이 어떻게 적용되는지 위주로 확인
+
+
+
+# 이미지 캡션 전체 정리본 한번 읽기
+
+https://iopscience.iop.org/article/10.1088/1742-6596/1748/4/042060/pdf
