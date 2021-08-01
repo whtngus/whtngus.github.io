@@ -96,3 +96,26 @@ OSCAR, Meshed-Memory Transformer for Image Captioning
 # 이미지 캡션 전체 정리본 한번 읽기
 
 https://iopscience.iop.org/article/10.1088/1742-6596/1748/4/042060/pdf
+
+https://blog.lunit.io/2017/06/15/cvpr-2017-oral-deep-reinforcement-learning-based-image-captioning-with-embedding-reward/
+
+https://github.com/wangheda/ImageCaption-UnderFitting
+
+https://github.com/stephancheng/reinforcement-imagecaptioning
+
+https://github.com/alchandol/capstone_2_RecommenderSystem/tree/cf5ad6b92321174adaa6e8e7517ec215d806fd60
+
+
+-  튜토리얼
+
+https://colab.research.google.com/github/Hvass-Labs/TensorFlow-Tutorials/blob/master/22_Image_Captioning.ipynb#scrollTo=5XoWhQPekYnA
+
+https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb
+
+https://github.com/Batserine/Image_Captioning
+
+https://www.tensorflow.org/tutorials/text/image_captioning
+
+https://github.com/Hvass-Labs/TensorFlow-Tutorials
+
+https://keras.io/examples/
