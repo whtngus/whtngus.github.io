@@ -1,0 +1,67 @@
+---
+layout: post
+title: "book : XAI 설명 가능한 인고지능, 인공지능을 해부하다."
+date: 2021-08-03 19:20:23 +0900
+category: book
+---
+
+# 책 제목 :  XAI 설명 가능한 인고지능, 인공지능을 해부하다.
+
+예제 코드 다운로드 : https://github.com/wikibook/xai
+
+
+
+# 5장 대리분석
+
+## 5.1 대리 분석 기법(Surrogate Analysis)
+
+엔지니어링에 사용되던 용어
+
+본래 기능을 흉내 내는 간단하 대체재를 만들어 프로타입이 동작하는지 판단하는 분석 방법
+
+XAI에서는 유사한 기능을 흉내 내는 여러개의 모델을 대리로 만들어 본래 모델을 분석하는 방법
+
+여러 이름으로 불림 - Approximation model, Response Suface Model, Evulator등 
+
+대리 분석 기법은 model-agnostic technology하다. (모델에 대한 지식 없이도 학습할 수 있음)
+
+
+
+### 글로벌 대리 분석(Global Surrogate)
+
+학습 데이터를 사용해 유사함수를 만들고 유사함수를 해석 가능하도록 변조하는 방법
+
+전통적인 머신러닝 기법에 적용하기 좋다.
+
+### 로컬 대리 분석(Local Surrogate)
+
+데이터 하나에 대해 블랙박스가 해석하는 과정을 분석하는 기법
+
+LIME(Local Interpretable Model)로도 불림
+
+-> 모델이 현재 데이터의 어떤 영역을 집중해서 분석했고 어떤 영역을 분류 근거로 했는지 알려주는 XAI기법
+
+- 원리
+
+> 입력 데이터에 대해 부분적으로 변화를 줘 중요한 부분을 찾는 방식
+>
+> -> 변형(perturbation) 혹은 샘플퍼뮤테이션(sample permutation)이라고 함 
+
+- LIME의 장단점
+
+> 1. 모델에 관계없이 적용 가능 
+> 2. 매트릭스로 표현 가능한 데이터에 대해 작동하는 XAI(이미지, 텍스트)
+> 3. 매우 가벼운 모델 
+
+## 5.3 SHAP(SHapley additive exPlanations)
+
+로이드 섀플리(Lloyd Stowell Shapley)가 만든 이론 위에 피처 간 독립성을 근거로 덧셈이 가능하게 화용도를 넓힌 논문
+
+- Shapley value(섀플리 값)
+
+전체 성과를 창출하는데 각 참여자가 얼마나 공헌했는지를 수치로 표현 
+
+-> 각 사람의 기여도 = 전체 기여도 - 그사람이 없을 때 기여도
+
+(섀플리 값은 음수일수도 있으며 이는 부정적인 값을 의미)
+
