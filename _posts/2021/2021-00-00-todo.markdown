@@ -113,7 +113,7 @@ https://github.com/stephancheng/reinforcement-imagecaptioning
 https://colab.research.google.com/github/Hvass-Labs/TensorFlow-Tutorials/blob/master/22_Image_Captioning.ipynb#scrollTo=5XoWhQPekYnA
 
 https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/text/image_captioning.ipynb
-
+  
 https://www.tensorflow.org/tutorials/text/image_captioning
 
 -> google에서 제공하는 튜토리얼 
