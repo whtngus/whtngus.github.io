@@ -78,7 +78,7 @@ https://openaccess.thecvf.com/content_CVPR_2020/papers/Cornia_Meshed-Memory_Tran
 
 CVPR 2020 (https://github.com/aimagelab/meshed-memory-transformer 코드제공)
 
-
+  
 ## AI hub Image caption 관련 데이터 정리 
 정리본 PPT로 만들어서 올릴 예정!
 
