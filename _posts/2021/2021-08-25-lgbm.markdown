@@ -23,7 +23,7 @@ Light GBM은 Gradient Boosting 프레워크로 Tree 기반 학습 알고리즘
 
 ## LGBM 학습 방식
 
-![growth](.\img\2021\lgbm\growth.PNG)
+![growth](\img\2021\lgbm\growth.PNG)
 
 출처 - https://www.analyticsvidhya.com/blog/2017/06/which-algorithm-takes-the-crown-light-gbm-vs-xgboost/
 
@@ -75,27 +75,84 @@ feature가 몇가지만 값이 같다면 (수치형으로는 correlation이 높�
 
 ## LGBM 파라미터 (중요한 것만 정리)
 
-| 파라미터              | 설명                                                         | default | 비고                                                         |
-| --------------------- | ------------------------------------------------------------ | ------- | ------------------------------------------------------------ |
-| max_depth             | Tree의 최대 깊이 - 과적합 및 모델 속도 등                    | -1      | -1은 깊이제한 없음                                           |
-| num_leaves            | 하나의 트리가 가질 수 있는 최대 리프 개수                    | 31      |                                                              |
-| min_child_samples     | 리프 노드가 되기 위해 최소한으로 필요한 레코드 수            | 20      |                                                              |
-| early_stopping_rounds | 학습 조기종료를 위한 early stopping interval 값              | None    |                                                              |
-| boosting_type         | 부스팅의 트리를 생성하는 알고리즘                            | gbdt    |                                                              |
-| reg_alpha, reg_lambda | L1, L2 regularization                                        | 0.      |                                                              |
-| learning_rate         | 학습 량                                                      |         |                                                              |
-| bagging_fraction      | 데이터를 일부 발췌해서 다양성을 높이는 방법으로 사용 (민감한 옵션으로 feature_fraction과 잘 섞어서 사용 필요) |         | GOSS에서는 알아서 샘플링하는 과정이 있어서 에러 발생         |
-| feature_fraction      | 열 샘플링, 컬럼에 대한 샘플링을 통해 각각의 높임             |         |                                                              |
-| num_iterations        | 반복량                                                       |         |                                                              |
-| scale_pos_weight      | 양성인 경우 데이터 뻥튀기, 불균형셋에서 유용할 수 있으나 너무 많은경우 정확도가 떨어짐 |         | 1.1~1.5 정도의 가벼운 수준 추천                              |
-| boosting/booster      | 부스팅 방법 rf(random forest), gbdt(Gradient Boosted Decision Trees), dart(Drop out Regression Trees), goss(bradient-based one-side Sampling) | gbdt    | 정확도가 중요할때는 딥러닝 드랍아웃과 같은 dart 적용. 샘플링을 이용한 goss(속도 업, 정확도 내려감) 적용 |
-| Metric/loss           | CE, MSE, MAE, MAPE, Log Transformation, Quantile 등 지원     |         |                                                              |
+| 파라미터                |                             설명                             | default | 비고                                                         |
+| ----------------------- | :----------------------------------------------------------: | ------- | ------------------------------------------------------------ |
+| `max_depth`             |          Tree의 최대 깊이 - 과적합 및 모델 속도 등           | -1      | -1은 깊이제한 없음                                           |
+| `num_leaves`            |          하나의 트리가 가질 수 있는 최대 리프 개수           | 31      |                                                              |
+| `min_child_samples`     |      리프 노드가 되기 위해 최소한으로 필요한 레코드 수       | 20      |                                                              |
+| `early_stopping_rounds` |       학습 조기종료를 위한 early stopping interval 값        | None    |                                                              |
+| `boosting_type`         |              부스팅의 트리를 생성하는 알고리즘               | gbdt    |                                                              |
+| `reg_alpha, reg_lambda` |                    L1, L2 regularization                     | 0.      |                                                              |
+| `learning_rate`         |                           학습 량                            |         |                                                              |
+| `bagging_fraction`      | 데이터를 일부 발췌해서 다양성을 높이는 방법으로 사용 (민감한 옵션으로 feature_fraction과 잘 섞어서 사용 필요) |         | GOSS에서는 알아서 샘플링하는 과정이 있어서 에러 발생         |
+| `feature_fraction`      |       열 샘플링, 컬럼에 대한 샘플링을 통해 각각의 높임       |         |                                                              |
+| `num_iterations`        |                            반복량                            |         |                                                              |
+| `scale_pos_weight`      | 양성인 경우 데이터 뻥튀기, 불균형셋에서 유용할 수 있으나 너무 많은경우 정확도가 떨어짐 |         | 1.1~1.5 정도의 가벼운 수준 추천                              |
+| `boosting/booster`      | 부스팅 방법 rf(random forest), gbdt(Gradient Boosted Decision Trees), dart(Drop out Regression Trees), goss(bradient-based one-side Sampling) | gbdt    | 정확도가 중요할때는 딥러닝 드랍아웃과 같은 dart 적용. 샘플링을 이용한 goss(속도 업, 정확도 내려감) 적용 |
+| `Metric/loss`           |   CE, MSE, MAE, MAPE, Log Transformation, Quantile 등 지원   |         |                                                              |
 
 
 
 
 
+### Imbalance Problem
 
+- down up dampling
+- scale_pos_weight
+
+### Focal Loss
+
+class imbalance문제를 해결하는데 사용되는 손실함수
+
+이진 분류에서 사용되는 Cross Entropy(CE) 손실 함수로부터 비롯됨
+
+- CE loss
+
+CE loss는 아래와 같음
+
+> - y=1인 경우
+>
+> -log(p)
+>
+> - otherwise
+>
+> -log(1-p)
+
+모든 sample에 대한 예측 결과를 동등하게 가중치를 둠 
+
+-> 모든 셈플에 대해서 큰 loss를 발생시켜 드문 class의 loss를 압도하는 경우가 발생
+
+- Balanced Cross Entropy
+
+이 문제를 해결하기 위해 가중치 파라미터인 a를 곱해준 손실 함수를 제안
+
+> CE(p) = -alog(p)
+
+y=1 일때 a를 곱해주고 y= -1일때 1-a를 곱해주는 방식 
+
+위 방식은 positive/negative sample 사이의 균형을 잡아주지만
+
+easy/hard sample에 대해서는 균형을 잡지 못함
+
+- Focal loss
+
+![focal_loss_f](\img\2021\lgbm\focal_loss_f.PNG)
+
+focal loss 는 easy example을 down-weight하여 hard negative sample에 집중하여 학습하는 loss function
+
+![focal_loss_t](\img\2021\lgbm\focal_loss_t.PNG)
+
+위 그림에서 파란색 선은 CE 이고,  경사가 완만하여 Pt가 가장 높은 부분과 낮은 부분의 경사 차이가 상대적으로 크지 않음
+
+- Pt
+
+example이 잘못 분류되고 Pt가 작으면 modulation factor는 1과 가까워지며 loss는 거의 영향을 받지 않음
+
+pt가 높으면 modulation factor는 0에 가까워지고, 잘 분류된 loss는 down-weight됨
+
+- r
+
+r는 easy example을 down-weight하는 정도를 부드럽게 조정 r=0인경우 CE와 같으며 R이 상승할 수록 modulatino factor의 영향력이 커짐 (논문에서는 r=2가 가장 좋은값)
 
 
 
@@ -104,6 +161,8 @@ feature가 몇가지만 값이 같다면 (수치형으로는 correlation이 높�
 
 
 # 참고 사이트
+
+- lgbm 설명
 
 https://en.wikipedia.org/wiki/LightGBM
 
@@ -114,3 +173,9 @@ https://ek-koh.github.io/data%20analysis/lgbm/
 http://machinelearningkorea.com/2019/09/29/lightgbm-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0/
 
 http://machinelearningkorea.com/2019/09/25/lightgbm%EC%9D%98-%ED%95%B5%EC%8B%AC%EC%9D%B4%ED%95%B4/
+
+- flocal loss
+
+https://herbwood.tistory.com/19
+
+https://en.wikipedia.org/wiki/Cross_entropy
