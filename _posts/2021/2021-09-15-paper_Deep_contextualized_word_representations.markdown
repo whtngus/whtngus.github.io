@@ -67,7 +67,7 @@ pretrained word vectors (Turian et al., 2010; Mikolov et al., 2013; Pennington e
 
 주어진 문장에서 각 토큰 t1  ~ tn 에서 일반적인 시퀀스 모델링의 k번째 토큰 tk는 다음과 같다.
 
-![f_1](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\f_1.PNG)
+![f_1](\img\2021\Deep_contextualized_word_representations\f_1.PNG)
 
 - 단순하게 이전의 입력 토큰을 보고 다음 토큰을 예측 혹은 representation 하겠다는 의미
 
@@ -75,11 +75,11 @@ CNN 기반의 캐릭터 임베딩을 통해 위의 레이어를 쌓는다
 
 각각의 위치 k에 따라 각 레이어의 마지막 LSTM Layer의 output을 사용하고 다음 토큰 이용시에넌 Softmax를 통해 사용한다.
 
- ![f_2](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\f_2.PNG)
+ ![f_2](\img\2021\Deep_contextualized_word_representations\f_2.PNG)
 
 - 위 수식은 간단하게 이전 토큰들만 보는게 아니라 문장 전체를 보고 representation을 하기 위해서 이후토큰도 보고 embedding한다는 의미 
 
-![f_3](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\f_3.PNG)
+![f_3](\img\2021\Deep_contextualized_word_representations\f_3.PNG)
 
 위처럼 bi LM 을 만들기 위해서 각 토큰의 forward와 backward LM 정보를 정보 보고 output을 생성한다. 
 
@@ -93,7 +93,7 @@ ELMo는 biLM 의 준간 계층 표현의 조합이다.
 
 각 토큰 Tk에 대해 L층 biLM은 2L + 1 표현집합을 계산한디 (forward back word)
 
-![f4](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\f4.PNG)
+![f4](\img\2021\Deep_contextualized_word_representations\f4.PNG)
 
 각 Representation 은  h-> h<- (각 방향의 LSTM <- biLSTM) 레어의 결과와 해당 토큰의 output으로 결정된다. 각 R은 single vetor
 
@@ -101,7 +101,7 @@ ELMo는 biLM 의 준간 계층 표현의 조합이다.
 
 다운스트림 테스크 시에는 ELMo는 top  layer를 선택한다 
 
-![f5](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\f5.PNG)
+![f5](\img\2021\Deep_contextualized_word_representations\f5.PNG)
 
 s-task는 softmax-normalized weights 
 
@@ -129,15 +129,15 @@ RNN, CNN 또는 피드 포워드 네트워크를 사용하여 상황에 맞는 �
 
 # 4. Evaluation
 
-![t_1](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\t_1.PNG)
+![t_1](\img\2021\Deep_contextualized_word_representations\t_1.PNG)
 
-![t_2](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\t_2.PNG)
+![t_2](\img\2021\Deep_contextualized_word_representations\t_2.PNG)
 
 여러 테스크에서 sota를 찍었으며 각 스코어를 공유 
 
 # 5. Analysis
 
-![c_1](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\c_1.PNG)
+![c_1](\img\2021\Deep_contextualized_word_representations\c_1.PNG)
 
 위의 Figure 1 은 base line 대비 ELMo의 성능 비교이다 .
 
@@ -157,9 +157,9 @@ Figure 2는 softmax 후 각 layer weight에 대한 값을 시각화한것  (주�
 
 
 
-![cove_!](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\cove_!.PNG)
+![cove_!](\img\2021\Deep_contextualized_word_representations\cove_!.PNG)
 
-![cove_2](D:\code\whtngus.github.io\img\2021\Deep_contextualized_word_representations\cove_2.PNG)
+![cove_2](\img\2021\Deep_contextualized_word_representations\cove_2.PNG)
 
 문맥 임베등을 위해 GLOVE 임베딩 방법을 LSTM 모델 구조로 한번더 학습시킨 모델
 
