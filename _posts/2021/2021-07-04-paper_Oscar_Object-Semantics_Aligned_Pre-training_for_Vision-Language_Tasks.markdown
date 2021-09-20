@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks"
-date: 2021-07-06 19:20:23 +0900
+date: 2021-09-20 19:20:23 +0900
 category: paper
 ---
 # Oscar: Object-Semantics Aligned Pre-training for Vision-Language Tasks
@@ -198,6 +198,8 @@ VQA와 비슷 질문에 대답할 수 있는 모델의 추론 능력을 테스�
 
  이미지 쌍에 대한  자연어 문장이 참인지 확인하는 것
 
+
+
 # 5. Experimental Results & Analysis
 
 ![table_1](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\table_1.PNG)
@@ -208,3 +210,38 @@ VQA와 비슷 질문에 대답할 수 있는 모델의 추론 능력을 테스�
 
 ![fig_4](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\fig_4.PNG)
 
+
+
+
+
+## 기타 공부 
+
+### 1. scst(Self-Critical Sequence Training)
+
+https://openaccess.thecvf.com/content_cvpr_2017/papers/Rennie_Self-Critical_Sequence_Training_CVPR_2017_paper.pdf
+
+
+
+샘플링된 캡션과 추론 알고리즘으로 생성된 캡션 의 사이의 CIDEr-D 스코어의 오차를 리워드로 주 어 강화 학습하여 모델을 최적화한다.
+
+
+
+![formular_5](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_5.PNG)
+
+테스트에 사용한 추론 알고리즘에 따라 현재 모델에서 얻은 보상으로 알고리즘을 기본화하는것.
+
+t 시간 단계에서 softmax activation 샘플의 w의 보상에 대한 계산
+
+![formular_6](\img\2021\Oscar_Object-Semantics_Aligned_Pre-training_for_Vision-Language_Tasks\formular_6.PNG)
+
+
+
+r(w^) : 테스트 시간에 사용된 추론 알고리즘에 따라 현재 모델에 의해 얻어진 보상
+
+
+
+### 2. CBS(Constrained beam search)
+
+단순히 beam search를 포함한 구조?
+
+ 
