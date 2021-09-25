@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "lgbm과 문제 case 공부"
-date: 2021-08-25 19:20:23 +0900
+date: 2021-09-25 19:20:23 +0900
 category: deep_learning
 ---
 
@@ -156,6 +156,92 @@ r는 easy example을 down-weight하는 정도를 부드럽게 조정 r=0인경�
 
 
 
+### rest api
+
+- 기본 설정 
+
+```
+from flask import Flask  # 서버 구현을 위한 Flask 객체 import
+from flask_restx import Api, Resource  # Api 구현을 위한 Api 객체 import
+
+app = Flask(__name__)  # Flask 객체 선언, 파라미터로 어플리케이션 패키지의 이름을 넣어줌.
+api = Api(app)  # Flask 객체에 Api 객체 등록
+
+
+@api.route('/hello')  # 데코레이터 이용, '/hello' 경로에 클래스 등록
+class HelloWorld(Resource):
+    def get(self, name):  # GET 요청시 리턴 값에 해당 하는 dict를 JSON 형태로 반환
+        return {"message" : "Welcome, %s!" % name}
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=80)
+```
+
+hello 라는 url 로 요청이 온 경우 
+
+-> get 요청이 온경우 get 함수로 요청 내용이 넘어 옴 
+
+- get post put delete
+
+```
+from flask import Flask, request
+from flask_restx import Resource, Api
+
+app = Flask(__name__)
+api = Api(app)
+
+todos = {}
+count = 1
+
+@api.route('/todos')
+class TodoPost(Resource):
+    def post(self):
+        global count
+        global todos
+        
+        idx = count
+        count += 1
+        todos[idx] = request.json.get('data')
+        
+        return {
+            'todo_id': idx,
+            'data': todos[idx]
+        }
+
+
+@api.route('/todos/<int:todo_id>')
+class TodoSimple(Resource):
+    def get(self, todo_id):
+        return {
+            'todo_id': todo_id,
+            'data': todos[todo_id]
+        }
+
+    def put(self, todo_id):
+        todos[todo_id] = request.json.get('data')
+        return {
+            'todo_id': todo_id,
+            'data': todos[todo_id]
+        }
+    
+    def delete(self, todo_id):
+        del todos[todo_id]
+        return {
+            "delete" : "success"
+        }
+
+if __name__ == "__main__":
+    app.run(debug=True, host='0.0.0.0', port=80)
+```
+
+
+
+- 자세한 내용은 아래 url 의 rest api 블로그 보기
+
+
+
+
+
 
 
 
@@ -179,3 +265,9 @@ http://machinelearningkorea.com/2019/09/25/lightgbm%EC%9D%98-%ED%95%B5%EC%8B%AC%
 https://herbwood.tistory.com/19
 
 https://en.wikipedia.org/wiki/Cross_entropy
+
+
+
+- rest api
+
+https://justkode.kr/python/flask-restapi-1
