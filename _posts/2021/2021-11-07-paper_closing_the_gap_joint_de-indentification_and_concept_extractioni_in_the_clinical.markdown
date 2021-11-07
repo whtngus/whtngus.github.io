@@ -25,7 +25,7 @@ url : https://arxiv.org/pdf/2005.09397.pdf
 
 # 1. Introduction
 
-![f1](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f1.PNG)
+![f1](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f1.PNG)
 
 단순히 개인정보만 마스킹하는게 아니라 구조화된 정보를 추출해 용도에 맞게 마스킹을 씌워 사용가능 
 
@@ -53,7 +53,7 @@ url : https://arxiv.org/pdf/2005.09397.pdf
 
 # 3. Model
 
-![f2](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f2.PNG)
+![f2](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f2.PNG)
 
 논문에서는 Figure 2에서 보여주는대로 모델을 제안 
 
@@ -83,11 +83,11 @@ anonymization (ANON) and clinical concept extraction (CE)를 시퀀스 레이블
 
 (Figure 2의 c)비식별화 모델을 먼저 통과 후에 gumbel softmax 결과를 이용해  masked embedding 후 테스크를 수행하는 방식
 
-![f_1](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f_1.PNG)
+![f_1](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f_1.PNG)
 
 위 수식은 그냥 gumbel softmax 수식
 
-![f3](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f3.PNG)
+![f3](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\f3.PNG)
 
 위 그림은 masked embedding의 설명 
 
@@ -97,13 +97,13 @@ gumbel softmax의 결과를 이용해 원래 입력 데이터에서 특수한 �
 
 # 4. Experiments
 
-![t4](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t4.PNG)
+![t4](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t4.PNG)
 
-![t1](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t1.PNG)
+![t1](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t1.PNG)
 
-![t2](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t2.PNG)
+![t2](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t2.PNG)
 
-![t3](\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t3.PNG)
+![t3](\img\2021\closing_the_gap_joint_de-indentification_and_concept_extractioni_in_the_clinical\t3.PNG)
 
 결과들은 위 표와 같음 ... 
 

@@ -57,7 +57,7 @@ HIPAA(미국 의료보험 휴대성 및 책입법)은 배포 전에 18개 범주
 
 # 2. PROBLEM DEFINITION
 
-![model](\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\model.PNG)
+![model](\img\2021\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\model.PNG)
 
 구조화되지 않은 임상 텍스트를 식별해 비식별화 하는걸 목표로 한다. 
 
@@ -65,7 +65,7 @@ HIPAA는 공개 전 EHR에서 제거해야하는 18가지 유형의 PHI를 식�
 
 각 토큰 T는 phi등급 중 하나에 속하거나 속하지 않는걸 분류로 보고 토큰별 classification을 수행한다.
 
-![f1](\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\f1.PNG)
+![f1](\img\2021\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\f1.PNG)
 
 위 수식은 간단하게 PHI정보를 포함하고 있으면 마스킹을 포함하고 있지 않으면 원본 텍스트를 그대로 둔다 .
 
@@ -101,7 +101,7 @@ Precision은 기존 sota보다 낮고 Recall은 기존 sota보다 높다고 한�
 
 => 그럼 그냥 기존 모델 loss만 변경해도 될거같은데.. 무슨 의미가 있을까?
 
-![t1](\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\t1.PNG)
+![t1](\img\2021\De-identification_of_Unstructured_Clinical_Texts_from_Sequence_to_Sequence_Perspective\t1.PNG)
 
 심지어 3가지 데이터셋 중 한가지 데이터 셋에서만 sota를 찍고 다른 2가지 데이터셋에서는 정화도가 밀린듯 하다 
 
