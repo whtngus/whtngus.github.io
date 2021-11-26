@@ -37,7 +37,7 @@ url - https://arxiv.org/pdf/2011.04264.pdf
 
 # 1. Introduction
 
-![f_1](E:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f_1.PNG)
+![f_1](\img\2021\CapWAP_Captioning_with_a_Purpose\f_1.PNG)
 
 
 
@@ -51,7 +51,7 @@ url - https://arxiv.org/pdf/2011.04264.pdf
 
 (3) 그러한 질문에 대한 정확한 답을 제공하기 위해 캡션을 최적화하면 훈련이 정보 요구에 집중할 수 있다고 주장
 
-![t_1](E:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\t_1.PNG)
+![t_1](\img\2021\CapWAP_Captioning_with_a_Purpose\t_1.PNG)
 
 1. 서로 다른 대상 사용자층이 표현하는 특정 정보 요구를 충족하기 위해 이미지 캡션을 생성하는 새로운 작업(CAPWAP)을 정의한다. 
 2. 우리는 우리의 정보 중심 모델이 최첨단 기존 일반 캡션 시스템의 캡션보다 이 작업에 대해 훨씬 더 높은 품질의 캡션을 생성할 수 있음을 보여준다. 
@@ -67,7 +67,7 @@ url - https://arxiv.org/pdf/2011.04264.pdf
 
 # 3. Problem Formulation
 
-![f_2](E:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f_2.PNG)
+![f_2](\img\2021\CapWAP_Captioning_with_a_Purpose\f_2.PNG)
 
 - Task Setting
 
@@ -98,7 +98,7 @@ QA 데이터가 아래와 같은 프로세스에 의해 도출된다고 가정
 
 CAPWAP는 아래 기대치를 최대화 해야한다
 
-![f1](E:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f1.PNG)
+![f1](\img\2021\CapWAP_Captioning_with_a_Purpose\f1.PNG)
 
 θ  : 파라미터 
 
