@@ -3,6 +3,9 @@ layout: page
 title: About
 permalink: /about/
 ---
+# 정속 링크 
+
+https://whtngus.github.io/
 
 ## SHC 개인 공부 정리 블로그
 
