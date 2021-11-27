@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : CapWAP: Captioning with a Purpose"
-date: 2021-11-25 19:20:23 +0900
+date: 2021-11-27 19:20:23 +0900
 category: paper
 ---
 
@@ -149,7 +149,7 @@ QA 데이터를 사용하여 캡션 모델을 교육하기 위한 RL 프레임�
 
 Gθ(y|x)  MLE을 사용해 최적화
 
-![f2](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f2.PNG)
+![f2](\img\2021\CapWAP_Captioning_with_a_Purpose\f2.PNG)
 
 - QA Model
 
@@ -159,7 +159,7 @@ SQuAD 2.0에 쓰인 BERTLARGE모델을 이용해 모델 M을 구축
 
 - QA Reward
 
-![f3](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f3.PNG)
+![f3](\img\2021\CapWAP_Captioning_with_a_Purpose\f3.PNG)
 
 QA의 보상정책으로 기울기 LQA를 계산하기 위해 REPORINCE(Williams, 1992년)를 사용
 
@@ -167,7 +167,7 @@ QA의 보상정책으로 기울기 LQA를 계산하기 위해 REPORINCE(Williams
 
 ### 4.3 Synthetic Policy Pre-Training
 
-![f_3](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f_3.PNG)
+![f_3](\img\2021\CapWAP_Captioning_with_a_Purpose\f_3.PNG)
 
 
 
@@ -185,7 +185,7 @@ QA의 보상정책으로 기울기 LQA를 계산하기 위해 REPORINCE(Williams
 
 - QA Conditional Model
 
-![f4](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\f4.PNG)
+![f4](\img\2021\CapWAP_Captioning_with_a_Purpose\f4.PNG)
 
 답변 범위를 지원하는 캡션을 생성할 때 QA 쌍을 명시적으로 조절
 
@@ -235,7 +235,7 @@ CiDer손실과 다른 캡션생성 손실을 최적화 함
 
 # 6. Results
 
-![t_2](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\t_2.PNG)
+![t_2](\img\2021\CapWAP_Captioning_with_a_Purpose\t_2.PNG)
 
 CAPWAP에 대한 접근 방식과 QA를 사용하여 프로세스를 추진하는 데 따른 광범위한 가정, 장점 및 제한과 관련된 몇 가지 주요 연구 질문을 다룸
 
@@ -253,7 +253,7 @@ OCO 벤치마크에서 측정한 강력한 방법이지만, 놀랍지 않게도 
 
 표 2의 결과는 네 가지 데이터 세트 모두에서 QA 주도 모델(RL 및 RL + SYN)이 크게 개선되어 평균 8.0 절대 F1의 이득을 달성했음을 보여준다. 특히, 우리는 CapVQA의 평균 인간 캡션보다 7.5 EM, CapVizWiz의 최상의 일반 모델에 비해 16.5 EM 향상된다. 표 4는 적응 프로세스가 실제로 각 QA 데이터 세트에 맞춰져 있음을 보여준다. (프록시 모델 M 사용) 자동 QA 기반 메트릭의 개선은 인간의 판단으로도 해석된다. 표 3은 제안된 모델과 MLE 기준선에 대한 HU-man A/B 테스트 결과를 보여준다. MLE에 비해, 우리는 우리의 방법이 모든 데이터 세트에 걸쳐 보이지 않는 QA 쌍과 관련하여 훨씬 더 많은 정보를 제공한다는 것을 발견했다. 예상대로, 가장 큰 개선 사항은 일반 COCO 콘텐츠(예: CapVizWiz)에서 크게 벗어난 데이터셋이다.
 
-![t_3](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\t_3.PNG)
+![t_3](\img\2021\CapWAP_Captioning_with_a_Purpose\t_3.PNG)
 
 - Importance of Synthetic Pre-training
 
@@ -263,7 +263,7 @@ QA 기반 보상의 부족은 텍스트 유창성을 명시적으로 시행하�
 
 표 5는 Dgeneric과 고려된 각 Dtarget 사이의 격차를 해소하기 위해 보조 QA 조건부 모델 F,(y|x, q, a)(§4.3)의 합성 유도 은 표본을 통합하면 QA 보상만으로 교육에서 발생하는 유창성과 섬망 문제를 크게 줄일 수 있음을 보여준다. 그러나 표 6은 참조 훈련 MLE 기준선에 비해 우리 모델이 여전히 이러한 2차 지표에 어려움을 겪고 있음을 보여준다. 이는 텍스트 생성을 위한 거의 모든 비교 가능한 RL 기반 방법(예: Guo 등, 2018; Paulus 등, 2018 등)과 공유되는 과제이다. 보완적 유창성 보상을 통합하는 것(예: 사전 훈련된 언어 모델 복잡성을 통해)은 향후 작업을 위한 귀중한 방향이다.
 
-![t_4](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\t_4.PNG)
+![t_4](\img\2021\CapWAP_Captioning_with_a_Purpose\t_4.PNG)
 
 - Qualitative Discussion
 
@@ -281,7 +281,7 @@ CAPWAP 패러다임은 효과적인 시스템을 학습하기 위한 새로운 �
 
 사용자가 제공한 질문-응답 쌍을 시각적 정보 요구를 학습하기 위한 감독 소스로 사용하는 CAPWAP 작업을 정의하고 연구했다. 우리의 결과는 대상 청중의 일반적인 QA 쌍에 대한 답변을 논리적으로 지원하는 능력에 의해 캡션 콘텐츠를 측정하는 것이 (1) 실현 가능할 뿐만 아니라 (2) 정보 요구를 파악하는 데 좋은 대용치라는 것을 나타낸다. 우리는 이 작업이 이미지 캡션 분야가 특정 사용자 커뮤니티의 정보 요구를 예측하고 제공하는 방법을 배우도록 동기를 부여하기를 바란다.
 
-![a_1](D:\code\whtngus.github.io\img\2021\CapWAP_Captioning_with_a_Purpose\a_1.PNG)
+![a_1](\img\2021\CapWAP_Captioning_with_a_Purpose\a_1.PNG)
 
 
 
