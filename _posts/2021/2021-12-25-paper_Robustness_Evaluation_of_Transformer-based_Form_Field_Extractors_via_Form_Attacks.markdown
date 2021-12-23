@@ -5,7 +5,7 @@ date: 2021-12-23 16:20:23 +0900
 category: paper
 ---
 
-#Robustness Evaluation of Transformer-based Form Field Extractors via Form Attacks
+# Robustness Evaluation of Transformer-based Form Field Extractors via Form Attacks
 
 Subjects:	Computer Vision and Pattern Recognition (cs.CV); Artificial Intelligence (cs.AI)
 
