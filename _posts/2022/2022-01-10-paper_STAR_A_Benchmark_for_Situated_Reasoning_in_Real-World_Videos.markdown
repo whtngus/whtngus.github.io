@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : STAR: A Benchmark for Situated Reasoning in Real-World Videos"
-date: 2022-01-10 16:20:23 +0900
+date: 2022-01-17 16:20:23 +0900
 category: paper
 ---
 
