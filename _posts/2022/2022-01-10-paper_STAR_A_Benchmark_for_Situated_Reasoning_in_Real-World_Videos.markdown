@@ -225,7 +225,7 @@ STAR에는 111개의 액션 술어, 28개의 개체 및 24개의 관계가 포�
 
 - Debiasing and Balancing Strategies
 
-![f_2](\img\2022\f_2.PNG)
+![f_2](\img\2022\STAR_A_Benchmark_for_Situated_Reasoning_in_Real-World_Videos\f_2.PNG)
 
 
 
@@ -239,7 +239,7 @@ STAR 데이터 세트가 계층화 단계 이후 더 균형 잡힌 분포를 갖
 
 # 4 Baseline Evaluation
 
-![t_2](\img\2022\t_2.PNG)
+![t_2](\img\2022\STAR_A_Benchmark_for_Situated_Reasoning_in_Real-World_Videos\t_2.PNG)
 
 다양한 기준 모델을 테스트하고 위치 추론의 장단점을 분석
 
@@ -278,7 +278,7 @@ STAR 데이터 세트가 계층화 단계 이후 더 균형 잡힌 분포를 갖
 
 - Transformers-based Action Transition Mode
 
-![f_3](\img\2022\f_3.PNG)
+![f_3](\img\2022\STAR_A_Benchmark_for_Situated_Reasoning_in_Real-World_Videos\f_3.PNG)
 
 
 
@@ -290,7 +290,7 @@ STAR 데이터 세트가 계층화 단계 이후 더 균형 잡힌 분포를 갖
 
 ### 5.2 Result Analysis
 
-![image-20220112221248260](C:\Users\Suhyun\AppData\Roaming\Typora\typora-user-images\image-20220112221248260.png)
+![t_2](\img\2022\STAR_A_Benchmark_for_Situated_Reasoning_in_Real-World_Videos\t_2.PNG)
 
 NS-SR의 모듈화로 인해 표 3(보충 재료 표 4)과 같이 완벽/불완전한 스위칭 설정 하에서 결과 제어 평가를 통해 STAR의 핵심 과제를 탐색할 수 있다
 
