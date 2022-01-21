@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "todo list"
-date: 2022-01-10 19:20:23 +0900
+date: 2022-01-21 19:20:23 +0900
 category: todo
 ---
 
@@ -10,3 +10,14 @@ category: todo
 http://ptr.csail.mit.edu/  
 
 http://star.csail.mit.edu/
+
+
+# 21년 목표
+
+- 챗봇
+
+- 논문 쓰기 (저널)
+
+- 박사과정 버티기
+
+- 알고리즘 문제풀이
