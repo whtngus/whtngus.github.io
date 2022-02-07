@@ -11,6 +11,21 @@ http://ptr.csail.mit.edu/
 
 http://star.csail.mit.edu/
 
+- clip_prefix_caption <br>
+특징 코랩재공 학회 x 논문  gpt2 사용 <br>
+코드 : https://github.com/rmokady/clip_prefix_caption<br>
+논문 : https://arxiv.org/pdf/2111.09734.pdf<br>
+<br>
+- Zero-shot Natural Language Video Localization<br>
+특징 : 영상에서 이미지 캡션 분석  - 메타버스 등 다른 분야에 응용하기 좋아보임, ICCV 2021<br>
+코드 : https://github.com/gistvision/psvl<br>
+논문 : https://openaccess.thecvf.com/content/ICCV2021/papers/Nam_Zero-Shot_Natural_Language_Video_Localization_ICCV_2021_paper.pdf<br>
+<br>
+- Towers of Babel: Combining Images, Language, and 3D Geometry for Learning Multimodal Vision<br>
+메타버스에서 적용하기유용해보임 , 3d 데이터 분석  ICCV 2021 -(단, 도면 분석)<br>
+코드 : https://github.com/tgxs002/wikiscenes<br>
+논문 : https://arxiv.org/pdf/2108.05863.pdf<br>
+
 
 # 21년 목표
 
@@ -21,3 +36,4 @@ http://star.csail.mit.edu/
 - 박사과정 버티기
 
 - 알고리즘 문제풀이
+
