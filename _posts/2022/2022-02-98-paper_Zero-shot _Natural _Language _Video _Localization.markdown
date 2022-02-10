@@ -29,7 +29,7 @@ natural language video localization (NLVL)은 최근 비디오의 순간 장면�
 
 최근 몇년간 많은 성능적 성장을 했고 데이터 셋 또한 많이 생성됬다 
 
-![f_1](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_1.PNG)
+![f_1](\img\2022\img\2022\Zero-shot_Natural_Language_Video_Localization\f_1.PNG)
 
 위 Figure 1은 데이터셋에 대한 예시이다 
 
@@ -111,7 +111,7 @@ NLVL에 대한 라벨링은 비용이 많이 들기 때문에 일부 문헌은 �
 
 # 3. Approach
 
-![f_2](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_2.PNG)
+![f_2](\img\2022\img\2022\Zero-shot_Natural_Language_Video_Localization\f_2.PNG)
 
 
 
@@ -131,7 +131,7 @@ NLVL에 대한 라벨링은 비용이 많이 들기 때문에 일부 문헌은 �
 
 ## 3.1. Temporal Event Proposal
 
-![f_3](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_3.PNG)
+![f_3](\img\2022\img\2022\Zero-shot_Natural_Language_Video_Localization\f_3.PNG)
 
 첫 단계로, 비디오에서 시간적 영역의 사건을 발견 
 
@@ -145,7 +145,7 @@ NLVL에 대한 라벨링은 비용이 많이 들기 때문에 일부 문헌은 �
 
 ## 3.2. Pseudo-Query Generation
 
-![t_1](\img\2022\Zero-shot_Natural_Language_Video_Localization\t_1.PNG)
+![t_1](\img\2022\img\2022\Zero-shot_Natural_Language_Video_Localization\t_1.PNG)
 
 시간적 영역 - temporal regions (TEP)
 
@@ -195,7 +195,7 @@ ex) 공 야구배트 사람 의 객체가 추출된 경우 히팅 달리기 등�
 
 -> 당연히 실제 상황과는 부정확 할 수 있음!
 
-![f_4](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_4.PNG)
+![f_4](\img\2022\img\2022\Zero-shot_Natural_Language_Video_Localization\f_4.PNG)
 
 이런 동사-명사 패턴을 추론하기 위해 RoBERTa 모델을 베이스로 문맥 목적 명사에서 동사만을 추론하는 모델을 학습한다 이를 Verbert라고 한다. 
 
