@@ -201,17 +201,44 @@ ex) 공 야구배트 사람 의 객체가 추출된 경우 히팅 달리기 등�
 
 VerbBERT 모델은 동사를 예측하는 모델! (예시는 위의 Figure 4)
 
+## 3.3. A simple NLVL Model
 
+![f_5](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_5.PNG)
 
+지도학습을 통해 NLVL 모델을 사용할 수 있지만, 덜 구조화된 문장(생성 문장)을 사용하기 때문에 적합한 NLVL 모델을 추가로 제안 
 
+그림5 처럼 문장 구조를 덜 학습하고 단어 프레임을 더 집중하는 교차 모달 신경망을 제안 
 
+모델 구성
 
+1. 비디오 및 단순화된 문장 입력 데이터를 전역적으로 인코딩하기 위한 상황별 특징 인코딩
+2.  multi-modal cross attention network
+3. 입력 단순 문장에 해당하는 시간적 사건 영역을 회귀시키기 위한 시간적 회귀
 
-# 참고지식
+위에서 multi-modal cross attention network는 비디오와 언어 사이의 다중 모드 정보(Words-aware Video Attention, WVA)와 비디오 인식 쿼리 임베딩(Video-aware Words Attention, VWA)을 융합한 쿼리 유도 동적 필터를 사용하고 멀티 모드 크로스 모드를 사용
 
--
+모든 정보를 융합하기 위한 고정 메커니즘(다중 모드 교차 주의 또는 MCA). 그런 다음 비로컬 블록(NL-블록)[51]을 적용하여 교차 주의 모듈에서 얻은 전역 상황별 정보를 인코딩한다. 전역 컨텍스트 특징이 서로 인코딩된 후, 우리는 시간 주의 메커니즘에 의해 대상 시간 세그먼트를 살펴본다. 마지막으로, 우리는 다층 퍼셉트론을 통해 시간 경계 영역을 예측한다.
 
+### Objective function
 
+![f1](\img\2022\Zero-shot_Natural_Language_Video_Localization\f1.PNG)
+
+두가지 로스로 구성됨
+
+1. 시간 경계 회귀 손실 - reg
+2. 시간 attention 손실 - guide
+
+λ 는 균형 파라미터 
+
+### Inference
+
+학습시에 단순화된 문장을 이용해 학습하기 때문에 예측 시에도 질의어를 단순화된 문장으로 변환해야 함 
+
+이때 형태소 태깅을 사용해서 단순화 
+
+-> 문장 생성 이부분이 수정사항이 보임 
+
+# 4. Experiments
 
 
 
