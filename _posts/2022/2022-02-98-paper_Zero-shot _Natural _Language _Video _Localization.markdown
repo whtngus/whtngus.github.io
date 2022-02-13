@@ -240,12 +240,63 @@ VerbBERT 모델은 동사를 예측하는 모델! (예시는 위의 Figure 4)
 
 # 4. Experiments
 
+### Datasets and setups.
 
+ NLVL 작업에 Charades-STA 및 ActivityNetCaptions 의 두 데이터 세트를 사용
 
+객체 검출기로 사용되는 Visual Genome 데이터 세트와 licker 설명 말뭉치의 1,600개 객체 범주로 훈련된 사전 훈련된 고속 R-CNN제공
 
+### Evaluation metrics.
 
+ (R@tIoU). 를 사용 (we use threshold values of {0.3, 0.5, 0.7}
 
+### Implementation details
 
+ I3D 및 C3D 모델을 각각 사용하여 각 프레임에 대한 시삭적 특징을 추출
 
+비디오 기능을 고정 길이로 만들기 위해 비디오에서 128개의 기능을 균일하게 샘플링
 
+두 데이터 세트에 대한 k-벡터 클러스터링 알고리즘에 k = 5를 사용
+
+### Baselines.
+
+제로샷 NLVL을 다루는 첫 번째 작업이기 때문에
+
+1. 무작위 영역 예측
+2. 무작위 이벤트 제안(Rand. Q+TEP)
+3. 무작위 시간 영역에 대한 유사 쿼리(PQ+Rnd)로 훈련된 모델과 같은 PSVL의 절제 방법을 포함한 다양한 기준선을 고려
+4. TEP(PQ)에서 '근거 명사'(랜덤 동사)를 사용한 의사 질의만 가능합니다.N+TEP
+5. TEP(PQ)에서 '추천 동사'(랜덤 명사)를 사용한 유사 질의만 가능합니다.V+TEP). 우리는 동일한 NLVL 모델을 사용
+
+## 4.1. Quantitative Analysis
+
+![t_2](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\t_2.PNG)
+
+위의 표 2와같이 간단히 결과 간단히 요약
+
+- 이벤트 제안 모듈을 TEP(Temporary Event Proposal)로 대체하고 랜덤 쿼리를 제공하면 랜덤에 비해 NLVL 작업 성능이 약간 향상
+
+-> 좋은 의사 쿼리가 없으면 NLVL 성능이 저하될 수 있음을 의미
+
+- PQ에 의한 설명은 모델이 몇 가지 교차 모달 표현을 학습할 수 있음을 의미한다. PQ를 비교할 때.N+TEP 및 PQ.V+TEP, 우리는 동사가 NLVL 성능에 대한 명사보다 더 중요한 역할을 한다는 것을 관찰한다. 우리는 이것이 동사가 시간 영역을 설명할 때 문맥 객체 간의 관계를 포함하기 때문
+
+### 4.1.1 Temporal Event Proposal
+
+#### Event proposal methods
+
+![t_3](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\t_3.PNG)
+
+위으 table 3에서 4개의 베이스 라인 모델과 비교 
+
+#### 4.1.2 Pseudo Query
+
+##### Effectiveness of VerbBERT.
+
+동사 예측 변수인 VerbERT를 RoBERTa를 이용해 만듦
+
+#### 4.1.3 NLVL Model
+
+![f_6](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\f_6.PNG)
+
+![f_7](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\f_7.PNG)
 
