@@ -1,11 +1,15 @@
 ---
 layout: post
 title: "paper : Zero-shot Natural Language Video Localization"
-date: 2022-02-11 00:20:23 +0900
+date: 2022-02-16 00:20:23 +0900
 category: paper
 ---
 
 # Zero-shot Natural Language Video Localization
+
+
+
+
 
 
 
