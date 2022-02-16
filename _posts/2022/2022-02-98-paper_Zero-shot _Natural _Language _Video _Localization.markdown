@@ -7,6 +7,12 @@ category: paper
 
 # Zero-shot Natural Language Video Localization
 
+url : https://arxiv.org/pdf/2110.00428.pdf
+
+code : https://github.com/gistvision/PSVL
+
+ICCV 2021
+
 
 
 
@@ -274,7 +280,7 @@ VerbBERT 모델은 동사를 예측하는 모델! (예시는 위의 Figure 4)
 
 ## 4.1. Quantitative Analysis
 
-![t_2](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\t_2.PNG)
+![t_2](\img\2022\Zero-shot_Natural_Language_Video_Localization\t_2.PNG)
 
 위의 표 2와같이 간단히 결과 간단히 요약
 
@@ -288,7 +294,7 @@ VerbBERT 모델은 동사를 예측하는 모델! (예시는 위의 Figure 4)
 
 #### Event proposal methods
 
-![t_3](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\t_3.PNG)
+![t_3](\img\2022\Zero-shot_Natural_Language_Video_Localization\t_3.PNG)
 
 위으 table 3에서 4개의 베이스 라인 모델과 비교 
 
@@ -298,9 +304,20 @@ VerbBERT 모델은 동사를 예측하는 모델! (예시는 위의 Figure 4)
 
 동사 예측 변수인 VerbERT를 RoBERTa를 이용해 만듦
 
+table 4에서 성능을 비교 해 볼 수 있음 (당연히 동사만을 이용해 학습했으니 좋아지는건 확실)
+
+명사의 품질에 따라 얼마나 성능이 안좋아지는지를 확인하기 위해 테스트를 함 
+
+중복이 감소하면(36.54% → 27.48% → 17.97% → 9.64% → 1.15%) NLVL 'R@0.5' 성능도 감소합니다(31.88 → 31.09 → 28.25 → 25.94 → 23.82).
+
 #### 4.1.3 NLVL Model
 
-![f_6](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\f_6.PNG)
+![f_6](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_6.PNG)
 
-![f_7](E:\code\whtngus.github.io\img\2022\Zero-shot_Natural_Language_Video_Localization\f_7.PNG)
+![f_7](\img\2022\Zero-shot_Natural_Language_Video_Localization\f_7.PNG)
 
+![t_5](\img\2022\Zero-shot_Natural_Language_Video_Localization\t_5.PNG)
+
+Table 5 에서  WVA, VWA 및 MCA를 단순 완전 연결 레이어로 대체하여 세 개의 모델을 비교
+
+ WVA의 결과는 Attention 모듈이 주어진 시간 영역에 대해 실제로 의미 있는 단어에 주의를 기울임으로써 의사 쿼리의 노이즈를 추가로 필터링한다는 것을 의미
