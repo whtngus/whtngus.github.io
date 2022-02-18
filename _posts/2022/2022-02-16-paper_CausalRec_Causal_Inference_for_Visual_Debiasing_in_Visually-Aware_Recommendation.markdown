@@ -113,6 +113,94 @@ vision-language 테스크들이 존재  ->  일반적으로 이러한 방법에�
 
 ![f1](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f1.PNG)
 
+> - 수식 (1) -  Total Effect
+>
+> a 가 c에 미치는 영향을 figure 2의 (a)와 (b)를 이용해  표시
+>
+> Figure(a) 는 a에 의해 영향을 받은 C 이고  (b)는 a를 관측(무시했을경우)했을경우의 값이다.
+>
+> 즉, (a) - (b)로 a가 영향을 주는 정도
+>
+> - 수식 (2) - Natural Diredt Effect
+>
+> Figure(d) - (b)   - (b)의 경우 b가 a에 영향을 받아 c에 영향을 줌으로 
+>
+> A가 직접적으로 C에 영향을 준 내용만을 수식으로 표시 
+>
+> - 수식(3) - total indirect effect 
+>
+> 수식 1은 A의 영향 수식2는 직접적인 영향임으로 
+>
+> 간접적인 영향은 수식(1) - 수식(2)  이다.
+
+# 3 VISUAL BIAS IN VISUALLY-AWARE RECOMMENDATION
+
+##  3.1 Notation and Task Definition
+
+변수 셋팅 
+
+u : user ID
+
+i : item ID
+
+Yu : User Vector
+
+Yi : Item Vector
+
+Vi : 고 차원의 이미지 아이템 벡터
+
+I : node
+
+V : visual feature item
+
+U : User feature
+
+M : 사용자와 항목의 실제 선호도
+
+Y : 시각적 특징에 대한 사용자의 시각적 선호도
+
+## 3.2 Non-visual Example: Matrix Factorization
+
+Matrix Factorization (MF)가 sota 인 경우가 많다 𝑃 (𝑌 | 𝐼,𝑈 )
+
+![f4](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f4.PNG)
+
+알파 - 오프셋 텀
+
+Bu Bi - user item의 bias
+
+𝜸𝑢  𝜸i - e latent embedding factors
+
+offset과 bias는 평균으로 계산 
+
+![f_3](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_3.PNG)
+
+Figure3의 (a)가 MF 
+
+## 3.3 Visual Bayesian Personalized Ranking
+
+![f5](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f5.PNG)
+
+Visual Bayesian Personalized Ranking (VBPR) 을 baseline으로 함 -  𝑃 (𝑌 | 𝐼,𝑉 ,𝑈 )
+
+E - transform matrix
+
+Phi - backbone network(Resnet and VGG)
+
+Vi  𝜽u - visual feature representation
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
