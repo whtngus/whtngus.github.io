@@ -33,7 +33,7 @@ E-commerce 플랫폼은 user-item 상호 작용 뿐만 아니라 시각적인 �
 
 # 1 INTRODUCTION
 
-![f_1](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_1.PNG)
+![f_1](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_1.PNG)
 
 E-commerce 플랫폼의 visually-aware은 과거 user-item 상호작용 외에도 사용자 선호도를 예측할 대 시각정 정보또한 고려함
 
@@ -85,7 +85,7 @@ vision-language 테스크들이 존재  ->  일반적으로 이러한 방법에�
 
 ## 2.1 Causal Graph A causal graph is a directed
 
-![f_2](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_2.PNG)
+![f_2](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_2.PNG)
 
 - G = (V, E)
 
@@ -111,7 +111,7 @@ vision-language 테스크들이 존재  ->  일반적으로 이러한 방법에�
 
 ## 2.3 Counterfactual Notations
 
-![f1](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f1.PNG)
+![f1](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f1.PNG)
 
 > - 수식 (1) -  Total Effect
 >
@@ -163,7 +163,7 @@ Y : 시각적 특징에 대한 사용자의 시각적 선호도
 
 Matrix Factorization (MF)가 sota 인 경우가 많다 𝑃 (𝑌 | 𝐼,𝑈 )
 
-![f4](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f4.PNG)
+![f4](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f4.PNG)
 
 알파 - 오프셋 텀
 
@@ -173,13 +173,13 @@ Bu Bi - user item의 bias
 
 offset과 bias는 평균으로 계산 
 
-![f_3](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_3.PNG)
+![f_3](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_3.PNG)
 
 Figure3의 (a)가 MF 
 
 ## 3.3 Visual Bayesian Personalized Ranking
 
-![f5](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f5.PNG)
+![f5](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f5.PNG)
 
 Visual Bayesian Personalized Ranking (VBPR) 을 baseline으로 함 -  𝑃 (𝑌 | 𝐼,𝑉 ,𝑈 )
 
@@ -195,13 +195,13 @@ Vi  𝜽u - visual feature representation
 
 DeepStyle과 Adversarial Multimedia Recommendation(AMR)은 성능을 개선하기 위해 그래프를 공유하는 VBPR의 후속 방법
 
-![f6](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f6.PNG)
+![f6](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f6.PNG)
 
 ci : 이미지에서 사용되는 카테고리 정보
 
 r 𝜸 : 유저 아이템 벡터 
 
-![f7](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f7.PNG)
+![f7](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f7.PNG)
 
 위 식의 중앙의 delta는 adversary 학습 방식으로 훈련된 적대자 -> 시각적 특징에 노이즈를 추가함
 
@@ -211,7 +211,7 @@ r 𝜸 : 유저 아이템 벡터
 
 Deep Visual Bayesian Personalized Ranking (DVBPR) 도 VBPR을 베이스로 함 
 
-![f8](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f8.PNG)
+![f8](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f8.PNG)
 
 Figure 3 (d)
 
@@ -234,9 +234,9 @@ would this user still interact with these item
 
 상호 작용의 원일을 추가로 분석하기 위해 시각적 특징을 가진 사용자 i와 item을 기반으로 해야함
 
-![f9](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f9.PNG)
+![f9](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f9.PNG)
 
-![f10](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f10.PNG)
+![f10](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f10.PNG)
 
 시각적 편향을 제거하기 위해 상호 작용에 대한 시각적 특성의 직접적인 영향을 제거 
 
@@ -244,19 +244,19 @@ would this user still interact with these item
 
 ### 4.1.1 Intervention
 
-![f12](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f12.PNG)
+![f12](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f12.PNG)
 
 직접적인 영향만을 가져오기 위해 전체 영향(u, v)에서  vision의 직접적인 영향을 제거 
 
 ### 4.1.2 Counterfactual Inference
 
-![f13](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f13.PNG)
+![f13](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f13.PNG)
 
 2 의 식과 같이 전체 영향도에서 직접적 영향도를 제거 
 
-![f15](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f15.PNG)
+![f15](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f15.PNG)
 
-![f14](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f14.PNG)
+![f14](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f14.PNG)
 
 실제 TIE를 예측하는것을 목표로 함
 
@@ -264,17 +264,17 @@ would this user still interact with these item
 
 ## 4.2 CausalRec Model
 
-![f_4](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_4.PNG)
+![f_4](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_4.PNG)
 
 ### 4.2.1 Base Model.
 
-![f16](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f16.PNG)
+![f16](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f16.PNG)
 
 VBPR, DeepStyle and AMR 모델
 
 F : represents 함수  M과 visual 특징인 N을 포함 
 
-![f17](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f17.PNG)
+![f17](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f17.PNG)
 
 M과 N은 위의 수식과 같이 계산됨 
 
@@ -284,7 +284,7 @@ N -   세타는 Yu와 같음  시각적 특징의 임베딩과 user 특징의 �
 
 ### 4.2.2 CausalRec Model
 
-![f19](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f19.PNG)
+![f19](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f19.PNG)
 
 시각의 간접적인 영향도를 포함한 base model  - Figure 4 (a) 참조
 
@@ -296,13 +296,13 @@ F : 단순 scalar 곱
 
 multi-task learning framework 를 사용 
 
-![f23](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f23.PNG)
+![f23](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f23.PNG)
 
 위 수식은 multi-task learning의 object function
 
 - l rec 는 BPR  loss 
 
-![f24](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f24.PNG)
+![f24](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f24.PNG)
 
 Y hat :  상호작용 예측
 
@@ -322,17 +322,17 @@ Figure 4 의 (b) 참조
 
 CausalRec 모델 예측시 다음과 같은 방식 사용 
 
-![f25](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f25.PNG)
+![f25](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f25.PNG)
 
-![f26](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f26.PNG)
+![f26](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f26.PNG)
 
 전체의 영향과 직접적인 영향 
 
-![f27](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f27.PNG)
+![f27](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f27.PNG)
 
 inference 대상인 TIE  - 간접적인 영향을 예측
 
-![f28](D:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f28.PNG)
+![f28](\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f28.PNG)
 
 시각적 편향을 일정량 유지하기 위해  lambda2를 이용해 시각적 편향을 제거 
 
