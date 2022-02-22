@@ -338,9 +338,13 @@ inference 대상인 TIE  - 간접적인 영향을 예측
 
 # 5 EXPERIMENTS
 
+![t_1](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\t_1.PNG)
 
+![t_2](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\t_2.PNG)
 
+![f_5](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_5.PNG)
 
+![f_7](E:\code\whtngus.github.io\img\2022\CausalRec_Causal_Inference_for_Visual_Debiasing_in_Visually-Aware_Recommendation\f_7.PNG)
 
 
 
