@@ -15,3 +15,11 @@ https://www.kaggle.com/c/h-and-m-personalized-fashion-recommendations/overview
 
 https://www.kaggle.com/adamdudek/recommenders
 
+
+- 유사 대회
+
+https://www.kaggle.com/c/shopee-product-matching/code?competitionId=24286&sortBy=scoreDescending
+
+1. 유사대회 참조코드 
+
+2. https://www.kaggle.com/suhyun32/efficientnet-resnet200d-distilbert-2stg2/edit
