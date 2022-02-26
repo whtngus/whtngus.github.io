@@ -22,4 +22,6 @@ https://www.kaggle.com/c/shopee-product-matching/code?competitionId=24286&sortBy
 
 1. 유사대회 참조코드 
 
-2. https://www.kaggle.com/suhyun32/efficientnet-resnet200d-distilbert-2stg2/edit
+https://www.kaggle.com/suhyun32/b0-bert-cv0-9-30319d/edit
+
+https://www.kaggle.com/suhyun32/efficientnet-resnet200d-distilbert-2stg2/edit
