@@ -25,3 +25,8 @@ https://www.kaggle.com/c/shopee-product-matching/code?competitionId=24286&sortBy
 https://www.kaggle.com/suhyun32/b0-bert-cv0-9-30319d/edit
 
 https://www.kaggle.com/suhyun32/efficientnet-resnet200d-distilbert-2stg2/edit
+
+
+- 관련 코드 
+- 
+https://github.com/Gourang97/Image-Based-Product-Recommendation
