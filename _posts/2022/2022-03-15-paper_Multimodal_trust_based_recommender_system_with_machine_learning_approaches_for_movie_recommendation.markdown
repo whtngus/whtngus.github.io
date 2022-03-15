@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Multimodal trust based recommender system with machine learning approaches for movie recommendation"
-date: 2022-03-16 00:20:23 +0900
+date: 2022-03-16 00:20:01 +0900
 category: paper
 ---
 
