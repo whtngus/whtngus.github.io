@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Multimodal trust based recommender system with machine learning approaches for movie recommendation"
-date: 2022-03-16 00:01:01 +0900
+date: 2022-03-18 00:01:01 +0900
 category: paper
 ---
 
@@ -12,6 +12,8 @@ category: paper
 https://drsachinandan.com/publication/2021/3.MultimodalTrustBasedRecommende_sasmita.pdf
 
 2020 11월 3일
+
+International Journal of Information Technology 13.2 (2021)
 
 코드 없음 ㅠ
 
