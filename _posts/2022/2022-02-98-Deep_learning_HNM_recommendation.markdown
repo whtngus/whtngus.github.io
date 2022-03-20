@@ -33,4 +33,15 @@ https://github.com/Gourang97/Image-Based-Product-Recommendation
 
 - 관련 논문 
 
+https://arxiv.org/pdf/1708.07289.pdf
+
 https://arxiv.org/vc/arxiv/papers/1603/1603.04259v2.pdf
+
+information Sciences **
+
+-> 여기에서 recommendation system 검색해서 쓰기(implicit relations)
+
+DCFGAN An adverserial deep reinforcemnet learning framwork with improved negative sampling for session-base recommendation
+2022
+
+Leveraging implicit relations for recommendaer systems
