@@ -169,7 +169,55 @@ u, v가 다른 아이템을 구입하지 않은 경우 유사도는 1
 
 특정 항목 i에 대한 사용자 k의 등급을 정확하게 예측하기 위해 해당 항목 i에 대한 모든 등급의 가중 평균을 구할 수 있다
 
+wk,u : 사용자 k와 사용자 u사이의 가중치 
+
+rk(hat) :  모든 사용자가 평가한 평균 등급 
+
+U : item i 와 관련된 모든 유저의 집합
+
 특정 항목 i에 대한 사용자 k의 등급을 정확하게 예측하기 위해 해당 항목 i에 대한 모든 등급의 가중 평균을 구해서 빼줌 (유저의 평균이 아님 모든 등급의 평균)
+
+![f6](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f6.PNG)
+
+위 식을 이용해 predict를 함 
+
+- Top-N 추천시스템
+
+특정 사용자를 끌어들이는N개의 최상위 아이템 세트를 추천
+
+주로 사용자 기반, 항목 기반 Top-N 두 가지 클래스로 나눌 수 있다
+
+Pearson Correlation Similarity or Vector Cosine-based Similarity를 사용해 특정 사용자와 가장 유사한 k명의 사용자를 선택
+
+항목 기반인경우 피어슨 상관 유사성 또는 벡터 코사인 기반 유사성에 의해 예측된 유사성에 따라 각 항목에 대해 가장 유사한 k개의 항목을 선택
+
+가장 유사한 k개의 아이템을 조합하여 특정 사용자가 이미 구입한 세트 U의 각 아이템을 제거함으로써 세트 A를 식별
+
+## B. Group-based Collaborative Filtering
+
+그룹 베이스의 콜라보레이티브 필터링은 이 논문에서 제안하는 기법
+
+경우에 따라서는 콜드 스타트 문제를 해결할 수 있다고 제안 -> 그룹 검출과 그룹 프리퍼런스 집약은 그룹 베이스의 콜라보레이티브필터링의 2개의 중요한 부분
+
+1. Group Detection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
