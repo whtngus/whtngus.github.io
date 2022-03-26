@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Family Shopping Recommendation System Using User Profile and Behavior Data"
-date: 2022-03-20 00:01:01 +0900
+date: 2022-03-27 00:01:01 +0900
 category: paper
 ---
 Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data
