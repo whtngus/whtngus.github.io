@@ -79,7 +79,7 @@ user-item 데이터를 이용해 사용자가 좋아하는 아이템을 추천
 
 ### Vector cosine-based similarity 
 
-![f1](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f1.png)
+![f1](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f1.png)
 
 두 항목간의 유사성을 비교 ( 항목 또는 사용자를 벡터로 취급하고 두 벡터 사이의 각도의 코사인을 계산)
 
@@ -93,7 +93,7 @@ R u,i : user u와 item i가 주어진 경우의 rating
 
 아래의 fig. 1 참조 
 
-![f_1](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_1.png)
+![f_1](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_1.png)
 
 그러나 코사인 유사도는 한계상황이 있다 
 
@@ -103,7 +103,7 @@ R u,i : user u와 item i가 주어진 경우의 rating
 
 ### Correlation-based similarity
 
-![f2](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f2.PNG)
+![f2](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f2.PNG)
 
 pearson 상관 관계를 통해 유사도를 계산하는 방법 
 
@@ -121,7 +121,7 @@ r u i : 사용자가 부여한 등급
 
  -> 위의 Fig. 1 참조
 
-![f3](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f3.PNG)
+![f3](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f3.PNG)
 
 U : 모든 user set 
 
@@ -137,7 +137,7 @@ Pearson correlation-based CF algorithm은 매우 효율적이여서 추천시스
 
 ### Jaccard similarity
 
-![f4](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f4.PNG)
+![f4](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f4.PNG)
 
 자카드 유사도는 매우 간단한 알고리즘  두 사용자가 동일한 상품을 많이 구매하고 구매하는 상품의 양이 적을수록 유사성이 높아짐
 
@@ -165,7 +165,7 @@ u, v가 다른 아이템을 구입하지 않은 경우 유사도는 1
 
 해당 논문에서는 Euclidean distance similarity를 사용하기로 결정함
 
-![f5](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f5.PNG)
+![f5](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f5.PNG)
 
 특정 항목 i에 대한 사용자 k의 등급을 정확하게 예측하기 위해 해당 항목 i에 대한 모든 등급의 가중 평균을 구할 수 있다
 
@@ -177,7 +177,7 @@ U : item i 와 관련된 모든 유저의 집합
 
 특정 항목 i에 대한 사용자 k의 등급을 정확하게 예측하기 위해 해당 항목 i에 대한 모든 등급의 가중 평균을 구해서 빼줌 (유저의 평균이 아님 모든 등급의 평균)
 
-![f6](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f6.PNG)
+![f6](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f6.PNG)
 
 위 식을 이용해 predict를 함 
 
@@ -285,7 +285,7 @@ Group-based Collaborative Filtering은 이 논문의 핵심 포인트
 
 1. Data Cleaning
 
-![t_1](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\t_1.PNG)
+![t_1](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\t_1.PNG)
 
 결측값이 있는 항목의 일부 정보는 삭제되거나 0, 평균값 등의 특정 값으로 대체
 
@@ -307,7 +307,7 @@ c에서 제시한 방법을 통해 사용자 프로파일 벡터가 생성된 �
 
 그 후 유클리드 거리로 사용자 거리 행렬을 계산
 
-![f7](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f7.PNG)
+![f7](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f7.PNG)
 
 W와 B 행렬 치수는 같고 
 
@@ -327,7 +327,7 @@ profile, brand,, type,, category,, activity
 
 그룹 유사도 매트릭스의 경우 패밀리 데이터 세트에 따라 패밀리 구성원을 알고 있기 때문에 그룹 발견 단계를 밟을 수 있다.
 
-![f_2](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_2.PNG)
+![f_2](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_2.PNG)
 
 패밀리(f)의 모든 벡터를 합한 후 사용자와 유사성기반 알고리즘을 통해 그룹핑을 하는 방식 
 
@@ -359,7 +359,7 @@ User Behavior-based+User Profile-based + Hybrid Similarity Matrix Algorithm + Fa
 
 ## B. Dataset Splitting
 
-![f__3](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f__3.PNG)
+![f__3](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f__3.PNG)
 
 트랜잭션 데이터 세트를 테스트 세트로 한 부분과 두 부분으로 나누고 다른 부분은 트레이닝 세트
 
@@ -367,7 +367,7 @@ User Behavior-based+User Profile-based + Hybrid Similarity Matrix Algorithm + Fa
 
 ## C. Evaluation Metric
 
-![f8](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f8.PNG)
+![f8](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f8.PNG)
 
 RMSE (Root Mean Square Error), MAE (Mean Absolute Error), recall rate, precision rate등을 많이 사용함 
 
@@ -377,9 +377,9 @@ T(u) : 용자가 이미 구입한 아이템 세트
 
 ## D. Experimental Procedure
 
-![f_4](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_4.PNG)
+![f_4](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_4.PNG)
 
-![f_5](E:\code\whtngus.github.io\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_5.PNG)
+![f_5](\img\2022\Family_Shopping_Recommendation_System_Using_User_Profile_and_Behavior_Data\f_5.PNG)
 
 
 
