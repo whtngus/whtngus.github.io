@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "todo list"
-date: 2022-01-21 19:20:23 +0900
+date: 2022-03-28 19:20:23 +0900
 category: todo
 ---
 
@@ -11,25 +11,13 @@ http://ptr.csail.mit.edu/
 
 http://star.csail.mit.edu/
 
-- clip_prefix_caption <br>
-특징 코랩재공 학회 x 논문  gpt2 사용 <br>
-코드 : https://github.com/rmokady/clip_prefix_caption<br>
-논문 : https://arxiv.org/pdf/2111.09734.pdf<br>
-<br>
-- Towers of Babel: Combining Images, Language, and 3D Geometry for Learning Multimodal Vision<br>
-메타버스에서 적용하기유용해보임 , 3d 데이터 분석  ICCV 2021 -(단, 도면 분석)<br>
-코드 : https://github.com/tgxs002/wikiscenes<br>
-논문 : https://arxiv.org/pdf/2108.05863.pdf<br>
-<br>
-- https://github.com/PreferredAI/cornac
-
-
-
-# 21년 목표
+# 22년 목표
 
 - 논문 쓰기 (저널)
 
 - 박사과정 버티기
 
 - 알고리즘 문제풀이
+
+- 영어
 
