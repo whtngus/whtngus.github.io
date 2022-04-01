@@ -9,7 +9,7 @@ category: todo
 
 http://ptr.csail.mit.edu/  
 
-http://star.csail.mit.edu/
+http://star.csail.mit.edu/ 
 
 패션 요소 검출을 위한 딥러닝 논문 보기 
 
