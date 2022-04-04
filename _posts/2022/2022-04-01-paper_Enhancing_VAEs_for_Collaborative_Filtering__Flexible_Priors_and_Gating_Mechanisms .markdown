@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms"
-date: 2022-04-01 00:01:01 +0900
+date: 2022-04-04 00:01:01 +0900
 category: paper
 ---
 
@@ -138,7 +138,86 @@ VAE는 미리 선택된 표준 가우스 분포를 따름
 
 표준 가우스 분포의_단순한 유니모달 특성으로 인해 의도하지 않은 강력한 정규화 효과를 가져옴
 
-#### VampPrior
+#### VampPrior((variational mixture of posteriors prior)
+
+4.1의 수식을 다시보면 
+
+𝑝𝜆(𝒛) :  prior  cross-entropy 로 볼수 있다.
+
+라그랑주 함수를 풀어서 ELBO를 최대화하는 최적의 전제를 찾는다면, 그것은 단순히 주어진 𝑝𝜆_∗_(𝒛) =_1_𝑁_∑ 𝑞𝜙(𝒛|𝒙𝑢)_𝑁_𝑢=1 를 풀면 된다
+
+VampPrior는 K개의 학습 가능한 의사 입력에 맞춰진 변형 포스터의 혼합 분포를 사용하기 전에 최적의 근사치
+
+![f4](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f4.PNG)
+
+위 수식에서 K는 M차원의 의사 입력수 
+
+의사 입력 : 역전파를 통해 학습되며 , 하이퍼 파라미터로 생각할 수 있음
+
+### Hierarchical Stochastic Units
+
+![f5](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f5.PNG)
+
+VampPriors의 원래 작업에서처럼 훨씬 더 풍부한 잠재 표현을 배우기 위해 계층적 확률 단위를 채택
+
+협업 필터링을 위해 계층적 VAE는 사용된적이 없다.
+
+확률적 잠재 변수 z1 z2 의  계층 구조로 변경됨, 
+
+![f6](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f6.PNG)
+
+𝑝(𝒛2 ) = 1 𝐾 ∑ 𝑞𝜙(𝒛2|𝒖𝑘)  는 뉴럴 네트워크의 조건부 분포에 최적화함
+
+## 4.2 Gating Mechanism
+
+r collaborative filtering에서 인코더를 사용한 이전의 연구에서는 비교적 얕은 네트워크를 사용
+
+-> 내가 적용하려는 추천시스템도 차원수가 커서 얇은 네트워크를 적용해야 할 것 같다.
+
+모델에서는 숨겨진 레이어가 없는 인코더 네트워크를 사용 -> 즉 1차만 사용
+
+Multi-VAE  인코더에서는 1개의 숨겨진 레이어가 사용되며 레이어를 추가해도 퍼포먼스가 향상되지 않음
+
+위에서 향상되지 않은 이유를 2가지로 유추
+
+1) 희박한 소비 이력
+2) 인코더와 디코더로 인해 비교적 쉽게 심화된 자동 인코더 구조
+
+#### Gated Linear Units
+
+네트워크 구조가 깊어질 수록 비재귀 신경망은 하위 계층에서 상위 계층으로 정보를 제대로 전달하지 못하는 문제도 발생
+
+더 깊은 네트워크에서 정보 전파를 돕기 위해 제안된 게이트 CNN 논문에서 제안된 비재귀 게이트 메커니즘을 실험
+
+![f7](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f7.PNG)
+
+⊗ : element-wise product
+
+X : input 
+
+W, V, b, c : 학습 파라미터 
+
+시그마 : 시그모이드
+
+네트워크의 모델링 용량을 증가시켜 더 높은 수준의 상호작용을 가능하게 하는 것으로도 해석
+
+# 5 EXPERIMENTS
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
