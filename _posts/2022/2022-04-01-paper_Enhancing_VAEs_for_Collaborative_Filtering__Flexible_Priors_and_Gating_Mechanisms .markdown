@@ -13,6 +13,8 @@ ACM Conference on Recommender Systems 2019
 
 서울대 
 
+https://arxiv.org/abs/1911.00936
+
 # ABSTRACT
 
 협업 필터링을 위한 뉴럴 모델이 주목받기 시작함 
