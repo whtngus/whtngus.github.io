@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms"
-date: 2022-04-04 00:01:01 +0900
+date: 2022-04-05 00:01:01 +0900
 category: paper
 ---
 
@@ -13,7 +13,9 @@ ACM Conference on Recommender Systems 2019
 
 서울대 
 
-https://arxiv.org/abs/1911.00936
+paper : https://arxiv.org/abs/1911.00936
+
+code : https://github.com/psywaves/EVCF
 
 # ABSTRACT
 
@@ -205,9 +207,51 @@ W, V, b, c : 학습 파라미터
 
 # 5 EXPERIMENTS
 
+협업 필터링의 맥락에서 유연한 사전, 계층적 확률 단위 및 게이트 메커니즘의 효과를 평가하기 위해 수행되었다.
 
+## 5.1 Setup
 
+### Datasets
 
+MovieLens-20M과 Netflix Prize 데이터 세트
+
+암묵적 피드백을 고려하기 때문에 4개 이상의 등급만 유지하여 두 데이터 세트를 이진
+
+ 두 데이터 세트 모두에서 최소 5편의 영화를 본 사용자만 보관
+
+### Metrics
+
+2 가지 순위 기반 메트릭을 기반으로 성능을 평가
+
+Recall@K - 첫 번째 K에 포함된 모든 항목을 동등하게 중요하게 간주
+
+NDCG@K - 상위 등급 대 하위 등급의 중요성을 강조하기 위해 단조롭게 증가
+
+### Experimental settings.
+
+모든 사용자는 교육/검증/테스트 세트로 분할
+
+모델은 교육 세트의 전체 클릭 기록을 사용하여 교육
+
+데이터 세트의 각 사용자로부터 80%의 클릭 기록을 "폴드인" 세트로 샘플링하여 필요한 사용자 수준 표현 나머지 20%의 클릭 기록을 예측
+
+### 5.2 Models
+
+![t1](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\t1.PNG)
+
+ state-of-the-art autoencoder models 을 baseline으로 사용 해서비교 
+
+- Vamp
+
+VampPrior를 래의 표준 정규 분포 대신 이전 분포로 사용하는 변형 자동 인코더
+
+Multi-VAE와 비교하여 유연한 이전 버전을 사용할 때이 효과를 평가할 수 있음
+
+- H + Vamp
+
+VampPrior의 계층적 VAE는 VampPrior와 달리 잠재적 표현을 모델링하기 위한 계층적 확률적 단위를 가지고 있음
+
+- H + Vamp (Gated)
 
 
 
