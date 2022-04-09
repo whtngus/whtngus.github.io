@@ -100,7 +100,7 @@ i ∈ {1, … , M} : Items
 
 x^u : consumption history - > back of word 형식으로 소비여부를 임베딩함 
 
- ![f1](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f1.PNG)
+ ![f1](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f1.PNG)
 
  P(𝑿) = ∫ 𝑝(𝑿|𝒛)𝑝(𝒛) 𝑑𝒛 .
 
@@ -108,7 +108,7 @@ x^u : consumption history - > back of word 형식으로 소비여부를 임베�
 
 그러나 다루기 어려움 
 
-![f2](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f2.PNG)
+![f2](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f2.PNG)
 
 - Evidence Lower Bound (ELBO) 식 
 
@@ -132,9 +132,9 @@ VAE의 이전 분포를 분석하여 정규_표준 가우스의 이전 분포가
 
  ELBO 목표를 추가로 분석하여 다음과 같이 다시 작성
 
-![f3](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f3.PNG)
+![f3](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f3.PNG)
 
-![f3_2](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f3_2.PNG)
+![f3_2](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f3_2.PNG)
 
 negative reconstruction error를 사용 - cross-entropy   𝑞(𝒛) =_1_𝑁_∑ 𝑞𝜙(𝒛|𝒙𝑢)_𝑁_𝑢=1
 
@@ -152,7 +152,7 @@ VAE는 미리 선택된 표준 가우스 분포를 따름
 
 VampPrior는 K개의 학습 가능한 의사 입력에 맞춰진 변형 포스터의 혼합 분포를 사용하기 전에 최적의 근사치
 
-![f4](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f4.PNG)
+![f4](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f4.PNG)
 
 위 수식에서 K는 M차원의 의사 입력수 
 
@@ -160,7 +160,7 @@ VampPrior는 K개의 학습 가능한 의사 입력에 맞춰진 변형 포스�
 
 ### Hierarchical Stochastic Units
 
-![f5](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f5.PNG)
+![f5](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f5.PNG)
 
 VampPriors의 원래 작업에서처럼 훨씬 더 풍부한 잠재 표현을 배우기 위해 계층적 확률 단위를 채택
 
@@ -168,7 +168,7 @@ VampPriors의 원래 작업에서처럼 훨씬 더 풍부한 잠재 표현을 �
 
 확률적 잠재 변수 z1 z2 의  계층 구조로 변경됨, 
 
-![f6](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f6.PNG)
+![f6](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f6.PNG)
 
 𝑝(𝒛2 ) = 1 𝐾 ∑ 𝑞𝜙(𝒛2|𝒖𝑘)  는 뉴럴 네트워크의 조건부 분포에 최적화함
 
@@ -193,7 +193,7 @@ Multi-VAE  인코더에서는 1개의 숨겨진 레이어가 사용되며 레이
 
 더 깊은 네트워크에서 정보 전파를 돕기 위해 제안된 게이트 CNN 논문에서 제안된 비재귀 게이트 메커니즘을 실험
 
-![f7](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f7.PNG)
+![f7](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\f7.PNG)
 
 ⊗ : element-wise product
 
@@ -237,7 +237,7 @@ NDCG@K - 상위 등급 대 하위 등급의 중요성을 강조하기 위해 단
 
 ### 5.2 Models
 
-![t1](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\t1.PNG)
+![t1](\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\t1.PNG)
 
  state-of-the-art autoencoder models 을 baseline으로 사용 해서비교 
 
