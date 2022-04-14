@@ -87,7 +87,13 @@ Instance Normalization과 유사함. 다만 여기서는 채널들을 그룹으�
 
 
 
-# 분산 편향 
+# bias variance tradeoff 
+
+
+
+
+
+
 
 # svm 
 
