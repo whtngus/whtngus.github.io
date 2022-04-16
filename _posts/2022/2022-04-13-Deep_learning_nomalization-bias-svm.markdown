@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "normalization bias svm 기초 다시 정리"
+title: "normalization gan kl-divergence 기초 다시 정리"
 date: 2022-04-13 16:20:23 +0900
 category: deep_learning
 ---
@@ -87,7 +87,68 @@ Instance Normalization과 유사함. 다만 여기서는 채널들을 그룹으�
 
 
 
-# bias variance tradeoff 
+# gan vs vae
+
+## GAN
+
+gan은 두 가지 구성요소 가 있음 - generator discriminator
+
+GAN loss function
+
+![gan_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\gan_1.png)
+
+D(x) - discriminator output -> classification image
+
+G(z) - generator output -> generation image
+
+
+
+## VAE
+
+![gan_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\gan_2.png)
+
+우측항 negative KL divergece 를 사용 
+
+p_pi(x|z) : normal prior N(0, 1)
+
+장점 : 모델 평가 기준이 명확함(원본 데이터를 잘 복구 햇는지)
+
+
+
+## 	비교
+
+최종적으로 컨셉과 동일하다는 것 
+
+VAE : 입력 데이터를 만드는것을 목표로 함,  차원 축소용으로 많이 사용 
+
+GAN :  새로운 이미지를 만들어 낼 때 많이 사용 
+
+
+
+
+
+# KL divergence
+
+풀 네임 : Kullback-Leibler divergence (쿨백 라이블러 발산)
+
+- P 분포와 Q 분포가 얼마나 다른지를 측정하는 방법
+
+ 통계적으로 P는 사후, Q는 사전분포
+
+두 [확률분포](https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC)의 차이를 계산하는 데에 사용하는 함수로, 어떤 이상적인 분포에 대해, 그 분포를 근사하는 다른 분포를 사용해 샘플링을 한다면 발생할 수 있는 [정보 엔트로피](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC) 차이를 계산
+
+![kl](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl.png)
+
+![![img](file:///C:/Users/whtng/OneDrive/%EB%AC%B8%EC%84%9C/src/whtngus.github.io/img/2022/DS%EA%B8%B0%EC%B4%88/kl_2.png?lastModify=1650104625)kl_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl_2.png)
+
+- KL(p|q)≥0KL(p|q)≥0
+- KL(p|q)≠KL(q|p)
+
+-> 거리개념 처럼 쓰려면 Jensen-Shannon divergence 를 사용 
+
+![kl_3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl_3.png)
+
+. KL-divergence를 2가지를 구하고는 평균을 내는 방식입니다. 이렇게 간편하게 쓸 수 있지만 Jensen-Shannon divergence는 KL-divergence만큼 자주 쓰이지 않습니다.
 
 
 
@@ -95,28 +156,24 @@ Instance Normalization과 유사함. 다만 여기서는 채널들을 그룹으�
 
 
 
-# svm 
 
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-# 참조 
+# 참조
 
 - nomalization
 
 https://wingnim.tistory.com/92
 
 https://sonsnotation.blogspot.com/2020/11/8-normalization.html
+
+- gan vs vae
+
+https://medium.com/@lishuo1/which-one-should-you-choose-gan-or-vae-part-i-da92acb4ab3e
+
+- kl divergence
+
+https://hyunw.kim/blog/2017/10/27/KL_divergence.html
