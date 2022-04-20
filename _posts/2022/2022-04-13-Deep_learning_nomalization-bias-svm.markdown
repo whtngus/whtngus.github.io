@@ -17,7 +17,7 @@ category: deep_learning
 
 - internal covariate shift (ICS)
 
-![nomalization_3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\nomalization_3.png)
+![nomalization_3](\whtngus.github.io\img\2022\DS기초\nomalization_3.png)
 
 input layer에서 정규분포를 가지는 입력을 줘도 hidden layer를 지나면서 그 분포가 점점 정규분포를 벗어나 ( ex - sigmoid 인 경우 거의다 1이 여서 back propagation이 0이됨) gradient vanishing 현상이 발생
 
@@ -49,7 +49,7 @@ Standard Scaler, z-score normalization
 
 ###  weight 
 
-![nomalization](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\nomalization.png)
+![nomalization](\whtngus.github.io\img\2022\DS기초\nomalization.png)
 
 4. Batch Normalization
 
@@ -69,7 +69,7 @@ Feature 차원에서 정규화를 진행 , batch가 1인 경우에는 batch norm
 
 rnn 에서 좋은성능을 냄 
 
-![nomalization_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\nomalization_2.png)
+![nomalization_2](\whtngus.github.io\img\2022\DS기초\nomalization_2.png)
 
 6. Instance Normalization
 
@@ -95,7 +95,7 @@ gan은 두 가지 구성요소 가 있음 - generator discriminator
 
 GAN loss function
 
-![gan_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\gan_1.png)
+![gan_1](\whtngus.github.io\img\2022\DS기초\gan_1.png)
 
 D(x) - discriminator output -> classification image
 
@@ -105,7 +105,7 @@ G(z) - generator output -> generation image
 
 ## VAE
 
-![gan_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\gan_2.png)
+![gan_2](\whtngus.github.io\img\2022\DS기초\gan_2.png)
 
 우측항 negative KL divergece 를 사용 
 
@@ -137,16 +137,16 @@ GAN :  새로운 이미지를 만들어 낼 때 많이 사용
 
 두 [확률분포](https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC)의 차이를 계산하는 데에 사용하는 함수로, 어떤 이상적인 분포에 대해, 그 분포를 근사하는 다른 분포를 사용해 샘플링을 한다면 발생할 수 있는 [정보 엔트로피](https://ko.wikipedia.org/wiki/%EC%A0%95%EB%B3%B4_%EC%97%94%ED%8A%B8%EB%A1%9C%ED%94%BC) 차이를 계산
 
-![kl](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl.png)
+![kl](\whtngus.github.io\img\2022\DS기초\kl.png)
 
-![![img](file:///C:/Users/whtng/OneDrive/%EB%AC%B8%EC%84%9C/src/whtngus.github.io/img/2022/DS%EA%B8%B0%EC%B4%88/kl_2.png?lastModify=1650104625)kl_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl_2.png)
+![![kl2](\whtngus.github.io\img\2022\DS기초\kl_2.png)
 
 - KL(p|q)≥0KL(p|q)≥0
 - KL(p|q)≠KL(q|p)
 
 -> 거리개념 처럼 쓰려면 Jensen-Shannon divergence 를 사용 
 
-![kl_3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\DS기초\kl_3.png)
+![kl_3](\whtngus.github.io\img\2022\DS기초\kl_3.png)
 
 . KL-divergence를 2가지를 구하고는 평균을 내는 방식입니다. 이렇게 간편하게 쓸 수 있지만 Jensen-Shannon divergence는 KL-divergence만큼 자주 쓰이지 않습니다.
 
