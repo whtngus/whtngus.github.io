@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : LightGBM: A Highly Efficient Gradient Boosting Decision Tree"
-date: 2022-04-22 16:20:23 +0900
+date: 2022-04-23 16:20:23 +0900
 category: paper
 ---
 
@@ -10,7 +10,135 @@ category: paper
 url : https://proceedings.neurips.cc/paper/2017/file/6449f44a102fde848669bdd9eb6b76fa-Paper.pdf
 2017  microsoft
 
+유명하니 이하 생략 ..
 
+
+
+# Abstract
+
+Gradient Boosting Decision Tree (GBDT)는 널리 사용되고 있으며 XGBoost와 pGBRT 같이 효율적으로 구현된 모델들이 있다. 
+
+but 차원 변수에 데이터 크기가 큰 경우 효율성과 확장성은 불만족 스러움
+
+-> 각 변수마다 가능한 모든 분할점에 대해 정보 획득을 평가하려면 데이터 개체 모두 훑어야 하는데 이에 많은 시간이 소요
+
+이를 해결하기 위해 2가지 방법을 제안
+
+> 1. Gradient-based One-Side Sampling (GOSS)
+>
+> GOSS를 통해 데이터 개체 중 기울기가 작은 상당 부분을 제외시키고 나머지만 사용하여 정보를 얻을 수 있다. 기울기가 큰 데이터 개체가 정보 획득 계산에 더 중요한 역할을 하기 때문에 GOSS는 훨씬 작은 크기의 데이터로 정보 획득을 매우 정확하게 추정해낼 수 있다. 
+>
+> 2. Exclusive Feature Bundling (EFB)
+>
+> 변수 개수를 줄이기 위해 상호 배타적 변수들(예컨대, 0이 아닌 값을 동시에 갖는 일이 거의 없는 변수들)을 묶는다. 
+>
+> 배타적 변수의 최적 묶음을 찾는 일은 NP-hard지만 탐욕 알고리즘을 통해 매우 괜찮은 근사 비율을 얻을 수 있다. 따라서 분할점 결정 정확도를 크게 훼손시키지 않으면서 변수 개수를 효과적으로 줄일 수 있다.
+
+위 두가지 방법을 통해 LGBM이 기존 GBDT 보다 최대 20배 이상 빠르면서 동일한 성능을 달성했다고 한다.
+
+# 1. Introduction
+
+GBDT 기존 구현은 각 변수마다 가능한 모든 분할점에 대해 정보 획득을 평가하기 위해 데이터 개체 모두 훑어야 한다.
+
+계산 복잡도는 변수 개수와 개체 수에 비례 -> 큰 데이터에 대해 시간을 많이 소모하게 됨
+
+- GOSS(Gradient-based One-Side Sampling)
+
+GBDT의 경우 데이터 개체에 대한 기본 가중치는 없지만 서로 다른 기울기를 가진 데이터 개체가 정보 획득 계산 시 서로 다른 역할을 한다는 점은 알고 있다
+
+정보 획득의 정의로 보자면 기울기가 보다 큰[1](https://aldente0630.github.io/data-science/2018/06/29/highly-efficient-gbdt.html#fn:1)(즉, 과소 훈련시킨 개체) 개체가 정보 획득에 더 기여할 것이다.
+
+ 데이터 개체를 다운 샘플링할 때 정보 획득 추정의 정확도를 유지하려면 기울기가 큰 개체를 많이 유지하며 기울기가 작은 개체는 무작위로 떨굼 
+
+-> 즉, 이미 잘 맞춘 데이터는 드랍시키고 잘 맞추지 못한 데이터는 그대로 사용
+
+- EFB
+
+일반적으로 많은 수의 변수를 갖지만 변수 공간은 매우 희소하여 변수 개수를 효과적으로 줄이기 위한 거의 손실 없는 방식을 만들어낼 수 있다. 
+
+특히 히소한 변수 공간에서 많은 변수들이 거의 상호 배타적이다.
+
+-> 변수들이 0이 아닌 값을 동시에 갖는 일이 없는경우 (ont hot encoding)
+
+결국 graph coloring problem과 같은 방식을 설계
+
+(변수를 각 꼭짓점에 두고 두 변수가 상호 배타적이지 않으면 두 변수를 잇는 변을 추가)
+
+# 2 Preliminaries
+
+## 2.1 GBDT and Its Complexity Analysis
+
+GBDT는 결정 트리를 순차적으로 훈련시키는 앙상블 모형
+
+각 iteration 마다 negative gradients를 학습
+
+GBDT 주요 비용은 의사 결정 트리 학습에서 발생하며 의사 결정 트리를 학습시키는 데 시간 소요가 가장 큰 부분이 데이터를 분리하는 포인트를 찾는 것
+
+1. 모든 포인트를 검색
+
+사전 정렬한 변수 값에 대해 가능한 모든 분할점을 나열
+
+최적 분할점을 찾아낼 수 있지만 훈련 속도와 메모리 소비 모든 면에서 비효율적
+
+2. histogram-based algorithm
+
+
+
+연속적인 변수 값을 개별 구간으로 나누고 이 구간을 사용하여 훈련 시 변수 히스토그램을 만든다. 
+
+ 메모리 소비와 훈련 속도에서 보다 효율적이므로 이를 바탕으로 작업을 진행
+
+히스토그램 만드는 일에 O(#data×#feature), 분할점 찾는 일에 O(#bin×#feature)가 필요
+
+## Related Work
+
+![algorithm_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_1.png)
+
+- Algorithm1 Histogram-based Algorithm
+
+rowset <-  트리 노드에서의 색인 
+
+(**히스토그램**(**histogram**)은 표로 되어 있는 도수 분포를 정보 그림으로 나타낸 것이다.)
+
+
+
+- Algorithm 2 Gradient-based One -Side Samping
+
+d 최대 깊이,  I 훈련 데이터, m 변수 차원
+
+nodeset  현재 깊이에서의 트리 노드들
+
+rowSet  트리 노드에서 데이터 색인들 
+
+w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함 
+
+# 3 Gradient-based One-Side Sampling
+
+데이터 개체 수를 줄이는 것과 학습한 의사 결정 트리 정확도를 유지하는 것 사이에서 균형을 잘 잡을 수 있는 GBDT의 새로운 표본 추출 방법을 제안
+
+## 3.1 Algorithm Description
+
+GBDT에서 각 데이터 개체에 대한 기울기는 데이터 표본 추출에 유용한 정보를 제공
+
+체의 기울기가 작다면 해당 개체에 대한 훈련 오차가 작고 이미 잘 훈련된 것
+
+-> 기울기가 작은 데이터는 잘 맞춤으로 데이터를 제거해나감 but 그냥 제거한다면 데이터의 분포가 바껴 정상적인 학습이 불가능함
+
+이 문제를 피하기 위해 기울기 기반 단측 표본 추출(GOSS)이라는 새로운 방법을 제안
+
+
+
+GOSS는 기울기가 큰 개체는 모두 유지하되 기울기가 작은 개체에 대해 무작위 표본 추출을 수행
+
+분포에 미치는 영향을 보정하기 위해서 정보 획득 계산 시 기울기가 작은 데이터 개체에 승수 상수를 적용
+
+기울기 절댓값에 따라 데이터 개체를 정렬(높은 GD부터 정렬)하고 상위 a×100% 개체를 선택한다. 그런 다음 나머지 데이터에서 b×100%개체를 무작위 표본 추출
+
+그 후 GOSS는 정보 획득을 계산할 때 기울기가 작은 표본 데이터를 상수 (1−a)/b만큼 증폭시킨다. 
+
+-> 이렇게 함으로써 원래 데이터 분포를 많이 변경하지 않고 훈련이 덜 된 개체에 초점을 잘 맞추도록 유도함
+
+## 3.2 Theoretical Analysis
 
 
 
@@ -137,6 +265,52 @@ NP-hard이며 NP 부류에 속하는 문제
 
 잔차를 바탕으로 회귀식을 추정하고, 오차에 대한 진단을 할 수 있기 때문에, 잔차는 사실상 매우 중요한 값
 
+## GBDT(Gradient Boosting Decision Tree)
+
+Gradient Boosting Algorithm (GBM)은 회귀분석 또는 분류 분석을 수행할 수 있는 **예측모형**이며 예측모형의 **앙상블 방법론** 중 **부스팅** 계열에 속하는 알고리즘
+
+- Boosting
+
+Boosting이란 약한 분류기를 결합하여 강한 분류기를 만드는 과정
+
+![boostring](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\boostring.png)
+
+![adaboost](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\adaboost.png)
+
+- Gradient
+
+**residual에 fitting해서 다음 모델을 순차적으로 만들어 나가는 것**은** negative gradient를 이용해 다음 모델을 순차적으로 만들어 나가는 것**
+
+![gradient](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\gradient.png)
+
+## Graph Coloring Problem
+
+특정 제한 및 제약 조건에 따라 그래프의 특정 요소에 색상을 할당하는 것
+
+-> 인접한 두 꼭지점이 같은 색을 가지지 않도록 색을 할당하는 과정
+
+![graph_coloring](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\graph_coloring.png)
+
+접근방식
+
+1. Brute Force
+2. Backtracking
+
+ 정점에 색상을 지정하고 인접한 정점에 색상을 지정하는 동안 다른 색상을 선택
+
+채색 후 시작했던 동일한 꼭짓점으로 돌아가 모든 색상이 사용되면 더 많은 색상이 필요
+
+
+
+- 응용
+
+> 1. 일정 또는 시간표
+> 2. 기지국 주파수 할당
+> 3. 스도쿠
+> 4. 레지스터 할당(CPU에 프로세스 할당)
+> 5. 지도 채색
+> 6. ... 
+
 
 
 
@@ -158,3 +332,19 @@ https://bskyvision.com/642
 https://bpapa.tistory.com/8
 
 https://jangpiano-science.tistory.com/116
+
+- LGBM
+
+https://aldente0630.github.io/data-science/2018/06/29/highly-efficient-gbdt.html
+
+- GBDT(Gradient Boosting Decision Tree)
+
+https://3months.tistory.com/368
+
+https://www.slideshare.net/freepsw/boosting-bagging-vs-boosting
+
+- Graph Coloring Problem
+
+https://www.interviewbit.com/blog/graph-coloring-problem/
+
+https://www.geeksforgeeks.org/graph-coloring-applications/
