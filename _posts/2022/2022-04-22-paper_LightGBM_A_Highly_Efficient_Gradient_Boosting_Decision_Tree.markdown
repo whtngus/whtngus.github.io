@@ -150,7 +150,7 @@ O - trainining dataset
 
 - GOSS 에서는 데이터셋을 변경했음으로 다음과 같이 변경
 
-![f_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_2.PNG)
+![f_2](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_2.PNG)
 
 제안된 GOSS 방법론은 우선 기울기 절댓값에 따라 훈련 개체 순위를 내림차순으로 매긴다.
 
@@ -160,7 +160,7 @@ O - trainining dataset
 
 
 
-![f_3](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_3.PNG)
+![f_3](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_3.PNG)
 
 이건 모르겠다.. 
 
@@ -170,7 +170,7 @@ GOSS가 정학도를 저하시키지 않음을 증명하는 수식
 
 한쪽으로 치우쳐 분할되지 않았다면 n(d) >= O(root(n)) 이고 데이터가 많다면 근사값은 상당이 유사 
 
-![algorithm_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_2.png)
+![algorithm_2](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_2.png)
 
 - Algorithm 2 Gradient-based One -Side Samping
 
@@ -204,7 +204,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 아래의 알고리즘 3은 변수들을 묶기 위한 알고리즘
 
-![algorithm_3](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_3.png)
+![algorithm_3](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_3.png)
 
 > 변마다 가중치가 있는 그래프를 구성한다. 이 가중치는 변수 간 총 충돌 횟수에 해당한다. 그다음 그래프 내 꼭짓점 차수에 따라 내림차순으로 변수를 정렬한다. 마지막으로 정렬시킨 목록의 각 변수를 확인하면서 작은 충돌(γγ로 제어함)이 있는 기존 묶음에 할당하거나 새로운 묶음을 만든다. 알고리즘 3의 시간 복잡도는 O(#feature2))이며 훈련 전 딱 한 번만 처리
 
@@ -218,7 +218,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 변수 값을 작은 비율로 무작위 오염시킬때 영향도는
 
-![f_4](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_4.PNG)
+![f_4](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_4.PNG)
 
 정도로 r 묶음에서의 최대 충돌 비율이다 즉, 상대적으로 작은 r을 선택하면 정확도와 효율성 사이의 균형을 잡ㅇ르 수 있다.
 
@@ -226,7 +226,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 알고리즘 3의 경우 변수가 적은 경우 적용해 볼 수 있지만 수백만 개라면 여전히 수행하기 어려울 수 있다. 효율성을 높이기 위해 그래프를 만들지 않는 효율적인 방법을 제안 
 
-![algorithm_4](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_4.png)
+![algorithm_4](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_4.png)
 
 
 
@@ -250,11 +250,11 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 baseline = XGBoost
 
-![dataset](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\dataset.PNG)
+![dataset](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\dataset.PNG)
 
 - 실험 데이터셋
 
-![table_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_2.PNG)
+![table_2](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_2.PNG)
 
 - 결과 비교 
 
