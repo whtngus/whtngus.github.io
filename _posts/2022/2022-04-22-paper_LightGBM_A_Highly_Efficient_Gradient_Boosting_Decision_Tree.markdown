@@ -130,7 +130,7 @@ GOSS는 기울기가 큰 개체는 모두 유지하되 기울기가 작은 개�
 
 ## 3.2 Theoretical Analysis
 
-![f_1](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_1.png)
+![f_1](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_1.png)
 
 GBDT는 결정 트리를 사용하여 입력 공간 Xs에서 기울기 공간 G까지의 함수를 학습
 
@@ -150,17 +150,17 @@ O - trainining dataset
 
 - GOSS 에서는 데이터셋을 변경했음으로 다음과 같이 변경
 
-![f_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_2.PNG)
+![f_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_2.PNG)
 
 제안된 GOSS 방법론은 우선 기울기 절댓값에 따라 훈련 개체 순위를 내림차순으로 매긴다.
 
-기울기가 큰 상위 α×100%α×100% 개체를 가지고 개체 부분 집합 AA를 만든다. (1−α)×100%(1−α)×100%의 기울기가 작은 개체가 속하는 여집합 AcAc에 대해 b×|Ac|b×|Ac| 크기의 부분 집합 BB를 무작위 표본 추출하여 만든다. 
+기울기가 큰 상위 α×100%개체를 가지고 개체 부분 집합 A를 만든다. (1−α)×100의 기울기가 작은 개체가 속하는 여집합 Ac에 대해 b×|Ac| 크기의 부분 집합 B를 무작위 표본 추출하여 만든다. 
 
 
 
 
 
-![f_3](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_3.PNG)
+![f_3](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_3.PNG)
 
 이건 모르겠다.. 
 
@@ -170,7 +170,7 @@ GOSS가 정학도를 저하시키지 않음을 증명하는 수식
 
 한쪽으로 치우쳐 분할되지 않았다면 n(d) >= O(root(n)) 이고 데이터가 많다면 근사값은 상당이 유사 
 
-![algorithm_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_2.png)
+![algorithm_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_2.png)
 
 - Algorithm 2 Gradient-based One -Side Samping
 
@@ -204,7 +204,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 아래의 알고리즘 3은 변수들을 묶기 위한 알고리즘
 
-![algorithm_3](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_3.png)
+![algorithm_3](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_3.png)
 
 > 변마다 가중치가 있는 그래프를 구성한다. 이 가중치는 변수 간 총 충돌 횟수에 해당한다. 그다음 그래프 내 꼭짓점 차수에 따라 내림차순으로 변수를 정렬한다. 마지막으로 정렬시킨 목록의 각 변수를 확인하면서 작은 충돌(γγ로 제어함)이 있는 기존 묶음에 할당하거나 새로운 묶음을 만든다. 알고리즘 3의 시간 복잡도는 O(#feature2))이며 훈련 전 딱 한 번만 처리
 
@@ -218,7 +218,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 변수 값을 작은 비율로 무작위 오염시킬때 영향도는
 
-![f_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_4.PNG)
+![f_4](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_4.PNG)
 
 정도로 r 묶음에서의 최대 충돌 비율이다 즉, 상대적으로 작은 r을 선택하면 정확도와 효율성 사이의 균형을 잡ㅇ르 수 있다.
 
@@ -226,7 +226,7 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 알고리즘 3의 경우 변수가 적은 경우 적용해 볼 수 있지만 수백만 개라면 여전히 수행하기 어려울 수 있다. 효율성을 높이기 위해 그래프를 만들지 않는 효율적인 방법을 제안 
 
-![algorithm_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_4.png)
+![algorithm_4](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_4.png)
 
 
 
@@ -250,11 +250,11 @@ w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함
 
 baseline = XGBoost
 
-![dataset](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\dataset.PNG)
+![dataset](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\dataset.PNG)
 
 - 실험 데이터셋
 
-![table_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_2.PNG)
+![table_2](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_2.PNG)
 
 - 결과 비교 
 
@@ -262,7 +262,7 @@ baseline = XGBoost
 >
 > table3은 NDCG@10 스코어 비교 
 
-![auc](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\auc.PNG)
+![auc](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\auc.PNG)
 
 ## 5.2 Analysis on GOSS
 
@@ -274,7 +274,7 @@ baseline = XGBoost
 
 동일한 표본 추출 비율을 사용하는 경우 GOSS 정확도가 SGB보다 항상 우수함을 알 수 있다. 이 결과는 3.2절 논의와 일치한다. 모든 실험이 확률적 표본 추출보다 GOSS가 더 효과적인 표본 추출 방법임을 입증
 
-![table_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_4.PNG)
+![table_4](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_4.PNG)
 
  GOSS는 서로 다른 aa와 bb를 선택하여 표본 추출 비율을 조정했고 SGB는 동일한 전체 표본 추출 비율을 사용
 
@@ -344,13 +344,13 @@ NP문제 중에서도 답을 polynomial time 안에 찾을 수 있으면 그 문
 
 ### NP(non-deterministic polynomial time)의 종류 
 
-![np](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\np.png)
+![np](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\np.png)
 
 
 
 - NP-hard
 
-![NP-hard](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\NP-hard.png)
+![NP-hard](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\NP-hard.png)
 
 x들과 y의 관계는 다대일이 될 수 있어서 다대일 환산이라고도 한다. 그리고 만약 이 변형이 다항시간내에 이루어 질 수 있다면 polynomial-time many-one reducible이라고 한다.
 
@@ -433,15 +433,15 @@ Gradient Boosting Algorithm (GBM)은 회귀분석 또는 분류 분석을 수행
 
 Boosting이란 약한 분류기를 결합하여 강한 분류기를 만드는 과정
 
-![boostring](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\boostring.png)
+![boostring](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\boostring.png)
 
-![adaboost](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\adaboost.png)
+![adaboost](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\adaboost.png)
 
 - Gradient
 
 **residual에 fitting해서 다음 모델을 순차적으로 만들어 나가는 것**은** negative gradient를 이용해 다음 모델을 순차적으로 만들어 나가는 것**
 
-![gradient](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\gradient.png)
+![gradient](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\gradient.png)
 
 ## Graph Coloring Problem
 
@@ -449,7 +449,7 @@ Boosting이란 약한 분류기를 결합하여 강한 분류기를 만드는 �
 
 -> 인접한 두 꼭지점이 같은 색을 가지지 않도록 색을 할당하는 과정
 
-![graph_coloring](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\graph_coloring.png)
+![graph_coloring](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\graph_coloring.png)
 
 접근방식
 
