@@ -92,7 +92,7 @@ GBDT 주요 비용은 의사 결정 트리 학습에서 발생하며 의사 결�
 
 ## Related Work
 
-![algorithm_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_1.png)
+![algorithm_1](\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_1.png)
 
 - Algorithm1 Histogram-based Algorithm
 
@@ -101,16 +101,6 @@ rowset <-  트리 노드에서의 색인
 (**히스토그램**(**histogram**)은 표로 되어 있는 도수 분포를 정보 그림으로 나타낸 것이다.)
 
 
-
-- Algorithm 2 Gradient-based One -Side Samping
-
-d 최대 깊이,  I 훈련 데이터, m 변수 차원
-
-nodeset  현재 깊이에서의 트리 노드들
-
-rowSet  트리 노드에서 데이터 색인들 
-
-w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함 
 
 # 3 Gradient-based One-Side Sampling
 
@@ -139,6 +129,176 @@ GOSS는 기울기가 큰 개체는 모두 유지하되 기울기가 작은 개�
 -> 이렇게 함으로써 원래 데이터 분포를 많이 변경하지 않고 훈련이 덜 된 개체에 초점을 잘 맞추도록 유도함
 
 ## 3.2 Theoretical Analysis
+
+![f_1](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_1.png)
+
+GBDT는 결정 트리를 사용하여 입력 공간 Xs에서 기울기 공간 G까지의 함수를 학습
+
+xi - 공간 Xs내 차원이 s인 벡터
+
+{g1,…,gn} - 손실 함수의 음의 기울기
+
+노드에 대해 점 d에서 분할하는 변수 j의 분산 획득은 위와 같이 정의
+
+j  - feature 
+
+O - trainining dataset
+
+
+
+변수 j에 대해 결정 트리 알고리즘은 dj=argmax dVj(d)를 선택하고 최대 획득 Vj(d∗j)를 계산한다.  그런 다음 데이터를 변수 j∗의 점 dj∗에 따라 왼쪽과 오른쪽 하위 노드로 분할한다.
+
+- GOSS 에서는 데이터셋을 변경했음으로 다음과 같이 변경
+
+![f_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_2.PNG)
+
+제안된 GOSS 방법론은 우선 기울기 절댓값에 따라 훈련 개체 순위를 내림차순으로 매긴다.
+
+기울기가 큰 상위 α×100%α×100% 개체를 가지고 개체 부분 집합 AA를 만든다. (1−α)×100%(1−α)×100%의 기울기가 작은 개체가 속하는 여집합 AcAc에 대해 b×|Ac|b×|Ac| 크기의 부분 집합 BB를 무작위 표본 추출하여 만든다. 
+
+
+
+
+
+![f_3](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_3.PNG)
+
+이건 모르겠다.. 
+
+GOSS가 정학도를 저하시키지 않음을 증명하는 수식
+
+1. GOSS의 점근적 근사 비율은 O(1/ nl(d) + 1/nr(d) + 1/root(n)) 이다. 
+
+한쪽으로 치우쳐 분할되지 않았다면 n(d) >= O(root(n)) 이고 데이터가 많다면 근사값은 상당이 유사 
+
+![algorithm_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_2.png)
+
+- Algorithm 2 Gradient-based One -Side Samping
+
+d 최대 깊이,  I 훈련 데이터, m 변수 차원
+
+nodeset  현재 깊이에서의 트리 노드들
+
+rowSet  트리 노드에서 데이터 색인들 
+
+w[randSet] X= fact  <- 기울기 작은 데이터에 가중치 Fact를 부여함 
+
+
+
+# 4 Exclusive Feature Bundling
+
+이 장에서는 변수 개수를 효과적으로 줄이는 새로운 방법을 제안
+
+
+
+고차원 데이터는 일반적으로 매우 희소하다. -> 이런 변수들은 변수 다수가 상호 배타적 이다. (즉, 0이 아닌값을 동시에 갖지 않는다.)
+
+베타적 변수를 단일 변수(exclusive feature bundle)로 안전하게 묶을 수 있다.
+
+이 경우 히스토그램 생성 복잡도는 O(#data×#feature)에서 O(#data×#bundle)로 바뀐다.
+
+- 여기에서 가장 적은 수의 배타적 묶음으로 변수를 나누는 문제는 NP-hard  이다.
+
+>  문제를 그래프 색칠 문제로 한정 지을 수 있다. 그래프 색칠 문제는 NP-hard이기 때문에 결론은 추론 가능
+
+즉, 최적의 문제를 찾는게 NP-hard 임으로 보고 탐욕 알고리즘을 사용해 검색
+
+아래의 알고리즘 3은 변수들을 묶기 위한 알고리즘
+
+![algorithm_3](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_3.png)
+
+> 변마다 가중치가 있는 그래프를 구성한다. 이 가중치는 변수 간 총 충돌 횟수에 해당한다. 그다음 그래프 내 꼭짓점 차수에 따라 내림차순으로 변수를 정렬한다. 마지막으로 정렬시킨 목록의 각 변수를 확인하면서 작은 충돌(γγ로 제어함)이 있는 기존 묶음에 할당하거나 새로운 묶음을 만든다. 알고리즘 3의 시간 복잡도는 O(#feature2))이며 훈련 전 딱 한 번만 처리
+
+변마다 가중치 있는 그래프를 그래프를 구성(가중치는 변수 간충돌 횟수)
+
+그래프 내 꼭시점 차수에 따라 내림차순으로 변수를 정렬
+
+정렬시킨 목록의 각 변수를 확인하면서 작은 충돌(r 변수로 조정)
+
+ 작은 비율의 충돌을 허용한다면 더 적게 변수를 묶을 수 있고 계산 효율성을 더욱 증대시킬 수 있다.
+
+변수 값을 작은 비율로 무작위 오염시킬때 영향도는
+
+![f_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_4.PNG)
+
+정도로 r 묶음에서의 최대 충돌 비율이다 즉, 상대적으로 작은 r을 선택하면 정확도와 효율성 사이의 균형을 잡ㅇ르 수 있다.
+
+
+
+알고리즘 3의 경우 변수가 적은 경우 적용해 볼 수 있지만 수백만 개라면 여전히 수행하기 어려울 수 있다. 효율성을 높이기 위해 그래프를 만들지 않는 효율적인 방법을 제안 
+
+![algorithm_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\algorithm_4.png)
+
+
+
+묶음의 훈련 복잡도를 줄이기 위해 같이 묶인 변수를 병합하는 적당한 방법이 필요하다.
+
+
+
+- 히스토그램 기반 알고리즘은 변수의 연속적인 값 대신 개별 구간을 저장하기 때문에 배타적 변수를 각기 다른 구간에 두어 변수 묶음을 구성할 수 있다
+
+> 원래의 변수 A는 [0, 10] 값을 취하고 변수 B는 [0, 20] 값을 취한다. 그렇다면 변수 B 값에 오프셋 10을 더하여 가공한 변수가 [10, 30]에서 값을 취하게 한다.
+>
+>  변수 A와 B를 병합하고 [0, 30] 범위의 변수 묶음을 사용하여 원래의 변수 A와 B를 대체하는 것이 안전
+
+해당 테이블의 데이터를 훑는 경우 변수 히스토그램 생성 비용은 O(#data)에서 O(#non_zero_data)로 바뀐다.
+
+
+
+# 5 Experiments
+
+## 5.1 Overall Comparision
+
+baseline = XGBoost
+
+![dataset](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\dataset.PNG)
+
+- 실험 데이터셋
+
+![table_2](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_2.PNG)
+
+- 결과 비교 
+
+> table2는 훈련시간 비교 
+>
+> table3은 NDCG@10 스코어 비교 
+
+![auc](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\auc.PNG)
+
+## 5.2 Analysis on GOSS
+
+1.  GOSS가 얼마나 속도가 향상하는지 연구
+
+표 2에서 ightGBM과 EFB_only를 비교하면 10~20% 데이터를 사용해 속도가 거의 2배 향상함을 알 수 있음.
+
+2. SGB 정확도 비교 
+
+동일한 표본 추출 비율을 사용하는 경우 GOSS 정확도가 SGB보다 항상 우수함을 알 수 있다. 이 결과는 3.2절 논의와 일치한다. 모든 실험이 확률적 표본 추출보다 GOSS가 더 효과적인 표본 추출 방법임을 입증
+
+![table_4](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\table_4.PNG)
+
+ GOSS는 서로 다른 aa와 bb를 선택하여 표본 추출 비율을 조정했고 SGB는 동일한 전체 표본 추출 비율을 사용
+
+(동일한 표본 추출을 사용하는 경우 GOSS가 더 효과적은 표본 추출 방법입을 증명)
+
+## 5.3 Analysis on EFB
+
+표2에서 EFB_only를 비교하여 속도 향상에 기여함을 확인
+
+EFB가 많은 희소 변수(원-핫 코딩 변수와 암시적으로 배타적인 변수 모두)를 훨씬 적은 변수로 병합하기 때문에 속도를 향상시킬수 있음.
+
+또한 메모리적 측면에서 EFB의 경우 트리 학습 절차 중 변수 별 0이 아닌 데이터 테이블을 유지, 관리하는 데 추가 비용이 들지 않는다. -> 전반적인 효율성은 극적으로 향상
+
+EFB는 희소행렬에 대해 매우 효과적임
+
+# 6 Conclusion
+
+이 알고리즘은 데이터 개체 다수와 변수 다수를 처리하는 두 가지 새로운 기술, 즉 *기울기 기반 단측 표본추출*과 *배타적 변수 묶음*을 포함한다. 이 두 가지 기법에 대한 이론적 분석과 실험적 연구 모두 수행했다. 실험 결과는 이론과 일치하며 GOSS와 EFB 도움으로 LightGBM이 계산 속도와 메모리 소비면에서 XGBoost 및 SGB보다 훨씬 뛰어난 성능을 보여준다. 향후 진행할 작업은 기울기 기반 단측 표본 추출에서 a와 b의 최적 선택을 연구하고 희소 혹은 그렇지 않은 변수 다수를 처리하기 위해 배타적 변수 묶음 성능이 지속적으로 향상하는 일이다.
+
+
+
+
+
+
 
 
 
