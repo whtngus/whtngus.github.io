@@ -130,7 +130,7 @@ GOSS는 기울기가 큰 개체는 모두 유지하되 기울기가 작은 개�
 
 ## 3.2 Theoretical Analysis
 
-![f_1](E:\code\whtngus.github.io\img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_1.png)
+![f_1](img\2022\LightGBM_A_Highly_Efficient_Gradient_Boosting_Decision_Tree\f_1.png)
 
 GBDT는 결정 트리를 사용하여 입력 공간 Xs에서 기울기 공간 G까지의 함수를 학습
 
