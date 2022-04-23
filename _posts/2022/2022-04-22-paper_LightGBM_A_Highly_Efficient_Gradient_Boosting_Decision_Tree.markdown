@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : LightGBM: A Highly Efficient Gradient Boosting Decision Tree"
-date: 2022-04-23 16:20:23 +0900
+date: 2022-04-23 01:01:01 +0900
 category: paper
 ---
 
