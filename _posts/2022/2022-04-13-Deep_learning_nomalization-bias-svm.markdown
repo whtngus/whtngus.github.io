@@ -154,6 +154,32 @@ GAN :  새로운 이미지를 만들어 낼 때 많이 사용
 
 
 
+# SVM
+
+두 카테고리 중 어느 하나에 속한 데이터의 집합이 주어졌을 때, SVM 알고리즘은 주어진 데이터 집합을 바탕으로 하여 새로운 데이터가 어느 카테고리에 속할지 판단하는 비[확률적](https://ko.wikipedia.org/wiki/%ED%99%95%EB%A5%A0) 이진 [선형 분류](https://ko.wikipedia.org/wiki/%EC%84%A0%ED%98%95_%EB%B6%84%EB%A5%98) 모델을 만든다. 
+
+
+
+ 만들어진 분류 모델은 데이터가 사상된 공간에서 경계로 표현되는데 SVM 알고리즘은 그 중 가장 큰 폭을 가진 경계를 찾는 알고리즘
+
+
+
+### SVM의 decision rule
+
+가중치 벡터 w와 직교하면서 margin이 최대가 되는 선형을 찾는다. 
+
+
+
+*support vector:두 가지 카테고리에 각각 해당되는 data set들의 최외각에 있는 샘플들을 support vector라고 부른다. 이 가장 최 외각에 있는 벡터들을 토대로 margin M을 구할 수 있기 때문에 중요한 벡터들이다.
+
+*margin: support vector를 통해 구한 두 카테고리 사이의 거리를 m이라고 하고 이를 최대화 해야한다.
+
+- ### **Margin의 optimization**
+
+  margin을 최대화 하는 문제는 조건부 최적화 문제 
+
+
+
 
 
 
@@ -177,3 +203,10 @@ https://medium.com/@lishuo1/which-one-should-you-choose-gan-or-vae-part-i-da92ac
 - kl divergence
 
 https://hyunw.kim/blog/2017/10/27/KL_divergence.html
+
+- svm
+
+https://ko.wikipedia.org/wiki/%EC%84%9C%ED%8F%AC%ED%8A%B8_%EB%B2%A1%ED%84%B0_%EB%A8%B8%EC%8B%A0
+
+https://sanghyu.tistory.com/7
+
