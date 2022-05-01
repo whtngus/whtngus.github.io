@@ -2,7 +2,7 @@
 layout: post
 title: "pre_training_and_fine_tuning"
 date: 2020-08-05 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 
 # Pre Training

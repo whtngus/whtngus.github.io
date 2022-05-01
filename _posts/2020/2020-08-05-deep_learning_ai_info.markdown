@@ -2,7 +2,7 @@
 layout: post
 title: "ai_info"
 date: 2020-08-05 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 # AI 학회관련 정리 
 

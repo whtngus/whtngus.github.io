@@ -2,7 +2,7 @@
 layout: post
 title: "paper :HnM 추천시스템 대회 준비 관련 메모"
 date: 2022-12-25 00:20:23 +0900
-category: Deep_learning
+category: datascience
 ---
 
 # 대회 링크 

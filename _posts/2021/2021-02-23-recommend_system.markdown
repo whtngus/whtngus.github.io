@@ -2,7 +2,7 @@
 layout: post
 title: "recommend system : 토크ON세미나_SKplanet Tacademy 정리_2강"
 date: 2021-02-23 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 # recommend system : 토크ON세미나 _ SKplanet Tacademy 정리
 url : https://www.youtube.com/watch?v=43gb7WK56Sk&ab_channel=SKplanetTacademy

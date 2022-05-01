@@ -2,7 +2,7 @@
 layout: post
 title: "T-test"
 date: 2021-10-26 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 
 # youtube t-test 정리

@@ -2,7 +2,7 @@
 layout: post
 title: "deep_learning : Generate model score matrix"
 date: 2021-06-10 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 # Generate model matrix 정리 
 

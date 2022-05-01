@@ -2,7 +2,7 @@
 layout: post
 title: "normalization, gan kl-divergence, SVM,  crossentropyloss 기초 다시 정리"
 date: 2022-04-27 16:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 
 

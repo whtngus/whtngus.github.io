@@ -2,7 +2,7 @@ au---
 layout: post
 title: "vision preprocessing(data augmentation)"
 date: 2021-04-26 19:20:23 +0900
-category: deep_learning
+category: datascience
 ---
 
 
