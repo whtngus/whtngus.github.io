@@ -1,17 +1,11 @@
 ---
 layout: post
 title: "paper : Delving into Deep Imbalanced Regression"
-date: 2022-04-23 01:01:01 +0900
+date: 2022-05-12 01:01:01 +0900
 category: paper
 ---
 
-# 
-
-
-
-
-
-
+# Delving into Deep Imbalanced Regression
 
 url : https://arxiv.org/abs/2102.09554
 ICML 2021 
