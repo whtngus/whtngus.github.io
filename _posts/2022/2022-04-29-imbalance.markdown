@@ -9,7 +9,7 @@ category: datascience
 
 # 불균형 분류에 대한 성능 측정
 
-![How-to-Deal-With-Imbalanced-Classification-and-Regression-Data_29-3372336075-1643136560469](E:\code\whtngus.github.io\img\2022\imbalance\How-to-Deal-With-Imbalanced-Classification-and-Regression-Data_29-3372336075-1643136560469.webp)
+![How-to-Deal-With-Imbalanced-Classification-and-Regression-Data_29-3372336075-1643136560469](\img\2022\imbalance\How-to-Deal-With-Imbalanced-Classification-and-Regression-Data_29-3372336075-1643136560469.webp)
 
 F1 score
 
@@ -23,7 +23,7 @@ Confusion Matrix
 
 # Under Sampling
 
-![undersampling](E:\code\whtngus.github.io\img\2022\imbalance\undersampling.webp)
+![undersampling](\img\2022\imbalance\undersampling.webp)
 
 ## Random Sampling
 
@@ -33,7 +33,7 @@ Confusion Matrix
 
 1~3가지 N을 통해 언더 샘플링 진행
 
-![nearmiss](E:\code\whtngus.github.io\img\2022\imbalance\nearmiss.PNG)
+![nearmiss](\img\2022\imbalance\nearmiss.PNG)
 
 
 
@@ -51,7 +51,7 @@ Confusion Matrix
 
 이러한 방식으로 minority class와 가까운 majority class를 제외하면서 다소 모호할 수 있는 `decision boundary`가 명확히 구분될 수 있도록 한다.
 
-![tomek](E:\code\whtngus.github.io\img\2022\imbalance\tomek.PNG)
+![tomek](\img\2022\imbalance\tomek.PNG)
 
 
 
@@ -59,7 +59,7 @@ Confusion Matrix
 
 # Over Sampling
 
-![oversampling](E:\code\whtngus.github.io\img\2022\imbalance\oversampling.webp)
+![oversampling](\img\2022\imbalance\oversampling.webp)
 
 ## 1. Classification OverSampling
 
@@ -69,7 +69,7 @@ Confusion Matrix
 
 ### smote(**Synthetic Minority Over-sampling Technique**)
 
-![smote](E:\code\whtngus.github.io\img\2022\imbalance\smote.gif)
+![smote](\img\2022\imbalance\smote.gif)
 
 합성을 기반으로 하는 방법으로, minority class의 샘플을 가져와 이들을 잇는 선에서 중간값을 택하여 만들어내는 방식
 
@@ -105,7 +105,7 @@ WEMOTE는 두 개의 랜덤 벡터를 뽑아내고 평균을 계산
 
 -> 더 훈련시키기 어려운 관측치에 집중하여 근방의 synthetic 샘플을 더 많이 생성하는 것
 
-![adasyn](E:\code\whtngus.github.io\img\2022\imbalance\adasyn.PNG)
+![adasyn](\img\2022\imbalance\adasyn.PNG)
 
 위는 `k-nearest neighbors`내 majority class 비율을 나타내는 ᴦ hat이 더 큰 경우에 더 많은 synthetic 샘플을 생성한다는 점을 그림으로 표현
 

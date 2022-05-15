@@ -53,9 +53,9 @@ SMOGN은 두 가지 모두에서 탐지된 문제를 해결하려는 두 가지 
 
 이 두 요소의 결합은 사용자에게 가장 중요한 경우에서 성능 저하를 초래
 
-![f_0](E:\code\whtngus.github.io\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\f_0.PNG)
+![f_0](\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\f_0.PNG)
 
-![f_0](E:\code\whtngus.github.io\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\dn.PNG)
+![f_0](\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\dn.PNG)
 
 DR : rare cases
 
@@ -80,7 +80,7 @@ SmoteR이 발생할 수 있는 위험을 가우시안 노이즈로 제한하는 
 1. 보간 과정에서 가장 먼 예를 사용하지 않기 때문에 SmoteR을 사용할 때 발생하는 위험의 한계,
 2. 가우스 도입으로 달성하기 어려운 일반화 능력을 증가시키는 드문 경우에 대한 결정 경계를 확장
 
-![a_1](E:\code\whtngus.github.io\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\a_1.PNG)
+![a_1](\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\a_1.PNG)
 
 위 알고리즘 하나로 논문이 제시하는 방법을 모두 설명
 
@@ -94,7 +94,7 @@ Bin N - 일반적인 부분  	-> 언더 셈플링 대상
 (시드 예제와 동일한 파티션에 있는 다른 예제 사이의 거리의 중위수의 절반을 사용)
 ```
 
-![f_1](E:\code\whtngus.github.io\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\f_1.PNG)
+![f_1](\img\2022\SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression\f_1.PNG)
 
 그림 1에서 safe 종은 5개의 near list 의 거리들의 중앙값 
 

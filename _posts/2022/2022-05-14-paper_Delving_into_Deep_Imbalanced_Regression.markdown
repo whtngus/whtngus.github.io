@@ -41,7 +41,7 @@ IMDB-WIKI  : 시각적 외모로 연령 추정을 위한 이미지 데이터 셋
 
  데이터는 각 범주에 대해 이상적인 균일한 분포를 보존하기보다는 특정 목표 값이 훨씬 적은 긴 꼬리를 가진 왜곡된 분포를 보이는 경우가 많다
 
-# ![f_1](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f_1.PNG)
+# ![f_1](\img\2022\Delving_into_Deep Imbalanced_Regression\f_1.PNG)
 
 DIR을 자연 불균형 데이터에서 연속 대상을 학습하는 것으로 정의(위의 Figure 1 참조)
 
@@ -101,7 +101,7 @@ label distribution smoothing (LDS)  와 feature distribution smoothing (FDS)를 
 
 # 3. Methods
 
-![f_2](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f_2.PNG)
+![f_2](\img\2022\Delving_into_Deep Imbalanced_Regression\f_2.PNG)
 
 - Problem Setting
 
@@ -145,7 +145,7 @@ LDS는 대칭 커널을 경험적 밀도 분포와 결합하여 인근 레이블
 
 따라서 LDS는 유효 레이블 밀도 분포를 다음과 같이 계산합니다.
 
-![f1](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f1.PNG)
+![f1](\img\2022\Delving_into_Deep Imbalanced_Regression\f1.PNG)
 
  p(y)는 훈련 데이터
 
@@ -155,7 +155,7 @@ p˜(y^)는 y 레이블의 유효 밀도
 
 
 
-![lds](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\lds.gif)
+![lds](\img\2022\Delving_into_Deep Imbalanced_Regression\lds.gif)
 
 위 그림은 LDS가 어떻게 라벨 밀도 분포를 매끄럽게 하는지를 보여준다. 
 
@@ -175,7 +175,7 @@ es) 간단한 적응은 비용에 민감한 재가중 방법, 손실함수 가�
 
 모형이 제대로 작동하고 데이터가 균형을 이루면 주변 표적에 해당하는 형상 모수 통계량이 서로 가까울 것으로 예상
 
-![f_4](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f_4.gif)
+![f_4](\img\2022\Delving_into_Deep Imbalanced_Regression\f_4.gif)
 
 - 그림
 
@@ -211,7 +211,7 @@ FDS는 먼저 각 빈의 통계를 추정
 
 일반성의 손실 없이, 우리는 z 내의 다양한 특징 요소들 사이의 관계를 반영하기 위해 분산을 공분산으로 치환
 
-![f2](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f2.PNG)
+![f2](\img\2022\Delving_into_Deep Imbalanced_Regression\f2.PNG)
 
 
 
@@ -219,11 +219,11 @@ Nb 데이터에서 bin의 총 표본의 수
 
 k(yb, yb' ) t : 대상 빈 B에 대한 형상 평균과 공분산의 분포를 매끄럽게 함 - 커널함수 사용 
 
-![f4](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f4.PNG)
+![f4](\img\2022\Delving_into_Deep Imbalanced_Regression\f4.PNG)
 
 {µb, Σb} and {µ˜b, Σeb} standard whitening and re-coloring 방법을 사용 
 
-![f6](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\f6.PNG)
+![f6](\img\2022\Delving_into_Deep Imbalanced_Regression\f6.PNG)
 
  최종 형상 맵 다음에 형상 보정 계층을 삽입하여 FDS를 심층 네트워크에 통합
 
@@ -233,7 +233,7 @@ k(yb, yb' ) t : 대상 빈 B에 대한 형상 평균과 공분산의 분포를 �
 
 보정된 형상 z²는 최종 회귀 함수로 전달되고 손실을 계산하는 데 사용
 
-![fds](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\fds.gif)
+![fds](\img\2022\Delving_into_Deep Imbalanced_Regression\fds.gif)
 
 # 4. Benchmarking DIR
 
@@ -247,7 +247,7 @@ k(yb, yb' ) t : 대상 빈 B에 대한 형상 평균과 공분산의 분포를 �
 
 > L1 distance에 기초함  
 >
-> ![focal-r](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\focal-r.PNG)
+> ![focal-r](\img\2022\Delving_into_Deep Imbalanced_Regression\focal-r.PNG)
 >
 > ei :  i번째 샘플에 대한 L1 오차
 >
@@ -273,9 +273,9 @@ regressor re-training (RRT)을 제안
 
 
 
-![t_1](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\t_1.PNG)
+![t_1](\img\2022\Delving_into_Deep Imbalanced_Regression\t_1.PNG)
 
-![t_2](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\t_2.PNG)
+![t_2](\img\2022\Delving_into_Deep Imbalanced_Regression\t_2.PNG)
 
 
 
@@ -337,7 +337,7 @@ Kernel Density Estimation(커널 밀도 추정)이란 히스토그램(histogram)
 
 #### kernel function
 
-![kerner_1](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_1.PNG)
+![kerner_1](\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_1.PNG)
 
 
 
@@ -349,7 +349,7 @@ Kernel Density Estimation(커널 밀도 추정)이란 히스토그램(histogram)
 
 *** Kernel Density Estimation (커널 밀도 추정) 방법은 non-parametric 밀도추정 방법 중 하나로서 커널함수(kernel function)를 이용하여 히스토그램 방법의 문제점을 개선한 방법 ***
 
-![pdf_1](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\pdf_1.PNG)
+![pdf_1](\img\2022\Delving_into_Deep Imbalanced_Regression\pdf_1.PNG)
 
  x를 변수(random variable), x1, x2, ..., xn을 관측된 샘플 데이터, K를 커널 함수라 하면 KDE에서는 랜점 변수 x에 대한 pdf(확률 밀도 함수)는 다음과 같이 추정됨
 
@@ -360,11 +360,11 @@ Kernel Density Estimation(커널 밀도 추정)이란 히스토그램(histogram)
 2. 이렇게 만들어진 커널 함수들을 모두 더한 후 전체 데이터 개수로 나눈다.
 ```
 
-![kerner_2](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_2.PNG)
+![kerner_2](\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_2.PNG)
 
 히스토그램을 이용한 밀도추정 방법과 KDE 방법을 비교해 보면, 히스토그램 방법은 이산적(discrete)으로 각 데이터에 대응되는 bin의 값을 증가시킴으로써 불연속성이 발생하는 반면 KDE(커널밀도추정) 방법은 각 데이터를 커널 함수로 대치하여 더함으로써 그림 4 오른쪽 그래프와 같이 smooth한 확률밀도함수(pdf)를 얻을 수 있는 장점을 갖는다.
 
-![kerner_3](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_3.PNG)
+![kerner_3](\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_3.PNG)
 
 ```
 KDE(Kernel Density Estimation)를 통해 얻은 확률밀도함수는 히스토그램 확률밀도함수를 스무딩(smoothing)한 것으로도 볼 수 있으며 이 때, 스무딩(smoothing) 정도는 아래 그림처럼 어떤 bandwidth 값의 커널 함수를 사용했으냐에 따라 달라진다.
@@ -372,7 +372,7 @@ KDE(Kernel Density Estimation)를 통해 얻은 확률밀도함수는 히스토�
 
 실제 KDE를 사용할 때, 중요한 이슈는 어떤 커널 함수를 사용할지와 커널 함수의 bandwidth 파라미터인 h 값을 어떻게 잡을지이다. 위키피디아에 의하면 가장 최적의 커널함수는 Epanechnikov 커널이며 계산의 편의상 Gaussian 커널함수도 많이 사용된다고 한다. 그리고 Gaussian 커널함수를 사용할 경우 최적의 bandwidth 파라미터 값은 다음과 같다고 한다.
 
-![kerner_4](E:\code\whtngus.github.io\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_4.PNG)
+![kerner_4](\img\2022\Delving_into_Deep Imbalanced_Regression\kerner_4.PNG)
 
  n은 샘플 데이터의 개수, σ는 샘플 데이터의 표준편차.
 
