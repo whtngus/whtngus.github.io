@@ -251,6 +251,29 @@ k(yb, yb' ) t : 대상 빈 B에 대한 형상 평균과 공분산의 분포를 �
 >
 > -> 손실을 추정된 라벨 밀도의 역으로해서 곱함 
 
+```
+https://github.com/YyzHarry/imbalanced-regression/blob/main/sts-b-dir/loss.py
+
+def weighted_focal_l1_loss(inputs, targets, weights=None, activate='sigmoid', beta=20., gamma=1):
+    loss = F.l1_loss(inputs, targets, reduce=False)
+    loss *= (torch.tanh(beta * torch.abs(inputs - targets))) ** gamma if activate == 'tanh' else \
+        (2 * torch.sigmoid(beta * torch.abs(inputs - targets)) - 1) ** gamma
+    if weights is not None:
+        loss *= weights.expand_as(loss)
+    loss = torch.mean(loss)
+    return loss
+    
+def weighted_focal_mse_loss(inputs, targets, weights=None, activate='sigmoid', beta=20., gamma=1):
+    loss = F.mse_loss(inputs, targets, reduce=False)
+    loss *= (torch.tanh(beta * torch.abs(inputs - targets))) ** gamma if activate == 'tanh' else \
+        (2 * torch.sigmoid(beta * torch.abs(inputs - targets)) - 1) ** gamma
+    if weights is not None:
+        loss *= weights.expand_as(loss)
+    loss = torch.mean(loss)
+    return loss
+```
+
+
 - Two-stage training 
 
 regressor re-training (RRT)을 제안 
