@@ -8,7 +8,6 @@ category: paper
 # SMOGN_a_Pre-processing_Approach_for_Imbalanced_Regression
 
 
-
 url : http://proceedings.mlr.press/v74/branco17a/branco17a.pdf
 
 LIDTA 2017
