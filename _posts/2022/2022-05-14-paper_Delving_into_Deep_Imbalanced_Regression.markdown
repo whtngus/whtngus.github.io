@@ -9,7 +9,7 @@ category: paper
 
 url : https://arxiv.org/abs/2102.09554
 ICML 2021 
-code :  https://github.com/YyzHarry/imbalanced-regression
+code :  https://github.com/YyzHarry/imbalanced-regression  
 
 -> 블로그 정리를 따라서 정리하다가 이해가 안가서 논문으로 다시정리  블로그 정리는 아래 참조 
 
