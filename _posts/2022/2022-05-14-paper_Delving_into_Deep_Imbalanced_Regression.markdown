@@ -15,7 +15,7 @@ code :  https://github.com/YyzHarry/imbalanced-regression
 
 
 
-# Abstract
+# Abstract  
 
 실제 데이터는 특정 목표값의 관측치가 유의하게 적은 불균형 분포를 보이는 경우가 많음
 
