@@ -1,0 +1,50 @@
+---
+Explainable Artificial Intelligence (XAI)
+towards Model Personality in NLP tasklayout: post
+title: "xai nlp  Linguistic Knowledge of Neural Networks "
+date: 2022-05-21 16:20:23 +0900
+category: datascience
+---
+
+
+# XAI NLP Linguistic Knowledge of Neural Networks
+
+## 관련 링크 
+
+xai 명
+
+Result of LIME Explainer on Bi-LSTM Model
+
+
+
+
+
+- xai 관련 정보 
+
+Quantifying Explainability in NLP and Analyzing Algorithms for  Performance-Explainability Tradeoff
+
+Linguistic Knowledge of Neural Networks
+
+- xai 논문 
+
+Explainable Artificial Intelligence (XAI) towards Model Personality in NLP task
+
+"Why Should I Trust You?": Explaining the Predictions of Any Classifier
+
+Feature Removal Is A Unifying Principle For  Model Explanation Methods
+
+
+
+
+- word feature importance - code blog 
+
+https://wjdqlsdlsp.github.io/nlp/2022/01/01/NLP_XAI/
+
+https://www.analyticsvidhya.com/blog/2017/06/building-trust-in-machine-learning-models/
+
+- xai iml sota
+
+https://github.com/rehmanzafar/xai-iml-sota
+
+
+
