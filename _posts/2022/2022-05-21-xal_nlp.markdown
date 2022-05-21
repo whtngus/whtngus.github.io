@@ -1,7 +1,6 @@
 ---
-Explainable Artificial Intelligence (XAI)
-towards Model Personality in NLP tasklayout: post
-title: "xai nlp  Linguistic Knowledge of Neural Networks "
+layout: post
+title: "xai nlp  Linguistic Knowledge of Neural Networks"
 date: 2022-05-21 16:20:23 +0900
 category: datascience
 ---
