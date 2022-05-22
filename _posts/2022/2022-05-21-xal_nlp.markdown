@@ -8,7 +8,7 @@ category: datascience
 
 # XAI NLP Linguistic Knowledge of Neural Networks
 
-## 관련 링크 
+## 관련 링크  
 
 xai 명
 
