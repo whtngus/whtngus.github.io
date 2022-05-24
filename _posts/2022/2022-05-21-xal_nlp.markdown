@@ -28,6 +28,8 @@ Linguistic Knowledge of Neural Networks
 
 Explainable Artificial Intelligence (XAI) towards Model Personality in NLP task
 
+-> 논문 정리 하면서 lime, shap, ancors 정리 같이하기 
+
 "Why Should I Trust You?": Explaining the Predictions of Any Classifier
 
 Feature Removal Is A Unifying Principle For  Model Explanation Methods
