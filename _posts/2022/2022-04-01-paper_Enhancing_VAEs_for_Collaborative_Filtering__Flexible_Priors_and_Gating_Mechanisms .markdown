@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms"
-date: 2022-04-05 00:01:01 +0900
+date: 2022-06-12 00:01:01 +0900
 category: paper
 ---
 
