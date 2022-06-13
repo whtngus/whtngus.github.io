@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms"
-date: 2022-06-12 00:01:01 +0900
+date: 2022-06-13 00:01:01 +0900
 category: paper
 ---
 
@@ -260,11 +260,53 @@ VampPrior의 계층적 VAE는 VampPrior와 달리 잠재적 표현을 모델링�
 
 
 
+# 관련 지식
+
+- GLU(gated linear unit)
+
+![GlU](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\GlU.png)
+
+“Language Modeling with Gated Convolutional Networks”에서 소개된 활성 함수
+
+입력의 절반에  시그모이드 함수를 취한 것과 나마ㅓ지 입력의 저란을 가지고 poiintwise곱을 계산 
+
+-> 출력은 입력차원의 절반이 됨 
+
+즉 좌측의 A 벡터는 값을 의미 B는 확률 값이라 생각할 수 있음 
+
+(tanh를 사용하는 경우도 있으나 Dauphin이 sigmod 를 사용하는 경우 성능이 더 좋았다고 함)
+
+
+
+- Matrix Factorization(MF)
+
+![MF](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\MF.png)
+
+Matrix Factorization(MF)는 **User와 Item 간의 평가 정보를 나타내는 Rating Matrix를  User Latent Matrix와 Item Latent Matrix로 분해**하는 기법
+
+Rating Matrix는 (User의 수) * (Item의 수)로 구성된 행렬인데, 이때 각 칸에는 각 유저가 기록한 해당 아이템에 대한 평가가 수치로써 기록
+
+- 다항분포(multinomial distribution)
 
 
 
 
 
+
+
+
+
+# 참고           
+
+- GLU
+
+http://www.secmem.org/blog/2020/01/12/Pay-Less-Attention-with-Lightweight-and-Dynamic-Convolutions-review/
+
+https://reniew.github.io/44/
+
+- MF
+
+https://blog.naver.com/PostView.naver?blogId=shino1025&logNo=222394488801
 
 
 
