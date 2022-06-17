@@ -15,9 +15,6 @@ xai 명
 Result of LIME Explainer on Bi-LSTM Model
 
 
-
-
-
 - xai 관련 정보 
 
 Quantifying Explainability in NLP and Analyzing Algorithms for  Performance-Explainability Tradeoff
