@@ -286,7 +286,22 @@ Matrix Factorization(MF)는 **User와 Item 간의 평가 정보를 나타내는 
 
 Rating Matrix는 (User의 수) * (Item의 수)로 구성된 행렬인데, 이때 각 칸에는 각 유저가 기록한 해당 아이템에 대한 평가가 수치로써 기록
 
-- 다항분포(multinomial distribution)
+- ELBO(Evidence of Lower Bound)
+
+  ![ELBO](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\ELBO.png)
+
+
+ELBO의 역할은 우리가 관찰한 P(z|x)가 다루기 힘든 분포를 이루고 있을 때 이를 조금 더 다루기 쉬운 분포인 Q(x)로 대신 표현하려 하는 과정에서 두 분포 (P(z|x)와 Q(x))의 차이 (KL Divergence)를 최소화 하기 위해 사용
+
+```
+VAE는 AE에 Generative Model을 적용하고자 하는 것이 목적이고, 이때 우리는 주어진 샘플 X에 대한 복잡한 분포를 알 수 없기 때문에 이를 잘 알고 있는 정규 분포로 나타내고, 이 정규 분포로부터 다시 주어진 샘플 X의 분포를 따르는 샘플을 생성
+```
+
+![elbo)1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo_1.png)
+
+P(x) : X가 발생활 확률 
+
+z : latent vector - > 알고 있는 잠재 변수 
 
 
 
@@ -296,7 +311,9 @@ Rating Matrix는 (User의 수) * (Item의 수)로 구성된 행렬인데, 이때
 
 
 
-# 참고           
+
+
+# 참고
 
 - GLU
 
@@ -308,6 +325,10 @@ https://reniew.github.io/44/
 
 https://blog.naver.com/PostView.naver?blogId=shino1025&logNo=222394488801
 
+- ELBO
 
+https://yonghyuc.wordpress.com/2019/09/26/elbo-evidence-of-lower-bound/
 
+https://seongukzz.tistory.com/3
 
+http://hugrypiggykim.com/2018/09/07/variational-autoencoder%EC%99%80-elboevidence-lower-bound/
