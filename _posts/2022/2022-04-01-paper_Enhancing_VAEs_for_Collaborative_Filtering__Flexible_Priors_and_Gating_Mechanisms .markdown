@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Enhancing VAEs for Collaborative Filtering: Flexible Priors & Gating Mechanisms"
-date: 2022-06-13 00:01:01 +0900
+date: 2022-07-01 00:01:01 +0900
 category: paper
 ---
 
@@ -268,7 +268,7 @@ VampPrior의 계층적 VAE는 VampPrior와 달리 잠재적 표현을 모델링�
 
 “Language Modeling with Gated Convolutional Networks”에서 소개된 활성 함수
 
-입력의 절반에  시그모이드 함수를 취한 것과 나마ㅓ지 입력의 저란을 가지고 poiintwise곱을 계산 
+입력의 절반에  시그모이드 함수를 취한 것과 나머지 입력의 절반을 가지고 pointwise곱을 계산 
 
 -> 출력은 입력차원의 절반이 됨 
 
@@ -297,13 +297,17 @@ ELBO의 역할은 우리가 관찰한 P(z|x)가 다루기 힘든 분포를 이�
 VAE는 AE에 Generative Model을 적용하고자 하는 것이 목적이고, 이때 우리는 주어진 샘플 X에 대한 복잡한 분포를 알 수 없기 때문에 이를 잘 알고 있는 정규 분포로 나타내고, 이 정규 분포로부터 다시 주어진 샘플 X의 분포를 따르는 샘플을 생성
 ```
 
-![elbo)1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo_1.png)
+![elbo1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo1.png)
 
-P(x) : X가 발생활 확률 
+![elbo2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo2.png)
 
-z : latent vector - > 알고 있는 잠재 변수 
+![elbo4](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo5.png)
 
+- Largrange function
 
+라그랑주 승수법 (Lagrange multiplier method)은 프랑스의 수학자 조세프루이 라그랑주 (Joseph-Louis Lagrange)가 제약 조건이 있는 최적화 문제를 풀기 위해 고안한 방법
+
+라그랑주 승수법은 어떠한 문제의 최적점을 찾는 것이 아니라, 최적점이 되기 위한 조건을 찾는 방법이다. 즉, 최적해의 필요조건을 찾는 방법
 
 
 
@@ -332,3 +336,9 @@ https://yonghyuc.wordpress.com/2019/09/26/elbo-evidence-of-lower-bound/
 https://seongukzz.tistory.com/3
 
 http://hugrypiggykim.com/2018/09/07/variational-autoencoder%EC%99%80-elboevidence-lower-bound/
+
+https://hugrypiggykim.com/2018/09/07/variational-autoencoder%EC%99%80-elboevidence-lower-bound/
+
+- Largrange function
+
+https://untitledtblog.tistory.com/96
