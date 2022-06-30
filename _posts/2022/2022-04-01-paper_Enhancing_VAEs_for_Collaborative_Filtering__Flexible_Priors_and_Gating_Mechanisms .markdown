@@ -342,3 +342,7 @@ https://hugrypiggykim.com/2018/09/07/variational-autoencoder%EC%99%80-elboeviden
 - Largrange function
 
 https://untitledtblog.tistory.com/96
+
+- VAE
+
+https://hugrypiggykim.com/2021/05/28/enhancing-vaes-for-collaborative-filtering-flexible-priors-gating-mechanisms/
