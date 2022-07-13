@@ -346,3 +346,5 @@ https://untitledtblog.tistory.com/96
 - VAE
 
 https://hugrypiggykim.com/2021/05/28/enhancing-vaes-for-collaborative-filtering-flexible-priors-gating-mechanisms/
+
+https://arxiv.org/pdf/1705.08841.pdf
