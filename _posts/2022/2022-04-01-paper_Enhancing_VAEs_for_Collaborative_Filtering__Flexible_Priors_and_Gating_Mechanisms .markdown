@@ -14,7 +14,7 @@ ACM Conference on Recommender Systems 2019
 서울대 
 
 paper : https://arxiv.org/abs/1911.00936
-
+  
 code : https://github.com/psywaves/EVCF
 
 # ABSTRACT
@@ -303,6 +303,14 @@ VAE는 AE에 Generative Model을 적용하고자 하는 것이 목적이고, 이
 
 ![elbo4](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo5.png)
 
+
+
+![elbo_6](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\elbo_6.PNG)
+
+- VAE with a VampPrior
+
+![vampprior](E:\code\whtngus.github.io\img\2022\Enhancing_VAEs_for_Collaborative_Filtering__Flexible_Priors_and_Gating_Mechanisms\vampprior.PNG)
+
 - Largrange function
 
 라그랑주 승수법 (Lagrange multiplier method)은 프랑스의 수학자 조세프루이 라그랑주 (Joseph-Louis Lagrange)가 제약 조건이 있는 최적화 문제를 풀기 위해 고안한 방법
@@ -343,7 +351,7 @@ https://hugrypiggykim.com/2018/09/07/variational-autoencoder%EC%99%80-elboeviden
 
 https://untitledtblog.tistory.com/96
 
-- VAE
+- 전체적으로 사용 
 
 https://hugrypiggykim.com/2021/05/28/enhancing-vaes-for-collaborative-filtering-flexible-priors-gating-mechanisms/
 
