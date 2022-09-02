@@ -31,7 +31,7 @@ url : https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=9693277
 
  최근 몇 년 동안 이미지 캡션 연구의 중추적인 연구 방향은 테스트 시간에만 발생하는 새로운 객체를 설명하기 위해 캡션 모델을 일반화하는 것
 
-![f1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f1.png)
+![f1](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f1.png)
 
 위의 그림의 예시 처럼, 기존의 캡션 모델은 객체 "트럭"에 대한  캡션을 올바르게 생성할 수 있지만, 훈련 문장이 버스 단어를 포함하지 않는다는 이유만으로 유사한 객체 "버스"에 대해 실패
 
@@ -100,11 +100,11 @@ pre-trainined 모델
 
 - The decoder
 
-![f_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_1.png)
+![f_1](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_1.png)
 
 decoder 모델은 위 수식과 같이 입력 이미지의 represantation vector와 이전 단어들의 벡터값을 통해 다음 단어를 예측하는 방식으로 진행 
 
-![f_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_2.png)
+![f_2](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_2.png)
 
 ot−1 of the model as the input xt at the t-th step ...
 
@@ -120,7 +120,7 @@ ot−1 of the model as the input xt at the t-th step ...
 
 각 object를 추출한 f를 통해서 예측된 클래스와 key-value pair 를 만들어 객체 메모리 M을 구축
 
-![f_3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_3.png)
+![f_3](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_3.png)
 
 처음보는 객체 테그가 나온 경우 feature-name pairs 쌍을 메모리에 다시 사용 
 
@@ -130,10 +130,10 @@ ot−1 of the model as the input xt at the t-th step ...
 
 새로운 객체의 경우 어휘 부족 문제를 완화하기 위해  대리 단어를 대신 사용할 것을 제안
 
-![f_4](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_4.png)
+![f_4](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_4.png)
 새로운 객체의 feature와 object의 feautre의 cosine 유사도를 통해 정의 
 
-![f_5](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_5.png)
+![f_5](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_5.png)
 
 이를 통해 새로운 객체 범주 category를 찾아 적용하고 메모리에 추가로 삽입
 
@@ -145,7 +145,7 @@ ot−1 of the model as the input xt at the t-th step ...
 
 ###  3.3.1 Standard LSTM Revisit
 
-![f_6](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_6.png)
+![f_6](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_6.png)
 
 h caption hidden state는 시작시 <GO>의 special token으로 initilized 되며 하나씩 문장을 생성하기 시작 
 
@@ -153,11 +153,11 @@ h caption hidden state는 시작시 <GO>의 special token으로 initilized 되�
 
 표준 LSTM 생성 시 외부 지식 정보를 고려하지 않고, 객체 메모리 M의 지식을 문장 생성에 통합하기 위해 attention-based방법을 사용 
 
-![f_7](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_7.png)
+![f_7](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_7.png)
 
 Retrieving mode 라고 명명하고, 검색 모드에서는 숨겨진 상태 ht-1을 의미론적 쿼리로 사용하여 객체 메모리 M을 검색 후  t번째 시간 단계에서, 우리는 쿼리 qt를 이전의 숨겨진 상태 ht-1의 선형 변환으로 정의
 
-![f_8](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_8.png)
+![f_8](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_8.png)
 
 위의 커리 q를 사용해 관련 객체 정보를 찾는 것을 목표로 객체 메모리 M에서 콘텐츠 기반 주소 지정 작업을 수행
 
@@ -165,13 +165,13 @@ K와 V는 각 메모리에 있는 모든 k v의 concatenate
 
 ### 3.3.3 Modes Switching
 
-![f2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f2.png)
+![f2](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f2.png)
 
 우측 그림이 제안된 LSTM 인데 가장 아래부분의 KV Memory와 우측 아래의 Swich가 추가 됐다.
 
  t번째 단계의 스위치 표시기는 숨겨진 상태 ht-1을 기준으로 수행
 
-![f_9](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_9.png)
+![f_9](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_9.png)
 
 w b는 학습 파라미터 
 
@@ -179,7 +179,7 @@ w b는 학습 파라미터
 
 그 후 생성 모드의 예측과 비교
 
-![f_10](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_10.png)
+![f_10](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f_10.png)
 
 a가 ptl보다 작으면 Generating 모드를 기반으로 단어를 예측 크면 Retriveving 모드로 고유 명사를 찾아 교체 (수식8번)
 
@@ -191,7 +191,7 @@ a가 ptl보다 작으면 Generating 모드를 기반으로 단어를 예측 크�
 2. 전환 가능한 LSTM을 활용하여 캡션 문장을 생성한다. 이 모델은 내부 지식과 외부 지식을 모두 활용하기 위해 두 가지 작업 모드로 공동으로 작동한다. 메모리 셀 내부의 스위치 표시기는 두 모드를 제어하기 위해 사용된다. 검색 모드에서, 예측된 단어는 메모리 M의 소프트 콘텐츠 기반 어드레싱에 의해 생성된다. 
 3.  t의 자리 표시자를 교체 (그전에는 스페셜 토큰)
 
-![f3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f3.png)
+![f3](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f3.png)
 
 그림 3의 예시로 테니스 라켓이라는 객체가 기존에 없었다면, 메모리 M을 구성하고 유사한 후보를 찾아 교체한다 위의 예시에서는 가장 유사한 baseball bat 으로 교체함. 두 번째 단어 person의 경우 검색모드를 사용함(기존에 나왔던 객체 이기 때문에)
 
