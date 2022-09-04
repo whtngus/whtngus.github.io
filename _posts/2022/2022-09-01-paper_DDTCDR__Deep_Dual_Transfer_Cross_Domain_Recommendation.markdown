@@ -34,7 +34,7 @@ url : [https://arxiv.org/pdf/1910.05189.pdf](https://arxiv.org/pdf/1910.05189.pd
 
 → 이를 해결하기 위해 cross domain recommendation 이 제안됨 
 
-![스크린샷 2022-08-29 오후 2.57.27.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/91a7a831-e88a-478f-9f39-f0ae91110099/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_2.57.27.png)
+![f1](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f1.png)
 
 예를 들어, 사용자가 특정 영화를 본다면, 우리는 그 사용자에게 영화의 원작 소설을 추천
 
@@ -44,7 +44,7 @@ url : [https://arxiv.org/pdf/1910.05189.pdf](https://arxiv.org/pdf/1910.05189.pd
 
 - 기존의 문제점
 - 1.  이전의 이중 전송 모델은 사용자 및 항목 간의 잠재적이고 복잡한 관계를 고려하지 않고 명시적인 정보에만 초점을 맞춘다.
-    1. 추천시스템에서 user item 항목을 다 사용하지 않음 
+    2.  추천시스템에서 user item 항목을 다 사용하지 않음 
 
 이를 해결하기 위해 Latent embedding 방식을 통한 연구가 진행되고 있으며, 사용자와 item의 feature또한 효율적으로 사용할 수 있음. 
 
@@ -100,7 +100,7 @@ Transfer learning은 서로 다른 리소스에서 얻은 데이터가 다르게
 
 # 3. METHOD
 
-![스크린샷 2022-08-29 오후 3.42.06.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aab9d99a-7395-4943-aa53-dbf1c9d63886/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.42.06.png)
+![f2](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f2.png)
 
 위 그림은 해당 연구에서 제안한 DDTCDR 모델 
 
@@ -108,17 +108,19 @@ Transfer learning은 서로 다른 리소스에서 얻은 데이터가 다르게
 2. embeddinge된 feature들을 latent orthogonal mapping을 진행
 3. 도메인 내 및 도메인 간 사용자 기본 설정을 계산하고 권장 사항을 제공
 
-이렇게 보면 이해가 안가니.. 순서도를 같이 보자
+이렇게 보면 이해가 안가니.. 순서도를 같이 보자![f4](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f4.png)
 
-![스크린샷 2022-08-29 오후 3.47.24.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6e57cfab-9cab-4c45-a00f-25b74b807f40/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.47.24.png)
+![f3](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f3.png)
 
-![스크린샷 2022-08-29 오후 3.46.21.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3c6daa4-716c-41ec-a740-096b43e9135a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.46.21.png)
+
+
+
 
 ## 3.1 Feature Embeddings
 
 각 입력 데이터는 연속적인 입력을 받음 
 
-![스크린샷 2022-08-29 오후 3.57.31.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/639462ce-1d06-4621-8c07-63d8abad2b82/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_3.57.31.png)
+![f5](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f5.png)
 
 user feature를 잘 표현하기 위해 vae를 하는것을 보임 
 
@@ -136,11 +138,11 @@ user feature를 잘 표현하기 위해 vae를 하는것을 보임
 이 방식을 사용하면 모델의 복잡성을 줄일 수 있다고 함. 
 
 - 사용자 선호도의 유사성을 보전하고 역매핑 함수를 효율적으로 계산
-- 
+- ​
 
 ## 3.3 Deep Dual Transfer Learning
 
-![스크린샷 2022-08-29 오후 5.11.08.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ba7bdc57-c84d-4e4e-a4cf-73e2cefe9a62/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.11.08.png)
+![f6](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f6.png)
 
 두 도메인 간의 상호 작용을 통해 같이 학습하기 위한 추천 모델 수식 
 
@@ -154,7 +156,7 @@ introduction 에서 말했던 전이 학습 메커니즘 사용시 인수 분해
 
 두 도메인 A와 B에 대한 등급 매트릭스를 각각 VA, VB로 표시
 
-![스크린샷 2022-08-29 오후 5.22.26.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/16a189d0-6e8b-4154-b35b-3174e116bae3/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.22.26.png)
+![f7](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f7.png)
 
 reconstruction loss로 두 도메인의 추천 결과를 평가 
 
@@ -164,7 +166,7 @@ reconstruction loss로 두 도메인의 추천 결과를 평가
 
 델이 두 도메인 간의 교차 도메인 권장 사항에도 작동할 뿐만 아니라 여러 도메인 간의 권장 사항으로도 쉽게 확장할 수 있음을 보임 
 
-![스크린샷 2022-08-30 오후 5.07.08.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9b0d1fc6-ff38-404b-92a4-c5fa52e230d8/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.07.08.png)
+![f8](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f8.png)
 
 Xjk : represents the latent orthogonal transfer matrix
 
@@ -172,7 +174,7 @@ Xjk : represents the latent orthogonal transfer matrix
 
 # 4. EXPERIMENT
 
-![스크린샷 2022-08-30 오후 5.05.20.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2c79d64e-1542-43c8-87a3-80659e8ffcd4/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-30_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_5.05.20.png)
+![f9](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f9.png)
 
 위 테이블은 논문에서 접근하는 3가지 도메인 설명 
 
@@ -202,7 +204,7 @@ CoNet(Collaborative Cross Networks)은 기본 네트워크 간 연결을 통한 
 
 # 5. RESULTS
 
-![스크린샷 2022-08-31 오후 1.25.59.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0a0d446c-514a-4357-9c46-9689d62e6795/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-31_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_1.25.59.png)
+![f10](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f10.png)
 
 (a) 명시적 기능 대신 잠재 상호 작용에 대한 정보를 소스 도메인에서 대상 도메인으로 전송하고, 
 
@@ -220,7 +222,7 @@ Orthogonal Matrix는 정방행렬로 이것의 열과 행들은 Orthogonal (직�
 
 즉, Q의 역행렬이 Q의 전치행렬이 되는 것 
 
-![스크린샷 2022-08-29 오후 4.26.10.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8599ac0e-01de-4d5e-b834-8d8274748d2a/%E1%84%89%E1%85%B3%E1%84%8F%E1%85%B3%E1%84%85%E1%85%B5%E1%86%AB%E1%84%89%E1%85%A3%E1%86%BA_2022-08-29_%E1%84%8B%E1%85%A9%E1%84%92%E1%85%AE_4.26.10.png)
+![f11](\img\2022\DDTCDR__Deep_Dual_Transfer_Cross_Domain_Recommendation\f11.png)
 
 1. 두 행렬이 직교 하게 매핑 한다면 벡터의 내적을 보존하기 때문에 임베딩간의 유사성을 보존 
 2. 내적을 보존 ** → 즉 어떤 직교행렬 Q*x. Q*y 를 해도 내적이 유지된다
