@@ -189,7 +189,7 @@ a가 ptl보다 작으면 Generating 모드를 기반으로 단어를 예측 크�
 
 1. 외부 객체 감지 모델을 사용하여 입력 이미지에 대한 키 값 객체 메모리 M을 구축. 어휘 부족 문제를 피하기 위해 보이지 않는 객체에 대해 가장 유사한 보이는 객체의 레이블을 프록시 시각적 단어로 사용
 2. 전환 가능한 LSTM을 활용하여 캡션 문장을 생성한다. 이 모델은 내부 지식과 외부 지식을 모두 활용하기 위해 두 가지 작업 모드로 공동으로 작동한다. 메모리 셀 내부의 스위치 표시기는 두 모드를 제어하기 위해 사용된다. 검색 모드에서, 예측된 단어는 메모리 M의 소프트 콘텐츠 기반 어드레싱에 의해 생성된다. 
-3.  t의 자리 표시자를 교체 (그전에는 스페셜 토큰)
+3. t의 자리 표시자를 교체 (그전에는 스페셜 토큰)
 
 ![f3](\whtngus.github.io\img\2022\Switchable_Novel_Object_Captioner\f3.png)
 
@@ -208,6 +208,46 @@ a가 ptl보다 작으면 Generating 모드를 기반으로 단어를 예측 크�
 # 4 EXPERIMENTS
 
 ## 4.1 Datasets
+
+##### The held-out MSCOCO dataset.
+
+![t_1](\img\2022\Switchable_Novel_Object_Captioner\t_1.png)
+
+데이터셋은 MSCOCO 데이터 세트를 사용
+
+MSCOCO 데이터 세트는 8개의 MSCOCO 개체 중 적어도 하나를 포함하는 모든 이미지를 제외
+
+ 8개의 객체는 MSCOCO 탐지 챌린지의 모든 80개의 객체에 대해 word2vec 임베딩을 클러스터링하여 선택
+
+최종 평가 대상인 "병", "버스", "카우치", "마이크로웨이브", "피자", "라켓", "가방", "제브라"의 8가지 새로운 객체가 만들어짐 
+
+-> 테스트 분할에서만 사용
+
+이미지 캡션에서 매우작은 물체의 경우 무시하게 됨, label 된 캡션에서도 작은 물체 혹은 뒤에있는 물체는 언급되지 않음
+
+이러한 예는 해당 연구가  모델이 훈련에서 이러한 새로운 물체의 시각적 존재에 의존하지 않는다는 것
+
+##### Scaling to the ImageNet dataset
+
+MSCOCO 데이터 세트에 없는 646개의 개체를 포함하는 ImageNet의 동일한 하위 집합을 사용
+
+##### The nocaps dataset.
+
+nocaps 데이터 세트에는 Open Images 검증 및 테스트 세트에서 소스된 이미지가 포함
+
+## 4.2 Experimental Settings
+
+##### The Object Detection Model
+
+공개적으로 사용 가능한 사전 훈련된 객체 감지 모델을 사용하여 키 값 객체 메모리를 구축
+
+InceptionResNet-V2과 FasterR-CNN 모델을 사용하여 object detection의 상자와 점수를 생성 
+
+##### Evaluation Metrics
+
+Meteor과 F1 점수를 사용 
+
+## 4.3 Comparison to the State-of-the-art Results
 
 
 
