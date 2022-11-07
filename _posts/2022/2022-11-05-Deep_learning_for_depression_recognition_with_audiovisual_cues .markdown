@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Deep learning for depression recognition with audiovisual cues"
-date: 2022-11-05 01:01:01 +0900
+date: 2022-11-07 01:01:01 +0900
 category: paper
 ---
 
@@ -39,7 +39,7 @@ World Health Organization (WHO)에 따르면 2030년의 정신질환중 대부�
 
 ## 2.1. The definition of depression
 
-![f1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Deep_learning_for_depression_recognition_with_audiovisual_cues\f1.png)
+![f1](\img\2022\Deep_learning_for_depression_recognition_with_audiovisual_cues\f1.png)
 
 - 1980년에 Russell은 감정의 차원인 2차원의 연속형 차원인 Valence–Arousal (VA)를 제안함
 
@@ -93,9 +93,9 @@ Objective markers는 심리학에서 진단시에 많이 사용된다.
 | BlackDog   | 21 ~ 75세 ,   DSM-IV 기준,  음성 상담 데이터 녹음(8개의 그룹) 7개의 감정그룹으로 label |
 | AVEC2013   | audiovisual 우울증, 340 비디오 및  292사람 데이터 , 18~63세,  BDI-II 기준 label, 총 150개의 비디오 클립 |
 | AVEC2014   | AVE2013에서 100개의 데이터인 Freeform와  Northwind 추가됨, |
-| DAIC       | 4개의 타입의 인터뷰(화상회의), 189개의 데이터,            |
-| CHI-MEI    | 혐오, 두려움, 슬픔, 놀라움, 분노, 행복에 대한 비디오         |
-| Pittsburgh | 34명의 여성, 23명의 남성 우울증 데이터셋, 19~65세,   DSM-IV criteria for MDD |
+| DAIC       | 4개의 타입의 인터뷰(화상회의), 189개의 데이터(https://dcapswoz.ict.usc.edu/ - 신청) |
+| CHI-MEI    | 혐오, 두려움, 슬픔, 놀라움, 분노, 행복에 대한 비디오 ()      |
+| Pittsburgh | 34명의 여성, 23명의 남성 우울증 데이터셋, 19~65세,   DSM-IV criteria for MDD(https://www.di.ens.fr/willow/research/netvlad/ - ) |
 | BD         | 46명의 참가자,  AVEC2018                      |
 | MODMA      | audio, EEG signals,                      |
 
