@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "paper : Siamese Neural Network"
-date: 2022-11-07 01:01:01 +0900
+date: 2022-11-11 01:01:01 +0900
 category: paper
 ---
 2005년
