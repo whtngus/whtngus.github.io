@@ -90,7 +90,7 @@ nlp vision에서 많이 사용되고 있지만 tabular 에서는 많이 사용�
 
 - 일반적인 임베딩
 
-    ![f3](\img\2022\On_Embeddings_for_Numerical_Features_in_Tabular_Deep_Learning\f3.png)
+![f3](\img\2022\On_Embeddings_for_Numerical_Features_in_Tabular_Deep_Learning\f3.png)
 
 
 f : 임베딩 함수
