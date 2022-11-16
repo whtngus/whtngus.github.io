@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "ProtoCF: Prototypical Collaborative Filtering for Few-shot  Recommendation"
-date: 2022-11-15 01:20:23 +0900
+title: "paper: ProtoCF: Prototypical Collaborative Filtering for Few-shot  Recommendation"
+date: 2022-11-16 01:20:23 +0900
 category: paper
 ---
 
