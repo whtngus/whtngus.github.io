@@ -3,7 +3,7 @@ layout: page
 title: About
 permalink: /about/
 ---
-# 정속 링크 
+# 접속 링크 
 
 https://whtngus.github.io/
 
