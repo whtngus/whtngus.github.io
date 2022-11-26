@@ -1,0 +1,426 @@
+---
+layout: post
+title: "동형암호"
+date: 2022-11-26 01:20:23 +0900
+category: datascience
+---
+
+![1](\img\2022\Homomorphic-Encryption\1.jpeg)
+
+- 동형 암호란?
+
+동형 암호는 encryption된 데이터를 가지고 연산을 수행한 결과가 encryption하지 않은 원본 데이터를 가지고 연산한 결과와 동일하다는 특성을 가지고 있음
+
+2009년 IBM 연구원인 Craig Gentry에 의해 암호화된 상태에서 여러 가지 연산을 할 수 있는 기술적 가능성이 제시 되면서 주목을 받기 시작 2016년 부터 급속도로 실용화 연구가 진행되어 이론적인 연구 뿐만 아니라 실용화 관점에서 google, ms, aws등에서 연구 중임
+
+fully homomorphic Encryption 
+
+- 정보를 암호환 상태에서 각종 연산을 했을 때, 그 결과가 암호화하지 않은 상태의 연산 결과와 동일하게 나오는 4세대 암호체계
+
+    동형암호는 암호기술 중 가장 풀기 어렵다는 격자 문제를 응용한 암호의 일종으로 데이터의 안정성이 보장됨
+
+    1세대 : 단순 인증 기능만 가지는 패스워드
+
+    2세대 : 암호, 데이터에 대한 암호화 가능한 대칭키 암호
+
+    3세대 : 키를 공유하는 문제를 개선한 공개키 암호  
+
+- 간단 용어 정리
+
+| 용어         | 설명               |
+| ---------- | ---------------- |
+| Ciphertext | encryption된 data |
+| Plaintext  | 원본 data          |
+
+![2](\img\2022\Homomorphic-Encryption\2.jpeg)
+
+위 이미지 처럼 원본 데이터에서 연산한 값과 같은 행이를 한 후 decryption된 데이터가 일치 해야함
+
+- 동형암호 키 구성
+
+|      | 암호화키         | 연산키(계산키)     | 복호화키          |
+| ---- | ------------ | ------------ | ------------- |
+| 종류   | 공개키          | 공개키          | 비밀키           |
+| 기능   | 데이터 암호화 시 사용 | 암호문 간 연산시 사용 | 암호문의 복호화 시 사용 |
+
+즉, 1. 암호화키로 암호화 2. 연산키로 연산 수행 3. 복호화키로 복호화 진행
+
+## 동형 암호화 특징
+
+| 특징        | 설명                                 |
+| --------- | ---------------------------------- |
+| 간결성       |                                    |
+| 서킷 프라이버시  | 연산 진행 시 연산에 대한 정보를 알지 못하는 성질       |
+| 다중 도약 동형성 | 생성된 암호문이 다른 동형 연산의 입력으로 사용이 가능한 성질 |
+| 보안성       | 암호화된 형태로 연산이 진행되어 해킹 차단할 수 있는 성질   |
+
+기술적 특징
+
+| 기술            | 설명                                       |
+| ------------- | ---------------------------------------- |
+| depth         | 동형암호에서 허용된 곰셈의 횟수 (허용된 depth 이상의 곱셈이 수행되면 복호화된 값을 신뢰할 수 없게됨) |
+| 완전 동형암호       | 곱셈이 반복되면 노이즈가 커지게 되어 일정 횟수 이상의 곱셈이 불가능한 유한 동형암호 알고리즘(somewhat)과 달리 곰셈의 횟수가 제한되지 않은 암호 알고리즘 |
+| bootstrapping | 일반 동형암호 알고리즘이 완전 동형암호로 사용되기 위해 곰셈에서 증가하는 노이즈를 줄이는 과정 |
+1. 암호문의 크기 및 연산 가능
+
+평문에 비해 암호문의 크기는 수십 배에 달하고, 암호문 연산은 평문 대비 속도가 느려지는 단점을 가지고 있음
+
+→ 연산속도를 높이기 위한 연구가 계속해서 진행중 (GPU에서의 효율적인 연산 가능)
+
+1. 양자컴퓨팅 적합 
+
+양자 컴퓨팅 적용시 기존 암호는 쉽게 해독할 수 있지만(RSA, ECC 같은 공개키 암호기법) 동형암호는 Hard Problem을 사용하기 때문에 Quantum Secure하다고 함 
+
+1. 완전동형암호(Fully Homomorghic Encryption)와 부분동형암호(Partially Homomorphic Encryption)
+
+동형 암호는 임의의 연산을 할 수 있는 완전동형암호와 연산중 일부만 지원이 되는 부분동형암호로 구분됨
+
+1. noise와 bootstrapping
+
+noise는 cipertext의 연산으로 인해 부수적으로 늘어나는 data 
+
+→ 노이즈가 일정 크기에 달하면 연산 결과를 decryption하면 훼손된 plaintext가 나오는 문제 발생
+
+즉 이를 해결하기 위해 연산 횟수에 제한을 가지는 제한동형함수(Somewhat Homomorphic Encryption) 가 생김
+
+2번 특징에서 안전하다고 말했지만 cipertext와 서버에서 보관중인 secret-key를 훔친다면 복호화가 가능하다 
+
+1. 안정성
+
+→ 당연한 이야기지만 동형 암호가 늘 완벽하지 않다는 것을 다시한번 상기!
+
+- 연산 속도(HEAAN을 이용한 CKKS 기준)
+
+암호화 및 복호화에 과정에 드는 연산은 큰 비중을 차지하지 않지만 boostrap(연산 시간 94.89%)과 multiplicative depth(연산 시간 3.05%) 수치는 가장 큰 bottleneck을 형성하고, 비선형함수 구현에 있어서도 큰 장애물이다. 
+
+동형암호는 RLWE 문제를 기반으로 하고 있으며 noise를 첨가하여 security를 보장하는 암호
+
+→ 이 noise는 암호문 간 연산을 통해 증폭되는데, 불가능해지기 직전까지 곱할 수 있는 횟수를 Multiplicative Depth라고 한다. 
+
+연산량을 조절할 수 없는 경우에는 Bootstrapping이라는 연산을 통해 noise를 줄여주어야 한다.(그러나 Bootstrapping은 많은 연산량이 필요하여 bottleneck이 발생)
+
+- 동형암호의 연구 현황
+
+|      | 시작년도  | 특징                   | 연산     | ISO 표준   |
+| ---- | ----- | -------------------- | ------ | -------- |
+| 1세대  | 2009년 | 최초 완전동형암호            | Bit    |          |
+| 2세대  | 2011년 | 최초의 사용 가능한 동형 암호     | 정수     | BGV, BFV |
+| 3세대  | 2013년 | 작은 데이터 처리에 효과적인 동형암호 | Bit    | TFHE     |
+| 4세대  | 2016년 | 최초의 실수 연산 지원하는 동형암호  | 실수, 정수 | CKKS     |
+
+# 동형 암호 예시
+
+- 간단한 예시
+
+![3](\img\2022\Homomorphic-Encryption\3.jpeg)
+
+위 예시는 동형 암호의 예시로 
+
+동형암호 후 연산을 한 값과 평문의 값이 일치함을 보임 
+
+# 활용 사례
+
+## 상용화 기사는 없으나 상용하는 것으로 보임 or 예정 or 언급
+
+1. 클라우드
+- 삼성 SDS는 2019년 3월 14일 ai기술을 접목한 보안관제서비스로 운영되는 클라우드 환경을 보안 공백을 제로화 한다며, 동형암호 기술을 연내 상용할 계획이라고 밝힘
+1. 생체 인식
+- 출입 통제에 사용하는 생체 정보를 안전하게 처리함 으로 써, 암호화된 인증을 수행할 수 있다.
+
+    2018년 11월 ‘개인식별 방지 기술 세미나’에서 한국스마트인증(문기봉 대표)가 이러한 완전 동형암호기술을 활용해 홍채 인증 기술을 개량 발전 시켜 인증 시간을 0.25초로 앞당긴 시스템을 발표
+
+
+## 상용화
+
+1. naver HeaaN Homomorpihc Analytics
+- 네이버의 클라우드 서비스 플랫폼
+
+    암호화 상태로 통계 분석 및 머신러닝을 통한 인사이트 제공 
+
+    python을 이용한 pi-HEaaN 라이브러리 사용
+
+1. 해외 사례 - Google Transpiler
+- 개발자가 간단한 문자열 처리나 산술 연산 등 기본 연산을 위한 코드를 작성 후 동형 암호화된 데이터에서 연산 가능한 코드로 변환
+
+    완전 동형암호 오픈소스 라이브러리인 TFHE를 활용
+
+1. 해외 사례 - Microsoft Edge 사용자에게 Passwrod Monitor 기능 제공
+- Edge 브라우저에 저장 된 암호의 노출 여부를 제공
+
+    사용자는 해당 결과를 통해 자신의 계정 정보의 유출 여부를 알 수 있음
+
+    준동형 암호화 기법을 사용하여 사용자의 패스워드를 노출하지 않은 채 해당 패스워드가 Breached Credential DB에 저장된 값인지 확인 후 해당 결과를 사용자에게 반환
+
+1. 국내 사례 - KCB 신용데이터 분석 사례
+- 동형암호 전문 기업인 크립토랩의 HEaaN기술 적용
+
+    동형암호 기술을 적용하여 약 234만명의 국민연금 데이터와 KCB의 신용데이터로 결함 후 분석
+
+    - 2018년 11월 ‘개인식별 방지 기술 세미나’에서 코리아크레딧뷰(KCB, 강문호 대표)는 50만 명의 신용 데이터를 동형암호화된 상태에서 기계 학습을 수행해 개인정보를 보호하면서 신용 평가 모형의 신뢰성 정확성, 안정성을 성공적으로 확보함을 밝힘. → but 서비스 화는 아님
+
+        
+1. 국내 사례 - 드론 제어이스템에 동형암호 기술 적용
+- 동형암호 전문 기업인 크립토랩의 HEaaN의 기술 적용
+
+    심형보, 천정희 서울대 팀은 2016년 9월 국제자동제어연합(IFAC)이 개최한 학술대회에서 동형암호로 보호한 상태에서도 드론을 제어할 수 있는 시뮬레이션 발표 → 서비스화는 아님
+
+1. 국내 사례 - 코동이(코로나 동선 안심이
+- 동형암호 전문 기업인 크립토랩의 HEaaN의 기술 사용
+
+    동형암호를 활용해 위치정보를 암호화한 후 코로나 확진자 동산과 겹쳤는지 확인 가능한 서비스
+
+    개인정보를 암호화 했기 때문에, 서버 등에 개인정보를 직접적으로 노출하지 않고도 확진자와의 접촉 여부 확인 가능 
+
+1. 국내 사례 NCP 서비스를 통한 동형암호 서비스 연계
+- Naver Cloud에서 동형암호 서비스 활용
+
+    6가지 서비스에서 사용
+
+
+# 동형암호 자세히 알기
+
+## 1. 격자기반 암호(lattice)
+
+![4](\img\2022\Homomorphic-Encryption\4.jpeg)
+
+n차원 공간 R에서 점들이 규칙적/주기적/반복적으로 격자무늬 배열로 배치되어 있는 것
+
+대표적인 알고리즘은 SVP(Shortest Vector Problem) / SIVP(Shortest Independent Vectors Problem
+
+- 현재 자주 사용되는 알고리즘은 One-Way Function기반 암호 알고리즘이 많음
+- SIS(Short Integer Solution) Problem에 근거한 Function
+- LWE(Learning With Errors) Problem에 근거한 Function
+
+- 설명
+
+기하학적으로 기술하면 n 차원 공간 R에서, 점 들이 규칙적 주기적 반복적으로 그리드 배열로 배치되어 있는것을 의미
+
+이 때 점을 Lattie Point 라고 한다.  → 즉 Lattice 는 Lattice Point의 집합 
+
+Lattice Point들은 특정한 패턴(각격 및 각도)으로 무한히 반복되는 데, 특정한 패턴은 Basis Vector에 의해 결정됨 → 위의 수식 참고 
+
+- - 수식 설명
+
+    n 차원 공간 R에 속하는 basis vector 값들(b 1 ~ n)과 모든 정수들의 선형조합  값 들의 집합
+
+    즉 모든 Lattice Point는 basis Vector값들의 선형 결합으로 표시될 수 있음 
+
+
+## 동형암호 예시
+
+# 관련 업체 현황
+
+cryptolab 이 가장 핫함 
+
+![5](\img\2022\Homomorphic-Encryption\5.jpeg)
+
+
+
+# 관련 지식
+
+### SMPC(Secure Multi Party Computation)
+
+당사자가 입력을 비밀로 유지하면서 함수를 공동으로 계산하는 방법으로 ML에 응용 가능
+
+네트워크를 통해 협력해 합의점을 찾거나 값을 계산하고 그 답이 옳다고 신뢰할 수 있는 알고리즘
+
+- 특징
+
+동형암호와 달리 업계 표준 암호화 모드로 간주되고 개인 정보 보호 및 기밀성에 강력한 속성을 가진 AES 암화화 알고리즘을 수행할 수 있음 
+
+→ 암호화 상태에서 계산을 진행 
+
+- 장점
+
+동형암호에서는 불가능 하지만 argmax와 같은 복잡한 작업을 지원
+
+동형암호보다 계산 비용이 덜 들어감  
+
+- 단점
+
+여러 프로토콜을 따르도록 요구 
+
+당사자간의 통신 및 계산에 의존하기 때문에 상당한 네트워크 대역폭을 필요로함
+
+ex) 연구조차 대역폭이 큼
+
+2022년도 IEEE 논문 : [SMPC-Based Federated Learning for 6G-Enabled Internet of Medical Things](https://ieeexplore.ieee.org/document/9919758/)
+
+- 사용 예시
+- 사용 예시
+    1. 암호화폐
+    2. 게임 플레이 
+    3. 계약 협상
+    4. 데이터 수집
+    5. 자동화 
+
+### TEE(Trusted Execution Environments)
+
+데이터가 통제된 환경에서 처리되도록 하드웨어 보장을 제공 
+
+enclave라고 하는 보안 공간에서 데이터가 해독되고 계산됨
+
+→ 효율성이 높아짐 
+
+- 단점
+
+여러 해킹 방법들이 있음 
+
+# 참고 지식
+
+- RLWE(Ring learning with erros)
+
+RLWE는 LWE의 큰 키 사이즈와 느린 연산속도를 개선한 방식
+
+LWE는 공개키 암호화 방식으로 암호문이 벡터 이므로 덧셈(xor)과 곱셈(tensor product)로 계산된다 다만 암호문의 차원이 제곱으로 증가하므로 키 전환 과정을 통한 차원 축소를 한다. 
+
+이 과정에서 크기가 큰 개인키/공개키 쌍을 요구하므로 키 크기가 많이 증가한다. 
+
+- LWE(Ring learning with erros)
+
+    ### LWE(Ring learning with erros)를 이용한 ring LWE 값 교환 방식
+
+    B = A*s + e
+
+    s : secret key value
+
+    e : another value
+
+    A,B : public key (A는 s갯수 만큼의 dimentsion, B는 1 dimension)
+
+    ```python
+    import numpy as np
+    import sys
+
+    q=13
+
+    A=np.array([[4 ,1, 11, 10],[5, 5 ,9 ,5],[3, 9 ,0 ,10],[1, 3 ,3 ,2],[12, 7 ,3 ,4],[6, 5 ,11 ,4],[3, 3, 5, 0]])
+
+    sA = np.array([[6],[9],[11],[11]])
+    eA = np.array([[0],[-1],[1],[1],[1],[0],[-1]])
+
+    bA = np.matmul(A,sA)%q
+    print (bA)
+
+    bA = np.add(bA,eA)%q
+    print ("Print output\n",bA)
+    ```
+
+    위 방법을 응용해서 RLWE를 수행 
+
+    RLWE에서는 유사한 필드 내에서 더하고 곱할 수 있는 다항식 계수를 사용하며 여기서 모든 계수는 q보다 작다. 
+
+    복잡도 2^(n-1)인 q를 생성 후 다항식 연산은 나머지 연산인 q로 수행됨 (x는 다항식 집합)
+
+    ![BC931529-EE72-4DE3-A49B-F9E614F989C9.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5f380ae9-6ca3-4399-b513-0f2118806e04/BC931529-EE72-4DE3-A49B-F9E614F989C9.webp)
+
+    divide by Φ(*x*), which is *x^n*+1:
+
+    입력값 x는 다학식 A에 의해 계산 된 후 Φ(*x*)로 나눔
+
+    ![321F5BD2-CA3D-47A3-BCB0-C9688C8E9F7C.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/015b51cd-058a-4ab7-8025-e28236b971e2/321F5BD2-CA3D-47A3-BCB0-C9688C8E9F7C.webp)
+
+    ```python
+
+    xN_1 = [1] + [0] * (n-1) + [1]
+
+    A = np.floor(p.polydiv(A,xN_1)[1])
+    ```
+
+    1. Alice 와 bob은 서로 합의 하에 complexity value n과 q(나머지 연산 값)을 결정 
+    2. Alice는 error polynomial인 e와 secret polynomial s를 생성
+
+    ![35D9C240-F4B5-4084-9C6B-F40A8CD11EE1.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ff92d7d-3ec6-4542-b881-1d1edb720dda/35D9C240-F4B5-4084-9C6B-F40A8CD11EE1.webp)
+
+    1. Alice는 생성된 e_A, s_A를 이용해 다항식 b_A를 만듦
+
+    ![E84BB254-AB64-4780-9A64-70662FAB6A10.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4422e0aa-deda-4173-9f3e-c26bac1bd22c/E84BB254-AB64-4780-9A64-70662FAB6A10.webp)
+
+    ```python
+    python 코드 예시
+    bA = p.polymul(A,sA)%q
+    bA = np.floor(p.polydiv(sA,xN_1)[1])
+    bA = p.polyadd(bA,eA)%q
+    ```
+
+    1. Bob은 자신의 개인키인 error 다항식인 e와 secret 다항식 키 생성
+
+        ![6CF1FCA0-F113-4ABB-939C-1695AA173B78.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d5313ec-2119-4d8a-8b3f-492ae038e3ca/6CF1FCA0-F113-4ABB-939C-1695AA173B78.webp)
+
+    2. Alice는 Bob에게 A를 공유하고, Bob은 이를 이용해 b_B를 생성
+
+    ![F3F76013-5A02-486C-BC97-DCA64D497B17.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b01f07a5-e060-4bfa-8685-4776c7c73825/F3F76013-5A02-486C-BC97-DCA64D497B17.webp)
+
+    ```python
+
+    sB = gen_poly(n,q)
+    eB = gen_poly(n,q)
+    bB = p.polymul(A,sB)%q
+    bB = np.floor(p.polydiv(sB,xN_1)[1])
+    bB = p.polyadd(bB,eB)%q-
+    ```
+
+    1. Alice는 Bob의 b_B를 받아 곱하기 연산 수행 , Bob도 Alice에게  b_A를 받아 연산 수행
+
+    ![BA0A7529-EC0B-4C2B-ADA9-7B350A6CDFA3.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9789ac38-0f48-45d7-8256-ad09d7fec685/BA0A7529-EC0B-4C2B-ADA9-7B350A6CDFA3.webp)
+
+    ![A8AF1000-5002-46F8-9737-D1CBC4301CA5.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f50236cd-46d8-4ecc-81b8-0b89347f25c7/A8AF1000-5002-46F8-9737-D1CBC4301CA5.webp)
+
+    이렇게 되면 Alice와 Bob은 같은 value를 공유하게 됨 
+
+    ```python
+    sharedAlice = np.floor(p.polymul(sA,bB)%q)
+    sharedAlice = np.floor(p.polydiv(sharedAlice,xN_1)[1])%q 
+    sharedBob = np.floor(p.polymul(sB,bA)%q)
+    sharedBob = np.floor(p.polydiv(sharedBob,xN_1)[1])%q
+    ```
+
+- bootstrapping
+
+암호화된 키와 이중 암호화된 암호문을 입력한 후 복호화 알고리즘 실행을 통해 새로운 암호문 생성(Recrypt), 동형 연산 후 매번 Recrypt 수행함
+
+→ 암호문에 암호화된 비밀키를 이용하여 노이즈가 감소된 새로운 암호문 생성 후 연산을 수행하는 원리
+
+- Squashing(스쿼싱)
+
+복호화 알고리즘 및 공개키 일부 변형
+
+곱샘 k회 이하만 적용 시 복호화 가능 
+
+노이즈 증가 감소, 평문 변형되지 않도록 하는 원리 
+
+# 참조
+
+- 동형암호 관련
+
+[https://m.blog.naver.com/aepkoreanet/221561794559](https://m.blog.naver.com/aepkoreanet/221561794559)
+
+논문 - 동형암호를 활용한 딥러닝 모델 학습에 대한 연구(2021 춘계학술발표대회 논문집 제28권 제1호)
+
+ko.wikipedia.org/wiki/동형암호
+
+ [https://m.blog.naver.com/bi1189/221528341879](https://m.blog.naver.com/bi1189/221528341879)
+
+[https://ko.m.wikipedia.org/wiki/동형암호](https://ko.m.wikipedia.org/wiki/%EB%8F%99%ED%98%95%EC%95%94%ED%98%B8)
+
+naver_deview_2021_개인정보 보호를 위한 동형암호 기술과 활용 사례
+
+[https://merry-nightmare.tistory.com/m/243](https://merry-nightmare.tistory.com/m/243) → 암호화 기법 
+
+- tutorial code
+
+[https://bit-ml.github.io/blog/post/homomorphic-encryption-toy-implementation-in-python/](https://bit-ml.github.io/blog/post/homomorphic-encryption-toy-implementation-in-python/)
+
+- 관련 업체 현황
+
+[https://pulsenews.co.kr/view.php?year=2022&no=234762](https://pulsenews.co.kr/view.php?year=2022&no=234762)
+
+- LWE
+
+[https://asecuritysite.com/pqc/lwe_output](https://asecuritysite.com/pqc/lwe_output)
+
+[https://medium.com/asecuritysite-when-bob-met-alice/learning-with-errors-lwe-and-ring-lwe-accf72f98c22](https://medium.com/asecuritysite-when-bob-met-alice/learning-with-errors-lwe-and-ring-lwe-accf72f98c22)
+
+- smpc
+
+[https://medium.com/pytorch/what-is-secure-multi-party-computation-8c875fb36ca5](https://medium.com/pytorch/what-is-secure-multi-party-computation-8c875fb36ca5)
