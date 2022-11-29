@@ -54,6 +54,8 @@ fully homomorphic Encryption
 | 다중 도약 동형성 | 생성된 암호문이 다른 동형 연산의 입력으로 사용이 가능한 성질 |
 | 보안성       | 암호화된 형태로 연산이 진행되어 해킹 차단할 수 있는 성질   |
 
+
+
 기술적 특징
 
 | 기술            | 설명                                       |
@@ -158,7 +160,7 @@ noise는 cipertext의 연산으로 인해 부수적으로 늘어나는 data
 
     - 2018년 11월 ‘개인식별 방지 기술 세미나’에서 코리아크레딧뷰(KCB, 강문호 대표)는 50만 명의 신용 데이터를 동형암호화된 상태에서 기계 학습을 수행해 개인정보를 보호하면서 신용 평가 모형의 신뢰성 정확성, 안정성을 성공적으로 확보함을 밝힘. → but 서비스 화는 아님
 
-        
+
 1. 국내 사례 - 드론 제어이스템에 동형암호 기술 적용
 - 동형암호 전문 기업인 크립토랩의 HEaaN의 기술 적용
 
@@ -312,13 +314,13 @@ LWE는 공개키 암호화 방식으로 암호문이 벡터 이므로 덧셈(xor
 
     복잡도 2^(n-1)인 q를 생성 후 다항식 연산은 나머지 연산인 q로 수행됨 (x는 다항식 집합)
 
-    ![BC931529-EE72-4DE3-A49B-F9E614F989C9.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5f380ae9-6ca3-4399-b513-0f2118806e04/BC931529-EE72-4DE3-A49B-F9E614F989C9.webp)
+    ![6](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\6.jpeg)
 
     divide by Φ(*x*), which is *x^n*+1:
 
     입력값 x는 다학식 A에 의해 계산 된 후 Φ(*x*)로 나눔
 
-    ![321F5BD2-CA3D-47A3-BCB0-C9688C8E9F7C.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/015b51cd-058a-4ab7-8025-e28236b971e2/321F5BD2-CA3D-47A3-BCB0-C9688C8E9F7C.webp)
+    ![7](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\7.webp)
 
     ```python
 
@@ -330,11 +332,11 @@ LWE는 공개키 암호화 방식으로 암호문이 벡터 이므로 덧셈(xor
     1. Alice 와 bob은 서로 합의 하에 complexity value n과 q(나머지 연산 값)을 결정 
     2. Alice는 error polynomial인 e와 secret polynomial s를 생성
 
-    ![35D9C240-F4B5-4084-9C6B-F40A8CD11EE1.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6ff92d7d-3ec6-4542-b881-1d1edb720dda/35D9C240-F4B5-4084-9C6B-F40A8CD11EE1.webp)
+    ![8](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\8.webp)
 
     1. Alice는 생성된 e_A, s_A를 이용해 다항식 b_A를 만듦
 
-    ![E84BB254-AB64-4780-9A64-70662FAB6A10.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4422e0aa-deda-4173-9f3e-c26bac1bd22c/E84BB254-AB64-4780-9A64-70662FAB6A10.webp)
+    ![9](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\9.webp)
 
     ```python
     python 코드 예시
@@ -345,11 +347,11 @@ LWE는 공개키 암호화 방식으로 암호문이 벡터 이므로 덧셈(xor
 
     1. Bob은 자신의 개인키인 error 다항식인 e와 secret 다항식 키 생성
 
-        ![6CF1FCA0-F113-4ABB-939C-1695AA173B78.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0d5313ec-2119-4d8a-8b3f-492ae038e3ca/6CF1FCA0-F113-4ABB-939C-1695AA173B78.webp)
+        ![10](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\10.webp)
 
     2. Alice는 Bob에게 A를 공유하고, Bob은 이를 이용해 b_B를 생성
 
-    ![F3F76013-5A02-486C-BC97-DCA64D497B17.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b01f07a5-e060-4bfa-8685-4776c7c73825/F3F76013-5A02-486C-BC97-DCA64D497B17.webp)
+    ![11](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\11.webp)
 
     ```python
 
@@ -362,9 +364,11 @@ LWE는 공개키 암호화 방식으로 암호문이 벡터 이므로 덧셈(xor
 
     1. Alice는 Bob의 b_B를 받아 곱하기 연산 수행 , Bob도 Alice에게  b_A를 받아 연산 수행
 
-    ![BA0A7529-EC0B-4C2B-ADA9-7B350A6CDFA3.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9789ac38-0f48-45d7-8256-ad09d7fec685/BA0A7529-EC0B-4C2B-ADA9-7B350A6CDFA3.webp)
+    ![12](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\12.webp)
 
-    ![A8AF1000-5002-46F8-9737-D1CBC4301CA5.webp](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f50236cd-46d8-4ecc-81b8-0b89347f25c7/A8AF1000-5002-46F8-9737-D1CBC4301CA5.webp)
+    ![12](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\Homomorphic-Encryption\13.webp)
+
+    ​
 
     이렇게 되면 Alice와 Bob은 같은 value를 공유하게 됨 
 
