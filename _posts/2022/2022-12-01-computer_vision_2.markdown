@@ -13,7 +13,7 @@ category: datascience
 
 동일한 사물 또는 장면에 대한 영상을 서로 다른 두 지점에서 획득했을 때, 영상 A와 영상 B의 매칭쌍들 사이의 기하학적 관계를 다루는 것
 
-![f1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\computer_vision\f1.png)
+![f1](\img\2022\computer_vision\f1.png)
 
 - 용어
 
@@ -102,9 +102,9 @@ idea
 
 ## Morphological operations
 
-![f2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\computer_vision\f2.png)
+![f2](\img\2022\computer_vision\f2.png)
 
-![f3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\computer_vision\f3.png)
+![f3](\img\2022\computer_vision\f3.png)
 
 ## Clustering
 
@@ -156,7 +156,7 @@ todo : ? 생략 ...
 
 ## Fitting
 
-![f4](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\computer_vision\f4.png)
+![f4](\img\2022\computer_vision\f4.png)
 
 픽셀 값 배열(또는 필터 출력)에서 영역, 개체 및 모양의 집합으로 이동
 
@@ -311,7 +311,7 @@ SLAM (Simultaneous Localization And Mapping)
 • 확률론적 SLAM 문제의 기원은 1986년 IEEE 로보틱스 및 자동화 컨퍼런스에서 발생했다.
 • 이 모델을 기준으로 로봇을 현지화하는 동시에 모바일 로봇 환경의 공간 맵 획득
 
-![f5](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2022\computer_vision\f5.png)
+![f5](\img\2022\computer_vision\f5.png)
 
 
 
