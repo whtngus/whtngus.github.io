@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dimensional Emotion Detection from Categorical Emotion"
-date: 2022-12-08 01:20:23 +0900
+date: 2022-12-17 01:20:23 +0900
 category: datascience
 ---
 
