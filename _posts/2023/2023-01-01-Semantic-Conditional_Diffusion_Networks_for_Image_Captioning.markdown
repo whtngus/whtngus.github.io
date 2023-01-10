@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Semantic-Conditional Diffusion Networks for Image Captioning"
-date: 2023-01-04 01:20:23 +0900
+date: 2023-01-10 01:20:23 +0900
 category: datascience
 ---
 
@@ -23,7 +23,7 @@ https://github.com/yehli/xmodaler
 
 # 1. Introduction
 
-![f1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f1.png)
+![f1](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f1.png)
 
 기존의 이미지 캡셔닝은 이미지를 보고 의미있는 텍스트를 생성하는게 목표였지만 이미지에서 텍스트를 생성할 뿐 양방향의 테스크는 없었음 (텍스트에서 이미지도)
 
@@ -66,7 +66,7 @@ https://github.com/yehli/xmodaler
 
 #  3. Method
 
-![f2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f2.png)
+![f2](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f2.png)
 
 SCD-Net은 transformers 레이어를 여러개를 사용하여 스택한 모델 
 
@@ -76,7 +76,7 @@ SCD-Net은 transformers 레이어를 여러개를 사용하여 스택한 모델
 
 - Forward Process
 
-![f_1](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_1.png)
+![f_1](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_1.png)
 
 Markov chain을 이용하고,
 
@@ -98,11 +98,11 @@ N : 텍스트의 각 워드
 
 V : L2 regression loss 사용
 
-![f_2](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_2.png)
+![f_2](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_2.png)
 
 - Reverse Process
 
-![f_3](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_3.png)
+![f_3](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_3.png)
 
 생성된 text로부터 주어진 image를 이용해 학습 
 
@@ -114,7 +114,7 @@ V : 이미지에서 detected objects
 
 Visnal Encoder는 N개의 Transformer encoder blacks의 stacked으로 이루어져잇음 
 
-![f_4](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_4.png)
+![f_4](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_4.png)
 
 FFN : the feed-forward layer
 
@@ -128,11 +128,11 @@ FC : fully-connected layer
 
 - Sentence Decoder
 
-![f_5](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_5.png)
+![f_5](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_5.png)
 
-![f_6](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_6.png)
+![f_6](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_6.png)
 
-![f_7](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_7.png)
+![f_7](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_7.png)
 
 예측값을 수식6을 이용해 확률값처럼 이용할 수 있도록 변경하고 
 
@@ -160,11 +160,11 @@ FC : fully-connected layer
 
    normal distribution
 
-![normal_distribution](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\normal_distribution.png)
+![normal_distribution](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\normal_distribution.png)
 
 uniform distribution
 
-![uniform_distribution](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\uniform_distribution.png)
+![uniform_distribution](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\uniform_distribution.png)
 
 
 
