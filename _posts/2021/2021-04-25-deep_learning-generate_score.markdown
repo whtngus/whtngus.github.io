@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "deep_learning : Generate model score matrix"
-date: 2021-06-10 19:20:23 +0900
+date: 2023-01-14 19:20:23 +0900
 category: datascience
 ---
 # Generate model matrix 정리 
@@ -89,7 +89,7 @@ Uni-gram의 Precision과 Recall의 조화 평균을 기반으로 재현율을 �
 > >
 > > - 최종 스코어 계산
 > >
-> > 
+> >
 > >
 > > ![meteor_formula_1](\img\generate_score_matrix\meteor_formula_5.PNG)
 
@@ -179,9 +179,39 @@ SPICE는 *의미 론적 명제 콘텐츠가 인간 캡션 평가의 중요한 �
 
 ## CIDEr(Consensus-based Image Description Evaluation)
 
--> 어렵 나중에 추가정리하기 !!! 
+CIDEr은 기본적으로 TF-IDF의 아이디어를 따름
 
-https://www.youtube.com/watch?v=YHVox8yjMUI
+- n-gram 원소들에 대해 TF-IDF 값을 구하는 과정(좌 tf 우 idf)
+
+![cider_1](\img\generate_score_matrix\cider_1.png)
+
+w_k : 특정 모델이 생성한 candiate sentence로부터 구한 n-gram원소들 
+
+h_k(s_ij) - 초록박스 :  n-gram w_k가 reference sentecne s_ij에 등장하는 횟수 
+
+분자 I : 해당 데이터셋에 존재하는 전체 Image 개수
+
+ 파란색 박스 : n-gram w_k가 reference sentece에 등장하는 비율을 나타내는 TF에 해당
+
+빨간색 박스 : 전체 Image 중에서 p번째 image인 ip에 대해 50개의 reference sentece에서 몇 번 등장하는지 나타냄 IDF에 해당 
+
+- CIDEr 구하기
+
+![cider_2](\img\generate_score_matrix\cider_2.png)
+
+Candidate sentence의 n-gram 원소들에 대해 각각 g_k(Sij)값을 구한 뒤 이를 모아 벡터화 하여 g^n(Sij)를 구함
+
+ci 와 sij의 코사인 유사도를 구해여 cider_n 값을 구함 
+
+![cider_3](\img\generate_score_matrix\cider_3.png)
+
+위에서 구한걸 1~n그램 까지 구해서 더함 (보통 1~4gram 을 하는걸로 보임)
+
+
+
+
+
+
 
 
 
@@ -215,3 +245,5 @@ https://panderson.me/spice/
 - CIDEr1 참고
 
 https://arxiv.org/pdf/1411.5726.pdf
+
+https://wikidocs.net/145607
