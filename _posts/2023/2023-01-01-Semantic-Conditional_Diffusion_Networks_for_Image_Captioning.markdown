@@ -144,11 +144,61 @@ FC : fully-connected layer
 
 ## 3.3. Semantic Condition
 
+![f_8](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_8.png)
+
+N (0, I) : noise distribution
+
+xt : latent state
+
+sr : sequence word toekns
+
+t : time step
+
+ϕ : 위 수식의 오른쪽 multi-layer perception
+
+ ![f_9](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_9.png)
+
+W0 = [z^x, z^r]
+
+... 다시 확인해보기 
 
 
 
+## 3.4. Cascaded Diffusion Transformer
+
+![f_10](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_10.png)
+
+M : the total number of stacked Diffusion Transformer
+
+f1 : Diffusion Transformer
+
+![f_11](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_11.png)
+
+z^x : textual feature 
+
+...
+
+## 3.5. Guided Self-Critical Sequence Training
+
+scst를 이용해 학습을 함 
+
+![f_12](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_12.png)
+
+R : SIDEr score function
+
+![f_13](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_13.png)
+
+Y_1^s:n_s :  샘플 캡션 
+
+R : 문장단위의 reward 함수 
+
+x_t는 이상하게 추출된 노이즈 문장이 포함될 수 있음
+
+![f_14](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_14.png)
 
 
+
+# 4. Experiments
 
 
 
@@ -188,6 +238,24 @@ FC(Fully Connected Neural Network)
 
 
 
+3. Self-Critical Sequence Training(scst)
+
+![scst](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\scst.png)
+
+샘플링된 캡션과 추론 *알고리즘*으로 생성된 캡션. 의 사이의 CIDEr-D 스코어[21]의 오차를 리워드로 주어 학습하는 방식 
+
+cider는 아래 링크 참조 - 정리가 잘 안되있는데 아래 참조링크 잘되있는게 많음 
+
+https://whtngus.github.io/datascience/2023/01/14/deep_learning-generate_score.html
+
+
+
+
+
+
+
+
+
 
 
 # 참고
@@ -195,3 +263,7 @@ FC(Fully Connected Neural Network)
 - FFN, FC
 
 https://heekangpark.github.io/ml-shorts/ffnn-vs-fc
+
+- scst
+
+https://stats.stackexchange.com/questions/283858/how-could-i-understand-the-self-critical-sequence-training-scst-model
