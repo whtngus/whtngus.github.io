@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Zero-Shot Text-to-Image Generation
-date: 2023-02-12 01:20:23 +0900
+date: 2023-02-10 01:20:23 +0900
 category: datascience
 ---
 
 # Zero-Shot Text-to-Image Generation
 
-ALL-E
+DALL-E
 
 2021년 2월 24일 최초 arxiv
 
