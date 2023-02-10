@@ -92,3 +92,54 @@ CUB : 북미 새 200종에 대한 11,788개의 이미지당 5개의 캡션으로
 - Stage 2
 
 256 BPE-encoding된 텍스트 토큰과 32*32=1024개의 이미지토큰을 conctenate  그리고 이 두 관계를 joint distribution 방식을 통해 학습 진행
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 참고지식
+
+- auxiliary losses
+
+**GoogLeNet (ILSVRC challenge 2014 winner)**에서 처음 도입된 개념 (**Training**을 잘하도록 도와주는 보조 역할 )
+
+gradient 전달이 잘 되지 않는 하위 layer를 training 하기 위해서 classification의 문제를 해결하는 Neural Network는 softmax를 맨 마지막 layer에 딱 하나만 놓는데, Auxiliary classifier는 중간중간 에 softmax를 두어 중간에서도 Backpropagation을 하게 함
+
+- joint distribution(결합확률분포)
+
+확률 변수가 두 개 이상일 때 여러 사건이 동시에 일어날 확률을 말함.
+
+규칙1. 합 규칙
+
+![f4](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f4.png)
+
+어떤 특정한 확률을 구하려고 한다면, 그와 관련된 모든 변수들을 포함한 모든 경우에 대해서 결합 분포의 값을 더함 (이산 확률 분포)
+
+규칙 2.  곱 규칙
+
+![f5](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f5.png)
+
+각각의 랜덤 변수들이 독립인 경우. 조건부 확률을 이용해 모두
+
+# 참고 사이트
+
+- dall-e
+
+<https://littlefoxdiary.tistory.com/74>
+
+- auxiliary losses
+
+<https://technical-support.tistory.com/87>
+
+- joint distribution
+
+<https://m.blog.naver.com/PostView.naver?blogId=study_together_&logNo=220820354072>
+
