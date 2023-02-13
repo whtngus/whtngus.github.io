@@ -91,17 +91,112 @@ CUB : 북미 새 200종에 대한 11,788개의 이미지당 5개의 캡션으로
 
 - Stage 2
 
-256 BPE-encoding된 텍스트 토큰과 32*32=1024개의 이미지토큰을 conctenate  그리고 이 두 관계를 joint distribution 방식을 통해 학습 진행
+> 256 BPE-encoding된 텍스트 토큰과 32*32=1024개의 이미지토큰을 conctenate  그리고 이 두 관계를 joint distribution 방식을 통해 학습 진행
+
+![f6](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f6.PNG)
+
+> x : images
+>
+> y : captions
+>
+> z : 인코딩된 RGB image tokens
+>
+> ![f7](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f7.PNG)
+>
+> factorization 분포를 기반으로 함 
+>
+>  q_θ : dVAE encoder로 만들어진 32*32 image token의 분포
+>
+> p_θ : dVAE decoder로 RGB image를 생성한 image token의 분포
+>
+> p_Ψ : transformer모델에 의한 이미지와 text의 join distribution 
+>
+> 위 수식에서  경계는 β = 1로 유지되지만 일반적으로 더 클경우 유의한 경우가 많음
+
+## 2.1. Stage One: Learning the Visual Codebook
+
+θ와 Ψ를 비슷하게 하기 위해 ELVO(Evidence of Lower BOund)를 최대화 하는 dVAE를 학습한다.
+
+학습 데이터는 8192개의 카테고리를 가지고있는 codebook vectors를 사용
+
+논문에서 p_Ψ를 만들기 어렵다고 마구 설명을 적어둠 .. 
+
+gumbel-softmax와 Adam optimizer 등 여러가지 사용
+
+안정적인 학습을 위한 방법
+
+> - annealing t를 1/16를 사용 -> 이를  q_θ 에서  q_θ^t 로 정의
+> - 1*1 convoution layer
+>
+> encoder 마지막과 decoder 시작에 1*1 convoution layer를 사용해
+>
+> 전반적인 이미지 generalize를 통해 ELB최적화
+>
+> - Multiplication loss
+>
+> encoder와 decodr에 작은 loss의 resblock을 사용해 안정적으로 weight를 관리
+>
+> KL weight to β = 6.6사용
+
+## 2.2. Stage Two: Learning the Prior
+
+사전 확률인 φ and θ를 고정해서 사용 
+
+12-billion parameter를 통해 pφ 최적화 
+
+텍스트는 256 token 이고 이미지는 32*32=1024 토큰이며
+
+텍스트 사전의 수는 16,384 그리고 이미지 사전 수는 8,192개(gumbel noise) 이다.
+
+![figure11](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure11.PNG)
+
+> 64개의 self-attention layer 사용하고 3개의 다양한 attention masks를 사용한다.
+>
+> 앞의 6개는 text 영역 뒤의 16개는이미지 영역
+>
+> text-to-text attention : casual mask만 사용 가능
+>
+> image-to-image attention : row/column/convolutional attention mask 적용 
+>
+> ex) a는 이전 5개의 그림 토큰을 이용
+
+모델에서 생성할 수 있는 caption의 최대 길이는 256 token으로 제안
+
+-> pretraining 모델 크기때문으로 보임
+
+1/8 text, 7/8 image cross-entropy로스를 별도로 사용 
+
+606,000개의 validation image dataset 사용 
+
+## 2.3. Data Collection
+
+1.2 billion parameters 크기의 모델로 Conceptual Captions 데이터셋(3.3 milion text-image paire MS-COCO데이터)을 학습 
+
+->논문에서 제시하는 모델 사이즈는 12 billion parameter크기의 모델로 JFT-300M 데이터셋과 비슷한 크기로 텍스트-이미지쌍 데이터 수집 (250Million 개의 데이터셋)
+
+## 2.4. Mixed-Precision Training
+
+![table1](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\table1.PNG)
+
+GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
+
+- 16-bit로 양자화 
+
+대신 학습시 underflow발생으로 이슈가 있음 
+
+그래서 per-resblock gradient scaling 방법을 사용
 
 
 
+- activation checkpointing and recompute
 
+(checkpointing and rematerilization 이라고도 함)
 
+이후 재사용될 가능성이 있는 값을 메모리에 저장해두고 다시 사용하는 방법 대신 값을 일단 버리고 나중에 필요할 때 재계산 하는 방법. (gpu memory 에서 메인memory로 변환하는데 시간이 많이 들기때문에 이렇게 하는게 더 효울적일 수 있음)
 
+-> 10억개에 달하는 모델을 초기화 하고 훈련시키는 방법이 어려웠다고 말함
 
-
-
-
+- ​
 
 
 
@@ -129,6 +224,42 @@ gradient 전달이 잘 되지 않는 하위 layer를 training 하기 위해서 c
 
 각각의 랜덤 변수들이 독립인 경우. 조건부 확률을 이용해 모두
 
+- Factorization of Bayesian network
+
+![f8](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f8.PNG)
+
+베이지안 네트워크의** Factorization**은 Full joint distribution을 구할 때, 개별 노드의 Conditional probability의 Condition에 포함되는 노드를 각 노드의 부모 노드만을 고려함으로써 계산에 사용되는 파라미터를 줄여주는 역할을 한다.
+
+p(a,b,c) = p(c|a,b)p(a,b) = p(c|a,b)p(b|a)p(a)
+
+와 같은 원리 이용
+
+- ELBO (Evidence of Lower BOund)
+
+![f9](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f9.PNG)
+
+P(z|x)가 다루기 힘든 분포를 이루고 있을 때 조금 더 다루기 쉬운 분포인 Q(x)로 대신 표현하려 하는 과정에서 두 분포 (P(z|x)와 Q(x))의 차이 (KL Divergence)를 최소화 하기 위해 사용
+
+-  gumbel-softmax
+
+![f10](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f10.PNG)
+
+1) sampling을 하고 싶은데, neural network에서 backpropagation시에 불가능하다. 이를 해결하기 위해 Gumbel-Max Trick을 사용하여 backpropagation이 흐르도록 해주자
+
+2) argmax를 사용하였더니 backpropagation이 흐르지 않는다. 이를 어떻게 해결할까? Softmax를 취하여 해결함과 동시에, continuous하게 relaxation을 하기 위해 temperature τ를 쓰자
+
+- annealing
+
+Cosine annealing은 학습율의 최대값과 최소값을 정해서 그 범위의 학습율을 코싸인 함수를 이용하여 스케쥴링하는 방법
+
+`learning rate annealing`은 learning rate schedule과 혼용되어 사용되지만 특히, learning rate가 iteration에 따라 monotonically decreasing하는 경우를 의미
+
+![f11](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f11.PNG)
+
+Learning rate annaeling을 사용하면 초기 learning rate를 상대적으로 크게 설정하여 Local minimum에 보다 더 빠르게 다가갈 수 있게 만들어주고 이후 learning rate를 줄여가며 local minimum에 보다 더 정확하게 수렴할 수 있게 만들어준다.
+
+
+
 # 참고 사이트
 
 - dall-e
@@ -143,3 +274,22 @@ gradient 전달이 잘 되지 않는 하위 layer를 training 하기 위해서 c
 
 <https://m.blog.naver.com/PostView.naver?blogId=study_together_&logNo=220820354072>
 
+- Factorization of Bayesian network
+
+https://rooney-song.tistory.com/53
+
+- ELBO (Evidence of Lower BOund)
+
+https://yonghyuc.wordpress.com/2019/09/26/elbo-evidence-of-lower-bound/
+
+-  gumbel-softmax
+
+https://kaen2891.tistory.com/81
+
+- annealing
+
+https://hiddenbeginner.github.io/deeplearning/paperreview/2020/01/04/paper_review_AdamWR.html
+
+- 딥러닝 메모리 효율화 방법
+
+https://yunmorning.tistory.com/20
