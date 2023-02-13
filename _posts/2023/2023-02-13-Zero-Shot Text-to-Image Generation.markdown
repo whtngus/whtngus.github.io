@@ -198,9 +198,27 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 ![figure4](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure4.PNG)
 
+연구에서는 underflow현상이 발생하고, 이를해결해 잘 학습되도록 하는걸 목표로 연구함
+
+-> 이를 하결하기 위해 Standard loss saling을 함 
+
+최종 모델은 그림4와같이 지정 
+
+> 줄선 : forward propagation
+>
+> 점선 : backpropagation - underflow를 해결하기 위해  16, 32bit를 사용 
 
 
 
+## 2.5 Distributed Optimization
+
+![figure5](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure5.PNG)
+
+120억개의 파라미터를 학습하기 위해 24GB메모리가 필요하고 16(V100)으로 학습하기 위해 parameter sharing 방법을 사용
+
+
+
+parameter sharing  찾아보기
 
 
 
