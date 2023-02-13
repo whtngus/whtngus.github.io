@@ -196,7 +196,13 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 -> 10억개에 달하는 모델을 초기화 하고 훈련시키는 방법이 어려웠다고 말함
 
-- ​
+![figure4](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure4.PNG)
+
+
+
+
+
+
 
 
 
