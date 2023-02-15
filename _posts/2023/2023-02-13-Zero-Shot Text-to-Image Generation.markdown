@@ -79,7 +79,7 @@ CUB : 북미 새 200종에 대한 11,788개의 이미지당 5개의 캡션으로
 
 1. Stage 1
 
-> ![img](file:///D:/src/whtngus.github.io/img/2023/Zero-Shot_Text-to-Image_Generation/f3.jpg?lastModify=1676010143)
+> ![img](/img/2023/Zero-Shot_Text-to-Image_Generation/f3.jpg?lastModify=1676010143)
 >
 > 분리된 오토인코더인 dVAD(discrete variational autoencoder)를 학습한다.
 >
@@ -214,7 +214,7 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 ![figure5](\img\2023\Zero-Shot_Text-to-Image_Generation\figure5.PNG)
 
-120억개의 파라미터를 학습하기 위해 24GB메모리가 필요하고 16(V100)으로 학습하기 위해 
+120억개의 파라미터를 학습하기 위해 24GB메모리가 필요하고 16GB(V100)으로 학습하기 위해 
 
 - parameter sharing 방법을 사용
 
