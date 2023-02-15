@@ -29,9 +29,9 @@ OpenAI 에서 연구됨
 
 <https://www.aitimes.com/news/articleView.html?idxno=146393>
 
-![f1](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f1.jpg)
+![f1](\img\2023\Zero-Shot_Text-to-Image_Generation\f1.jpg)
 
-![f1](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f2.jpg)
+![f1](\img\2023\Zero-Shot_Text-to-Image_Generation\f2.jpg)
 
 # Abstract
 
@@ -93,7 +93,7 @@ CUB : 북미 새 200종에 대한 11,788개의 이미지당 5개의 캡션으로
 
 > 256 BPE-encoding된 텍스트 토큰과 32*32=1024개의 이미지토큰을 conctenate  그리고 이 두 관계를 joint distribution 방식을 통해 학습 진행
 
-![f6](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f6.PNG)
+![f6](\img\2023\Zero-Shot_Text-to-Image_Generation\f6.PNG)
 
 > x : images
 >
@@ -101,7 +101,7 @@ CUB : 북미 새 200종에 대한 11,788개의 이미지당 5개의 캡션으로
 >
 > z : 인코딩된 RGB image tokens
 >
-> ![f7](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f7.PNG)
+> ![f7](\img\2023\Zero-Shot_Text-to-Image_Generation\f7.PNG)
 >
 > factorization 분포를 기반으로 함 
 >
@@ -148,7 +148,7 @@ gumbel-softmax와 Adam optimizer 등 여러가지 사용
 
 텍스트 사전의 수는 16,384 그리고 이미지 사전 수는 8,192개(gumbel noise) 이다.
 
-![figure11](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure11.PNG)
+![figure11](\img\2023\Zero-Shot_Text-to-Image_Generation\figure11.PNG)
 
 > 64개의 self-attention layer 사용하고 3개의 다양한 attention masks를 사용한다.
 >
@@ -176,7 +176,7 @@ gumbel-softmax와 Adam optimizer 등 여러가지 사용
 
 ### 2.4. Mixed-Precision Training
 
-![table1](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\table1.PNG)
+![table1](\img\2023\Zero-Shot_Text-to-Image_Generation\table1.PNG)
 
 GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
@@ -196,7 +196,7 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 -> 10억개에 달하는 모델을 초기화 하고 훈련시키는 방법이 어려웠다고 말함
 
-![figure4](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure4.PNG)
+![figure4](\img\2023\Zero-Shot_Text-to-Image_Generation\figure4.PNG)
 
 연구에서는 underflow현상이 발생하고, 이를해결해 잘 학습되도록 하는걸 목표로 연구함
 
@@ -212,7 +212,7 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 ### 2.5 Distributed Optimization
 
-![figure5](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure5.PNG)
+![figure5](\img\2023\Zero-Shot_Text-to-Image_Generation\figure5.PNG)
 
 120억개의 파라미터를 학습하기 위해 24GB메모리가 필요하고 16(V100)으로 학습하기 위해 
 
@@ -231,9 +231,9 @@ GPU memory를 아끼기 위해서 아래와 같은 방법들을 사용
 
 ### 2.6. Sample Generation
 
-![figure2](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure2.PNG)
+![figure2](\img\2023\Zero-Shot_Text-to-Image_Generation\figure2.PNG)
 
-![figure6](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure6.PNG)
+![figure6](\img\2023\Zero-Shot_Text-to-Image_Generation\figure6.PNG)
 
 transformer 기반의 contrastive model을 통해 샘플을 다시 랭킹화 시킴 
 
@@ -247,17 +247,17 @@ transformer 기반의 contrastive model을 통해 샘플을 다시 랭킹화 시
 
 ### 3.1. Quantitative Results
 
-![figure3](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure3.PNG)
+![figure3](\img\2023\Zero-Shot_Text-to-Image_Generation\figure3.PNG)
 
 - 질적인 평가
 
 zero-shot 접근방법으로 MS-COCO 데이터셋을 Inception Score, Frechet Inception Distance평가를 함
 
-![figure7](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure7.PNG)
+![figure7](\img\2023\Zero-Shot_Text-to-Image_Generation\figure7.PNG)
 
 MS-COCO 데이터셋에 있는 캡션을 주고  top 5개의 이미지를 추출한 결과 논문에서 제시한 모델이 많이 뽑히는걸 확인 
 
-![figure9](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\figure9.PNG)
+![figure9](\img\2023\Zero-Shot_Text-to-Image_Generation\figure9.PNG)
 
 - 양적인 평가
 
@@ -271,7 +271,7 @@ c는 reranking 으로 sapling한 수에 따른 스코어 차이
 
 
 
-- 데이터 전처리
+- 데이터 전처리  
 
 contrastive model 모델을 이용해 중복 혹은 비슷한 유사 학습 이미지 제거 진행
 
@@ -295,19 +295,19 @@ gradient 전달이 잘 되지 않는 하위 layer를 training 하기 위해서 c
 
 규칙1. 합 규칙
 
-![f4](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f4.png)
+![f4](\img\2023\Zero-Shot_Text-to-Image_Generation\f4.png)
 
 어떤 특정한 확률을 구하려고 한다면, 그와 관련된 모든 변수들을 포함한 모든 경우에 대해서 결합 분포의 값을 더함 (이산 확률 분포)
 
 규칙 2.  곱 규칙
 
-![f5](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f5.png)
+![f5](\img\2023\Zero-Shot_Text-to-Image_Generation\f5.png)
 
 각각의 랜덤 변수들이 독립인 경우. 조건부 확률을 이용해 모두
 
 - Factorization of Bayesian network
 
-![f8](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f8.PNG)
+![f8](\img\2023\Zero-Shot_Text-to-Image_Generation\f8.PNG)
 
 베이지안 네트워크의** Factorization**은 Full joint distribution을 구할 때, 개별 노드의 Conditional probability의 Condition에 포함되는 노드를 각 노드의 부모 노드만을 고려함으로써 계산에 사용되는 파라미터를 줄여주는 역할을 한다.
 
@@ -317,13 +317,13 @@ p(a,b,c) = p(c|a,b)p(a,b) = p(c|a,b)p(b|a)p(a)
 
 - ELBO (Evidence of Lower BOund)
 
-![f9](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f9.PNG)
+![f9](\img\2023\Zero-Shot_Text-to-Image_Generation\f9.PNG)
 
 P(z|x)가 다루기 힘든 분포를 이루고 있을 때 조금 더 다루기 쉬운 분포인 Q(x)로 대신 표현하려 하는 과정에서 두 분포 (P(z|x)와 Q(x))의 차이 (KL Divergence)를 최소화 하기 위해 사용
 
 -  gumbel-softmax
 
-![f10](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f10.PNG)
+![f10](\img\2023\Zero-Shot_Text-to-Image_Generation\f10.PNG)
 
 1) sampling을 하고 싶은데, neural network에서 backpropagation시에 불가능하다. 이를 해결하기 위해 Gumbel-Max Trick을 사용하여 backpropagation이 흐르도록 해주자
 
@@ -335,7 +335,7 @@ Cosine annealing은 학습율의 최대값과 최소값을 정해서 그 범위�
 
 `learning rate annealing`은 learning rate schedule과 혼용되어 사용되지만 특히, learning rate가 iteration에 따라 monotonically decreasing하는 경우를 의미
 
-![f11](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f11.PNG)
+![f11](\img\2023\Zero-Shot_Text-to-Image_Generation\f11.PNG)
 
 Learning rate annaeling을 사용하면 초기 learning rate를 상대적으로 크게 설정하여 Local minimum에 보다 더 빠르게 다가갈 수 있게 만들어주고 이후 learning rate를 줄여가며 local minimum에 보다 더 정확하게 수렴할 수 있게 만들어준다.
 
@@ -361,7 +361,7 @@ IS와 마찬가지로 inception-v3모델을 사용하여 마지막 pooling layer
 
 FID가 낮을수록 좋은 모델로 해석가능
 
-![f12](D:\src\whtngus.github.io\img\2023\Zero-Shot_Text-to-Image_Generation\f12.PNG)
+![f12](\img\2023\Zero-Shot_Text-to-Image_Generation\f12.PNG)
 
 
 
