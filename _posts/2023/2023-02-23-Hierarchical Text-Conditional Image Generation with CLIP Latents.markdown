@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hierarchical Text-Conditional Image Generation with CLIP Latents"
-date: 2023-02-23 00:10:23 +0900
+date: 2023-02-23 00:05:23 +0900
 category: datascience
 ---
 
