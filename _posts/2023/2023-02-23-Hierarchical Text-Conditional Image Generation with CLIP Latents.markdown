@@ -17,6 +17,8 @@ paper url : https://arxiv.org/pdf/2204.06125v1.pdf
 
 code url : https://github.com/lucidrains/DALLE2-pytorch
 
+tutorial code ? : https://github.com/jina-ai/dalle-flow
+
 # Abstract
 
 dall-e에서 사용한 CLIP의 contrastive 모델은 representation을 robust하게 보여주는걸 증명함
@@ -85,35 +87,35 @@ decoder에서 image generation
 
 >  OpenAI - 2021년 1월(OpenAI Blog)
 >
-> 
+>  
 >
-> 이미지와 텍스트를 같은 공간으로 매핑하여 representation learning을 수행하는 모델 
+>  이미지와 텍스트를 같은 공간으로 매핑하여 representation learning을 수행하는 모델 
 >
-> - 이미지에서의 임베딩 단점 
+>  - 이미지에서의 임베딩 단점 
 >
-> 이미지 분야에서는 CNN 기반 모델이 강한 면모를 보이기는 하지만, zero-shot learning에서는 매우 낮은 정확도를 보임
+>  이미지 분야에서는 CNN 기반 모델이 강한 면모를 보이기는 하지만, zero-shot learning에서는 매우 낮은 정확도를 보임
 >
 >  weak supervised learning 방식으로도 어느 정도 성과를 보였으나, 저자들은 이 방식은 zero-shot 학습 능력을 제한한다고 주장
 >
-> - WIT(WebImage Text)라는 세로운 데이터셋을 만듦
+>  - WIT(WebImage Text)라는 세로운 데이터셋을 만듦
 >
-> 기존 MS-COCO, Visual Genome은 품질이 좋지만 데이터가 별로 없고 YFCC100M는 데이터가 많지만 품질이 안좋기 때문 
+>  기존 MS-COCO, Visual Genome은 품질이 좋지만 데이터가 별로 없고 YFCC100M는 데이터가 많지만 품질이 안좋기 때문 
 >
-> 인터넷에서 수집한 4억 개의 image, text 쌍으로 구성된 데이터
+>  인터넷에서 수집한 4억 개의 image, text 쌍으로 구성된 데이터
 >
-> - 학습 방법
+>  - 학습 방법
 >
-> negative와 positive를 나눠서 이미지에 대해서 같은 image caption 쌍과 다른 image caption쌍을 만든다.
+>  negative와 positive를 나눠서 이미지에 대해서 같은 image caption 쌍과 다른 image caption쌍을 만든다.
 >
-> N개의 image,text 쌍이 있으면 총 데이터는 N(N-1)개 생성됨 
+>  N개의 image,text 쌍이 있으면 총 데이터는 N(N-1)개 생성됨 
 >
-> ![clip](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip.PNG)
+>  ![clip](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip.PNG)
 >
-> - ResNet은 ResNet-50, ResNet-101, ResNet-50의 4배, 16배, 64배에 해당하는 EfficientNet-style 모델 3개(RN50x4, RN50x16, RN50x64)를 추가로 더 학습시켰다.
-> - ViT는 ViT-B/32, ViT-B/16, ViT-L/14를 사용하였다.
-> - 전부 32 epoch만큼 학습시켰다.
+>  - ResNet은 ResNet-50, ResNet-101, ResNet-50의 4배, 16배, 64배에 해당하는 EfficientNet-style 모델 3개(RN50x4, RN50x16, RN50x64)를 추가로 더 학습시켰다.
+>  - ViT는 ViT-B/32, ViT-B/16, ViT-L/14를 사용하였다.
+>  - 전부 32 epoch만큼 학습시켰다.
 >
-> ![clip2](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip2.PNG)
+>  ![clip2](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip2.PNG)
 
 
 
