@@ -41,7 +41,7 @@ embedding된 이미지를 이용해 decoder 모델에서 이미지 생성
 
 # 1 Introduction
 
-![f1](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\f1.PNG)
+![f1](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\f1.PNG)
 
 CLIP embedding에는 여러가지 장점이 있음
 
@@ -64,6 +64,8 @@ decoder에서 image generation
 이미지 임베딩 공간을 이용한 임베딩 공간을 이용해 이미지 변환 
 
 + 임베딩 공간을 이용해 CLIP에서 이미지의 어떤 특징을 인식하거나 무시하는지 관찰할 수 있음
+
+
 
 
 
