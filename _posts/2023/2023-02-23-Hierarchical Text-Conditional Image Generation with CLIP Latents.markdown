@@ -2,7 +2,7 @@
 layout: post
 title: "Hierarchical Text-Conditional Image Generation with CLIP Latents"
 date: 2023-02-23 00:05:23 +0900
-category: datascience
+category: paper
 ---
 
 # Hierarchical Text-Conditional Image Generation with CLIP Latents
@@ -103,6 +103,28 @@ GLIDE는 CLIP가 잘못하는 영역의 자연어 임베딩을 잘 학습할 수
 CLIP 임베딩 중 10%를 0으로, 50%로 text caption을 랜덤하게 드랍시킴
 
 dall-e 에서는 64\*64를 256\*256 으로 resolution 하나만 시켰는데 dall-e2 에서는 1024*1024 도 resolution 시킴 + 학습하는 동안에는 noise를 약하게 줌 
+
+
+
+## 2.2 Prior
+
+![f3](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\f3.PNG)
+
+CLIP가 images x로 부터 임베딩 zi를 만드는 동안  캡션 y에서도 zi를 만들 수 있도록 하는 모델이 필요함 -> 이게 있어야 캡션으로 이미지를 생성 가능 
+
+이를 위해 두 가지 다른 모델을 제안 
+
+> - Autoregressive (AR) prior
+>
+> CLIP임베딩된 zi는를 분리해  캡션 y를 하나씩 예측하는 방법으로 바뀜
+>
+> -> 
+>
+> - Diffusion prior
+>
+> 연속적인 vector zi 를 Gaussian diffusion model 을 이용해 직접적으로 모델링
+
+정확도를 올리기 위해 10%의 확률로 text 정보를 drop 시킴 
 
 
 

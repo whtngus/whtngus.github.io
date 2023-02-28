@@ -2,7 +2,7 @@
 layout: post
 title: "Zero-Shot Text-to-Image Generation"
 date: 2023-02-10 01:20:23 +0900
-category: datascience
+category: paper
 ---
 
 # Zero-Shot Text-to-Image Generation
