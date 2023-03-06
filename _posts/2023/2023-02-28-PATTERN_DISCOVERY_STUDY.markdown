@@ -43,6 +43,42 @@ Diaper -> beer (sL60%, c : 75%)
 
 둘다 동시발생은 60%  beer를 구매할때 Diaper를 구매한 경우는 100% 반대는 75%
 
+#### max pattern  closed pattern
+
+![closed_pattern](D:\src\whtngus.github.io\img\2023\PATTERN_DISCOVERY_STUDY\closed_pattern.PNG)
+
+max pattern이 min-support보다 크면 그 부분집합은 당연히 min-support보다 클것이다.  라는 개념을 이용 
+
+위 그림중 파란색이 closed 패턴 =>  자신을 포함하는 상위 집합 중에 자신보다 크거나 같은 support가 없는 경우에만 파란색인 것
+
+### Downard Closure Property(Apriori property)
+
+{beer, diaper, nuts} 가 frequent 하면 subitem 인 {beer diaper} 는 적어도 그 만큼은 frequent 해야한다
+
+-> 반대로 보면 s의 어떤 subset도 infrequent하면 S가 frequent할 수 없음
+
+![Apriori property](D:\src\whtngus.github.io\img\2023\PATTERN_DISCOVERY_STUDY\Apriori property.PNG)
+
+minsup 보다 큰 조합들을 계속해서 합쳐 가장 큰 조합을 참조 
+
+### Partitioning
+
+![partitioning](D:\src\whtngus.github.io\img\2023\PATTERN_DISCOVERY_STUDY\partitioning.PNG)
+
+local TDB에서 frequent하지 않으면 global TDB 에서도 frequent하지 않다고 가정 -> 글로벌에서 frequent 하려면 적어도 partitioning된 lcal TDB중 하나에서는 fequent 해야한다.
+
+### Direct Hashing and Pruning
+
+DHP는 candidates의 수를 줄이기 위해 사용 
+
+item이 frequent한다면, hasing bucket에 들어갔을때 그 count 값이 threshold보다 높아야 한다.
+
+
+
+
+
+
+
 
 
 
@@ -54,3 +90,6 @@ Diaper -> beer (sL60%, c : 75%)
 
 https://1ambda.github.io/data-analysis/pattern-discovery-1/
 
+- max, clsed pattern
+
+https://sijoo.tistory.com/16
