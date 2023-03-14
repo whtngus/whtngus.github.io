@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PATTERN DISCOVERY STUDY"
-date: 2023-03-15 00:05:23 +0900
+date: 2023-03-15 00:01:23 +0900
 category: datascience
 ---
 
