@@ -227,7 +227,7 @@ DB를 지속적으로 스캔해 가면서 minimum support를 통과하지 못하
 ![spade](\img\2023\PATTERN_DISCOVERY_STUDY\spade.PNG)
 
 > 1. SID 뿐만 아니라 element ID(각 seq에서의 순서로 보임) 를 이용해서 테이블을 좌측처럼 하나 생성
-> 2.  우측 위처럼 아이템 별 SID, EID를 나열
+> 2. 우측 위처럼 아이템 별 SID, EID를 나열
 > 3. 패턴의 길이를 늘려가며 계속 조인해 support를 계산
 
 3. PrefixSpan
@@ -304,7 +304,21 @@ Closed pattern을 사용하는 이유는 중복된 패턴을 피하기위함
 
 
 
-### CloseGraph 여기 이어서 보기 **
+### CloseGraph
+
+`n` 개의 *edge* 를 가진 그래프에는 `2^n` 개의 서브그래프가 존재
+
+숫자가 너무 많아지기 대문에 closed frequent subgraph를 사용 
+
+-> G가 있을때마다 G1이 존재한다면 G1이 G를 커버
+
+
+
+  
+
+
+
+
 
 
 
