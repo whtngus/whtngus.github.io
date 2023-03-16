@@ -144,7 +144,7 @@ FC : fully-connected layer
 
 ## 3.3. Semantic Condition
 
-![f_8](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_8.png)
+![f_8](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_8.png)
 
 N (0, I) : noise distribution
 
@@ -156,7 +156,7 @@ t : time step
 
 ϕ : 위 수식의 오른쪽 multi-layer perception
 
- ![f_9](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_9.png)
+ ![f_9](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_9.png)
 
 W0 = [z^x, z^r]
 
@@ -166,13 +166,13 @@ W0 = [z^x, z^r]
 
 ## 3.4. Cascaded Diffusion Transformer
 
-![f_10](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_10.png)
+![f_10](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_10.png)
 
 M : the total number of stacked Diffusion Transformer
 
 f1 : Diffusion Transformer
 
-![f_11](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_11.png)
+![f_11](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_11.png)
 
 z^x : textual feature 
 
@@ -182,11 +182,11 @@ z^x : textual feature
 
 scst를 이용해 학습을 함 
 
-![f_12](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_12.png)
+![f_12](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_12.png)
 
 R : SIDEr score function
 
-![f_13](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_13.png)
+![f_13](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_13.png)
 
 Y_1^s:n_s :  샘플 캡션 
 
@@ -194,7 +194,7 @@ R : 문장단위의 reward 함수
 
 x_t는 이상하게 추출된 노이즈 문장이 포함될 수 있음
 
-![f_14](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_14.png)
+![f_14](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\f_14.png)
 
 
 
@@ -240,7 +240,7 @@ FC(Fully Connected Neural Network)
 
 3. Self-Critical Sequence Training(scst)
 
-![scst](C:\Users\whtng\OneDrive\문서\src\whtngus.github.io\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\scst.png)
+![scst](\img\2023\Semantic-Conditional_Diffusion_Networks_for_Image_Captioning\scst.png)
 
 샘플링된 캡션과 추론 *알고리즘*으로 생성된 캡션. 의 사이의 CIDEr-D 스코어[21]의 오차를 리워드로 주어 학습하는 방식 
 
