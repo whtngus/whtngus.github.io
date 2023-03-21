@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PATTERN DISCOVERY STUDY"
-date: 2023-03-15 00:01:23 +0900
+date: 2023-03-21 00:01:23 +0900
 category: datascience
 ---
 
@@ -316,6 +316,34 @@ Closed pattern을 사용하는 이유는 중복된 패턴을 피하기위함
 
   
 
+# 응용 사례 조사
+
+### 고려대학교 DMQA세미나 - sequential pattern을 이용한 응용사레
+
+- 위에 정리한 내용을 잘 정리해놨음 복습겸 다시  보는것도 괜찮아 보임 
+
+응용 예시
+
+1. 수면 이벤트 시퀀스 분석
+2. 공정 설비 시퀀스 분석
+
+![result](F:\code\whtngus.github.io\img\2023\PATTERN_DISCOVERY_STUDY\result.PNG)
+
+연속형 -> 이산화해서 사용 
+
+이산화를 event로 하면 순차 패턴 
+
+이상화를 그래프로 할 수 있으면 그래프 패턴으로 
+
+❖ 연관 분석
+   ➢ 연관 규칙(Apriori rule)을 도출하는 분석 기법 
+   ➢ 규칙 도출 기준 척도: 지지도, 신뢰도, 향상도 
+   ➢ Apriori 기반 알고리즘: 계산이 쉬운 장점, 계산 시간이 방대한 단점
+❖ 순차 패턴 분석
+   ➢ GSP: 지지도 기반 너비우선 탐색
+   ➢ Prefix: 지지도 기반 깊이 우선 탐색
+   ➢ HMM: 기계학습 모델 기반 순차 패턴 분석
+
 
 
 
@@ -346,3 +374,7 @@ https://process-mining.tistory.com/92
 - Multi-Level Associations, Multi-Dimensional Associations
 
 https://gofo-coding.tistory.com/entry/Multi-level-Association-Multi-dimensional-Association?category=1056379
+
+- 응용사례 조사 
+
+http://dmqm.korea.ac.kr/activity/seminar/237
