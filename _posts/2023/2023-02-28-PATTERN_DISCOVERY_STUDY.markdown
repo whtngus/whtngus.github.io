@@ -327,7 +327,7 @@ Closed pattern을 사용하는 이유는 중복된 패턴을 피하기위함
 1. 수면 이벤트 시퀀스 분석
 2. 공정 설비 시퀀스 분석
 
-![result](F:\code\whtngus.github.io\img\2023\PATTERN_DISCOVERY_STUDY\result.PNG)
+![result](\img\2023\PATTERN_DISCOVERY_STUDY\result.PNG)
 
 연속형 -> 이산화해서 사용 
 
