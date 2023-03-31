@@ -84,7 +84,7 @@ zi, zt : CLIP에 의해 임베딩된 latent vector
 >
 > CLIP에 의해 임배딩된 이미지와 캡션 y로 이미지 x를 계산 (선택적으로 zi 대신 xi 도 가능  -> inference 시 사용하는걸로 보임)
 
-![formula1](D:\src\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\formula1.PNG)
+![formula1](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\formula1.PNG)
 
 CLIP를 이용해 임베딩 된 zi와 캡션 y를 통해 이미지 x를 생성
 
@@ -92,9 +92,9 @@ CLIP를 이용해 임베딩 된 zi와 캡션 y를 통해 이미지 x를 생성
 
 CLIP은 diffusion 모델을 통해 이미지 + GLIDE text encoder를 통해 임베딩 함
 
-![figure15](D:\src\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\figure15.PNG)
+![figure15](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\figure15.PNG)
 
-![figure16](D:\src\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\figure16.PNG)
+![figure16](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\figure16.PNG)
 
 GLIDE는 CLIP가 잘못하는 영역의 자연어 임베딩을 잘 학습할 수 있을거라고 생각했지만 위 figure 16 처럼 잘 되지는 않음 
 
@@ -108,7 +108,7 @@ dall-e 에서는 64\*64를 256\*256 으로 resolution 하나만 시켰는데 dal
 
 ## 2.2 Prior
 
-![f3](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\f3.PNG)
+![f3](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\f3.PNG)
 
 CLIP가 images x로 부터 임베딩 zi를 만드는 동안  캡션 y에서도 zi를 만들 수 있도록 하는 모델이 필요함 -> 이게 있어야 캡션으로 이미지를 생성 가능 
 
@@ -171,19 +171,19 @@ CLIP가 images x로 부터 임베딩 zi를 만드는 동안  캡션 y에서도 z
 >
 >  N개의 image,text 쌍이 있으면 총 데이터는 N(N-1)개 생성됨 
 >
->  ![clip](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip.PNG)
+>  ![clip](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip.PNG)
 >
 >  - ResNet은 ResNet-50, ResNet-101, ResNet-50의 4배, 16배, 64배에 해당하는 EfficientNet-style 모델 3개(RN50x4, RN50x16, RN50x64)를 추가로 더 학습시켰다.
 >  - ViT는 ViT-B/32, ViT-B/16, ViT-L/14를 사용하였다.
 >  - 전부 32 epoch만큼 학습시켰다.
 >
->  ![clip2](F:\code\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip2.PNG)
+>  ![clip2](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\clip2.PNG)
 
 2. Diffusion model
 
 Diffusion model은 데이터를 만들어내는 deep generative model 중 하나로, data로부터 noise를 조금씩 더해가면서 data를 완전한 noise로 만드는 forward process(diffusion process)와 이와 반대로 noise로부터 조금씩 복원해가면서 data를 만들어내는 reverse process를 활용
 
-![diffusion_model](D:\src\whtngus.github.io\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\diffusion_model.PNG)
+![diffusion_model](\img\2023\Hierarchical_Text-Conditional_Image_Generation_with_CLIP_Latents\diffusion_model.PNG)
 
 1. 오른쪽에서 왼쪽으로 noise를 점점 더해가는 forward process q를 진행
 2. forward process를 반대로 추정하는 reverse process p를 학습
