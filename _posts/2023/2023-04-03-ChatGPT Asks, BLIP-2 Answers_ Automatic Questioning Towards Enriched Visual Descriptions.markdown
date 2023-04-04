@@ -249,29 +249,43 @@ COCO, WikiArt, CC 데이터셋을 기반으로 테스트
 
 - Does BLIP-2 know it doesn’t know?
 
+![f_5](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_5.PNG)
+
 BLIP-2는 answer를 만들 수 있지만 
 
+질문 사항이 이미지에서 답변을 만들어 낼 수 없는경우에는 정상적인 작동을 하지 못함
+
+-> 질문사항이 알아볼수 없는경우 Don't know혹은 Not usre를 반환하도록 함 
+
+- How effective is the uncertainty prompt? 
+
+![t_4](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_4.PNG)
+
+CC 데이터셋에서 200개의 이미지를 랜덤하게 뽑고 1,800개의 질문을 가져옴 
+
+여기에서 147개의 uncertain 질문으로 BLIP-2의 답변을 확인
+
+## 4.3. Question Analysis
+
+- How diverse are the automatic generated questions?
+
+![f_7](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_7.PNG)
 
 
 
+chat-gpt 대신 다양한 모델로 테스트
+
+## 4.4 Limitation
+
+BLIP-2가 잘못된 답변을 한 경우 잘못된 캡션이 생성됨 (연구에서 잘못된 답변을 많이 줄였지만 그래도 존재함)
 
 
 
+# 결론
+
+ChatGPT를 이용해 잘 만들어진 캡션 생성 모델을 제안함
 
 
--> 특정 모델이 캡션을 가지고 해당 이미지가 맞는지 아닌지의 정확도로 평가 
-
-
-
-# 참고지식
-
-- WordNet synset matching
-
-
-
-
-
-# 참고
 
 
 
