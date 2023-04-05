@@ -33,7 +33,7 @@ WordNet synset matching 방법으로 평가함
 
 #  1. Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_1.PNG)
+![f_1](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_1.PNG)
 
 질문을 잘 하는것은 모델이 세상을 이해하기 위한 가장 핵심적인 요소.
 
@@ -77,7 +77,7 @@ VQA capability of BLIP-2
 
 # 3. ChatCaptioner
 
-![f_2](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_2.PNG)
+![f_2](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_2.PNG)
 
 ChatGPT를 사용해 자동적으로 질문을 생성하고 BLIP-2 Vision-Language model을 이용해 새로운 정보 답을 생성
 
@@ -137,7 +137,7 @@ Question: <question> Answer: <answer>
 
 직접적으로 "Describe the image in detail" 라는 내용을 입력해 요약 텍스트를 생성 
 
-![f_3](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_3.PNG)
+![f_3](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_3.PNG)
 
 Figure 3는 위의 방법을 통해 캡션을 생성한 예시
 
@@ -195,7 +195,7 @@ Now summarize the information you get in a few sentences. Ignore the questions w
 
 #  4. Experiments
 
-![f_4](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_4.PNG)
+![f_4](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_4.PNG)
 
 ChatCaptioner 으로 생성된 캡션과 비교, 결과의 퀄리티가 다름을 볼 수 있음
 
@@ -211,7 +211,7 @@ ROUGE, METEOR 로 metric 사용
 
 - Does ChatCaptioner extract more information from the image?
 
-![t_1](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_1.PNG)
+![t_1](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_1.PNG)
 
 BLIP-2 를 단독으로 사용하는것 보다 ChatCApioner를 사용하는것이 더 욱 많은 정보를 생성해냄 COCO, WikiArt의 ArtEmis, CC 데이터에서 랜덤으로 100개를 추출해 평가를 진행
 
@@ -221,7 +221,7 @@ BLIP-2 를 단독으로 사용하는것 보다 ChatCApioner를 사용하는것�
 
 - How many objects in images can ChatCaptioner discover?
 
-![t_2](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_2.PNG)
+![t_2](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_2.PNG)
 
 Pascal VOC 200개의 이미지를 추출해서 캡션을 생성후
 
@@ -233,7 +233,7 @@ WordNet의 NLTK를 이용해 유사한 의미를 가진 단어를 찾은 경우 
 
 - How accurate are the captions from ChatCaptioner?
 
-![t_3](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_3.PNG)
+![t_3](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_3.PNG)
 
 ChatCaptioner를 평가하기 위해 human evaluation 을 수행
 
@@ -249,7 +249,7 @@ COCO, WikiArt, CC 데이터셋을 기반으로 테스트
 
 - Does BLIP-2 know it doesn’t know?
 
-![f_5](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_5.PNG)
+![f_5](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_5.PNG)
 
 BLIP-2는 answer를 만들 수 있지만 
 
@@ -259,7 +259,7 @@ BLIP-2는 answer를 만들 수 있지만
 
 - How effective is the uncertainty prompt? 
 
-![t_4](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_4.PNG)
+![t_4](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\t_4.PNG)
 
 CC 데이터셋에서 200개의 이미지를 랜덤하게 뽑고 1,800개의 질문을 가져옴 
 
@@ -269,7 +269,7 @@ CC 데이터셋에서 200개의 이미지를 랜덤하게 뽑고 1,800개의 질
 
 - How diverse are the automatic generated questions?
 
-![f_7](F:\code\whtngus.github.io\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_7.PNG)
+![f_7](\img\2023\ChatGPT Asks, BLIP-2 Answers_ Automatic Questioning Towards Enriched Visual Descriptions\f_7.PNG)
 
 
 
