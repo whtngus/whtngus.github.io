@@ -130,9 +130,27 @@ pair 텍스트와 unpair 텍스트를구분하는 테스크
 
 ### 3.2.1 PROJECTION-BASED DECODING (PD)
 
+![fm_2](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_2.PNG)
 
+> M : {m1, m2, ..., mN}  임베딩 스페이스
+>
+> mi : E_{text}(ti)  -> 즉 단어 t에 대한 임베딩
+>
+> v :E_{image}(I)
+>
+> τ : 하이퍼 파라미터 
+>
+> wi : 텍스트에 대한 가중치
+>
+> v_{proj} : 이미지와 텍스트를 조합한 임베딩 
+>
+> 텍스트와 이미지 임베딩인 m과 v의 코사인 유사도 
 
+이미지 임베딩과 가장 가까운 softmax 를 사용 
 
+![fm_s_2](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_s_2.PNG)
+
+v_proj = projected vector -> auto-regressive 
 
 
 
