@@ -80,7 +80,7 @@ DeCap 모델인  zero-shot captioning를 제안
 
 #### CLIP in Captioning.
 
-![f_1](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\f_1.PNG)
+![f_1](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\f_1.PNG)
 
 Vision-Language 모델로 contrastive loss를 사용 
 
@@ -110,7 +110,7 @@ pair 텍스트와 unpair 텍스트를구분하는 테스크
 
 -> 그러나 PLM은 웹공간의 다양한 이미지를 학습하여 caption된 좋은 데이터가 없어 이미지 캡셔닝 테스크에 적합하지 않음
 
-![fm](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm.PNG)
+![fm](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm.PNG)
 
 > t : 문장  t = {word1, word2 , .... , wordt}
 >
@@ -130,7 +130,7 @@ pair 텍스트와 unpair 텍스트를구분하는 테스크
 
 ### 3.2.1 PROJECTION-BASED DECODING (PD)
 
-![fm_2](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_2.PNG)
+![fm_2](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_2.PNG)
 
 > M : {m1, m2, ..., mN}  임베딩 스페이스
 >
@@ -148,7 +148,7 @@ pair 텍스트와 unpair 텍스트를구분하는 테스크
 
 이미지 임베딩과 가장 가까운 softmax 를 사용 
 
-![fm_s_2](F:\code\whtngus.github.io\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_s_2.PNG)
+![fm_s_2](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\fm_s_2.PNG)
 
 v_proj = projected vector -> auto-regressive 
 
