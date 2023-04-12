@@ -152,11 +152,117 @@ pair 텍스트와 unpair 텍스트를구분하는 테스크
 
 v_proj = projected vector -> auto-regressive 
 
+###  3.2.2 DISCUSSION
+
+inference 비교를 통해 decoder 부분의 projection 영역에 대한 영향도를 조사함 
+
+1. CLIPRe
+
+간단한 retrieval-based로 decoder가 필요없는 방법을 고민
+
+이미지 I 와 text set T = {t1, ... tn}이 주어지면 CLIP를 통해 이미지와 텍스트의 유사도를평가하는 방법으로 사용
+
+-> arg max t∈Tsim(Eimage(I), Etext(t)),  코사인 유사도 
+
+이걸 베이스라인으로 사용
+
+2. Visaul Decoding (VD)
+
+텍스트 임베딩과, 이미지 임베딩의 상관관계를 분석 -> Visual Decoding이라 명칭
+
+-> Pθ(Eimage(I))
+
+그러나 실험 결과가 좋지 못함 
+
+이미지와 텍스트 임베딩 간의 gap 큼 
+
+3. Nearest-neighbor Decoding (NDD)
+
+ nearest text embedding 방법을 사용
+
+1) 이미지 임베딩인 Eimage(I)과 텍스트 임베딩 M의 유사도를 검사
+
+2) nearest text embedding을 통해 가장 가까운 임베딩을 적용 
+
+이를 Nearest-neighbor Decoding으로 정의
+
+-> Pθ(arg maxm∈M sim(Eimage(I), m))
+
+위 결과는 1번인 CLIPRe와 비슷한 스코어가 나옴 
 
 
 
+# 4. EXPERIMENTS
+
+다양하게 수집덴 corpora에서 zero-shot image captino을 수행 
+
+## 4.1 ZERO-SHOT IMAGE CAPTIONING
+
+전통적인 image captioning 방법은 이미지와 사람이 레이블링한 캡션 세트로 학습 
+
+이러한 방법은 다양한 크기와 여러 텍스트를 학습할 수 없다는 단점이 있음
+
+이를 해결하기 위해 연구에서 3가지 방법을 제안
+
+![t_1](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\t_1.PNG)
+
+1. CC3M 
+
+300만개의 인터넷 이미지에 대한 설명셋을 가지고 있음  (CC3M-text)
+
+랜덤 셈플을 통해 100만개만 학습
+
+2. SS1M
+
+MSCOCO caption
+
+978.662 문장과 2,322,628개의 수집된 이미지
+
+3. BookCorpus
+
+무료 소설책을 수집한 코퍼스 6,217,799개의 문장
+
+## 4.2 UNPAIRED IMAGE CAPTIONING
+
+![T_2](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\T_2.PNG)
+
+연결되지 않은 이미지와 켑셧 셋에서의 평가 
+
+-> 대신 트레이닝 테스트셋이 같음, 학습데이터는 unpaired로 
+
+## 4.3 VIDEO CAPTIONING
+
+![t_4](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\t_4.PNG)
+
+msr-vtt, Activity0captions, VATEX(테스트셋 5182 raw test videos out of 6000) 데이터셋 에서 평가
+
+-> VATEX에서 일부 데이터만 사용한건 영상을 일부 사용할수 없어서 라고함
+
+1. Generic corpus
+
+book corpus 로 학습함
+
+2. Image captions
+
+MSCOCO 데이터와 CC3M 데이터로 학습
+
+3. Video captions
+
+비디오 학습 셋에서 text를 수집해 학습 
 
 
+
+Table4를 보니 비디오 데이터보다 CC3M이나 COCO가 더 정확도가 높음 
+
+![f_2](\img\2023\DECAP DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING\f_2.PNG)
+
+데이터와 메모리 크기에 따른 CIDEr 스코어 비교
+
+# 5. CONCLUSION
+
+lightweight VISUAL-AWARE 모델을 제안
+
+training-free 방법론 제안.
 
 
 
@@ -175,6 +281,8 @@ v_proj = projected vector -> auto-regressive
 Learning Transferable Visual Models From Natural Language Supervision논문으로
 
 인터넷에서 얻은 대규모 데이터셋을 이용, 이미지와 연관된 caption으로 사전학습
+
+자연어 지시문을 주면 zero-shot으로 모델에 적용 가능(pre train으로 여러 down-stream task 적용 가능)
 
 - web scale
 
