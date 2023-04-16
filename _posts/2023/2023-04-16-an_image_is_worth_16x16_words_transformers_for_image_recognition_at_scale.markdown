@@ -51,13 +51,13 @@ pixcel 단위 attention을 많이 사용하지만 pixcel크기의 제곱에 해�
 
 # 3. METHOD
 
-![f_1](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_1.PNG)
+![f_1](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_1.PNG)
 
 제안하는 모델은 기본적인 Transformer와 상당히 유사함 
 
  ## 3.1 VISION TRANSFORMER(ViT)
 
-![fm_1](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\fm_1.PNG)
+![fm_1](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\fm_1.PNG)
 
 Figure1은 기본적인 1D 임베딩의 그림인데 사진은 2D 여서 이를 해결할 방법이 필요 
 
@@ -117,7 +117,7 @@ ReaL labels, CIFAR-10/100, Oxford-IIIT Pets, Oxford Flowers-102, 19-task VTAB(�
 
 - Model Variants
 
-![t_1](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\t_1.PNG)
+![t_1](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\t_1.PNG)
 
 Table1과 같이 BERT를 따라감
 
@@ -133,7 +133,7 @@ ResNet모델의 Batch Normalization 레이어 위치를 이동하고, standardiz
 
 ## 4.2 COMPARISON TO STATE OF THE ART
 
-![t_2](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\t_2.PNG)
+![t_2](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\t_2.PNG)
 
 학습시 TPUv3 사용 <- 구글에서 한참 TPU를 밀고 있을때
 
@@ -143,7 +143,7 @@ BiT, VIVI, S4L은 기존 sota모델
 
 ## 4.3 PRE-TRAINING DATA REQUIREMENTS
 
-![f_3](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_3.PNG)
+![f_3](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_3.PNG)
 
 그림 3 :  데이터셋 별 비교 
 
@@ -153,15 +153,17 @@ BiT, VIVI, S4L은 기존 sota모델
 
 ## 4.5 INSPECTING VISION TRANSFORMER
 
-![f_6](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_6.PNG)
+![f_6](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_6.PNG)
 
 우측 아래는 어텐션이 잘 안된거같은데 ? ,,
 
-![f_7](F:\code\whtngus.github.io\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_7.PNG)
+![f_7](\img\2023\an_image_is_worth_16x16_words_transformers_for_image_recognition_at_scale\f_7.PNG)
 
 왼쪽은 임베딩 필터를 보여주는데 다양한 패턴에 대해 필터링을 하는것으로 보임 (특정 패턴이 안보임)
 
-중앙은 
+중앙은 embedding 시각화
+
+우측은 attetion
 
 
 
