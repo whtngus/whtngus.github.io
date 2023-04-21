@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ChatGPT Asks, BLIP-2 Answers: Automatic Questioning Towards Enriched Visual Descriptions"
-date: 2023-04-03 00:05:23 +0900
+date: 2023-04-12 00:05:23 +0900
 category: paper
 ---
 
