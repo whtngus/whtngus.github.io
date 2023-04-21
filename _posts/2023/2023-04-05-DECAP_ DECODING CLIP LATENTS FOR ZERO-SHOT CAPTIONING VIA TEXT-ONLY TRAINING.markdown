@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DECAP: DECODING CLIP LATENTS FOR ZERO-SHOT CAPTIONING VIA TEXT-ONLY TRAINING"
-date: 2023-04-21 00:05:23 +0900
+date: 2023-04-21 00:06:23 +0900
 category: paper
 ---
 

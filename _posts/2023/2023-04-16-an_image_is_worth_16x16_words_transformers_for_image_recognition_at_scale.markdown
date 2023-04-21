@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "an image is worth 16x16 words transformers for image recognition at scale"
-date: 2023-04-21 00:05:23 +0900
+date: 2023-04-21 00:06:23 +0900
 category: paper
 ---
 
