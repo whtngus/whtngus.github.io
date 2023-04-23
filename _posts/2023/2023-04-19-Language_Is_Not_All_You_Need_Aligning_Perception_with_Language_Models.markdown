@@ -202,13 +202,92 @@ question answering)  -> 이중 랜덤으로 54K개를 선택해 사용
 
 # 4 Evaluation
 
+## 4.1 Perceptin Language Tasks
+
+- Image Caption
+
+MS COCO Caption과 Filckr30k dataset을 활용해 평가 진행
+
+few shot learning 방법을 사용해도 높은 정확도를 보임 (테이블이 많아 생략)
+
+Flamingo-3B (비교대상)
+
+- IQ Test
+
+![f_4](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_4.PNG)
+
+흥미로운건 이미지와 텍스트가 같이있고 사람도 쉽게 판별하기 어려운 IQ 테스트 내용인데 
+
+정확도가 좋진 않지만 랜덤보다는 높은 스코어로 유의미한 결과가 나옴
+
+![t_6](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_6.PNG)
+
+약간 의심이 가는건 저정도 스코어면 그림이나 결과에 약간의 편향이 있다면 그걸로 랜덤보다 높은 스코어가 나올수 있지 않을까 싶음 
+
+- OCR-Free Language Understanding
+
+정확도가 높은 수준 
+
+내용 생략
+
+- Weg Page Question Answering
+
+기존 LLM보다 높은 정확도를 보임 (WebSRC dataset 사용)
+
+- Multimodal Chain-of-Throught Prompting
+
+![f_5](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_5.PNG)
+
+정확도를 올리기 위해 두 가지 스텝을 사용
+
+step 1 : 이미지가 들어온 경우 텍스트와 이유를 생성 
+
+step 2 :  step1을 통해 tasks를 이해시켜 최종 결과를 생성 
+
+(결과 좋음 생략)
+
+- Zero-Shot Image Classification
+
+![f_6](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_6.PNG)
+
+beam size 2 이며 image는 224*224로 resoution 후 사용 
+
+- Zero-Shot Image Classification with Descriptions
+
+분류와 설명을 동시에하는 테스크로 CUB 데이터셋 사용 
+
+bird classification dataset을 통해 새를 분류하고 (3개의 그룹)
+
+설명 생성
+
+- Language Tasks
+
+생략
+
+- Cross-modal Transfer
+
+: COCO, Flickr30k, VQAv2, and VizWiz 데이터셋을 사용 : CIDEr scores for COCO/Flickr30k and VQA
+accuracy for VQAv2/VizWiz. 테스트
+
+![t_14](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_14.PNG)
+
+대락적으로 language-only 보다 멀티모달 학습의 정확도가 더 높음
+
+당연한 것 같은데 coco dataset에서 정확도가 더 안나온건 ...
+
+# 5 Conclusion
+
+해당 논문에서 multimodal large language model 인 KOSMOS-1을 발표
+
+web-scale multimodal corpora 학습 이며 MLLM 용어 사용 -> 높은 성능을 보여 멀티모달 최적화 시킴
+
+부록에 재미있는 내용이 많아 중간중간 구경하기 좋아 보임
 
 
 
+-> chatGPT(GPT3.5 GPT4)가 나오면서 기존 연구를 어서 논문화 시키고 털어 내는 줄 알았는데 버전을 명시한걸 보니 지속 연구의지가 보임
 
-
-
-
+-> 모델 사이즈가 전부다 커져서 걱정 ... 
 
 
 
