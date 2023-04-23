@@ -44,13 +44,13 @@ KOSMOS-1의 컨트리뷰션 내용
 
 아래는 실행 결과
 
-![f_2](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_2.PNG)
+![f_2](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_2.PNG)
 
-![f_3](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_3.PNG)
+![f_3](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_3.PNG)
 
 # 1 Introduction: From LLMs to MLLMs
 
-![f_1](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_1.PNG)
+![f_1](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_1.PNG)
 
 최근 LLM은 NLP general-purpose를 성공적으로 잘 수행하고 있다.
 
@@ -58,7 +58,7 @@ KOSMOS-1의 컨트리뷰션 내용
 
 해당 논문을 통해 KOSMOS-1 모델로 이를 해결함
 
-![t_1](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_1.PNG)
+![t_1](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_1.PNG)
 
 위 테이블은 그 결과로 거의 모든것을 zero shot 러닝을 통해 지원(실행 결과는 더 위에 figure 2, 3 참조)
 
@@ -92,7 +92,7 @@ KOSMOS-1은 monomodal(다붕분포)를 포함한 데이터를  학습
 
 ## 2.1  Input Representation
 
-![t_21](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_21.PNG)
+![t_21](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_21.PNG)
 
 general modality를 위해 특정 포맷을 정의
 
@@ -154,7 +154,7 @@ training objective : maximize log-likelihood (각 다음 토큰 예측시)
 
 - Text Corpora
 
-![t_20](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_20.PNG)
+![t_20](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_20.PNG)
 
 Pile과 Common Crawl(CC)를 통해 데이터 수집 
 
@@ -188,7 +188,7 @@ Common Crawl snapshot을 통해 데이터를수집
 
 ## 3.3 Language-Only Instruction Tuning
 
-![t_19](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_19.PNG)
+![t_19](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_19.PNG)
 
 위는 Language-Only 학습시
 
@@ -214,13 +214,13 @@ Flamingo-3B (비교대상)
 
 - IQ Test
 
-![f_4](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_4.PNG)
+![f_4](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_4.PNG)
 
 흥미로운건 이미지와 텍스트가 같이있고 사람도 쉽게 판별하기 어려운 IQ 테스트 내용인데 
 
 정확도가 좋진 않지만 랜덤보다는 높은 스코어로 유의미한 결과가 나옴
 
-![t_6](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_6.PNG)
+![t_6](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_6.PNG)
 
 약간 의심이 가는건 저정도 스코어면 그림이나 결과에 약간의 편향이 있다면 그걸로 랜덤보다 높은 스코어가 나올수 있지 않을까 싶음 
 
@@ -236,7 +236,7 @@ Flamingo-3B (비교대상)
 
 - Multimodal Chain-of-Throught Prompting
 
-![f_5](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_5.PNG)
+![f_5](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_5.PNG)
 
 정확도를 올리기 위해 두 가지 스텝을 사용
 
@@ -248,7 +248,7 @@ step 2 :  step1을 통해 tasks를 이해시켜 최종 결과를 생성
 
 - Zero-Shot Image Classification
 
-![f_6](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_6.PNG)
+![f_6](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\f_6.PNG)
 
 beam size 2 이며 image는 224*224로 resoution 후 사용 
 
@@ -269,7 +269,7 @@ bird classification dataset을 통해 새를 분류하고 (3개의 그룹)
 : COCO, Flickr30k, VQAv2, and VizWiz 데이터셋을 사용 : CIDEr scores for COCO/Flickr30k and VQA
 accuracy for VQAv2/VizWiz. 테스트
 
-![t_14](F:\code\whtngus.github.io\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_14.PNG)
+![t_14](\img\2023\Language_Is_Not_All_You_Need_Aligning_Perception_with_Language_Models\t_14.PNG)
 
 대락적으로 language-only 보다 멀티모달 학습의 정확도가 더 높음
 
@@ -324,3 +324,4 @@ microsoft에서 pytorch 기반으로 Transformer 모델을 효율적으로 학�
 
 
 # 참고
+  
