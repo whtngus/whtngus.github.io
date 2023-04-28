@@ -33,7 +33,7 @@ Vision-language pre-training (VLP) 연구는 최근 몇년간 빠른속도로 �
 
 해당 논문에서 포괄적이고(멀티모달) 효울적인 bootstrapping 기반의 높은 정확도의 VLP 모델을 제안
 
-![f_1](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_1.PNG)
+![f_1](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_1.PNG)
 
 모델의 크기를 줄이기 위해 unimodal 사전학습 모델을 frozen 시킨 상태에서 pre-training  진행(해당 연구의 핵심 키)
 
@@ -85,7 +85,7 @@ image encoder 부분을 freeze 시킨 후 학습시키는 방식
 
 # 3. Method
 
-![f_2](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_2.PNG)
+![f_2](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_2.PNG)
 
 논문에서 제시한 bootstrap 기반의 fozen pre-train  BLIP-2 모델은 2 stage로 학습
 
@@ -155,7 +155,7 @@ image, text representation 에서 fine-grain을 목표로 이진 분류 학습
 
 ## 3.3. Bootstrap Vision-to-Language Generative Learning from a Frozen LLM
 
-![f_3](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_3.PNG)
+![f_3](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_3.PNG)
 
 Q-Former와 frozen 된 LLM모델을 결합 (위의 Figure 3 참조)
 
@@ -194,7 +194,7 @@ A100  40GB 그래픽 카드 한장 사용해서 stage1 - 6일  stage2 - 3일 학
 
 # 4. Experiment
 
-![t_1](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\t_1.PNG)
+![t_1](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\t_1.PNG)
 
 Table 1은 zero-shot vision task
 
@@ -218,7 +218,7 @@ OK-VQA dataset 에서 sota 달성
 
 ##  4.2~3 Image Captioning Visual Question Answering
 
-![f_4](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\t_4.PNG)
+![f_4](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\t_4.PNG)
 
 Table 3 참조  Table 4참조 
 
@@ -226,7 +226,7 @@ Table 3 참조  Table 4참조
 
 #  5. Limitation
 
-![f_7](F:\code\whtngus.github.io\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_7.PNG)
+![f_7](\img\2023\BLIP-2 Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models\f_7.PNG)
 
 image to text generation 에서  이미지에 대한최신 정보가 없는경우  정확도가 좋지 않을 수 있음 
 
