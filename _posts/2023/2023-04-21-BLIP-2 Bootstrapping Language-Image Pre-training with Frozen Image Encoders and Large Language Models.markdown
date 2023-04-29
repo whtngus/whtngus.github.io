@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models"
-date: 2023-04-28 00:05:23 +0900
+date: 2023-04-30 00:05:23 +0900
 category: paper
 ---
 
