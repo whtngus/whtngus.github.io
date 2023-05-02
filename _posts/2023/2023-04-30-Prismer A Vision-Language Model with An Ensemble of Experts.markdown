@@ -53,6 +53,8 @@ Primer는 여러 테스크를 general하게 하는게 아닌 각각의 task를 �
 
 transformers 모델이 나오면서 해당 테스크를 정복하기 시작함 
 
+- Multi-task and Auxiliary Learning
+
 
 
 
