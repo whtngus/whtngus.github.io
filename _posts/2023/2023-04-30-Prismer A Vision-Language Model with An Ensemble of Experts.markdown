@@ -111,9 +111,29 @@ Adaptor는 transformer레이어로구성되어 여러 테스크에 적용시킴
 
 - Modaiity Experts
 
+task-specific 한 모델 
 
+Primer는 비전에서 6가지의 전문가 모델을 사용 
 
+그리고 블랙박스를 예측하는 object labels, segmentation labels, text labels 모델을 학습
 
+## 3.3 Key Architectural Components
+
+- Modality-Specific Convolutional Stem
+
+![t_1](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_1.PNG)
+
+3*3 커널 사이즈즈의 5개의 conv layer를 사용함
+
+- Experts Resampler
+
+![f_3](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_3.PNG)
+
+여러 다운스트림 테스크들의 input과 label을 합칠 방법 필요
+
+multi-modal features를 attention을 통해 resample 하지만 엄청난 메모리를 차지함 
+
+- Lightweight Adaptor
 
 
 
