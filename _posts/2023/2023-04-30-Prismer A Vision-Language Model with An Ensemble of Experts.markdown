@@ -135,6 +135,26 @@ multi-modal features를 attention을 통해 resample 하지만 엄청난 메모�
 
 - Lightweight Adaptor
 
+Figure 3의 Adaptor를 보면 down projection, up projection 총 두변의 layer만 사용해 training free 라고함
+
+-> 이해를 잘못한거같은데 왜 free?
+
+그후 cross attention bloc와 결합됨 
+
+## 3.4 Training Objective
+
+다음 토큰을 예측하는 방식으로 single object를 쉽게 학습 가능 
+
+-> multi-modal language generation을 목적으로 하기 때문에 multi-modal label들을 수집해 multiple objectives 데이터를 학습함
+
+
+
+# Experiments
+
+
+
+
+
 
 
 
@@ -169,5 +189,11 @@ g(x)는 softmax  (i번째 export를 몇%나 믿을지)
 
 f(x)는 export network의 output
 
+- squared ReLU
 
+![squared_relu](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\squared_relu.PNG)
+
+Primer: Searching for Efficient Transformers for Language Modeling에서 제시한 방법으로 (결국 자기내꺼) 
+
+위 그림처럼 생김
 
