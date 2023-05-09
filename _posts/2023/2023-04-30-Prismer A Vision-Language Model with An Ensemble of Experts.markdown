@@ -29,7 +29,7 @@ paper : https://arxiv.org/abs/2303.02506
 
 최근 VLM 모델은 많은 데이터와 큰 모델을 피룡로 하고 yottaFLOP(10^24) scale 정도임 
 
-![f_1](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_1.PNG)
+![f_1](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_1.PNG)
 
 Primer는 여러 테스크를 general하게 하는게 아닌 각각의 task를 독립적으로 학습시킴 
 
@@ -79,7 +79,7 @@ Vision-language generative model인 primer 모델 소개
 
 ## 3.1 Model Overview
 
-![f_2](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_2.PNG)
+![f_2](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_2.PNG)
 
 모델은 Figure 2와 같이 설계됨 
 
@@ -121,13 +121,13 @@ Primer는 비전에서 6가지의 전문가 모델을 사용
 
 - Modality-Specific Convolutional Stem
 
-![t_1](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_1.PNG)
+![t_1](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_1.PNG)
 
 3*3 커널 사이즈즈의 5개의 conv layer를 사용함
 
 - Experts Resampler
 
-![f_3](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_3.PNG)
+![f_3](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\f_3.PNG)
 
 여러 다운스트림 테스크들의 input과 label을 합칠 방법 필요
 
@@ -149,19 +149,90 @@ Figure 3의 Adaptor를 보면 down projection, up projection 총 두변의 layer
 
 
 
-# Experiments
+# 4 Experiments
+
+## 4.1 Prismer Model Variants
+
+논문에서는 PrismerZ모델로 정의하며 Prismer과 유사한 백본을 가지고 있다고함
+
+![t_2](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_2.PNG)
+
+실험에 사용된 모델은 2개이며 base 와 large모델을 사용하고 비교대상은 이전 모델인 Primer와 비교
+
+## 4.2 Training and Evaluation Details
+
+- Pre-training Datasets
+
+coco, Visual genome, conceptual Captions, SBU caption, Conceptual 12M 을 사용 
+
+11M의 web dataset 사용 
 
 
 
+총 12.7 image-text쌍의 unique한 이미지를 수집해 학습에 활용
+
+- Optimisation and Implementation 
+
+AdamW optimiser를 사용 
+
+weight decay =0.05
 
 
 
+학습 시  
+
+1. 효울적인 학습을 위해 ZeRO Stage 2 technique 사용
+2. Automatic Mixed Precision(AMP)
+
+1번 2번 둘 다 학습을 효율적으로 하기 위한 기술 1번은 분산학습 최적화 2번은 양자화
+
+- Evaluation Setting 
+
+VQAv2 dataset 을 사용 
+
+평가 시 beam search size 3을 사용함
 
 
 
+## Results on Vision-Language Benchmarks
+
+![t_3](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_3.PNG)
+
+primzer z 스코어가 평균적으로 낮음 (파라미터 수가 낮은걸 감안하면 어느정도 비교되는 수준인듯)
+
+![t_4](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\t_4.PNG)
+
+가장 위의 keyboard가 살짝만 보이거나 거의안보이는데 언급하거나 답변이 짧은걸 봐서 특정 객체에 많이 의존적인걸로 보임
 
 
 
+.. 나머지 생략...
+
+
+
+#6 Conclusions, Limitations and Discussion
+
+- Multi-modal In-context Learning
+
+최근 large model과 나오면서 많이 나오는 키워드
+
+크지 않은 모델에서 접근하기 위해 본 연구에서 작은 모델을 제안 (기존 모델에 비해)
+
+- Zero-shot Adaptation on New Experts
+
+pre-training에서 학습하지 않은 segmentation을 inference 해봄 
+
+-> 이때 좋지 않은 결과가 나옴 
+
+- Free-form Inference on Partial Experts
+
+당연하게도 exprts 수가 줄어들 수록 스코어가 줄어듬 
+
+- Representation of Expert Knowledge
+
+expert labels을 이미지와 같은 3 demention tensor로 전환시킴
+
+-> 전환하는 방법에 더 효율적인 방법들이 있고 이걸 연구하면 더 안정적이고 강력함을 보여 더 연구가 필요함 
 
 
 
@@ -179,9 +250,9 @@ Figure 3의 Adaptor를 보면 down projection, up projection 총 두변의 layer
 
 - Mixture of Experts (MoE)
 
-참고 : https://chickencat-jjanga.tistory.com/5![moe_2](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\moe_2.PNG)
+참고 : https://chickencat-jjanga.tistory.com/5![moe_2](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\moe_2.PNG)
 
-![moe](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\moe.PNG)
+![moe](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\moe.PNG)
 
 복잡한 문제를 단순화해 합쳐서 산출하는 방식의 아이디어 
 
@@ -191,9 +262,32 @@ f(x)는 export network의 output
 
 - squared ReLU
 
-![squared_relu](F:\code\whtngus.github.io\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\squared_relu.PNG)
+![squared_relu](\img\2023\Prismer A Vision-Language Model with An Ensemble of Experts\squared_relu.PNG)
 
 Primer: Searching for Efficient Transformers for Language Modeling에서 제시한 방법으로 (결국 자기내꺼) 
 
 위 그림처럼 생김
 
+- ZeRO Stage 2 
+
+참고 : https://velog.io/@seoyeon96/%EB%A6%AC%EC%84%9C%EC%B9%98-%ED%9A%A8%EC%9C%A8%EC%A0%81%EC%9D%B8-%EB%B6%84%EC%82%B0-%ED%95%99%EC%8A%B5%EC%9D%84-%EC%9C%84%ED%95%9C-DeepSpeed-ZeRO
+
+ZeRO는 분산 학습 과정에서의 불필요한 메모리의 중복을 제거하여 같은 환경 내에서 대용량의 모델을 학습을 가능하도록록 도와줌
+
+- **Stage 1. Optimizer State Partitioning**(Pos) - 메모리 4배 감소
+- **Stage 2. Add Gradient Partitioning**(Pos+g) - 메모리 8배 감소
+- **Stage 3. Add Parameter Partitioning**(Pos+g+p) - GPU의 개수와 메모리 감소 정도는 비례.(예를 들어, 64개의 GPU를 사용한다면 메모리 64배 감소)
+
+V100 1000개로 stage2학습시 2000억 개의 파라미터도 학습 가능하다고 함
+
+(gpu 수와 파라미터 수 둘다 높다....)
+
+- AMP(Automatic Mixed Precision)
+
+참고 : https://cvml.tistory.com/8
+
+처리 속도를 높이기 위한 FP16(16bit floating point)연산과 정확도 유지를 위한 FP32 연산을 섞어 학습하는 방법
+
+Tensor Core를 활용한 FP16연산을 이용하면 FP32연산 대비 절반의 메모리 사용량과 8배의 연산 처리량 & 2배의 메모리 처리량 효과가 있다
+
+배치크기 2배로 증가해도 속도가 2.5~3배정도 증가한다고함 
