@@ -143,6 +143,50 @@ chain-of-thought를 따라 만듬
 
 ![f_4](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_4.PNG)
 
+![f_5](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_5.PNG)
+
+- Visual Controls
+
+위의 Figure4, 5 처럼 visual control capabilities of CAT을 보여줌
+
+segmentation을 이용해 원하는 캡션 대상을 밝게 만들어 캡션을 조절함 
+
+- Language Controls
+
+Figure 6에서 처럼 다양한 스타일로 캡션을 생성 가능함 
+
+-> chatgpt를 이용하기 때문
+
+- Object-Centric Chatting
+
+![f_7](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_7.PNG)
+
+위의 Figure 7에서 처럼 chatgpt를 이용해 타겟 이미지 안의 object에 대해서 캡션을 유도 (답변에서 참고해 다시 질문)
+
+- Visual Chain-of-Thought
+
+![f_8](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_8.PNG)
+
+
+
+- Caption Everything in a Paragraph
+
+Figure 9에서 최종 결과 caption을 볼 수 있음 
+
+객체들에 대한 답변ㅇ을 합쳐서 캡션을생성함 추가로 이렇게 생성된 캡션들은 일관성을 가짐 
+
+-> 그냥 chatgpt에게 캡션을 생성해달라고 하거나 프롬프트 엔지니어링으로 가공후 생성하는것과 크게 다를것이 없어보임
+
+# 5. Conclusion
+
+이미지 캡션에 대한 컨트롤 방법에 대한 방법인 Caption AnyThing (CAT)을 제안함 
+
+
+
+
+
+
+
 
 
 # 참고
