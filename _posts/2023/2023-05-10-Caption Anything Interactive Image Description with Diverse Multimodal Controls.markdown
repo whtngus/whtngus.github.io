@@ -43,7 +43,7 @@ caption 생성을 컨트롤 한다는 의미로 보임
 
 # 1 Introduction
 
-![f_2](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_2.PNG)
+![f_2](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_2.PNG)
 
 vanilla 이미지 캡션의 특징은 이미지의 가장 중요한 특지점을 잡아 캡션을 생성하는것
 
@@ -51,7 +51,7 @@ vanilla 이미지 캡션의 특징은 이미지의 가장 중요한 특지점을
 
 기존 모델의 caption은 지나치게 간결하거나 너무 복잡한 문장을 생성하고  사용자가 캡션 생성하는걸 조정할 수 있어야함 
 
-![f_1](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_1.PNG)
+![f_1](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_1.PNG)
 
 연구에서 제안하는 모델은  일관성 있는 캡션 생성과 사용자는 object중 원하는 객체를 선택해 캡션을 생성할 수 있다.
 
@@ -81,7 +81,7 @@ object detection 결과를 이용해 사용자의 의도에 맞는 캡션을 생
 
 # 3 Caption Anything
 
-![f_3](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_3.PNG)
+![f_3](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_3.PNG)
 
 사용자와 상호작용을 통한 caption을 생성하기 위해 model augmentation strategy을 제안함
 
@@ -141,9 +141,9 @@ chain-of-thought를 따라 만듬
 
 
 
-![f_4](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_4.PNG)
+![f_4](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_4.PNG)
 
-![f_5](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_5.PNG)
+![f_5](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_5.PNG)
 
 - Visual Controls
 
@@ -159,13 +159,13 @@ Figure 6에서 처럼 다양한 스타일로 캡션을 생성 가능함
 
 - Object-Centric Chatting
 
-![f_7](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_7.PNG)
+![f_7](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_7.PNG)
 
 위의 Figure 7에서 처럼 chatgpt를 이용해 타겟 이미지 안의 object에 대해서 캡션을 유도 (답변에서 참고해 다시 질문)
 
 - Visual Chain-of-Thought
 
-![f_8](F:\code\whtngus.github.io\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_8.PNG)
+![f_8](\img\2023\Caption Anything Interactive Image Description with Diverse Multimodal Controls\f_8.PNG)
 
 
 
