@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Caption Anything: Interactive Image Description with Diverse Multimodal Controls"
-date: 2023-05-11 00:05:23 +0900
+date: 2023-05-14 00:05:23 +0900
 category: paper
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Prismer: A Vision-Language Model with An Ensemble of Experts"
-date: 2023-05-03 00:05:23 +0900
+date: 2023-05-14 00:05:23 +0900
 category: paper
 ---
 
