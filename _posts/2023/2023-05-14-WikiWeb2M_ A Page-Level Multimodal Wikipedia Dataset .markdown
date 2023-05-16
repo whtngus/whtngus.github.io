@@ -45,7 +45,7 @@ WikiWeb2M는 페이지 설명 생성, 요약, image captioning 테스크에 사�
 
 그리고 대부분의 데이터는 공개되 않음 
 
-![t_1](F:\code\whtngus.github.io\img\2023\WikiWeb2M A Page-Level Multimodal Wikipedia Dataset\t_1.PNG)
+![t_1](\img\2023\WikiWeb2M A Page-Level Multimodal Wikipedia Dataset\t_1.PNG)
 
 예시로 Wikipedia Image Text(WIT) 데이터셋은 html 구조를 포함하지 못하며 텍스트를 잃어버림 
 
@@ -59,7 +59,7 @@ WikiWeb2M은 모든 텍스트와 이미지를 포함함
 
 라고 함 
 
-![t_2](F:\code\whtngus.github.io\img\2023\WikiWeb2M A Page-Level Multimodal Wikipedia Dataset\t_2.PNG)
+![t_2](\img\2023\WikiWeb2M A Page-Level Multimodal Wikipedia Dataset\t_2.PNG)
 
 Table 2의 왼쪽 표는 down stream task 적용 시 페이지 단위 예시 데이터셋 크기
 
