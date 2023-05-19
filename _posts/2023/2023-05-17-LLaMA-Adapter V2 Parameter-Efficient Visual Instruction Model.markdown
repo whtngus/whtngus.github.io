@@ -55,7 +55,7 @@ LLaMAAdapter V2 모델은 처음 k 레이어를 사용해 다양한 visual promp
 
 그리고 기존 모델의 0.04% 파라미터만 사용하고 성능을 보장함
 
-![f_1](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_1.PNG)
+![f_1](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_1.PNG)
 
 논문의 컨트리뷰션
 
@@ -144,7 +144,7 @@ LLM 내부의 파라미터 변경 없이 프롬프트 및 계수가 제한됨
 
   -> 내부 파라미터의 변경 없는 fine-tunig이여서 performence가 제약사항이 있음
 
-![f1](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f1.PNG)
+![f1](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f1.PNG)
 
 LLaMA 모델에서 normalization layer만 unfreeze 시킴 그리고 바이어스 와 레이어 추가 
 
@@ -166,7 +166,7 @@ bias tuning strategy은 BitFit 방식과 유사함
 
 ## 4.2. Joint Training with Disjoint Parameters
 
-![f_2](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_2.PNG)
+![f_2](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_2.PNG)
 
 LLaMA-AdapterV2의 목표는 긴 질문에 대한 답변과 멀티모달 이해이다.
 
@@ -182,11 +182,11 @@ visual projection layer랑 zeo-initialized된 atteion 레이어를 캡션 데이
 
 - Discussion
 
-![t_1](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_1.PNG)
+![t_1](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_1.PNG)
 
 join training paradigm을 이용함으로 써 대규모의 학습 모델은 필요가 없어지고 image-text pairs and instruction-following data 만을 필요로함 -> Table 1 참조
 
-![t_2](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_2.PNG)
+![t_2](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_2.PNG)
 
 Table 2는 langauge only  만 이용한 경우 
 
@@ -194,7 +194,7 @@ Table 2는 langauge only  만 이용한 경우
 
 ## 4.3. Early Fusion of Visual Knowledge
 
-![f_3](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_3.PNG)
+![f_3](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_3.PNG)
 
 텍스트와 이미지의 학습을 잘되게 하기 위해서 direct interaction을 input visual prompt, adaptation prompts결합함
 
@@ -202,7 +202,7 @@ projection은 마지막 Layer
 
 ## 4.4. Integration with Experts
 
-![f_4](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_4.PNG)
+![f_4](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_4.PNG)
 
 최근 visual instruction models인 miniGPT4 와 LLaVA 등은 거대한 사이즈의 이미지-텍스트 데이터로 학습해야 함 -> LLaMA-Adapter V2는 작은 규모의 데이터로 fine-tuning가능하다고 함 
 
@@ -238,7 +238,7 @@ normalization layer, linear layer bias, scale 레이어는 학습 대상 나머�
 
 ## 5.2. Stronger Language Instruction Model
 
-![f_5](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_5.PNG)
+![f_5](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_5.PNG)
 
  7B 모델로 학습해도 QA에서 문맥을 잘 이해하지 못하는 상황이 발생 
 
@@ -250,17 +250,17 @@ Figure 5를 보면 GPT4보다 LLaMA-Adapter V2가 더 잘하는걸 볼 수 있�
 
 - Image Captioning
 
-![t_3](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_3.PNG)
+![t_3](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\t_3.PNG)
 
 coco caption 으로 fine tuning 후 스코어 결과 
 
 스코어가 좋지 않지만 논문에서는 많은 데이터로 학습하지 않았는데도 이정도로 결과가 나왔다고 함 
 
-![f_6](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_6.PNG)
+![f_6](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_6.PNG)
 
 - Visual Understanding
 
-![f_7](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_7.PNG)
+![f_7](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\f_7.PNG)
 
 Figure 6, 7 의 예시를 통해 Image Caption, VQA 성능이 좋다는걸 보여줌 
 
@@ -293,7 +293,7 @@ Figure 6, 7 의 예시를 통해 Image Caption, VQA 성능이 좋다는걸 보�
 
 GPT-3 모델을 InstructGPT 모델로 만들기 위해 OpenAI는 다음의 세 가지 단계를 도입 (딥마인드에서 개발한  **RLHF** (reinforcement learning with human feedback)을 적용)
 
-![instructGPT](F:\code\whtngus.github.io\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\instructGPT.PNG)
+![instructGPT](\img\2023\LLaMA-Adapter V2 Parameter-Efficient Visual Instruction Model\instructGPT.PNG)
 
 
 
