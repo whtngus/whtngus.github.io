@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLaMA-Adapter V2: Parameter-Efficient Visual Instruction Model"
-date: 2023-05-25 00:05:23 +0900
+date: 2023-05-27 00:05:23 +0900
 category: paper
 ---
 
