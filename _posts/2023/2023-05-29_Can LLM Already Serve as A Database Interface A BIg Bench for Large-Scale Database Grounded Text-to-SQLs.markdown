@@ -89,6 +89,166 @@ KaggleDBQA, KnowSQL 에서 json, csv 파일 형식으로 제공 (데이터셋)
 
 ## 3.1 Database Source
 
+일반적으로 DB를 수집하기는 개인정보 이슈로 매우 어려움 
+
+데이터를 3군대에서 수집함
+
+32%는 Kaggle에서 
+
+48%는 CTU Prague Relational Learning Repository에서 (DB연구를 위해 데이터셋 지원하는곳)
+
+20%는 DuSQL의 open table 에서 
+
+
+
+95%의 DB의 학습 평가 테스트 데이터는 69, 11, 15 이렇게 구성됨 
+
+## 3.2 Question Annotation
+
+- Entrance
+
+학사들을 고용해 sql 질문을 만듦 
+
+> 1. ER diagrams and database description
+>
+> 위 파일을 통해 이해시킴
+>
+> 2. sample database presentation
+>
+> 샘플 데이터베이스를 보여줘 이해를 도움 
+>
+> (10개의 도메인에 대한 sql 질문)
+>
+> 3. 전문가 사전에 정의된 3가지 룰을  통해 평가
+>
+> 3명중 2명에게 valid 를 받아야 통과
+
+
+
+한 학생이 한 DB에 대해서 8개 이상을 만든 경우에만 사용함 
+
+11명의 학생이 질문셋을 위와같은 규칙으로 생성 
+
+- Database Description File.
+
+![f_2](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_2.PNG)
+
+DB description은 annotator를 도와주기위한 것
+
+구성
+
+> 1. Full schema name
+>
+> 이해하기 어려운 DB의 테이블 컬럼 이름을 짧게 요약한 것
+>
+> 2. Value description
+>
+> 위의 Figure2에서 처럼 토큰이나 DB의 값이 문자열이 연결되지 않을때 유용함 
+
+- External Knowledge.
+
+전문적인 데이터분석을 위해 4가지 카테코리로 질문을분류
+
+> 1. Numeric Reasoning Knowledge
+>
+> 수학적인 계산이 필요한 경우 
+>
+> MINUS, ADDITION, DIVISION, MULTIPLY 등 8가지 수학 계산 
+>
+> 2. Domain Knowledge
+>
+> 도메인에 대한 질문인 경우 
+>
+> 3. Synonym Knowledge
+>
+> 동의어 단어나 정규식 사용하는 경우 
+>
+> 4.  Value Illustration
+>
+> 데이타 값과 타입에 대한 설명을 하는경우 
+>
+> 예시> "center" can be represented by  "pos = C" in the database professional_basketball
+
+## 3.3 SQL Annotation
+
+- Entrance
+
+SQL 질문의 퀄리티를 높이기 위해 학생들을 팀을 구성함 
+
+각 팀은 질문 생성에 대한 실력을 엄격하게 평가를함 
+
+각 어노테이터는 10개의 질문을 하고 스코어가 10중 9이상인 데이터만을 사용 
+
+- Double-Blind Annotation
+
+Figure 2의 (b)에서 double-blind technique를 사용
+
+두명의 annotator에게 대화를 하지 않고 만든 sql 쿼리(정답)이 같은지 확인함 
+
+- Examination
+
+double-blind 작업 후 전문가가 다시 sql 쿼리를 체크함
+
+-> 이상한 경우 결과를 일부 변경함 
+
+전문가 체크를 통해 약간의 실수도 제거
+
+- Difficulty
+
+난이도를 simple, moderate, challenging 3단계로 같이 레이블링 지정
+
+annotator 1차 체크 -> 전문가 2차 체크 
+
+#  4 Data Statistics
+
+## 4.1~2 Overall Statistics,  Question Statistics
+
+![t_1](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\t_1.PNG)
+
+2개의 큰 타입 Fundamental, Reasoning 타입으로 으로 나누고
+
+각 큰 타입을 4개의 작은 타입으로 나눔
+
+아래 그림 참조
+
+![f_3](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_3.PNG)
+
+## 4.3 Database Statistics
+
+![f_4](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_4.PNG)
+
+## 4.4 SQL Statistics
+
+![f_5](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_5.PNG)s
+
+sql 복잡도 분석 
+
+# 5 Evaluation Metrics.
+
+1. Execution Accuracy (EX)
+
+![f2](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f2.PNG)
+
+![f3](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f3.PNG)
+
+결과가 같아야함
+
+Vn은 정답 SQL을 시행했을때 결과
+
+2. Valid Efficiency Score (VES)
+
+![f4](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f4.PNG)
+
+R(·)  실행 효율성  - 결과값과 실행 효율이 비슷해야 함  
+
+실행 시간으로 측정 -> 실행시간이 정답값보다 오래 걸릴수록 ves 가 내려감
+
+# 6~7 Experiments, Related Work
+
+ChatGPT 와 T5 모델을 통한 성능비교... 생략
+
+
+
 
 
 
