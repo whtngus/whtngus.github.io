@@ -49,7 +49,7 @@ Text-to-SQL parsing은 자연어에서 sql 쿼리로 변환하는 테스크이�
 
 -> 최근 3년간 연구가 되며 sota모델이 각 53.% 85.3%로 정확도 향상을 보임 
 
-![f_1](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_1.PNG)
+![f_1](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_1.PNG)
 
 최근 sota 모델들은 현실적인 DB인 노이즈를 많이 가지고 있는 큰 규모의 데이터셋을 해결하지 못하는 문제를 발견
 
@@ -67,7 +67,7 @@ Text-to-SQL parsing은 자연어에서 sql 쿼리로 변환하는 테스크이�
 
 ## 2.1 Task Definition.
 
-![f1](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f1.PNG)
+![f1](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f1.PNG)
 
 Q : Question
 
@@ -131,7 +131,7 @@ KaggleDBQA, KnowSQL 에서 json, csv 파일 형식으로 제공 (데이터셋)
 
 - Database Description File.
 
-![f_2](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_2.PNG)
+![f_2](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_2.PNG)
 
 DB description은 annotator를 도와주기위한 것
 
@@ -203,7 +203,7 @@ annotator 1차 체크 -> 전문가 2차 체크
 
 ## 4.1~2 Overall Statistics,  Question Statistics
 
-![t_1](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\t_1.PNG)
+![t_1](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\t_1.PNG)
 
 2개의 큰 타입 Fundamental, Reasoning 타입으로 으로 나누고
 
@@ -211,15 +211,15 @@ annotator 1차 체크 -> 전문가 2차 체크
 
 아래 그림 참조
 
-![f_3](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_3.PNG)
+![f_3](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_3.PNG)
 
 ## 4.3 Database Statistics
 
-![f_4](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_4.PNG)
+![f_4](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_4.PNG)
 
 ## 4.4 SQL Statistics
 
-![f_5](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_5.PNG)s
+![f_5](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f_5.PNG)s
 
 sql 복잡도 분석 
 
@@ -227,9 +227,9 @@ sql 복잡도 분석
 
 1. Execution Accuracy (EX)
 
-![f2](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f2.PNG)
+![f2](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f2.PNG)
 
-![f3](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f3.PNG)
+![f3](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f3.PNG)
 
 결과가 같아야함
 
@@ -237,7 +237,7 @@ Vn은 정답 SQL을 시행했을때 결과
 
 2. Valid Efficiency Score (VES)
 
-![f4](F:\code\whtngus.github.io\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f4.PNG)
+![f4](\img\2023\Can LLM Already Serve as A Database Interface A BIg Bench for Large-Scale Database Grounded Text-to-SQLs\f4.PNG)
 
 R(·)  실행 효율성  - 결과값과 실행 효율이 비슷해야 함  
 
