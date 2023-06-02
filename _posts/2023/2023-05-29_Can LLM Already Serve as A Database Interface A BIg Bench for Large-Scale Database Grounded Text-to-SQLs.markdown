@@ -245,11 +245,11 @@ R(·)  실행 효율성  - 결과값과 실행 효율이 비슷해야 함
 
 # 6~7 Experiments, Related Work
 
-ChatGPT 와 T5 모델을 통한 성능비교... 생략
+ChatGPT 와 T5 모델을 통한 성능 비교... 생략
 
 
 
-
+.. 실행 해보자 
 
 
 
