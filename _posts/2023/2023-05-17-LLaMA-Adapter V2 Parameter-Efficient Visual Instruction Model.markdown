@@ -23,7 +23,7 @@ code url : https://github.com/ZrrSkywalker/LLaMA-Adapter
 
 llama 모델의 능력을 분산함 ?
 
-추가로 구조화된 이미지 텍스트 페어 데이터에 최저고하 함 
+추가로 구조화된 이미지 텍스트 페어 데이터에 최적화 함 
 
 추가적으로 captioning ocr기능을 제공
 
