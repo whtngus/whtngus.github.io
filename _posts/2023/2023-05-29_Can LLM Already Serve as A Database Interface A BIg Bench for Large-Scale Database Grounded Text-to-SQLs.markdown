@@ -8,7 +8,7 @@ category: paper
 # Can LLM Already Serve as A Database Interface? A BIg Bench for Large-Scale Database Grounded Text-to-SQLs
 
 2023년 3월 4일 
-
+   
 알리바바
 
 url : https://arxiv.org/pdf/2305.03111v1.pdf
