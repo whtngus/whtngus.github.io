@@ -160,7 +160,23 @@ MGC 방식은 화려한 묘사를 하지 못함
 
 # 4 Experiments
 
-## 4.1 Datasets and Implementation Details
+![f_4](F:\code\whtngus.github.io\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_4.PNG)
+
+MSCOCO 데이터셋 모델 별 비교 
+
+Figure 3은 image select 방법 별 
+
+Figure 4는 캡션 생성 방법 별 비교 
+
+MGC-TF@X 에서 X는 text 셋에서 CIDEr score
+
+3090 RTX로 학습했다고 함 
+
+여기서는 베이스 라인으로 삼은 RS와 비교해서 높아진걸 보여주고자 함 (RS와 비교하는게 맞나..)
+
+
+
+아래 생략
 
 
 
