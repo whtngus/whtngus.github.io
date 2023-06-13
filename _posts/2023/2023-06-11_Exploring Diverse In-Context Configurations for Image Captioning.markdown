@@ -25,7 +25,7 @@ Image selection,  이미지 캡션
 
 NLP 테스크에서 강력한 모델을 VL도 합쳐 해결할 수 있는 방법을 제안함 
 
-![f_1](F:\code\whtngus.github.io\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_1.PNG)
+![f_1](\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_1.PNG)
 
 위의 그림은 LM 과 VLM의 예시를 보여줌 
 
@@ -72,13 +72,13 @@ Image Caption , VQA 등의 테스크가 있음
 
 # 3 Configuring In-Context Sequences
 
-![f_2](F:\code\whtngus.github.io\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_2.PNG)
+![f_2](\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_2.PNG)
 
  S = {(I1, C1); (I2, C2); ...; (In, Cn); ˆI} 
 
 각 context sequence는 이미지와 캡션의데이터셋으로 구성됨 
 
-![f1](F:\code\whtngus.github.io\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f1.PNG)
+![f1](\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f1.PNG)
 
 역시 seq 방식으로 PreTraining된 VLM모델의 representation vector를 이용
 
@@ -160,7 +160,7 @@ MGC 방식은 화려한 묘사를 하지 못함
 
 # 4 Experiments
 
-![f_4](F:\code\whtngus.github.io\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_4.PNG)
+![f_4](\img\2023\Exploring Diverse In-Context Configurations for Image Captioning\f_4.PNG)
 
 MSCOCO 데이터셋 모델 별 비교 
 
