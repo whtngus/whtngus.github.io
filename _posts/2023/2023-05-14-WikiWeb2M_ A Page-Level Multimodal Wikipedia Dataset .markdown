@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "WikiWeb2M: A Page-Level Multimodal Wikipedia Dataset"
-date: 2023-05-31 00:05:23 +0900
+date: 2023-06-13 00:05:23 +0900
 category: paper
 ---
 
