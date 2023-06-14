@@ -1,0 +1,78 @@
+---
+layout: post
+title: "wandB"
+date: 2023-06-15 00:05:23 +0900
+category: datascience
+---
+
+# wandB
+
+**WandB(Weights & Biases)**는 머신러닝 전문가 툴킷 
+
+
+
+## 지원 내용
+
+- *Experiments*
+
+  머신러닝 모델 실험을 추적하기 위한 Dashboard 제공.
+
+- *Artifacts*
+
+  Dataset version 관리와 Model version 관리.
+
+- *Tables*
+
+  Data를 loging하여 W&B로 시각화하고 query하는 데 사용.
+
+- *Sweeps*
+
+  Hyper-parameter를 자동으로 tuning하여 최적화 함.
+
+- *Reports*
+
+  실험을 document로 정리하여 collaborators와 공유.
+
+  ​
+
+## 가격
+
+개인 프로젝트인 경우 100GB (무료)로 지원
+
+
+
+# 사용해보기 
+
+DAMO-ConvAI를 학습시키기 위해 wandB를 사용 
+
+무료 플랫폼이니 실험해보고 좋으면 자주 사용해봐도 될
+
+학생 혹은 개인 계정으로 회원 가입하기 (Personal로 가입함)
+
+![join](F:\code\whtngus.github.io\img\2023\wandb\join.PNG)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 참고
+
+https://pebpung.github.io/wandb/2021/10/06/WandB-1.html
