@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "wandB"
-date: 2023-06-15 00:05:23 +0900
+title: "wandB 딥러닝 자동화 툴 "
+date: 2023-06-15 01:05:23 +0900
 category: datascience
 ---
 
