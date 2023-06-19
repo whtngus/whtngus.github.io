@@ -1,7 +1,7 @@
 ---
 published: true
 layout: post
-title: "Exploring Diverse In-Context Configurations for Image Captioning"
+title: "Exploring Diverse In Context Configurations for Image Captioning"
 date: 2023-06-18
 category: paper
 ---
