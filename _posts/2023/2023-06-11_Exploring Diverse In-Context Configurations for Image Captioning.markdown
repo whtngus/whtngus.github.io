@@ -3,6 +3,7 @@ layout: post
 title: "Exploring Diverse In-Context Configurations for Image Captioning"
 date: 2023-06-18 01:05:23 +0900
 category: paper
+published: true
 ---
 
 # Exploring Diverse In-Context Configurations for Image Captioning
