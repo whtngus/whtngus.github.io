@@ -1,7 +1,8 @@
 ---
+published: true
 layout: post
 title: "Can LLM Already Serve as A Database Interface? A BIg Bench for Large-Scale Database Grounded Text-to-SQLs"
-date: 2023-06-19 00:05:23 +0900
+date: 2023-06-19
 category: paper
 ---
 
