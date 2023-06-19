@@ -34,7 +34,6 @@ category: datascience
 
   실험을 document로 정리하여 collaborators와 공유.
 
-  ​
 
 ## 가격
 
