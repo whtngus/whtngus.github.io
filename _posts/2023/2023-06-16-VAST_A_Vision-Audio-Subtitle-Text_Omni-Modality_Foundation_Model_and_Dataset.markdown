@@ -32,7 +32,7 @@ LLM을 이용해 캡션을 생성
 
 # 1 Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\f_1.PNG)
+![f_1](\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\f_1.PNG)
 
 많은 양의 영상들이 플랫폼에 매일 업로드 되고있고 AI가 영상을 이해하는게 중요한 역할을 차지하게 됨
 
@@ -52,11 +52,11 @@ video QA -  video 질의응답
 
 Figure 1 에서 omni-modality 모델은 vision audio subtitle을 모두 처리하는것을 볼 수 있음 
 
-![t_2](F:\code\whtngus.github.io\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\t_2.PNG)
+![t_2](\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\t_2.PNG)
 
 위의 Table 2에서 처럼 모든 데이터가 같이 있는 겨우가 없음 그렇다고 새로 데이터를 가공하기에는 많은 비용이 드는 문제가 있음
 
-![f_2](F:\code\whtngus.github.io\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\f_2.PNG)
+![f_2](\img\2023\VAST_A_Vision-Audio-Subtitle-Text_Omni-Modality_Foundation_Model_and_Dataset\f_2.PNG)
 
 데이터셋 이슈를 해결하기 위해 Figure 2에서처럼 두 가지 파이프 라인으로 amni-modality 데이터셋을 생성
 
