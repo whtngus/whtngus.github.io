@@ -100,21 +100,21 @@ SMPFF - text-to-video retirieval  (비디오 입력을 받아 영상과 오디�
 
 ### Vision Captioner Training
 
+CC4M, CC12M 데이터 셋
 
+LAION-400M 데이터셋에서 100M 랜덤 샘플링
 
+ MSCOCO , VATEX , MSRVTT, and MSVD 
 
+데이터셋 사용 
 
+### Audio Captioner Training
 
+VALOR-1M and WavCaps datasets 사용
 
+fine tuning은 안함 
 
+(VALOR-1M은 이정 수준의 보증을 제공)
 
-
-
-
-
-
-
-
-
-
+### Caption Generation
 
