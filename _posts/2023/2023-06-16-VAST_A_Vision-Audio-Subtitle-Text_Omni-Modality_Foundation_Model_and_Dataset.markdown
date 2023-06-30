@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "VAST: A Vision-Audio-Subtitle-Text Omni-Modality Foundation Model and Dataset"
-date: 2023-06-25 02:05:23 +0900
+date: 2023-06-30 02:05:23 +0900
 category: paper
 ---
 
