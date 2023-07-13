@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ImageBind: One Embedding Space To Bind Them All"
-date: 2023-07-09 02:05:23 +0900
+date: 2023-07-13 02:05:23 +0900
 category: datascience
 ---
 
@@ -127,23 +127,127 @@ Transformer architecture를 사용
 
 #  4. Experiments
 
+#### Naturally paired modalities and datasets
+
+![t_1](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_1.PNG)
+
+멀티모달 데이터셋 - image/video, text, audio, depth, thermal images, IMU
+
+Audioset dataset  - video, audio
+
+SUN RGB-D dataset - image, depth
+
+LLVIP dataset - image, thermal
+
+Ego4D dataset - video, IMU
+
+위의 테이블 1 참조
+
+#### Large scale image-text pairs.
+
+ large-scale web data를 사용해 pretrian 함 
+
+ViT-H 630M params vision 모델과  OpenCLIP 302M params의 text 인코딩 코델
+
+#### Encoders for each modality.
+
+오디오는 mel-spectrograms으로 변환해 인코딩함
+
+thermal 는 depth 1개의 채널 이미지로 ViT-B와 ViT-S 인코더로 학습
+
+#### Emergent zero-shot vs. zero-shot. 
+
+CLIP와 AudioCLIP의 경우 image,text 그리고 audio, text 멀티모달 zero-shot 분류를 보여줌
 
 
 
+IMAGEBIND도 text prompt를 통해 zero-shot learing이 가능함 
+
+직접적인 zero shot learning이 아니기 때문에 emergent zero-shot classification 라고 몇명함
+
+ -> 그냥 prompt learning 아닌가?
+
+#### Evaluation on downstream tasks.
+
+IMAGEBIND 검증을 위해 많은 down stream tasks를 실험함
+
+(Table 1 참조)
+
+## 4.1. Emergent zero-shot classification
+
+![t_2](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_2.PNG)
+
+prompt templates을 통해 emgergent zero-shot 분류문제를 테스트함
+
+text prompt 가 필요한경우  prompt를 사용했으나 image base인 depth, termal 등을 사용한경우 vision model인 CLIP를 바로 사용
+
+위 그림에서 우측을 보면 visual이 아닌 경우에도 잘 됨을 보임 
+
+## 4.2. Comparison to prior work
+
+이전 다른 모델들과 비교
+
+#### Zero-shot text to audio retrieval and classification.
+
+![t_3](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_3.PNG)
+
+이전 모델들은 지도학습을 통해 멀티모달을 학습함
+
+예시로 AudioCLIP는 audio와 text페어가 있는 AVFIC 데이터셋을 통해 학습 
+
+-> 비교대상 모델은 지도학습으로 불리한 조건이라는걸 말하고 싶은걸로 보임
+
+table 3 에서 스코어를 비교함 
+
+#### Text to audio and video retrieval.
+
+![t_4](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_4.PNG)
+
+MSR-VTT 1k-A 벤치마크를 수행
 
 
 
+여기에서는 zero shot lerning의 경우 상대적으로 성능이 매우 내려감 -> 역시 지도학습과 차이가 많이 남
+
+#### 4.3. Few-shot classification
+
+![f_3](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_3.PNG)
 
 
 
+n shot learning 분류 스코어 비교 (audio classification)
+
+오디오와 depth encoder를 사용 
+
+AudioMAE는 Audioset 데이터셋을 통해 self superpised 하고  audio 분류를 fine-tuning 시킴
+
+## 4.4. Analysis and Applications
+
+#### Multimodal embedding space arithmetic
+
+![f_4](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_4.PNG)
+
+IMAGEBIND 모델의 인코딩 결과가 다른 도메인에 사용 가능한지 검증함 
+
+위의 Figure 4에서 그 결과를 보여줌 
+
+이미지 + 음성을 임베딩한 벡터를 더해 새로운 이미지를 생성 해본 결과
+
+#### Upgrading text-based detectors to audio-based.
+
+![f_5](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_5.PNG)
 
 
 
+학습하지 않고 text와 audio 임베딩을 이용해 audio prompt로 이미지에서 detection 테스크를 수행
 
+####  Upgrading text-based diffusion models to audio-based.
 
+DALLE-2 pretrain model을 사용 (diffusion model)
 
+맨위의 Figure 1 참고
 
-
+다른 타입의 데이터를 받아 오디오를 통해 difuusion을  수행
 
 
 
