@@ -33,7 +33,7 @@ VLM과 zero shot learning, 수학, cross-modal detection, 그리고 생성 테�
 
 #  1. Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_1.PNG)
+![f_1](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_1.PNG)
 
 최근 이미지와 텍스트, 임지와 오디오 등 2개의 멀티모달 모델을을 기반으로 few shot 방법들이 많이 제안되고 있음
 
@@ -59,7 +59,7 @@ IMAGEBIND는 웹 스케일을 (image, text) (video, audio), (image, depth) 데�
 
 # 3. Method
 
-![f_2](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_2.PNG)
+![f_2](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_2.PNG)
 
 6가지 도메인을 한 공간에매칭시키는 것을 목표로함
 
@@ -93,7 +93,7 @@ M : another modality representation
 
 - InfoNCE 
 
-> ![f1](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f1.PNG)
+> ![f1](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f1.PNG)
 >
 > 그 후 InfoNCE 로스함수 사용 
 >
@@ -129,7 +129,7 @@ Transformer architecture를 사용
 
 #### Naturally paired modalities and datasets
 
-![t_1](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_1.PNG)
+![t_1](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_1.PNG)
 
 멀티모달 데이터셋 - image/video, text, audio, depth, thermal images, IMU
 
@@ -175,7 +175,7 @@ IMAGEBIND 검증을 위해 많은 down stream tasks를 실험함
 
 ## 4.1. Emergent zero-shot classification
 
-![t_2](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_2.PNG)
+![t_2](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_2.PNG)
 
 prompt templates을 통해 emgergent zero-shot 분류문제를 테스트함
 
@@ -189,7 +189,7 @@ text prompt 가 필요한경우  prompt를 사용했으나 image base인 depth, 
 
 #### Zero-shot text to audio retrieval and classification.
 
-![t_3](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_3.PNG)
+![t_3](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_3.PNG)
 
 이전 모델들은 지도학습을 통해 멀티모달을 학습함
 
@@ -201,7 +201,7 @@ table 3 에서 스코어를 비교함
 
 #### Text to audio and video retrieval.
 
-![t_4](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_4.PNG)
+![t_4](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\t_4.PNG)
 
 MSR-VTT 1k-A 벤치마크를 수행
 
@@ -211,7 +211,7 @@ MSR-VTT 1k-A 벤치마크를 수행
 
 #### 4.3. Few-shot classification
 
-![f_3](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_3.PNG)
+![f_3](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_3.PNG)
 
 
 
@@ -225,7 +225,7 @@ AudioMAE는 Audioset 데이터셋을 통해 self superpised 하고  audio 분류
 
 #### Multimodal embedding space arithmetic
 
-![f_4](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_4.PNG)
+![f_4](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_4.PNG)
 
 IMAGEBIND 모델의 인코딩 결과가 다른 도메인에 사용 가능한지 검증함 
 
@@ -235,7 +235,7 @@ IMAGEBIND 모델의 인코딩 결과가 다른 도메인에 사용 가능한지 
 
 #### Upgrading text-based detectors to audio-based.
 
-![f_5](F:\code\whtngus.github.io\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_5.PNG)
+![f_5](\img\2023\ImageBind__One_Embedding_Space_To_Bind_Them_All\f_5.PNG)
 
 
 
