@@ -67,6 +67,29 @@ Visual Encoder, Causal Transformer, Multimodal Modeling 그리고 Visual Decoder
 
 시작과 끝 그리고 이미지를 구분하는 특수토큰을 추가함 <s> </s> 와 [IMG], [\IMG]
 
+-> 토큰수 제한이 많아야할탠데 .. 모델사이즈가 어떻게 될지..
+
+#### Causal Image-text Transformer
+
+일반적인 생각과 다르게 2D인 이미지 처리시 이미지를 그대로 raster로 넣으면 성능이 잘 나오지 않음 
+
+이미지를 텍스트와 다르게 seq 시그널 없이 넣으면 좋은 성능을 보임 
+
+이미지를 임베딩 하기 위해 Causal Transformer모델을 사용해 1D Z space에 매핑해 입력함 
+
+-> 결국 이미지는 EVA-CLIP 임베딩을 했다는 이야기
+
+![f1](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f1.PNG)
+
+>  z : 임데딩된 벡터
+>
+> g() : EVA-CLIP 임베딩 모델
+>
+> i : 이미지
+>
+> e : 랜덤 초기화 벡터 (같은값이 안나오도록 하는 장치)
+
+#### Visual Decoder
 
 
 
@@ -75,3 +98,17 @@ Visual Encoder, Causal Transformer, Multimodal Modeling 그리고 Visual Decoder
 
 
 
+
+
+
+
+
+# 참고 지식
+
+- raster
+
+필셀로 구성된 이미지
+
+- Q-Former
+
+BLIP-2 논문에서 제안한 transformer 구조로 frezoen된 image encoder에서 정보를 뽑아 멀티모달에 사용될 수 있도록 하는 image encoder
