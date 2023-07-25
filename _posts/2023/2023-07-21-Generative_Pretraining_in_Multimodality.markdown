@@ -91,6 +91,12 @@ Visual Encoder, Causal Transformer, Multimodal Modeling 그리고 Visual Decoder
 
 #### Visual Decoder
 
+visual embeding 모델 Decoder에서 latent diffusion model을 사용 
+
+Emu에서 N개의 embedding을 받아 이미지 decoding을 함 (linear projections of the cross-attention modules)
+
+## 2.2 Training Objective
+
 
 
 
@@ -112,3 +118,8 @@ Visual Encoder, Causal Transformer, Multimodal Modeling 그리고 Visual Decoder
 - Q-Former
 
 BLIP-2 논문에서 제안한 transformer 구조로 frezoen된 image encoder에서 정보를 뽑아 멀티모달에 사용될 수 있도록 하는 image encoder
+
+-  diffusion model
+
+generative 모델 중 하나로 data에서 noise를 조금씩 더해 data를 완전한 noise로 만드는 과정을 반대로 학습해 조금씩 복원해 가면서 data를 만들게 하는 모델 
+
