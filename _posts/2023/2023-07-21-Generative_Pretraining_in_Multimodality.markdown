@@ -99,9 +99,163 @@ Emu에서 N개의 embedding을 받아 이미지 decoding을 함 (linear projecti
 
 
 
+![f2](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f2.PNG)
+
+레이블링 되지 않은 web-scale 데이터 D의 멀티모달데이터 x = (x1, .... xn)
+
+여기에서 각 x는 vision - langauge 페어 
+
+2D 입력인 image 혹은 video의 경우 Casual Transformer를 통해 인코딩을해 1D embedding 후 삽입
+
+p(x) 의 데이터를 유사하게 만드는 p(u)를 만드는걸 목적으로 함 
 
 
 
+loss 함수는 text token 의 cross-entropy 사용  + l2 regression loss
+
+## 2.3 Generalist Interface
+
+위의 Figure 1의 예시처럼 2개의 이미지를 입력시에도 구분자 특수 토큰을 넣고 입력하면 됨 
+
+
+
+사용 시 이미지 output을 원한다면 [IMG] 특수 토큰으로 끝내면 됨 
+
+# 3 Emu Training
+
+image - text pair : LAION-2B,  LAION-COCO 데이터셋
+
+image text interleaved : MMC4   데이터셋
+
+video-text pairs : WebVid-10M 데이터셋 
+
+interleaved video-text data : YT-Storyboard-1B
+
+을 사용해 학습함 
+
+## 3.1 Data
+
+#### Image-text Pairs.
+
+LAION-2B, LAION-COCO 데이터셋을 사전학습 시 사용 
+
+LAION-2B 데이터셋은 이미지와 웹사이트의 노이즈를 포함한 텍스트셋
+
+LAION-COCO 는 600M 텍스트셋 이미지 캡션 데이터
+
+#### Video-text Pairs
+
+WebVid-10M 짧은 비디오에서 텍스트 대본을 수집한 데이터셋 (여러나라 데이터가 있음)
+
+#### Interleaved Image and Text.
+
+Multimodal-C4 (MMC4) 데이터셋은 텍스트만 있는 C4 데이터셋에서 확장한 데이터셋
+
+75M의 image-text-interleave 문서가 있음 
+
+->400M 이미지와 38B 텍스트 토큰 
+
+#### Interleaved Video and Text.
+
+![f_3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_3.PNG)
+
+YT-Storyboard-1B 데이터셋 사용 
+
+Youtube에서 수집한 18M의 비디오 자막 데이터 
+
+## 3.2 Pretraining
+
+1B 버전의  EVA-02-CLIP 모델을 vision encoder 초기모델로 사용
+
+멀티모달의 경우 13B LLaMA 모델을 사용
+
+LLaMA는 Transformer Decoder 모델과 40-layer ViT 모델 사용 
+
+ 다 합해 Emu 모델은 14B 사이즈 
+
+-> 24GB에서도 안돌아가는 사이즈 ㅠ
+
+NVIDIA 80G-A100 GPU로 10k step 학습했다고 함 (2일 학습)
+
+## 3.3 Visual Decoding
+
+사전학습 후 LAION-COCO과 d LAION-Aesthetics 데이터셋을 이용해 fine-tuning 
+
+LAION-Aesthetics 는 LAION-5B데이터셋 에서 미적 높은 퀄리티를 가진 image-text 데이터셋 
+
+
+
+Stable Diffusion v1.5.을 이용해 학습 
+
+visual encoder와 Emu를 freeze 시키고 U-Net만 학습시킴
+
+[IMG]토큰을 마지막에 두고 텍스트를 입력해 이미지 생성을 유도함 
+
+32개의 A100-40G gpu로 학습
+
+# 4 Instruction Tunin
+
+unseen 생성 task와 여러 테스크를 위해 공공 데이터셋을 이용해 Emu를 학습시킴
+
+언어 모델인 language 인 ShareGPT과 Alpaca구조와 
+
+image-text인 LLaVA 구조
+
+video 인 VideoCaht, Video-ChatGPT 구조를 기반으로 만듦
+
+ Instruction Tunng시 사전학습에 사용된 Emu의 모든 파라미터를 프리징 시키고 LoRA 모듈만 fine-tuning함
+
+![f3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f3.PNG)
+
+[USER]와 [ASSISTANT]는 특수 토큰이고 <System Message>는 task를 나타냄 
+
+# 5 Evaluation
+
+Vision Language : MS-COCO
+
+Image QA : VQAv2, OKVQA, VizWiz
+
+visual dialog : VisDial
+
+video QA : MSRVTTQA, MSVDQA, NextQ
+
+text2image generation : MS-COCO
+
+데이터셋을 이용해 평가함 
+
+## 5.1 Zero-shot Evaluation
+
+![t_1](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_1.PNG)
+
+학습 시 사용되지 않은 데이터셋만을 이용해 평가함을 다시 강조함 
+
+-> 학습데이터가 이것저것 많다보니 다시 말한걸로 보임 
+
+#### Multimodal Understanding
+
+Emu-I : instruction-tuned model
+
+Chain-of-Thought prompting 방식을 사용함 -> 이 방식은 이제 치팅으로 보지 않는건가?
+
+두 가지 스텝을 사용 
+
+step1 이미지를 입력하고 캡션을 생성하도록 함
+
+step2  구체적인 테스크에 대한 설명과 step1에서 생성한 캡션 
+
+Flamingo의 방식과 같이 평가함 
+
+Table1에서 위방식을 사용한 경우 *을 붙임 
+
+Emu-I는  14B 크기의 모델 
+
+#### Text2image Generation
+
+![t_2](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_2.PNG)
+
+zero shot image generation을 평가함 
+
+MS-COCO 데이터셋 사용 하고 랜덤으로 30k개의 prompt를 평가셋으로 사용 
 
 
 
@@ -122,4 +276,14 @@ BLIP-2 논문에서 제안한 transformer 구조로 frezoen된 image encoder에�
 -  diffusion model
 
 generative 모델 중 하나로 data에서 noise를 조금씩 더해 data를 완전한 noise로 만드는 과정을 반대로 학습해 조금씩 복원해 가면서 data를 만들게 하는 모델 
+
+-  Chain-of-Thought prompting
+
+여러 단계의 추론 과정을 새성하도록 유도하여 언어 모델의 추론 능력을 향상시키는 기법
+
+- Flamingo
+
+VLM 모델 로 
+
+프리트레이닝 모델과 교차배열된 image, text 데이터를 이용해 학습함 
 
