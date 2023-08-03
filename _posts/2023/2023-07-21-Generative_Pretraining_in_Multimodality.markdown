@@ -257,6 +257,36 @@ zero shot image generation을 평가함
 
 MS-COCO 데이터셋 사용 하고 랜덤으로 30k개의 prompt를 평가셋으로 사용 
 
+PNDM 스케줄러를 사용(이미지 셈플링 방법)
+
+## 5.2 Few-shot Evaluation
+
+few shot 평가 방법은  task-specific prompts와 몇개의 입력 데이터(0, 2, 4, 8)를 사용함 
+
+RICES접근 방법을 사용 
+
+### 5.3 Qualitative Evaluation
+
+![t_3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_3.PNG)
+
+- 결과 Figure
+
+![f_9](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_9.PNG)
+
+![f_4](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_4.PNG)
+
+![f_5](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_5.PNG)
+
+![f_6](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_6.PNG)
+
+![f_7_8](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_7_8.PNG)
+
+
+
+![f_10](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_10.PNG)
+
+![f_12](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_12.PNG)
+
 
 
 
@@ -287,3 +317,14 @@ VLM 모델 로
 
 프리트레이닝 모델과 교차배열된 image, text 데이터를 이용해 학습함 
 
+- FID(Frechet Inception Distance)
+
+실제 이미지와 생성된 이미지가 얼마나 유사한지 통계 측면세서 벡터 사이의 거리를 계산
+
+
+
+Inception Score는 생성된 이미지만 사용해 평가하지만 FID는 실제이미지를 이용해 계산
+
+ Inception v3 모델을 이용해 2048개의 output vector의 벡터의 거리를 구함 
+
+-> 즉 거리값이 가까울수록 유사함
