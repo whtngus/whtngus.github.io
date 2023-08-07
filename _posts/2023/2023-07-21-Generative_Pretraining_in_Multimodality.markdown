@@ -37,7 +37,7 @@ Flamingo 모델은 좋은 성능과 멀티모달 기반의 zero-shot learning �
 
 textboook 과 웹페이지에서 멀티모달 학습을 함
 
-![f_1](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_1.PNG)
+![f_1](\img\2023\Generative_Pretraining_in_Multimodality\f_1.PNG)
 
 텍스트 영상 이미지 등 온라인상의 대용량의 데이터가 제공되고 있음
 
@@ -59,7 +59,7 @@ Emu는 기존의 LMMs 모델 학습 방식과 다르게 다음 토큰을 예측 
 
 ## 2.1 Architecture
 
-![f_2](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_2.PNG)
+![f_2](\img\2023\Generative_Pretraining_in_Multimodality\f_2.PNG)
 
 이미지는 EVA-CLIP를 통해 임베딩 하고 다양한 멀티모달 입력을 받고 출력을 함 
 
@@ -79,7 +79,7 @@ Visual Encoder, Causal Transformer, Multimodal Modeling 그리고 Visual Decoder
 
 -> 결국 이미지는 EVA-CLIP 임베딩을 했다는 이야기
 
-![f1](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f1.PNG)
+![f1](\img\2023\Generative_Pretraining_in_Multimodality\f1.PNG)
 
 >  z : 임데딩된 벡터
 >
@@ -99,7 +99,7 @@ Emu에서 N개의 embedding을 받아 이미지 decoding을 함 (linear projecti
 
 
 
-![f2](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f2.PNG)
+![f2](\img\2023\Generative_Pretraining_in_Multimodality\f2.PNG)
 
 레이블링 되지 않은 web-scale 데이터 D의 멀티모달데이터 x = (x1, .... xn)
 
@@ -157,7 +157,7 @@ Multimodal-C4 (MMC4) 데이터셋은 텍스트만 있는 C4 데이터셋에서 �
 
 #### Interleaved Video and Text.
 
-![f_3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_3.PNG)
+![f_3](\img\2023\Generative_Pretraining_in_Multimodality\f_3.PNG)
 
 YT-Storyboard-1B 데이터셋 사용 
 
@@ -205,7 +205,7 @@ video 인 VideoCaht, Video-ChatGPT 구조를 기반으로 만듦
 
  Instruction Tunng시 사전학습에 사용된 Emu의 모든 파라미터를 프리징 시키고 LoRA 모듈만 fine-tuning함
 
-![f3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f3.PNG)
+![f3](\img\2023\Generative_Pretraining_in_Multimodality\f3.PNG)
 
 [USER]와 [ASSISTANT]는 특수 토큰이고 <System Message>는 task를 나타냄 
 
@@ -225,7 +225,7 @@ text2image generation : MS-COCO
 
 ## 5.1 Zero-shot Evaluation
 
-![t_1](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_1.PNG)
+![t_1](\img\2023\Generative_Pretraining_in_Multimodality\t_1.PNG)
 
 학습 시 사용되지 않은 데이터셋만을 이용해 평가함을 다시 강조함 
 
@@ -251,7 +251,7 @@ Emu-I는  14B 크기의 모델
 
 #### Text2image Generation
 
-![t_2](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_2.PNG)
+![t_2](\img\2023\Generative_Pretraining_in_Multimodality\t_2.PNG)
 
 zero shot image generation을 평가함 
 
@@ -267,25 +267,25 @@ RICES접근 방법을 사용
 
 ### 5.3 Qualitative Evaluation
 
-![t_3](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\t_3.PNG)
+![t_3](\img\2023\Generative_Pretraining_in_Multimodality\t_3.PNG)
 
 - 결과 Figure
 
-![f_9](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_9.PNG)
+![f_9](\img\2023\Generative_Pretraining_in_Multimodality\f_9.PNG)
 
-![f_4](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_4.PNG)
+![f_4](\img\2023\Generative_Pretraining_in_Multimodality\f_4.PNG)
 
-![f_5](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_5.PNG)
+![f_5](\img\2023\Generative_Pretraining_in_Multimodality\f_5.PNG)
 
-![f_6](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_6.PNG)
+![f_6](\img\2023\Generative_Pretraining_in_Multimodality\f_6.PNG)
 
-![f_7_8](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_7_8.PNG)
+![f_7_8](\img\2023\Generative_Pretraining_in_Multimodality\f_7_8.PNG)
 
 
 
-![f_10](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_10.PNG)
+![f_10](\img\2023\Generative_Pretraining_in_Multimodality\f_10.PNG)
 
-![f_12](F:\code\whtngus.github.io\img\2023\Generative_Pretraining_in_Multimodality\f_12.PNG)
+![f_12](\img\2023\Generative_Pretraining_in_Multimodality\f_12.PNG)
 
 
 
