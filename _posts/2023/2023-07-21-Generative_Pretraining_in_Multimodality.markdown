@@ -24,9 +24,6 @@ code : https://github.com/baaivision/Emu
    and text-to-image generation 테스크를 수행
 
 
-
-
-
 # 1 Introduction
 
 LLM 모델은 대용량 텍스트 데이터에서 다음단어를 예측하는 방식으로 자연어를 이해하고 빠른 속도로 좋은 성능을 달성하여 현실 세계에서 많이 응용되고 있음
