@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "ImageBind: One Embedding Space To Bind Them All"
-date: 2023-07-20 02:05:23 +0900
-category: datascience
+date: 2023-08-13 02:05:23 +0900
+category: paper
 ---
 
 # ImageBind: One Embedding Space To Bind Them All

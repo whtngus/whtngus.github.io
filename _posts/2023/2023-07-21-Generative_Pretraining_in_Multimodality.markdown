@@ -2,7 +2,7 @@
 layout: post
 title: "Generative Pretraining in Multimodality"
 date: 2023-08-07 02:05:23 +0900
-category: datascience
+category: paper
 ---
 
 # Generative Pretraining in Multimodality
