@@ -83,13 +83,97 @@ Flamingo는 사전학습된 Vision encoder와 언어모델의 gated cross-attent
 
 # 3 Method
 
+위의 그림1 참조 
+
+## 3.1 First pretraining stage
+
+첫 사전 학습시에는 label 되어있는 데이터들을 이용해 학습함
+
+Conceptual Caption, SBU, LAION 데이터셋을 이용해 256batch 사이즈로 20,000 스텝 학습 (5M의 데이터)
+
+A100 (80GB) 4대로 학습시 10시간 걸렸다고함 
+
+-> 3090TI로 학습 시 학습 시간이 10배정도 더 들걸로 보임 
+
+#### Issues of the first pretraining stage
+
+대용량의 데이터로 학습 해 괜찮은 답변을 하는것을 보임 
+
+그러나 반복적인 단어와 문장, 파편화된 문장, 엉뚱한 문장을 생성하기도 함 
+
+-> 이를 해결하기 위해 다시 학습
+
+### 3.2 Curating a high-quality alignment dataset for vision-language domain.
+
+괜찮은 데이터를 추출해 fine-tuning 
+
+#### Initial aligned image-text generation
+
+```
+###Human: <Img><ImageFeature></Img> Describe this image in detail. Give as many details as
+possible. Say everything you see. ###Assistant:
+```
+
+위와 같이 프롬프트를 구성 
+
+ImageFeature는 이미지 임베딩 벡터를 linear projection 함 
+
+생성한 답변이 80토큰을 초과하지 않는경우 Human: Continue ###Assistant: 를 통해 추가 답변을 요구하도록 학습 
+
+5000개의 이미지를 Conceptual Caption 데이터셋에서 랜덤으로 추출해 각이미지를 설명하도록 함
+
+### Data post-processing
+
+이미지에 대한 설명을 생성할때 단어 또는 문장을 반복하는 문제가 발생함 
+
+이를 해결하기 위해 ChatGPT의 정교한 설명셋을 활용
+
+```
+Fix the error in the given paragraph. Remove any repeating sentences, meaningless characters, not English sentences, and so on. Remove unnecessary repetition. Rewrite any incomplete sentences.
+Return directly the results without explanation. Return directly the input paragraph if it is already correct without explanation.
+```
+
+위의 문장을 통해 한번더 체크하도록 확인
+
+### 3.3 Second-stage finetunin
+
+마지막으러 first stage에서 학습한 모델을 빠르게 다시 학습함 
+
+```
+###Human: <Img><ImageFeature></Img> <Instruction> ###Assistant:
+```
+
+Instruction은 Describe this image in detail 혹은 Could you describe the contents of this image for me 중 랜덤으로 선택
+
+A100 GPU로 7분 학습
+
+# 4 Demonstrations
+
+figure로 결과를 보여줌 
+
+잘하는걸로 보임 .. 실행해보고 확인해보자
+
+![f_2](F:\code\whtngus.github.io\img\2023\MiniGPT-4 Enhancing_Vision-Language_Understanding_with_Advanced_Large_Language_Models\f_2.PNG)
+
+# 5 Limitations
+
+아직 몇가지 문제를 포함하고있음 
+
+#### Language hallucination
+
+LLM 을 가져와 쓰기 때문에 일반적인 LLM의 문제를 그대로 가지고 있음
+
+#### Inadequate perception capacities
+
+이미지에 있는 세부적인 텍스트나 특별한 장소에 대해서 이해하지 못함 
 
 
 
+예상 이유
 
-
-
-
+1. 학습데이터의 부족으로 보임
+2. Q-former를 frozen 시켰는데  image Embedding 모델도 학습 시켜야함 (이미지에서 특별한 feature를 추출하지 못하기 때문에) 
+3. 마지막 Image embedding projection layer를 보강할 필요가 보임 
 
 
 
