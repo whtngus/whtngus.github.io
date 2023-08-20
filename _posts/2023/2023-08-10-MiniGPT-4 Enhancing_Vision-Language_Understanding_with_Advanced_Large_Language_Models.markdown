@@ -63,7 +63,7 @@ pretraining에서 사용한 데이터셋에서 3,500 개의 퀄리티가 높은 
 
 # 2 Related Works
 
-![f_1](F:\code\whtngus.github.io\img\2023\MiniGPT-4 Enhancing_Vision-Language_Understanding_with_Advanced_Large_Language_Models\f_1.PNG)
+![f_1](\img\2023\MiniGPT-4 Enhancing_Vision-Language_Understanding_with_Advanced_Large_Language_Models\f_1.PNG)
 
 ### Large language models
 
@@ -153,7 +153,7 @@ figure로 결과를 보여줌
 
 잘하는걸로 보임 .. 실행해보고 확인해보자
 
-![f_2](F:\code\whtngus.github.io\img\2023\MiniGPT-4 Enhancing_Vision-Language_Understanding_with_Advanced_Large_Language_Models\f_2.PNG)
+![f_2](\img\2023\MiniGPT-4 Enhancing_Vision-Language_Understanding_with_Advanced_Large_Language_Models\f_2.PNG)
 
 # 5 Limitations
 
