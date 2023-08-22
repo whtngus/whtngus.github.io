@@ -32,7 +32,7 @@ Demo: https://github.com/OpenGVLab/InternGPT
 
 # 1 Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2023\VisionLLM_Large_Language_Model_is_also_an_Open-Ended_Decoder_for_Vision-Centric_Tasks\f_1.PNG)
+![f_1](\img\2023\VisionLLM_Large_Language_Model_is_also_an_Open-Ended_Decoder_for_Vision-Centric_Tasks\f_1.PNG)
 
 ChatGPT와 같은 LLM이 등장하면서 AGI의 큰 발전을 이룸 
 
