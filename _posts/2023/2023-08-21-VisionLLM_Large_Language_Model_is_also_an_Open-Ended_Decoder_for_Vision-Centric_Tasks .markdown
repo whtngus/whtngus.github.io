@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "VisionLLM: Large Language Model is also an Open-Ended Decoder for Vision-Centric Tasks"
-date: 2023-08-22 02:05:23 +0900
+date: 2023-08-30 02:05:23 +0900
 category: paper
 ---
 
