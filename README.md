@@ -25,7 +25,6 @@ permalink: /about/
                     <div class="my_info">
                         <h1>조수현</h1>
                         <p class="job">데이터사이언티스트</p>
-                        <p class="birth"><span class="ico_s icon_ico_location">생일</span><span class="txt_s">서울 / 1994년 3월 2일</span></p>
                     </div>
                 </div>
                 <div class="box_contact">
@@ -50,7 +49,7 @@ permalink: /about/
                     <li>
                         <span class="txt_date">2018.06 ~ 2020.12</span>
                         <span class="txt_info">와이즈넛</span>
-                        <span class="txt_sub">NLP 연구 및 개발</span>
+                        <span class="txt_sub">NLP R&D</span>
                     </li>
                 </ul>
             </div>
