@@ -3,27 +3,15 @@ layout: page
 title: About
 permalink: /about/
 ---
-# 접속 링크 
 
-https://whtngus.github.io/
-
-## SHC 개인 공부 정리 블로그
-
-> whtngus3232@naver.com <br>
-> whtngus3232@gmail.com <br>
-
-<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>홍길동 원페이지 이력서</title>
+<title>조수현 이력서</title>
 <link rel="stylesheet" href="css/default.min.css">
 </head>
 <body>
-<div id="oneIndex">
-    <a href="#oneIntro">홍길동 소개 바로가기</a>
-    <a href="#oneSkill">홍길동 스킬 바로가기</a>
-</div>
+
 <div id="wrap">
     <div id="oneIntro" class="cont_intro">
         <div class="inner_intro">
