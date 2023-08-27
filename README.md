@@ -19,21 +19,41 @@ permalink: /about/
                 <div class="box_info">
                     <div class="my_photo">
                         <span>
-                            <img src="img/11.jpg" style="width:160px;" alt="정우성">
+                            <img src="img/main/sh.jpg" style="width:160px;" alt="조수현">
                         </span>
                     </div>
                     <div class="my_info">
-                        <h1>홍길동</h1>
-                        <p class="job">프론트엔드개발자 && UI개발자 && 웹퍼블리셔</p>
-                        <p class="birth"><span class="ico_s icon_ico_location">생일</span><span class="txt_s">서울 / 2017년 8월 5일</span></p>
+                        <h1>조수현</h1>
+                        <p class="job">데이터사이언티스트</p>
+                        <p class="birth"><span class="ico_s icon_ico_location">생일</span><span class="txt_s">서울 / 1994년 3월 2일</span></p>
                     </div>
                 </div>
                 <div class="box_contact">
                     <ul>
-                        <li><span class="ico_s icon_ico_phone">연락처</span><a href="tel:010-0000-0000" class="link_phone"><span class="txt_s">010-0000-0000</span></a></li>
-                        <li><span class="ico_s icon_ico_email">이메일</span><a href="mailto:00000@gmail.com" class="link_email"><span class="txt_s">00000@gmail.com</span></a></li>
+                        <li><span class="ico_s icon_ico_phone">연락처</span><a href="tel:010-7101-6540" class="link_phone"><span class="txt_s">010-7101-6540</span></a></li>
+                        <li><span class="ico_s icon_ico_email">이메일</span><a href="mailto:whtngus3232@gmail.com" class="link_email"><span class="txt_s">whtngus3232@gmail.com</span></a></li>
                     </ul>
                 </div>
+            </div>
+            <div class="area_career">
+                <h2><span class="ico_s icon_ico_career"></span><span class="txt_s">EXPERIENCE</span></h2>
+                <ul>
+                    <li>
+                        <span class="txt_date">2023.02 ~ </span>
+                        <span class="txt_info">신한카드</span>
+                        <span class="txt_sub">데이터사이언스</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2021.03 ~ 2023.01</span>
+                        <span class="txt_info">현대카드</span>
+                        <span class="txt_sub">데이터사이언스</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2018.06 ~ 2020.12</span>
+                        <span class="txt_info">와이즈넛</span>
+                        <span class="txt_sub">NLP 연구 및 개발</span>
+                    </li>
+                </ul>
             </div>
             <div class="area_edu">
                 <h2><span class="ico_s icon_ico_edu"></span><span class="txt_s">EDUCATION</span></h2>
@@ -43,39 +63,60 @@ permalink: /about/
                         <span class="txt_info">컴퓨터학원 웹마스터과정</span>
                     </li>
                     <li>
-                        <span class="txt_date">2014.05 ~ 2014.11</span>
-                        <span class="txt_info">아카데미 컴퓨터학원 대통령과정</span>
+                        <span class="txt_date">2022.03 ~ </span>
+                        <span class="txt_info">성균관대학교</span>
+                        <span class="txt_sub">박사</span>
                     </li>
                     <li>
                         <span class="txt_date" style="letter-spacing: -1px;">2007.03 ~ 2012.02</span>
-                        <span class="txt_info">서울대학교</span>
+                        <span class="txt_info">성균관대학교</span>
+                        <span class="txt_sub">석사</span>
                     </li>
                     <li>
-                        <span class="txt_date" style="letter-spacing: -1px;">2004.03 ~ 2007.02</span>
-                        <span class="txt_info">서울고등학교</span>
+                        <span class="txt_date" style="letter-spacing: -1px;">2012.03 ~ 2019.02</span>
+                        <span class="txt_info">호서대학교</span>
+                        <span class="txt_sub">학사</span>
                     </li>
                 </ul>
             </div>
-            <div class="area_career">
-                <h2><span class="ico_s icon_ico_career"></span><span class="txt_s">EXPERIENCE</span></h2>
+            <div class="area_ETC">
+                <h2><span class="ico_s icon_ico_edu"></span><span class="txt_s">ETC</span></h2>
                 <ul>
-                    <li>
-                        <span class="txt_date">2017.01 ~ 2017.06</span>
-                        <span class="txt_info">삼성전자</span>
-                        <span class="txt_sub">개발본부 웹퍼블리셔</span>
+                    <li><!-- list를 추가하면 first-child와 last-child를 제외한 나머지 중간은 background-image가 다릅니다 -->
+                        <span class="txt_date">2023.02.14</span>
+                        <span class="txt_info">Generalized Image Captioning for Multilingual Support</span>
+                        <span class="txt_sub">Applied Sciences - SCI 1저자</span>
                     </li>
                     <li>
-                        <span class="txt_date">2016.07 ~ 2016.11</span>
-                        <span class="txt_info">엘지전자</span>
-                        <span class="txt_sub">UI개발2팀 UI개발자</span>
+                        <span class="txt_date">2022.08.26</span>
+                        <span class="txt_info">한국어 및 영어 이미지 캡션이 가능한 범용적 모델 및 목적에 맞는 텍스트를
+생성해주는 기법</span>
+                        <span class="txt_sub">JKIICE - KCI 1저자</span>
                     </li>
                     <li>
-                        <span class="txt_date">2015.05 ~ 2016.07</span>
-                        <span class="txt_info">애플</span>
-                        <span class="txt_sub">디자인팀 UI개발자</span>
+                        <span class="txt_date">2022.07.25</span>
+                        <span class="txt_info">머신 러닝 및 위치/환경 정보에 기반한 객체 영상 분류 방법</span>
+                        <span class="txt_sub">특허(등록)</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2022.07.20</span>
+                        <span class="txt_info">지식 베이스 확장을 위한 인공지능 기반의 지식 트리플 추출 장치 및 그 방법</span>
+                        <span class="txt_sub">특허(등록)</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2021.02.01</span>
+                        <span class="txt_info">Coreference Resolution 과 Information Extraction 모델을 통한 Knowledge
+Base Population 데이터 구축</span>
+                        <span class="txt_sub">학위논문 - 석사</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2018.12.21</span>
+                        <span class="txt_info">회의분석 서비스를 위한 노이즈 처리와 클러스터링</span>
+                        <span class="txt_sub">KSC2018 1저자</span>
                     </li>
                 </ul>
             </div>
+            
             <div class="area_portfolio">
                 <h2><span class="txt_s">PORTFOLIO LINKS</span></h2>
                 <ul>
