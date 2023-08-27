@@ -192,18 +192,6 @@ referrer -> 없으면 direct(none)  있으면 refererrer,  검색기  3가지로
 
 자동으로 수집하지 못하는 정보는 수동으로 이벤트코드를 넣어줘야함 
 
-```
- -예시
-gtag('event', 'sign_up', {
-	'method' : '나의메소드'
-
-})
-
-gtag('event', 'click_card', {
-	'card_name' : '{{카드이름}}' 
-	,'recommend_category' : '{{추천카테고리}}'
-});
-```
 
 
 

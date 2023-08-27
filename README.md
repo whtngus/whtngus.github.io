@@ -3,11 +3,11 @@ layout: page
 title: About
 permalink: /about/
 ---
-# ì ‘ì† ë§í¬ 
+# Á¢¼Ó ¸µÅ© 
 
 https://whtngus.github.io/
 
-## SHC ê°œì¸ ê³µë¶€ ì •ë¦¬ ë¸”ë¡œê·¸
+## SHC °³ÀÎ °øºÎ Á¤¸® ºí·Î±×
 
 > whtngus3232@naver.com <br>
 > whtngus3232@gmail.com <br>
