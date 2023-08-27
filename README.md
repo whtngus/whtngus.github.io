@@ -11,3 +11,143 @@ https://whtngus.github.io/
 
 > whtngus3232@naver.com <br>
 > whtngus3232@gmail.com <br>
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>홍길동 원페이지 이력서</title>
+<link rel="stylesheet" href="css/default.min.css">
+</head>
+<body>
+<div id="oneIndex">
+    <a href="#oneIntro">홍길동 소개 바로가기</a>
+    <a href="#oneSkill">홍길동 스킬 바로가기</a>
+</div>
+<div id="wrap">
+    <div id="oneIntro" class="cont_intro">
+        <div class="inner_intro">
+            <div class="area_profile">
+                <div class="box_info">
+                    <div class="my_photo">
+                        <span>
+                            <img src="img/11.jpg" style="width:160px;" alt="정우성">
+                        </span>
+                    </div>
+                    <div class="my_info">
+                        <h1>홍길동</h1>
+                        <p class="job">프론트엔드개발자 && UI개발자 && 웹퍼블리셔</p>
+                        <p class="birth"><span class="ico_s icon_ico_location">생일</span><span class="txt_s">서울 / 2017년 8월 5일</span></p>
+                    </div>
+                </div>
+                <div class="box_contact">
+                    <ul>
+                        <li><span class="ico_s icon_ico_phone">연락처</span><a href="tel:010-0000-0000" class="link_phone"><span class="txt_s">010-0000-0000</span></a></li>
+                        <li><span class="ico_s icon_ico_email">이메일</span><a href="mailto:00000@gmail.com" class="link_email"><span class="txt_s">00000@gmail.com</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="area_edu">
+                <h2><span class="ico_s icon_ico_edu"></span><span class="txt_s">EDUCATION</span></h2>
+                <ul>
+                    <li><!-- list를 추가하면 first-child와 last-child를 제외한 나머지 중간은 background-image가 다릅니다 -->
+                        <span class="txt_date">2014.11 ~ 2015.01</span>
+                        <span class="txt_info">컴퓨터학원 웹마스터과정</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2014.05 ~ 2014.11</span>
+                        <span class="txt_info">아카데미 컴퓨터학원 대통령과정</span>
+                    </li>
+                    <li>
+                        <span class="txt_date" style="letter-spacing: -1px;">2007.03 ~ 2012.02</span>
+                        <span class="txt_info">서울대학교</span>
+                    </li>
+                    <li>
+                        <span class="txt_date" style="letter-spacing: -1px;">2004.03 ~ 2007.02</span>
+                        <span class="txt_info">서울고등학교</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="area_career">
+                <h2><span class="ico_s icon_ico_career"></span><span class="txt_s">EXPERIENCE</span></h2>
+                <ul>
+                    <li>
+                        <span class="txt_date">2017.01 ~ 2017.06</span>
+                        <span class="txt_info">삼성전자</span>
+                        <span class="txt_sub">개발본부 웹퍼블리셔</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2016.07 ~ 2016.11</span>
+                        <span class="txt_info">엘지전자</span>
+                        <span class="txt_sub">UI개발2팀 UI개발자</span>
+                    </li>
+                    <li>
+                        <span class="txt_date">2015.05 ~ 2016.07</span>
+                        <span class="txt_info">애플</span>
+                        <span class="txt_sub">디자인팀 UI개발자</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="area_portfolio">
+                <h2><span class="txt_s">PORTFOLIO LINKS</span></h2>
+                <ul>
+                    <li><span class="ico_s icon_ico_portfolio">포트폴리오사이트</span><a href="http://www.daum.net" target="_blank"><span class="txt_s">http://www.daum.net</span></a></li>
+                    <li><span class="ico_s icon_ico_blog">블로그</span><a href="http://www.naver.com" target="_blank"><span class="txt_s">http://www.daum.net</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="oneSkill" class="cont_skill">
+        <div class="inner_skill">
+            <div class="area_proficiency">
+                <h2><span class="txt_s">PROFICIENCY</span></h2>
+                <div class="box_proficiency">
+                    <div class="inner_list">
+                        <ul>
+                            <li>적응력 <span class="ico_grph"></span></li>
+                            <li>열정 <span class="ico_grph"></span></li>
+                            <li>도전정신 <span class="ico_grph"></span></li>
+                            <li>리더쉽 <span class="ico_grph"></span></li>
+                        </ul>
+                    </div>
+                    <div class="inner_proficiency">
+                        <div class="pie" data-start="0" data-value="40"></div>
+                        <div class="pie" data-start="145" data-value="25"></div>
+                        <div class="pie" data-start="230" data-value="20"></div>
+                        <div class="pie" data-start="302" data-value="15"></div> 
+                    </div>
+                </div>
+            </div>
+            <div class="area_technical">
+                <h2><span class="txt_s">TECHNICAL SKILLS</span></h2>
+                <div class="box_technical">
+                    <div class="list_standard">
+                        <div>중하</div>
+                        <div>중</div>
+                        <div>중상</div>
+                        <div>상</div>
+                    </div>
+                    <div class="inner_technical">
+                        <ul>
+                            <li><strong class="tit_technical">html</strong><div class="box_grph"><span  class="ico_grph emph" style="width:85%"></span></div></li>
+                            <li><strong class="tit_technical">css</strong><div class="box_grph"><span class="ico_grph emph" style="width:85%"></span></div></li>
+                            <li><strong class="tit_technical">javascript</strong><div class="box_grph"><span class="ico_grph emph" style="width:70%"></span></div></li>
+                            <li><strong class="tit_technical">build	tool</strong><div class="box_grph"><span class="ico_grph emph" style="width:70%"></span></div></li>
+                            <li><strong class="tit_technical">git</strong><div class="box_grph"><span class="ico_grph emph" style="width:65%"></div></span></li>
+                            <li><strong class="tit_technical">communication</strong><div class="box_grph"><span class="ico_grph emph" style="width:90%"></span></div></li>
+                            <li><strong class="tit_technical">sociability</strong><div class="box_grph"><span class="ico_grph emph" style="width:75%"></span></div></li>
+                            <li><strong class="tit_technical">problem solving</strong><div class="box_grph"><span class="ico_grph emph" style="width:80%"></span></div></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div class="inner_footer">Copyright ? 2017 <a href="https://tuhbm.github.io" target="_blank">Taekyun Kim.</a></div>
+    </footer>
+</div>
+</body>
+</html>
