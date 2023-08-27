@@ -30,7 +30,6 @@ permalink: /about/
                 </div>
                 <div class="box_contact">
                     <ul>
-                        <li><span class="ico_s icon_ico_phone">연락처</span><a href="tel:010-7101-6540" class="link_phone"><span class="txt_s">010-7101-6540</span></a></li>
                         <li><span class="ico_s icon_ico_email">이메일</span><a href="mailto:whtngus3232@gmail.com" class="link_email"><span class="txt_s">whtngus3232@gmail.com</span></a></li>
                     </ul>
                 </div>
@@ -60,17 +59,17 @@ permalink: /about/
                 <ul>
                     <li>
                         <span class="txt_date">2022.03 ~ </span>
-                        <span class="txt_info">성균관대학교</span>
+                        <span class="txt_info">성균관대학교 인공지능융합학과</span>
                         <span class="txt_sub">박사</span>
                     </li>
                     <li>
                         <span class="txt_date" style="letter-spacing: -1px;">2007.03 ~ 2012.02</span>
-                        <span class="txt_info">성균관대학교</span>
+                        <span class="txt_info">성균관대학교 데이터사이언스융합학과</span>
                         <span class="txt_sub">석사</span>
                     </li>
                     <li>
                         <span class="txt_date" style="letter-spacing: -1px;">2012.03 ~ 2019.02</span>
-                        <span class="txt_info">호서대학교</span>
+                        <span class="txt_info">호서대학교 컴퓨터공학과</span>
                         <span class="txt_sub">학사</span>
                     </li>
                 </ul>
@@ -87,28 +86,28 @@ permalink: /about/
                         <span class="txt_date">2022.08.26</span>
                         <span class="txt_info">한국어 및 영어 이미지 캡션이 가능한 범용적 모델 및 목적에 맞는 텍스트를
 생성해주는 기법</span>
-                        <span class="txt_sub">JKIICE - KCI 1저자</span>
+                        <span class="txt_sub"><br>JKIICE - KCI 1저자</span>
                     </li>
                     <li>
                         <span class="txt_date">2022.07.25</span>
                         <span class="txt_info">머신 러닝 및 위치/환경 정보에 기반한 객체 영상 분류 방법</span>
-                        <span class="txt_sub">특허(등록)</span>
+                        <span class="txt_sub"><br>특허(등록)</span>
                     </li>
                     <li>
                         <span class="txt_date">2022.07.20</span>
                         <span class="txt_info">지식 베이스 확장을 위한 인공지능 기반의 지식 트리플 추출 장치 및 그 방법</span>
-                        <span class="txt_sub">특허(등록)</span>
+                        <span class="txt_sub"><br>특허(등록)</span>
                     </li>
                     <li>
                         <span class="txt_date">2021.02.01</span>
                         <span class="txt_info">Coreference Resolution 과 Information Extraction 모델을 통한 Knowledge
 Base Population 데이터 구축</span>
-                        <span class="txt_sub">학위논문 - 석사</span>
+                        <span class="txt_sub"><br>학위논문 - 석사</span>
                     </li>
                     <li>
                         <span class="txt_date">2018.12.21</span>
                         <span class="txt_info">회의분석 서비스를 위한 노이즈 처리와 클러스터링</span>
-                        <span class="txt_sub">KSC2018 1저자</span>
+                        <span class="txt_sub"><br>KSC2018 1저자</span>
                     </li>
                 </ul>
             </div>
