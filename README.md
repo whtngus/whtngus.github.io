@@ -8,7 +8,7 @@ permalink: /about/
 <head>
 <meta charset="UTF-8">
 <title>조수현 이력서</title>
-<link rel="stylesheet" href="css/default.min.css">
+<link rel="stylesheet" href="/css/default.min.css">
 </head>
 <body>
 
@@ -58,10 +58,6 @@ permalink: /about/
             <div class="area_edu">
                 <h2><span class="ico_s icon_ico_edu"></span><span class="txt_s">EDUCATION</span></h2>
                 <ul>
-                    <li><!-- list를 추가하면 first-child와 last-child를 제외한 나머지 중간은 background-image가 다릅니다 -->
-                        <span class="txt_date">2014.11 ~ 2015.01</span>
-                        <span class="txt_info">컴퓨터학원 웹마스터과정</span>
-                    </li>
                     <li>
                         <span class="txt_date">2022.03 ~ </span>
                         <span class="txt_info">성균관대학교</span>
