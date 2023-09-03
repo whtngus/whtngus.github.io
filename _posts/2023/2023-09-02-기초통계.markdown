@@ -8,3 +8,6 @@ category: datascience
 # 2023년 2학기 수업  - 기초통계
 
 ## 1 주차
+
+
+
