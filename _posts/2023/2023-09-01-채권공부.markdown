@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "채권공부"
-date: 2023-09-16 02:05:23 +0900
+date: 2023-09-20 02:05:23 +0900
 category: datascience
 ---
 
