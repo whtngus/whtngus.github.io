@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Comprehensive Study on Metaverse and Its Impacts on Humans"
-date: 2023-11-19 02:05:23 +0900
+date: 2023-11-22 02:05:23 +0900
 category: paper
 ---
 
@@ -32,7 +32,7 @@ Metaverse는 가상 공간에서 우리의 상상력을 실제 생활과 연결�
 
 ## 2.1. The Metaverse
 
-![f_2](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_2.PNG)
+![f_2](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_2.PNG)
 
 1989년 World Wide Web (www) 발명 이후, 인터넷은 엄청난 발전을 이룸 
 
@@ -40,7 +40,7 @@ Metaverse 키워드는 1992년 Neal Stephenson의 소설 Snow Crash에서 처음
 
 2003년 처음으로 가상세계인 "Second Life"가 디자인됨 
 
-![f_1](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_1.PNG)
+![f_1](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_1.PNG)
 
 그 후 2009년에 블록체인이 나오고 2015년에 온라인 가상세계 프랫폼들이 나오면서 포캣몬 고 등의 서비스가 나왔으며 코로나 시대를 거치며 더욱 빠른 온라인 서비스가 만들어짐 
 
@@ -50,7 +50,7 @@ Metaverse 키워드는 1992년 Neal Stephenson의 소설 Snow Crash에서 처음
 
 ## 2.2. Virtual Reality (VR).
 
-![f_3](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_3.PNG)
+![f_3](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_3.PNG)
 
 VR은 사용자가 VR장치를 통해 가상환경과 상호작용 할 수 있는 GUI
 
@@ -62,9 +62,9 @@ VR은 해드셋, 360 VR Treadmill, wand, 전용 장갑, 바디 슈츠, 모션 �
 
 ## 2.3. Augmented Reality (AR)
 
-![f_4](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_4.PNG)
+![f_4](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_4.PNG)
 
-![f_5](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_5.PNG)
+![f_5](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_5.PNG)
 
 AR은 VR과 같지 않은 가상환경을 제공한다.
 
@@ -76,7 +76,7 @@ AR은 VR과 같지 않은 가상환경을 제공한다.
 
 ## 3.1. Experienced Virtual Tours
 
-![f_6](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_6.PNG)
+![f_6](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_6.PNG)
 
 최근 몇년간 컴퓨터그래픽의 선능의 발전으로 3D 가상환경 생성이 가능해지고 점점 현실과 구분이 불가능할정도로 향상되었다.  -> Google의 Earth-like-virtual world를 통해 확인 가능 
 
@@ -84,7 +84,7 @@ AR은 VR과 같지 않은 가상환경을 제공한다.
 
 ## 3.2. Meetings and Conferences.
 
-![f_7](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_7.PNG)
+![f_7](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_7.PNG)
 
 코로나19로 인해 독립적인 환경에 대환 관심이 증가함
 
@@ -94,7 +94,7 @@ Microsoft는 위의 그림7처럼 온라인 컨퍼런스를 지원하기 위한 
 
 ## 3.3. Workout and Exercise.
 
-![f_8](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_8.PNG)
+![f_8](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_8.PNG)
 
 가상환경은 유저의 경험을 돕기 위해 현실성을 제공한다.
 
@@ -106,7 +106,7 @@ Microsoft는 위의 그림7처럼 온라인 컨퍼런스를 지원하기 위한 
 
 ## 3.4.  Education: Making Learning a Fun Experience.
 
-![f_9](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_9.PNG)
+![f_9](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_9.PNG)
 
 전통적인 칠판에 적으며 가르치는 방식부터 효과적이고 재미있는 경험까지  교육 기술과 방법론은 매년 천천히 진화하고 있다. 
 
@@ -156,7 +156,7 @@ E-commerse는 메타버스를 통해 고객에게 새로운 구매 경험을 제
 
 ### 5.1.1. Excitement about the Metaverse. 
 
-![f_10](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_10.PNG)
+![f_10](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_10.PNG)
 
 Q1 ~ Q3
 
@@ -166,7 +166,7 @@ Q1 ~ Q3
 
 ### 5.1.2. Communication Gap and Reduced Human Interactions.
 
-![f_11](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_11.PNG)
+![f_11](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_11.PNG)
 
 메타버스가 사람과 사람사이의 관계를 감소시키냐는 질문에 47%가 Yes라고 대답을 함 
 
@@ -178,7 +178,7 @@ Q1 ~ Q3
 
 ### 5.1.3. Reduced Physical Activity in Humans
 
-![f_12](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_12.PNG)
+![f_12](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_12.PNG)
 
 메타버스는 물리적인 이동 없이 여러 장소에 대한 다양한 경험과 활동을 즐길 수 있다.
 
@@ -192,7 +192,7 @@ Q1 ~ Q3
 
 ### 5.1.4. Would Metaverse Give Rise to More Abuse and Harassment?
 
-![f_13](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_13.PNG)
+![f_13](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_13.PNG)
 
 온라인 괴롭힘은 소셜미디어에서 발생하는 가장 큰 걱정거리중 하나이다.
 
@@ -236,7 +236,7 @@ Q1 ~ Q3
 
 ### 5.2.3. Lack of Physical Activity.
 
-![f_14](F:\code\whtngus.github.io\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_14.PNG)
+![f_14](\img\2023\A_Comprehensive_Study_on_Metaverse_and_Its_Impacts_on_Humans\f_14.PNG)
 
 가상 현실을 통해 위으 그림 14와 같은 활동 경험을 줄 수 있다.
 
