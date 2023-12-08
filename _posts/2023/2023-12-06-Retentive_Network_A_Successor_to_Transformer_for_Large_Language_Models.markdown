@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Retentive Network: A Successor to Transformer for Large Language Models"
-date: 2023-12-06 02:05:23 +0900
+date: 2023-12-09 02:05:23 +0900
 category: paper
 ---
 
@@ -60,7 +60,7 @@ S4,  방법이 있으나 Transformer와 비교 방식이 별로?
 
 이를 해결하기 위해 
 
-low-cost inference, 긴 토큰 임베딩이 가능한 ResNet(retentive networks)를 제안함
+low-cost inference, 긴 토큰 임베딩이 가능한 RetNet(retentive networks)를 제안함
 
 또한 multi-head attention을 대체할 multi-scale retention mechanism 을 제안 
 
@@ -137,7 +137,7 @@ Wq와 Wk는 d*d demention 학습 파라미터
 
 ![f6](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f6.PNG)
 
-![f7](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f7.PNG)
+![f7](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
 
 특히 long sequence 데이터에서 빠른 학습이 가능하다고 함 
 
@@ -147,31 +147,57 @@ Wq와 Wk는 d*d demention 학습 파라미터
 
 ## 2.2 Gated Multi-Scale Retention
 
+MSR(multi-scale retention)은 각각의 다른해드 r 값을 사용 
+
+![f8](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
+
+![f_4](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_4.PNG)
+
+수도코드를 이렇게도 올려도 되는구나 
+
+### Retention Score Normalization
+
+QK, D, R 을 d, 합계, 합계로 normalize함 
 
 
 
+## 2.3 Overall Architecture of Retention Networks
+
+![f9](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f9.PNG)
+
+redidual connection 같이 사용 
 
 
 
+- Training
+
+![t_1](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_1.PNG)
+
+생략 .. 
 
 
 
+# 3 Experiments
+
+1.3B, 2.7B, and 6.7B. RetNet 모델을 비교함 -> 모델 사이즈가 기존 LLM대비 크진 않음
+
+![t-2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_5.PNG)
+
+![t-2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t-2.PNG)
+
+![t_34](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_34.PNG)
+
+일단 내꺼에서는 1.3B모델도 학습은 안되네 
+
+8192 sequence length 로 512 chunk size,  a100-80gb 8개로 t_4 결과를 냄 
+
+-> 해당 모델이 a100에 최적화 되었다고 함
 
 
 
+![f_6](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_6.PNG)
 
-
-
-
-
-
-
-
-
-
-
-
-
+모델 속도가 입력 seq길이에 상관없이 동일하다는걸 보여주고 있음 
 
 
 
