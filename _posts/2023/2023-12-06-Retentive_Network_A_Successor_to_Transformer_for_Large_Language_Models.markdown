@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Retentive Network: A Successor to Transformer for Large Language Models"
-date: 2023-12-09 02:05:23 +0900
+date: 2023-12-14 02:05:23 +0900
 category: paper
 ---
 
@@ -19,7 +19,7 @@ code : https://aka.ms/retnet.
 
 # Abstract
 
-![f_1](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_1.PNG)
+![f_1](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_1.PNG)
 
 LLM을 위한  Retentive Network (RETNET) 모델을 제안
 
@@ -36,7 +36,7 @@ Arthur C. Clarke
 
 transformer가 사실상 LLM의 시대를 열었으나,  transformer의 명렬학습의 효율성이 매우 떨어지는 문제가 있음 
 
-![f_2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_2.PNG)
+![f_2](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_2.PNG)
 
 위의 사진 2를 impossible triangle 이라고 함    코스트, 성능, 병렬학습
 
@@ -105,7 +105,7 @@ X^l = RetNetl(X^(l−1)), l ∈ [1, L].  -> 해당 수식으로 봤을땐 transf
 
 v(n) = Xn · wV
 
-![f1](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f1.PNG)
+![f1](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f1.PNG)
 
 sn : state vector 
 
@@ -113,31 +113,31 @@ sn : state vector
 
 아래 o 수식은 이전 m개의 시퀀스만 보고 계산  -> 이래서 필요한 파라미터 수가 적다고 말한듯 
 
-![f2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f2.PNG)
+![f2](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f2.PNG)
 
 Q와 K를 만드는 방법은 기존 transformer와 같음 
 
 Wq와 Wk는 d*d demention 학습 파라미터
 
-![f3](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f3.PNG)
+![f3](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f3.PNG)
 
 행렬분해를 활용해 on 의 n-m ~ n 을 계산 
 
-![f4](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f4.PNG)
+![f4](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f4.PNG)
 
 #### The Parallel Representation of Retention 
 
-![f_3](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_3.PNG)
+![f_3](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_3.PNG)
 
-![f5](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f5.PNG)
+![f5](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f5.PNG)
 
 복잡해 보이는데 V K Q를 이용한 트랜스포머를 LSTM 형식으로 바꾼걸로 보임
 
 #### The Recurrent Representation of Retention
 
-![f6](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f6.PNG)
+![f6](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f6.PNG)
 
-![f7](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
+![f7](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
 
 특히 long sequence 데이터에서 빠른 학습이 가능하다고 함 
 
@@ -149,9 +149,9 @@ Wq와 Wk는 d*d demention 학습 파라미터
 
 MSR(multi-scale retention)은 각각의 다른해드 r 값을 사용 
 
-![f8](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
+![f8](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f8.PNG)
 
-![f_4](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_4.PNG)
+![f_4](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_4.PNG)
 
 수도코드를 이렇게도 올려도 되는구나 
 
@@ -163,7 +163,7 @@ QK, D, R 을 d, 합계, 합계로 normalize함
 
 ## 2.3 Overall Architecture of Retention Networks
 
-![f9](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f9.PNG)
+![f9](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f9.PNG)
 
 redidual connection 같이 사용 
 
@@ -171,7 +171,7 @@ redidual connection 같이 사용
 
 - Training
 
-![t_1](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_1.PNG)
+![t_1](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_1.PNG)
 
 생략 .. 
 
@@ -181,11 +181,11 @@ redidual connection 같이 사용
 
 1.3B, 2.7B, and 6.7B. RetNet 모델을 비교함 -> 모델 사이즈가 기존 LLM대비 크진 않음
 
-![t-2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_5.PNG)
+![t-2](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_5.PNG)
 
-![t-2](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t-2.PNG)
+![t-2](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t-2.PNG)
 
-![t_34](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_34.PNG)
+![t_34](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\t_34.PNG)
 
 일단 내꺼에서는 1.3B모델도 학습은 안되네 
 
@@ -195,7 +195,7 @@ redidual connection 같이 사용
 
 
 
-![f_6](F:\code\whtngus.github.io\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_6.PNG)
+![f_6](\img\2023\Retentive_Network_A_Successor_to_Transformer_for_Large_Language_Models\f_6.PNG)
 
 모델 속도가 입력 seq길이에 상관없이 동일하다는걸 보여주고 있음 
 
