@@ -1,0 +1,15 @@
+---
+layout: post
+title: "RAG"
+date: 2023-11-22 02:05:23 +0900
+category: datascience
+---
+
+# RAG(Retrieval Augmented Generation)
+
+RAG팀을 이끌고 있는 패트릭 루이스(Patrick Lewis)는 2020년 한 논문 '지식 집약적 NLP 작업을 위한 검색 증강 생성(Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks-다운)'에서 RAG라는 용어를 처음 만듦참고
+
+
+
+### RAG의 장 단점
+
