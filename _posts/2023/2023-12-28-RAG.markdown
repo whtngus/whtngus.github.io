@@ -7,9 +7,212 @@ category: datascience
 
 # RAG(Retrieval Augmented Generation)
 
-RAG팀을 이끌고 있는 패트릭 루이스(Patrick Lewis)는 2020년 한 논문 '지식 집약적 NLP 작업을 위한 검색 증강 생성(Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks-다운)'에서 RAG라는 용어를 처음 만듦참고
+RAG팀을 이끌고 있는 패트릭 루이스(Patrick Lewis)는 2020년 한 논문 '지식 집약적 NLP 작업을 위한 검색 증강 생성(Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks-다운)'에서 RAG라는 용어를 처음 만듦
 
 
 
-### RAG의 장 단점
+- RAG란? 
+
+RAG는 외부 소스에서 가져온 정보로 생성 AI 모델의 정확성과 신뢰성을 향상시키는 기술이다.
+
+-> LLM의 작동 방식에서 부족한 부분을 채워주는 기술 (할루시네이션 감소등의 역할을 함)
+
+즉, 검색 모델과 생성 모델의 장점을 결합한 기술 
+
+
+
+
+
+NVIDIA에서 RAG를 위한 레퍼런스 아키텍처도 만듦(https://docs.nvidia.com/ai-enterprise/workflows-generative-ai/0.1.0/technical-brief.html)
+
+### RAG의 작동 방식
+
+![run](F:\code\whtngus.github.io\img\2023\RAG\run.jpg)
+
+# RAG 모델 정확도 향상 방법
+
+1. 데이터 전처리
+
+2. chunk 사이즈 최적화 
+
+   일반적으로는 청크 크기가 작을수록 정확도가 향상됨  -> but 문맥을 이해 못함 
+
+   일반적인 청크 사이즈 찾을때
+
+   작은 사이즈(짧은 메시지, 문자)는 128 or 256에서 최적화 
+
+   큰 사이즈는 512 or 1025에서 찾기 시작
+
+3. RAG 후 메타디에터 필터링
+
+   EX) 최근 날짜 순으로 우선순위 지정
+
+4. 쿼리 변환
+
+   시스템에서 쿼리를 여러개 만들거나 쿼리를 가져와서 질문을 생성 후 추가
+
+5. 임베딩 모델 fine-tuning
+
+   일반적으로 지표가 5~10% 향상될 수 있다고 함 
+
+   LlamaIndex를 통해 휸련 세트를 생성할 수 있다고 함 -> 찾아보기
+
+   (https://www.mattambrogi.com/posts/chunk-size-matters/ )
+
+   (https://betterprogramming.pub/fine-tuning-your-embedding-model-to-maximize-relevance-retrieval-in-rag-pipeline-2ea3fa231149)
+
+   
+
+
+
+### fine-tuning  - rag 비교
+
+- Parameter Efficient Fine-Tuning (PEFT)
+
+PEFT는 LLM모델을 효과적으로 학습하기 위해 나온 테스크
+
+
+
+- fine tuning 특징
+
+  사용자 정의시 및 상황에 적합한 모델 생성
+
+  데이터 보안 용의
+
+  학습 리소스 필요 
+
+  LLM에 비해 더욱 높은 수준에 제어를 할 수 있음
+
+- RAG 특징
+
+  사용자 정의시 지식을 종적으로 향상시킴 
+
+  리소스가 많이 들지 않음
+
+  Fine-tuning 보다는 복잡해 전문 지식 필요
+
+
+
+# RAG 성능 최적화 해보기
+
+성능 평가를 위해 인터넷 (랜덤)회사 사이트에서 QnA 데이터셋을 가지고 시작  
+
+학습 평가셋을 나눠야하나 우선 같은셋으로 진행 
+
+(잘 되는 케이스를 모아 테스트 형태를 정교하게 변경 예정)
+
+
+
+QnA 846개의 질의응답 셋을 가지고 Answer데이터셋을 전부 백터화 한 후 해당 데이터셋을 잘 가져오는지를 확인
+
+대상 모델 : jhgan/ko-sroberta-multitask
+
+기본 테스트 - 846개중 RAG 결과 상위 1개 2개 3개를 뽑았을때 정답이 포함된 점수
+
+```
+[0.3983451536643026, 0.5106382978723404, 0.5721040189125296]
+```
+
+-> 대상이 많아서인지 39~57%가 나오며 질문 답변 키워드가 겹치는게 많아서 그런것으로 보임 (생각보다 잘나옴)
+
+
+
+### 학습 및 테스트
+
+#### 1. losses.DenoisingAutoEncoderLoss
+
+학습 셋을 그대로 losses.DenoisingAutoEncoderLoss 학습 후 테스트
+
+-> 질문 ,답변 데이터셋을 그대로 넣어 846 * 2 개의 데이터셋 생성 
+
+lr = 1e-5 , batch = 8
+
+```
+epoch = 3 [0.15130023640661938, 0.2293144208037825, 0.2695035460992908]
+epoch = 10 [0.29314420803782504, 0.4066193853427896, 0.4787234042553192]
+```
+
+성능이 너무 내려가는 것을 확인.. 이방법은 아닌것 같음 
+
+#### 2. triplet_loss
+
+1번과 같은 조건으로 triplet loss 테스트 (batch 16)
+
+데이터셋은 부정은 랜덤으로 가져왔으며 2배수로 만들어냄 
+
+```
+dataset*1 epoch = 1  [0.3947990543735225, 0.5189125295508275, 0.5673758865248227]
+dataset*1 epoch = 3  [0.36879432624113473, 0.48108747044917255, 0.5472813238770685]
+dataset*1 epoch = 10  [0.3900709219858156, 0.5047281323877069, 0.5602836879432624]
+dataset*2 epoch = 1  [0.32742316784869974, 0.43498817966903075, 0.4988179669030733]
+dataset*2 epoch = 3  [0.3959810874704492, 0.5141843971631206, 0.5626477541371159]
+dataset*2 epoch = 10 [0.3061465721040189, 0.408983451536643, 0.4787234042553192]
+```
+
+학습 epoch을 많이 늘리면 오를거같은데 학습데이터와 평가데이터가 같아서 오버피팅도 의심됨 ...
+
+-> 평가 데이터셋을 따로 구축 필요해보임 
+
+
+
+###  3. MultipleNegativesRankingLoss
+
+https://blog.llamaindex.ai/fine-tuning-embeddings-for-rag-with-synthetic-data-e534409a3971
+
+-> 여기에서 미세조정 후 검색 평가 지표 성능이 5~10% 향상되었다고 함 따라해보기 
+
+MultipleNegativesRankingLoss
+
+- 네거티브 샘플링을 positive와 유사하게 만들어 학습하는 방법 
+
+- 중간에 평가가 불가능 
+
+- 긍정쌍만 넣어 모든 부정쌍을 만든 후 softmax 에서 로그 유사도를 최소화 시팀 (triplet이랑 비슷)
+
+  ->  batch 마다 많은 수의 negative를 학습시켜 아닌건 확실히 아니라고 나오도록 학습 
+
+사용할때 편한점은 positive pair만 넣어주면 negative sampling은 내부에서 알아서 해줌 
+
+
+
+batch 8
+
+```
+epoch = 1  [0.3900709219858156, 0.5059101654846335, 0.5685579196217494]
+epoch = 3  [0.44799054373522457, 0.566193853427896, 0.6323877068557919]
+epoch = 10 [0.6146572104018913, 0.735224586288416, 0.7955082742316785]
+batch 16 epoch = 10 [0.5531914893617021, 0.6855791962174941, 0.7364066193853428]
+batch 8 10, 16 10 -> 20 epoch 시 80까지 올라감 [0.6513002364066194, 0.7683215130023641, 0.817966903073286]
+epoch = 30  [0.7600472813238771, 0.8392434988179669, 0.8498817966903073]
+```
+
+스코어가 상당히 올라가는것을 확인 -> 해당 loss function을 기준으로 여러가지 더 테스트 해보자
+
+16 batch 기준 20GB 사용, 10epoch 기준 약 2~3분 소요
+
+-> 데이터 셋이 확실히 부족해서 스코어가 더 안올라 가는것으로 보임 
+
+
+
+# 참고
+
+- 인공지능신문
+
+https://www.aitimes.kr
+
+- RAG 정확도 향상 방법
+
+https://towardsdatascience.com/10-ways-to-improve-the-performance-of-retrieval-augmented-generation-systems-5fa2cee7cd5c
+
+- fine-tuning  - rag 비교
+
+https://www.linkedin.com/pulse/fine-tuning-vs-retrieval-augmented-generation-rag-tailoring-liz-liu/
+
+- MultipleNegativesRankingLoss 설명
+
+https://acdongpgm.tistory.com/339#What%--is%--MultipleNegativesRankingLoss%-F
+
+- 코드참조
+
+https://github.com/run-llama/finetune-embedding/blob/main/evaluate.ipynb
 
