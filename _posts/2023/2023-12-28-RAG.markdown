@@ -116,7 +116,7 @@ ex) NER, 개체명인식, 객체인식
 ```
 	- fine-tuning embeddings (with fine-tunable/trainable embeddings)
 fine-tuning을 통한 임베딩 진행 
-ex) LlamaIndex를 통해 휸련 세트를 생성할 수 있다고 함 -> 찾아보기
+ex) LlamaIndex를 통해 훈련 세트를 생성할 수 있다고 함 -> 찾아보기
 
 일반적으로 지표가 5~10% 향상될 수 있다고 함 
 (https://www.mattambrogi.com/posts/chunk-size-matters/ )
@@ -197,7 +197,7 @@ Prompt Conditioning: 컨텍스트를 설정하거나 모델이 특정 방식으�
 
 그 답변을 RAG 질문으로 통과 
 
--> 두개를 동시에 썻더니 정확도가 대폭 상승했으나 서버 비용과 속도가 대폭 즈악했다고함(https://arca.live/b/alpaca/88242924?p=1)
+-> 두개를 동시에 썻더니 정확도가 대폭 상승했으나 서버 비용과 속도가 대폭 증가했다고함(https://arca.live/b/alpaca/88242924?p=1)
 
 
 
