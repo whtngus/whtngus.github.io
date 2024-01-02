@@ -82,7 +82,7 @@ RAG는 이 중 1번 전부, 2번의 4번
 
 ### RAG의 작동 방식
 
-![run](F:\code\whtngus.github.io\img\2023\RAG\run.jpg)
+![run](\img\2023\RAG\run.jpg)
 
 # RAG 모델 정확도 향상 방법
 
