@@ -15,7 +15,7 @@ Natural Language Processing Journal
 
 # 1. Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2024\Employing_large_language_models_in_survey_research\f_1.PNG)
+![f_1](\img\2024\Employing_large_language_models_in_survey_research\f_1.PNG)
 
 2023년 3월 31일에 설문조사 참여자 모집회사 클라우드리서치에서 위와 같은 메일이 왔다고함
 
@@ -101,7 +101,7 @@ Weider et al 은 부정적인 의견 ->
 
 
 
-
+나머지 생략 ..
 
 
 
