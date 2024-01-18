@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mistral 7B"
-date: 2024-01-14 02:05:23 +0900
+date: 2024-01-17 02:05:23 +0900
 category: paper
 ---
 
@@ -47,9 +47,9 @@ Mistral 7B 모델은 grouped-query attention (GQA), sliding window attention (SW
 
 # 2 Architectural details
 
-![f_1](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_1.PNG)
+![f_1](\img\2024\Mistral_7B\f_1.PNG)
 
-![t_1](F:\code\whtngus.github.io\img\2024\Mistral_7B\t_1.PNG)
+![t_1](\img\2024\Mistral_7B\t_1.PNG)
 
 mistral 7b는 역시 transformer를 기반 모델이고 메인 파라미터는 위으 테이블1과 같음
 
@@ -65,7 +65,7 @@ window size W를 4096로 설정했다고 함 -> 음.. 이미 충분히 크네
 
 ### Rolling Buffer Cache
 
-![f_2](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_2.PNG)
+![f_2](\img\2024\Mistral_7B\f_2.PNG)
 
 Rolling Buffer Cache를 통해 cashe size를 조절함 
 
@@ -79,7 +79,7 @@ chache w사이즈를 이용해 고정함 -> timestep i에 대해서 i mod w
 
 ### Pre-fill and Chunking
 
-![f_3](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_3.PNG)
+![f_3](\img\2024\Mistral_7B\f_3.PNG)
 
 Sequence Generation 시 토큰을 one by one으로 예측해야함 
 
@@ -106,15 +106,15 @@ OpenbookQA [19], ARC-Easy, ARC-Challenge [9], CommonsenseQA [24]
 (3-5-shot, English multiple-choice questions only)
 ```
 
-![t_2](F:\code\whtngus.github.io\img\2024\Mistral_7B\t_2.PNG)
+![t_2](\img\2024\Mistral_7B\t_2.PNG)
 
-![f_4](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_4.PNG)
+![f_4](\img\2024\Mistral_7B\f_4.PNG)
 
 평가 모델은 위의 테이블 2에서 볼 수 있음 
 
 ### Size and Efficiency
 
-![f_5](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_5.PNG)
+![f_5](\img\2024\Mistral_7B\f_5.PNG)
 
 위의 Figure 5에서  cost-performance를 비교함 
 
@@ -126,13 +126,13 @@ MMLU 데이터셋은 13b보다 좋은 성능을 가지고 있으며, 그와 동�
 
 # 4 Instruction Finetuning
 
-![t_3](F:\code\whtngus.github.io\img\2024\Mistral_7B\t_3.PNG)
+![t_3](\img\2024\Mistral_7B\t_3.PNG)
 
 Generation 성능을 비교 
 
 instruction datasets을 학습 후 비교함 
 
-![f_6](F:\code\whtngus.github.io\img\2024\Mistral_7B\f_6.PNG)
+![f_6](\img\2024\Mistral_7B\f_6.PNG)
 
 MT Bench는 10번 학습 후 변동성을 나타냄 
 
@@ -146,7 +146,7 @@ MT Bench는 10번 학습 후 변동성을 나타냄
 
 ## 5.1 System prompt to enforce guardrails
 
-![t_4](F:\code\whtngus.github.io\img\2024\Mistral_7B\t_4.PNG)
+![t_4](\img\2024\Mistral_7B\t_4.PNG)
 
 구체적인 가이드라인을 준 경우 생성 테스크 
 
@@ -158,7 +158,7 @@ Always assist with care, respect, and truth. Respond with utmost utility yet sec
 
 175개의 안전하지 않은 프롬프트를 기반을 테스트함  -> 유해한 질문 
 
-![t_5](F:\code\whtngus.github.io\img\2024\Mistral_7B\t_5.PNG)
+![t_5](\img\2024\Mistral_7B\t_5.PNG)
 
 "How to kill a linux process" 질문을 한 경우 mistral 7b는 옳바른 정답을 반환했지만 llama는 kill이라는 키워드를 보고 답을 거부해버림 (해로운 질문이 아닌데도)
 
