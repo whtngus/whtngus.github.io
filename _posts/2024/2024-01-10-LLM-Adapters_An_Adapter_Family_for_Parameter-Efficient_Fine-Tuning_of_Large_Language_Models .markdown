@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models"
-date: 2024-01-13 02:05:23 +0900
-category: paper
+date: 2024-01-18 02:05:23 +0900
+category: pape9
 ---
 
 # LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models
@@ -47,7 +47,7 @@ Chat-GPT와 GPT-4가 NLP에서 엄청난 퍼포먼스를 보임
 
 이렇게 되면서 현실적인 최적화 연구가 시작됨
 
-![t_1](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_1.PNG)
+![t_1](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_1.PNG)
 
 PEFT 방법은 위의 4가지 기본 방법에 의해 분류됨 
 
@@ -59,7 +59,7 @@ PEFT 방법은 위의 4가지 기본 방법에 의해 분류됨
 
 # 2 PEFT Overview
 
-![f_1](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f_1.PNG)
+![f_1](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f_1.PNG)
 
 ### Prompt-based learning.
 
@@ -71,7 +71,7 @@ input embedding에 학습 가능한 레이어를 삽입 - Prefix Tuning
 
 그 외에도 autoencoder를 사용하는 prompt tuning 이 있음 
 
-![f1](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f1.PNG)
+![f1](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f1.PNG)
 
 Hi : input      -> T*d 차원
 
@@ -85,7 +85,7 @@ L : 학습 토큰 번호
 
 ### Reparametrization-based method.
 
-![f2](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f2.PNG)
+![f2](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f2.PNG)
 
 low-rank technique 방식을 사용 
 
@@ -99,13 +99,13 @@ B, A : r*d 차원으로 lower-rank metric
 
 ### Series Adapter.
 
-![f3](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f3.PNG)
+![f3](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f3.PNG)
 
 위의 그림1 참조 
 
 ### Parallel Adapter.
 
-![f4](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f4.PNG)
+![f4](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f4.PNG)
 
 요거도 그림참조 
 
@@ -113,7 +113,7 @@ B, A : r*d 차원으로 lower-rank metric
 
 ## 3.1 Benchmarks
 
-![t2](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t2.PNG)
+![t2](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t2.PNG)
 
 14개의 데이터셋을 가지고 테스트를 수행함 
 
@@ -156,15 +156,15 @@ GSM8K과 AQuA 데이터셋만 수학 training 셋트를 제공함
 
 ## 4.1 Placement and Configuration (다음 목차부터 생략)
 
-![f_2](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f_2.PNG)
+![f_2](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\f_2.PNG)
 
 실험 결과 LLaMA-7B 모델이 optimal 하기에 최적이라고함 (아래 t3참조) 그냥 llama가 다른 두 모델보다는 확실히 잘함
 
-![t_3](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_3.PNG)
+![t_3](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_3.PNG)
 
 
 
-![t_4](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_4.PNG)
+![t_4](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\t_4.PNG)
 
 
 
@@ -196,13 +196,13 @@ LoRA(**Lo**w-**R**ank **A**daptation)의 개념을 간단하게 설명하자면,
 
 - rank decomposition
 
-![LoRA](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\LoRA.PNG)
+![LoRA](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\LoRA.PNG)
 
 f레이어 중간에 존재하는 hidden states h 값을 더해줄 수 있는 파라미터를 추가해 모델의 출력 값을 원하는 타겟 레이블에 맞게 튜닝 하는 개념 
 
 - Prompt Tuning
 
-![prompt_tuning](F:\code\whtngus.github.io\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\prompt_tuning.PNG)
+![prompt_tuning](\img\2024\LLM-Adapters_An_Adapter_Family_for_Parameter-Efficient_Fine-Tuning_of_Large_Language_Models\prompt_tuning.PNG)
 
 모델에게 전달되는 입력 프롬프트를 정제/조정하여 더 정확하고, 관련성 높은 답변을 유도하는 과정
 
