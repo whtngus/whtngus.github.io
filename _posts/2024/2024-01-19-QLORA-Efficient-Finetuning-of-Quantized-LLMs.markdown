@@ -159,11 +159,77 @@ LoRA의 메모리가 요구하는 학습량은 중요한 포인트임
 
 ### 4-bit NormalFloat Quantization
 
+ NormalFloat (NF) data type을 만듦  -  Quantile Quantization(분위 양자화)를 사용함 
+
+위에서 설명한 대로 Quantile Quantization를 진행 시 양자화에 많은 비용이 듦 그래서 빠른 최적화 알고리즘을 적용함
+
+최적화 양자화 알고리즘 예시로 SRAM quantiles가 있는데  -> 추정치를 사용하기 때문에 큰 데이터의 양자화의 오류에서 벗어나지 못함 
+
+ 
+
+이러한 비싼 연산비용의 오류는 양자화 상수와 분포가 고정되면 피할 수 있음 
 
 
 
+그런데 pretrained 된 모델의 경우학습 wights가 zero-centered normal distribution 분포의 성향을 띈다고 함 - standard deviation σ
+
+-> 그래서 그냥 양자화 범위를 [-1, 1]로 임의로 정함 
+
+(모든 범위를 다 커버할수 있다를 아래에서 설명 ~~~ 생략 ) + 특별한 이유들이 있지만 이해를 못함 ㅠ
+
+### Double Quantization
+
+Double Quantization (DQ)를 제안함 
+
+양자화 상수를 양자화 하면 메모리를 절약할 수 있음 
+
+4비트 양자화를 위해선 small blocksize가 필요하지만 이또한 메모리 오버헤드를 가짐 
+
+ ex) 64비트 크기의 w에 32비트 양자화 상수를 이용하면 파라미터 당 32/64 = 0.5 비트 메모리를 더 소모하게됨 
+
+   이를 최적화 하기 위해 DQ를 적용  (weight 2개당 상수 공간 하나 사용)
+
+8비트 양자화 상수 적용 후  256 블럭 사이즈의(8-bit) 32비트 양자화 상수를 두번째 이용함 
+
+이렇게 하면 소모되는 메모리 양이 32/64 = 0.5  에서  
+
+블록사이즈 64를 기준으로 8/64 + 32/(64*256) = 0.127  
+
+   ->  8/64는 블럭사이즈 64당 8비트 양자화 상수를 사용해서
+
+ -> 뒤는 블럭사이즈 256에 64bit개의 비트에서 32bit양자화를 사용함
+
+그럼 weight ekd 0.373 비트를 아낄 수 있음 
+
+### Paged Optimizers
+
+NVIDIA 통합 메모리 기능을 사용
+
+cpu gpu간의 스왑을 사용함 
+
+### QLORA. 
+
+![f5](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f5.PNG)
+
+기존 입력에 LoRA를 활용하기전 doubleDequat를 이용해 4비트로 양자화 함
+
+-> 위의 식 5는 LoLA에서 사용하는 학습 weight는 양자화를 시키지 않음 
+
+![f6](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f6.PNG)
+
+doubleDequat 에 대한 설명  
+
+# 4 QLoRA vs. Standard Finetuning
+
+![f_2](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f_2.PNG)
+
+4bit 스코어가 오히려 더 높은거같네? 
+
+RougeL은 최장길이 매칭 스코어로 매칭이 잘 될수록 높은 스코어 
 
 
+
+이하 스코어 월등함... 생략
 
 
 
