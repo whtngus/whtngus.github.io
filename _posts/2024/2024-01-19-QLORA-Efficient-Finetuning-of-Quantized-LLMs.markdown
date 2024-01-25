@@ -67,7 +67,7 @@ Guanaco familiy model 모델 메모리를 줄이고 97.8 %의 성능을 유지�
 
 
 
-![t_6](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\t_6.PNG)
+![t_6](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\t_6.PNG)
 
 위의 table 6에서 최적화를 한 후 성능 비교로 전부 48gb이하로 보임 
 
@@ -103,13 +103,13 @@ QLORA는 성능을 희생하지 않으면서 메모리를 줄이기 위한 혁�
 
 일반적으로 fewer-bit로 양자화 하기 위해 32-bit floats 을 8-bit integers로 나누는 작업이 있음
 
-![f1](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f1.PNG)
+![f1](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f1.PNG)
 
 방법은 위 수식 1과 같음
 
 float32 에서 [-127, 127]범위의 int8로 양자화 하기 위해서 maximum값으로 나눠서 -> 127로 곱해주고 round 시킴 
 
-![f2](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f2.PNG)
+![f2](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f2.PNG)
 
 c는 quantization constant or quantization scale로 불리며 위의 수식은 역양자화를 진행(Dequantization)
 
@@ -137,13 +137,13 @@ Low-rank Adapter (LoRA) finetuning은 작은 학습 파라미터를 사용함으
 
 -> 모델을 전부 업데이트 하지 않고 기존 모델을 fix 시킴 
 
-![f3](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f3.PNG)
+![f3](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f3.PNG)
 
 원래의 모델 xw = y 에서  입력을 autoencoder 방식으로 사용하는 L1L2를 추가함 
 
 ### Memory Requirement of Parameter-Efficient Finetuning
 
-![f_6](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f_6.PNG)
+![f_6](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f_6.PNG)
 
 LoRA의 메모리가 요구하는 학습량은 중요한 포인트임 
 
@@ -209,34 +209,25 @@ cpu gpu간의 스왑을 사용함
 
 ### QLORA. 
 
-![f5](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f5.PNG)
+![f5](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f5.PNG)
 
 기존 입력에 LoRA를 활용하기전 doubleDequat를 이용해 4비트로 양자화 함
 
 -> 위의 식 5는 LoLA에서 사용하는 학습 weight는 양자화를 시키지 않음 
 
-![f6](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f6.PNG)
+![f6](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f6.PNG)
 
 doubleDequat 에 대한 설명  
 
 # 4 QLoRA vs. Standard Finetuning
 
-![f_2](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f_2.PNG)
+![f_2](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\f_2.PNG)
 
 4bit 스코어가 오히려 더 높은거같네? 
 
 RougeL은 최장길이 매칭 스코어로 매칭이 잘 될수록 높은 스코어 
 
-
-
 이하 스코어 월등함... 생략
-
-
-
-
-
-
-
 
 
 # 참고
@@ -251,9 +242,9 @@ instruction tuning의 결과 모델을 *FLAN*이라 함
 
 in-context learning을 적용하여 few-shot 성능을 향상시키는 대신에 instruction tuning을 사용해 zero-shot 성능을 향상시키는 method에 대해 다룬다. 
 
-![flan_1](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\flan_1.PNG)
+![flan_1](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\flan_1.PNG)
 
-![flan_2](F:\code\whtngus.github.io\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\flan_2.PNG)
+![flan_2](\img\2024\QLORA-Efficient-Finetuning-of-Quantized-LLMs\flan_2.PNG)
 
 nlu, nlg를 포함한 62개의 데이터샛에 대해 각 10개의 instruction templte를 구성함 (구중 3개는 데이터셋과 상관 없는 template를 만듬 )
 
