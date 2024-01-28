@@ -41,7 +41,7 @@ Hypothetical Document Embeddings (HyDE)를 제안함
 
 문서 검색을 위한 테스크를 위해 인코더 방식을 제안함 
 
-![f_1](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f_1.png)
+![f_1](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f_1.png)
 
 Step1. query를 입력으로하여 질문 구조를 생성하는 모델을 사용 
 
@@ -87,7 +87,7 @@ LLM이 출현한 이후 instructions - zero-shot generalize 테스크에 대한 
 
 ## 3.1 Preliminaries
 
-![f1](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f1.png)
+![f1](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f1.png)
 
 쿼리와 문서의 유사성을 검색하는 테스크 임
 
@@ -107,29 +107,29 @@ r_ij :  벡터로 판단한 관계성 순서
 
 HyDE 방식은 3.1에서 전술한 방식의 문제점을 우회함(임베딩 공간에서만 데이터를 찾는것)
 
- ![f2](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f2.png)
+ ![f2](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f2.png)
 
-![f3](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f3.png)
+![f3](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f3.png)
 
 2번 수식은 그냥 constrastive encoder 함수를 표현  
 
 3번 수식은 2번 수식의 encoder함수를 통해 나온 벡터를 표현함 
 
-![f4](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f4.png)
+![f4](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f4.png)
 
 INST는 instruction 텍스트  -> 생성모델로 가짜 답변을 생성하기 위해 미리 정해둔 instruction과 같이 넣어 답변을 반환함 
 
 g를 통해서 가상 답변을 생성함 
 
-![f5.](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f5..png)
+![f5.](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f5..png)
 
 g로 생성된 가짜 문서를 다시 벡터화함 
 
-![f6](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f6.png)
+![f6](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f6.png)
 
 쿼리가 모호하지 않은 경우의 단순 기대값을 정의함 
 
-![f8](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f8.png)
+![f8](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\f8.png)
 
 그 이후 문서를 검색함 
 
@@ -143,7 +143,7 @@ TREC DL19, DL20, BEIR 데이터셋을 사용하고 논문에서 계속 강조하
 
 -> 여러가지 데이터셋을 사용하는 이유는 한국어, 일본어, 벵골어 3개국어를 테스트하기 위함 
 
-![a1](F:\code\whtngus.github.io\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\a1.png)
+![a1](\img\2024\Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels\a1.png)
 
 Instruction 구조는 위와 같이 사용함 
 
