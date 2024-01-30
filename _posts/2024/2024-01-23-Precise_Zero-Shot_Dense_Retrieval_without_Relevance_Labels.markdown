@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Precise_Zero-Shot_Dense_Retrieval_without_Relevance_Labels"
-date: 2024-01-20 02:05:23 +0900
+date: 2024-01-30 02:05:23 +0900
 category: paper
 ---
 
