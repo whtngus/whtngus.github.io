@@ -9,7 +9,9 @@ category: datascience
 
 RAG팀을 이끌고 있는 패트릭 루이스(Patrick Lewis)는 2020년 한 논문 '지식 집약적 NLP 작업을 위한 검색 증강 생성(Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks-다운)'에서 RAG라는 용어를 처음 만듦
 
-* https://brunch.co.kr/@graypool/1415 -> 정리 잘되어있음
+* 정리 잘되어있음
+
+Retrieval-Augmented Generation for Large Language Models: A Survey
 
 - RAG란? 
 
