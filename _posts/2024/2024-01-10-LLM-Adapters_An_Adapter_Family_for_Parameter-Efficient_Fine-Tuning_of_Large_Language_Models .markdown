@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models"
-date: 2024-01-18 02:05:23 +0900
-category: pape9
+date: 2024-02-03 02:05:23 +0900
+category: paper
 ---
 
 # LLM-Adapters: An Adapter Family for Parameter-Efficient Fine-Tuning of Large Language Models
