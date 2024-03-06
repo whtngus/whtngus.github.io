@@ -1,5 +1,5 @@
 ---
-43layout: post
+layout: post
 title: "MAC-SQL: A Multi-Agent Collaborative Framework for Text-to-SQL"
 date: 2024-03-06 02:05:23 +0900
 category: paper
@@ -54,7 +54,7 @@ Text-to-SQL은 자연어 질문을 입력 받아 SQL을 자동으로 생성하�
 
 최근 LLM based 방법론들은 상황에 맞는 프롬프트 전략과 타겟 도메인 데이터를 이용한 fine-tuning 에 집중함 
 
-![f_1](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_1.png)
+![f_1](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_1.png)
 
 Figure 1 은 multi step reasoning 예시 
 
@@ -68,7 +68,7 @@ selector는 sub database 를 최소화 시키고 refiner는 decomposer에게 피
 
 # 2 Task Formulation and Annotations
 
-![f1](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f1.png)
+![f1](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f1.png)
 
 Q : 입력 질문 
 
@@ -88,7 +88,7 @@ f (· | θ)은 모델의 파라미터
 
 
 
-![a_1](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\a_1.png)
+![a_1](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\a_1.png)
 
 ```
 입력은 : 질문, db, kg
@@ -103,7 +103,7 @@ f (· | θ)은 모델의 파라미터
 
 ## 3.1 Overview
 
-![f_2](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_2.png)
+![f_2](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_2.png)
 
 위의 figure 2와 같은 흐름을 탐 
 
@@ -111,7 +111,7 @@ selector 와 refiner의 반복을 통해 개선작업을 함
 
 ## 3.2 Selector
 
-![f_3](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_3.png)
+![f_3](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_3.png)
 
 거대한 db에서 작은 sub database로 대상 대상을 줄이는 작업을 함 
 
@@ -138,7 +138,7 @@ BIRD 데이터셋을 통해 코드를 제공한다고 함
 
 ## 3.3 Decomposer
 
-![f_4](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_4.png)
+![f_4](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_4.png)
 
 db를 단순화 시켰으면 복잡한 사용자 질문을 단순한 자연어 서브쿼리 쿼리 질문으로 변경하여 사용
 
@@ -156,7 +156,7 @@ db를 단순화 시켰으면 복잡한 사용자 질문을 단순한 자연어 �
 
 ## 3.4 Refiner
 
-![f_5](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_5.png)
+![f_5](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_5.png)
 
 SQL 쿼리의 오류를 감지하고 자동으로 수정 
 
@@ -201,17 +201,17 @@ Execution Accuracy(EX) : SQL 쿼리를 실행했을 때, 그 결과가 정답 �
 
 
 
-![t_1](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\t_1.png)
+![t_1](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\t_1.png)
 
 ### Spider Results
 
-![t_3](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\t_3.png)
+![t_3](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\t_3.png)
 
 
 
 난이도가 높아도 40 은 나오는걸 볼 수 잇음 
 
-![f_6](F:\code\whtngus.github.io\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_6.png)
+![f_6](\img\2024\MAC-SQL_A_Multi-Agent_Collaborative_Framework_for_Text-to-SQL\f_6.png)
 
 
 
