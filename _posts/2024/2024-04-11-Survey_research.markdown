@@ -21,7 +21,7 @@ category: datascience
 
 TAM은 4가지 변수로 이루어져 있음 
 
-1. 인지된 유용성(PU, Perceived Usefulness)
+1. 인지된 유용성(PU, Pevrceived Usefulness)
 
 정보기술이 개인의 직무 향상에 도움을 주는 정도 
 
