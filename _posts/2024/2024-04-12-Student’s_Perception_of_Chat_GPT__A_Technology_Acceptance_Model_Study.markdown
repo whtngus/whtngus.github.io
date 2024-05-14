@@ -67,7 +67,7 @@ TAM에 따르면, 기술 사용에 대한 개인의 의도에 대한 외부 요�
 
 
 
-![t_1](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_1.PNG)
+![t_1](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_1.PNG)
 
 ### Instrument
 
@@ -77,7 +77,7 @@ chatgpt를 통해 설문지를 개발하였고 7개 차원의 부록을 만듦
 
 설문조사는 인구 통계 정보를 포함한 21개항목으로 구성됨
 
-![t_2](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_2.PNG)
+![t_2](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_2.PNG)
 
 ### Data collection
 
@@ -105,7 +105,7 @@ chatgpt를 통해 설문지를 개발하였고 7개 차원의 부록을 만듦
 
 ### Exploratory Factor Analysis (EFA)
 
-![t_3](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_3.PNG)
+![t_3](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_3.PNG)
 
 요인추출은  Kaiser-Meyer-Olkin(KMO) 측정치와 Bartlett의 구형성 검정을 사용하여 데이터가 요인 분석에 적합한지 평가
 
@@ -128,7 +128,7 @@ chatgpt를 통해 설문지를 개발하였고 7개 차원의 부록을 만듦
 
 모델 적합도: 측정 모델의 적합도 지수는 모델을 다양한 지수로 검토함으로써 제안된 요인 차원에 대한 도구 데이터의 적합도를 얼마나 잘 나타내는지를 측정
 
-![t_4](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_4.PNG)
+![t_4](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\t_4.PNG)
 
 
 
@@ -138,11 +138,11 @@ chatgpt를 통해 설문지를 개발하였고 7개 차원의 부록을 만듦
 
 설문지 정보
 
-![s_1](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\s_1.PNG)
+![s_1](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\s_1.PNG)
 
 
 
-![s_2](F:\code\whtngus.github.io\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\s_2.PNG)
+![s_2](\img\2024\Student’s_Perception_of_Chat_GPT__A_Technology_Acceptance_Model_Study\s_2.PNG)
 
 
 
