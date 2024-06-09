@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Simulating Human Strategic Behavior: Comparing Single and Multi-agent LLMs"
-date: 2024-06-06 02:05:23 +0900
+date: 2024-06-10 02:05:23 +0900
 category: paper
 ---
 
@@ -168,27 +168,110 @@ single-LLM structure
 
 ## 3.3 Evaluation
 
-### 3.3.1 Evaluation of Gameplay
+### 3.3.1 Evaluation of Game play
+
+![f_2](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\f_2.PNG)
+
+각 에이전트를 게임에서의 역할(제안자 또는 수령인)에 따라 이름을 지정하고 각 플레이어의 초기 계획을 그들의 역할에 따라 5라운드 궁극의 게임을 위한 전략을 생성하고 그것을 메모리에 저장하도록 설정
+
+각 플레이어 성격을 설정함 (ex 제안자는 욕심이 많음)
+
+
+
+제안자들은 주로 0.5$ ~ 0.4$ 사이의 동등한 분할을 제안하며 공정한 수령인들을 제안을 받아들이고 욕심 많은 수령인들은 일반적으로 제안을 거절함 
+
+욕심 많은 제안자들은 0.7$ 이상을 가저가기도 함 
 
 
 
 
 
- 
+첫 라운드 가정 
+
+공정한 제안자는 제안이 $0.40에서 $0.60 사이
+
+욕심 많은 제안자는 제안이 수령인에게 유리하게 편향되거나 엄격히 $0.50 미만이면 일관된 성격으로 행동한 것으로 간주됩니다. 공정한 수령인은 제안이 $0.40 미만인 경우 거부하고 $0.40 이상인 경우 수락한 경우에 일관된 성격으로 행동한 것으로 간주
+
+등.. .이런식으로 간주함 
+
+-> 이러면 그냥 룰기반 아닌가???
+
+
+
+## 3.3.2 Evaluation of Strategies. 
+
+llm 출력에서 수집된 정보를 가지고 3가지 구성 요소에 대한 전략을 평가함 
+
+1. 전략의 완전성
+2. 전략이 지정된성격 특서과 일관성 
+3. 다음 게임 플레이에서 전략을 준수하는 정도
+
+ 전략은 모든 게임 상태에 대한 조치가 있는 경우 완전한 것으로 간주
+
+제안자의 전략이 완전하려면 초기 제안 계획이 포함되어야 하며, 그 다음 라운드에서의 행동 계획이 수령인이 이전 제안을 수락하거나 거부하는지에 따라 결정되어야함
+
+제안자의 전략이 불완전한 경우, 수령인이 전략의 나머지 부분이 의존하는 행동을 하지 않을 때 제안자가 부적절하게 행동할 수 있음 -> 예시 0에서1달러 사이로만 제안해야함 
+
+
+
+불안전한 전략
+
+제안자가 욕심이 많다고 가정하고 처음에 0.1 달러를 제안하고 걸저하면 조금씩 올려가면서 제안하는걸 전략에 넣음   하지만 이전략은 초기에 수령자가 무조건 걸저해야만 함 . 초기에 수락을 해버리면 그다음 전략이 사라져버림 
+
+# 4 RESULTS
+
+총 4가지에 대해서 실험을 함 
+
+multi-agent 와 singe 별로 llm모델을 GPT-3.5와 GPT-4 조합 
+
+### RQ1. Which LLM architecture more accurately simulates human-like actions in the five-round ultimatum game?
+
+![t_1](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_1.PNG)
+
+실험 결과, 다중 에이전트 LLM 아키텍처는 단일 LLM보다 인간 실험 데이터와 일관된 행동을 훨씬 더 자주 보여줌   
+
+-> 당연한 내용인듯 ...그보ㅗ다 전략 에러가 거의 전부라는게 신기하네 ..
+
+
+
+오류 분석 결과, 두 아키텍처 모두 전략 생성이 게임 플레이 실수보다 오류의 큰 원인이 됨 
+
+
+
+ 표 2에는 네 가지 조건에 대한 전략, 게임 플레이 또는 둘 다의 오류 백분율중에서 
+
+다중 에이전트 아키텍처에서는 시뮬레이션의 모든 오류가 전략 생성 오류로 인한 것으로 나타났으며, 게임 플레이 오류는 없음
+
+
+
+이런 검증이 의미있나 싶음 ...
+
+
+
+### RQ2. Which LLM architecture more accurately simulates the actions of player personalities?
+
+![t_3](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_3.PNG)
+
+ MultiAgent-4가 두 가지 성격 유형을 모델링하는 데 가장 잘 수행
+
+-> 이것또한 gpt -4 가 성능이 좋고 multi agent여서 당연한 결과라고 생각됨 
+
+
+
+공정-공정 시뮬레이션에서는 100%의 인간과 유사한 게임 플레이를 달성했지만, 욕심-욕심 조건에서는 단 10%만 인간과 유사한 게임 플레이를 달성
+
+-> 대화없이 딜만하는데 되는게 신기한 방법인듯 
+
+### RQ3. Which LLM architecture more often creates robust strategies: both logically complete and consistent with personality?
+
+![t_4](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_4.PNG)
+
+생략
 
 
 
 
 
+# 4 RESULTS
 
-
-
-
-
-
-
-
-
-
-
-
+생략
