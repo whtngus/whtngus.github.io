@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Simulating Human Strategic Behavior: Comparing Single and Multi-agent LLMs"
-date: 2024-06-10 02:05:23 +0900
+date: 2024-06-11 02:05:23 +0900
 category: paper
 ---
 
@@ -158,7 +158,7 @@ single-LLM structure
 
 ### 3.2.2 Outputs
 
-![f_1](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\f_1.PNG)
+![f_1](\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\f_1.PNG)
 
 그림 1과 같이 제안자가 제안을하고 수신자가 제안을 받거나 거절하는 방식으로 진행이됨 
 
@@ -170,7 +170,7 @@ single-LLM structure
 
 ### 3.3.1 Evaluation of Game play
 
-![f_2](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\f_2.PNG)
+![f_2](\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\f_2.PNG)
 
 각 에이전트를 게임에서의 역할(제안자 또는 수령인)에 따라 이름을 지정하고 각 플레이어의 초기 계획을 그들의 역할에 따라 5라운드 궁극의 게임을 위한 전략을 생성하고 그것을 메모리에 저장하도록 설정
 
@@ -226,7 +226,7 @@ multi-agent 와 singe 별로 llm모델을 GPT-3.5와 GPT-4 조합
 
 ### RQ1. Which LLM architecture more accurately simulates human-like actions in the five-round ultimatum game?
 
-![t_1](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_1.PNG)
+![t_1](\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_1.PNG)
 
 실험 결과, 다중 에이전트 LLM 아키텍처는 단일 LLM보다 인간 실험 데이터와 일관된 행동을 훨씬 더 자주 보여줌   
 
@@ -250,7 +250,7 @@ multi-agent 와 singe 별로 llm모델을 GPT-3.5와 GPT-4 조합
 
 ### RQ2. Which LLM architecture more accurately simulates the actions of player personalities?
 
-![t_3](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_3.PNG)
+![t_3](\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_3.PNG)
 
  MultiAgent-4가 두 가지 성격 유형을 모델링하는 데 가장 잘 수행
 
@@ -264,7 +264,7 @@ multi-agent 와 singe 별로 llm모델을 GPT-3.5와 GPT-4 조합
 
 ### RQ3. Which LLM architecture more often creates robust strategies: both logically complete and consistent with personality?
 
-![t_4](F:\code\whtngus.github.io\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_4.PNG)
+![t_4](\img\2024\Simulating_Human_Strategic_Behavior__Comparing_Single_and_Multi-agent_LLMs\t_4.PNG)
 
 생략
 
