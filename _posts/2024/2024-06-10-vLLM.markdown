@@ -1,0 +1,108 @@
+---
+layout: post
+title: "Efficient Memory Management for Large Language Model Serving with PagedAttention : vLLM"
+date: 2024-06-10 02:05:23 +0900
+category: paper
+---
+
+# Efficient Memory Management for Large Language Model Serving with PagedAttention
+
+## vLLM
+
+정리된 블로그들을 보고 정리하는 vLLM논문 정리 
+
+23년 9월 12일 
+
+url : https://arxiv.org/pdf/2309.06180
+Stanford University 
+
+https://blog.vllm.ai/2023/06/20/vllm.html
+
+
+
+#### 짧게 LLM inference 를 빠르게 하기 위한 방법 최대 24배까지 빨라짐
+
+![f_1](F:\code\whtngus.github.io\img\2024\vllm\f_1.PNG)
+
+![f_2](F:\code\whtngus.github.io\img\2024\vllm\f_2.PNG)
+
+- 그림 1
+
+13B 크기의 모델을 A100(40GB)로 할당되는 메모리 비율을 나타낸것 
+
+모델크기는 고정임으로 메모리에서 차지하는 크기 자체를 줄일수는 없음 
+
+- 그림 2
+
+현재 사용되는 시스템에서 gpu메모리가 사용되는걸 보여줌 
+
+![f_3](F:\code\whtngus.github.io\img\2024\vllm\f_3.PNG)
+
+##### internal, external memory fragmentation
+
+트랜스포머 사용시 입력 토큰을 하나씩 생성하기 때문에 계속 반복해야되는 문제가 있으며 토큰 길이의 문제가 있음으로 어마나 긴 텍스트 길이가 들어올지 모르기때문에 문제가 발생함 
+
+1. internal fragmentaion : 최대 길이 도달 전 생성이 완료되어 k,v cache가 이루어지지 않은 공간
+2. external fragmentation : request 마다 할당된 공간 크기가 다르기 때문에 생기는 할당 공간 끼리의 비어있는 공간 
+3. reserved : 실제로 생성에 사용되는 공간 
+
+
+
+#### memory 를 공유할 수 없음 
+
+
+
+# VLLM의 해결 방법
+
+### Paged Attention
+
+1. KV cache를 여러 "Phycial KV block"으로 분산
+
+2. 각 block은 일정 개수의 토큰의 key, value 저장
+
+3. 이 블록은 물리적으로 인접할 필요 없음 
+
+4. 블록들이 어디에 위치하는지 어디에 저장되는지 기록한 block table이 존재함 
+
+   ![f_4](F:\code\whtngus.github.io\img\2024\vllm\f_4.PNG)
+
+![f_5](F:\code\whtngus.github.io\img\2024\vllm\f_5.PNG)
+
+위의 그림 5와같은방식으로 블록단위로 설정하기 때문에 다양하게 memory를 할당하여 사용함으로 메모리가 낭비되지 않음 (모든 블록이 같은 크기를 사용함)
+
+# 결론
+
+- PagedAttention을 통해 KV cache 메모리의 낭비가 0에 가까움
+- GPT, OPT, LLaMA와 같은 널리 사용되는 LLM을 지원 (트랜스포머 디코더가 된다는 뜻)
+- 하나의 GPU에 담을 수 없는 크기도 지원
+
+tgi보다 훨씬 빠르다고함 
+
+
+
+
+
+### 프롬프트끼리 동일하니 동시에도 가능
+
+![f_1](F:\code\whtngus.github.io\img\2024\vllm\f_1.gif)
+
+![f_2](F:\code\whtngus.github.io\img\2024\vllm\f_2.gif)
+
+
+
+
+
+
+
+
+
+
+
+# 참고 
+- vllm 설명
+
+https://lsjsj92.tistory.com/668
+
+https://velog.io/@doh0106/vLLM-%EB%85%BC%EB%AC%B8-%EC%9A%94%EC%95%BD-%EB%A6%AC%EB%B7%B0
+
+https://tech.scatterlab.co.kr/vllm-implementation-details/
