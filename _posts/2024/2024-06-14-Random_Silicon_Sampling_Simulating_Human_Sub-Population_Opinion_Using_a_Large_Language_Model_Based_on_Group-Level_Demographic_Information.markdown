@@ -78,7 +78,7 @@ llm이 사람의 통계학정 정보를 가지고 의견을 예측하는것을 �
 
 # 3 Methods 
 
-![f_1](F:\code\whtngus.github.io\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\f_1.PNG)
+![f_1](\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\f_1.PNG)
 
 위의 그림 1에서와 같이  층화 샘플과 다운샘플링, 다중 질문을 통해 생성에 대해 의견을 샘성
 
@@ -116,9 +116,9 @@ KL-divergence 평가를 통해 시뮬레이션이 현실과 같게 사용
 
 # 4 Experimental Settings
 
-![t_2](F:\code\whtngus.github.io\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\t_2.PNG)
+![t_2](\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\t_2.PNG)
 
-![t_1](F:\code\whtngus.github.io\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\t_1.PNG)
+![t_1](\img\2024\Random_Silicon_Sampling_Simulating_Human_Sub-Population_Opinion_Using_a_Large_Language_Model_Based_on_Group-Level_Demographic_Information\t_1.PNG)
 
 GPT3.5-turbo API를 통해 시뮬레이션을 함 
 
