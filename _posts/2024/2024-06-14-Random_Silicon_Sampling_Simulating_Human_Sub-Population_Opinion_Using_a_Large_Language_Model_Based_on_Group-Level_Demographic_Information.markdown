@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Random Silicon Sampling: Simulating Human Sub-Population Opinion Using a Large  Language Model Based on Group-Level Demographic Information"
-date: 2024-06-14 02:05:23 +0900
+date: 2024-06-18 02:05:23 +0900
 category: paper
 ---
 
