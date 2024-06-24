@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment"
-date: 2024-06-20 02:05:23 +0900
+date: 2024-06-24 02:05:23 +0900
 category: paper
 ---
 
@@ -38,7 +38,7 @@ G-Eval인 자연어 생성(NLG) 시스템이 생성한 텍스트의 품질을 �
 
 # 2. Method
 
-![f_1](F:\code\whtngus.github.io\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f_1.PNG)
+![f_1](\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f_1.PNG)
 
 
 
@@ -112,7 +112,7 @@ CoT는 LLM이 생성된 텍스트를 평가하는 데 더 많은 맥락과 지�
 
 
 
-![f1](F:\code\whtngus.github.io\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f1.PNG)
+![f1](\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f1.PNG)
 
 s는 미리 정의된 점수 집합이고 각 점수의 확률 p(si) 로 스코어를 합계하여 계산
 
@@ -158,7 +158,7 @@ G-eval을 다음과 같은 SoTA 방법론들과 비교한다.
 
 
 
-![t_1](F:\code\whtngus.github.io\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\t_1.PNG)
+![t_1](\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\t_1.PNG)
 
 - ROUGE 스코어와 같이 모델 아웃풋과 reference 요약문의 토큰 단위 유사성을 비교하는 매트릭은 사람의 평가 결과와 상관관계가 매우 낮음
 
@@ -168,7 +168,7 @@ G-eval을 다음과 같은 SoTA 방법론들과 비교한다.
 
 ### 해당 논문에 두번째 관점 G-EVAL은 LLM이 생성한 텍스트를 선호하는가
 
-![f_2](F:\code\whtngus.github.io\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f_2.PNG)
+![f_2](\img\2024\G-Eval__NLG_Evaluation_using_GPT-4_with_Better_Human_Alignment\f_2.PNG)
 
 1) 사람이 평가했을 때 GPT-3.5가 작성한 요약보다 사람이 작성한 요약이 더 높은 점수를 받은 경우
 
