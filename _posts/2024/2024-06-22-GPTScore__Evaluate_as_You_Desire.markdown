@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "GPTScore: Evaluate as You Desire"
-date: 2024-06-20 02:05:23 +0900
+date: 2024-06-25 02:05:23 +0900
 category: paper
 ---
 
@@ -29,7 +29,7 @@ paper : https://arxiv.org/abs/2302.04166
 
 # 1. Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f_1.PNG)
+![f_1](\img\2024\GPTScore__Evaluate_as_You_Desire\f_1.PNG)
 
 GPT3 이후 텍스트 생성 기술이 빠르게 증가함에 따라 위의 그림 1과 같은 평가 방법들이 생김
 
@@ -53,7 +53,7 @@ GPT3 이후 텍스트 생성 기술이 빠르게 증가함에 따라 위의 그�
 
 학습을 하지않고 평가할 수 있는 방법 
 
-![f_2](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f_2.PNG)
+![f_2](\img\2024\GPTScore__Evaluate_as_You_Desire\f_2.PNG)
 
 그림 2와 같은 프로콜을 사요함 
 
@@ -83,7 +83,7 @@ GPT3 이후 텍스트 생성 기술이 빠르게 증가함에 따라 위의 그�
 
 텍스트를 평가하는 목표는 생성된 텍스트 h에 대한 a관점에서의 평가를 하는것임 
 
-![f1](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f1.PNG)
+![f1](\img\2024\GPTScore__Evaluate_as_You_Desire\f1.PNG)
 
 h : 평가 될 텍스트
 
@@ -111,7 +111,7 @@ meta evaluation은 사람이평가한 y_human 과 자동으로 평가한 y_auto�
 
 #### Sample-level
 
-![f2](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f2.PNG)
+![f2](\img\2024\GPTScore__Evaluate_as_You_Desire\f2.PNG)
 
 g 는 Spearman or Pearson 상관계수
 
@@ -119,7 +119,7 @@ g 는 Spearman or Pearson 상관계수
 
 #### Dataset-level 
 
-![f3](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f3.PNG)
+![f3](\img\2024\GPTScore__Evaluate_as_You_Desire\f3.PNG)
 
 n개의 셈플에 대해 상관계수를 구함 
 
@@ -135,7 +135,7 @@ b :  encoderdecoder models (bart, t5)
 
 3 :  decoder-only models (gpt-2, 3 , PaLM)
 
-![f4](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f4.PNG)
+![f4](\img\2024\GPTScore__Evaluate_as_You_Desire\f4.PNG)
 
 주어진 프롬프트 입력 x와 순차적으로 생성되는 y 의 확률값을 수식으로 표현하것
 
@@ -143,7 +143,7 @@ b :  encoderdecoder models (bart, t5)
 
 GPTScore 아이디어는 모델에 주어진 명령과 컨텍스트에 따라 고푸질 텍스트가 생성될 확률이 높기 때문
 
-![f5](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\f5.PNG)d : description
+![f5](\img\2024\GPTScore__Evaluate_as_You_Desire\f5.PNG)d : description
 
 a : aspect definition
 
@@ -173,7 +173,7 @@ NaturalInstruction을 사용함
 
 ## 4.1. Tasks, Datasets, and Aspects
 
-![t_8](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\t_8.PNG)
+![t_8](\img\2024\GPTScore__Evaluate_as_You_Desire\t_8.PNG)
 
 natural language generation tasks: Dialogue Response Generation, Text Summarization, Data-toText, and Machine Translation, which involves 37 datasets
 
@@ -207,7 +207,7 @@ natural language generation tasks: Dialogue Response Generation, Text Summarizat
 
 ## 4.2. Scoring Models
 
-![다t_2](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\t_2.PNG)
+![다t_2](\img\2024\GPTScore__Evaluate_as_You_Desire\t_2.PNG)
 
 다양한 모델과 ROUGE-1, ROUGE-2, ROUGE-L, PRISM 방법등 다양한 방법을 이용해 평가함 
 
@@ -241,7 +241,7 @@ natural language generation tasks: Dialogue Response Generation, Text Summarizat
 
 - NaturalInstruction
 
-![NaturalInstruction](F:\code\whtngus.github.io\img\2024\GPTScore__Evaluate_as_You_Desire\NaturalInstruction.PNG)
+![NaturalInstruction](\img\2024\GPTScore__Evaluate_as_You_Desire\NaturalInstruction.PNG)
 
 Definition : task 수행을 위한 instruction
 
