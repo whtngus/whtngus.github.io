@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "From Sparse to Dense: GPT-4 Summarization with Chain of Density Prompting"
-date: 2024-06-27 02:05:23 +0900
+date: 2024-07-08 02:05:23 +0900
 category: paper
 ---
 
@@ -37,7 +37,7 @@ NN DailyMail 기사 100개에 대해 인간 선호도 연구를 수행함
 
 # 1 Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_1.PNG)
+![f_1](\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_1.PNG)
 
 자동 요약은 지난 오랫동안 연구되어 옴
 
@@ -71,7 +71,7 @@ NN DailyMail 기사 100개에 대해 인간 선호도 연구를 수행함
 
 #### Prompt.
 
-![f_2](F:\code\whtngus.github.io\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_2.PNG)
+![f_2](\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_2.PNG)
 
 연구의 목표는 GPT-4를 사용해 생성 길이를 조절함으로 써 다양한 수준의 정보를 생성하는것
 
@@ -93,7 +93,7 @@ CoD 와 사람이 요약한 내용을 사용하여 비교
 
 GPT-4 의 템플릿은 아래와 같은 형식을 다룸
 
-![t_1](F:\code\whtngus.github.io\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\t_1.PNG)
+![t_1](\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\t_1.PNG)
 
 ```
 “Write a VERY short summary of the Article. Do not exceed 70 words."
@@ -117,7 +117,7 @@ CoD는 앞의 토큰수가 있어 고정된 예산을 사용
 
 #### Indirect Statistics
 
-![f_3](F:\code\whtngus.github.io\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_3.PNG)
+![f_3](\img\2024\From_Sparse_to_Dense__GPT-4_Summarization_with_Chain_of_Density_Prompting\f_3.PNG)
 
 Abstractiveness은 각 CoD 단계에서 스텝이 증가살수록 증가함
 
