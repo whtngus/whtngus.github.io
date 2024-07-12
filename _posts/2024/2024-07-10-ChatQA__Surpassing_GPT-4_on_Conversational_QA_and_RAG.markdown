@@ -140,7 +140,7 @@ high-quality instruction tuning datasets이 필요함 FLAN, Self-Instruct, unnat
 
 # 3 ChatQA
 
-![f_1](F:\code\whtngus.github.io\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\f_1.PNG)
+![f_1](\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\f_1.PNG)
 
 a two-stage instruction tuning method를 제안함 
 
@@ -260,7 +260,7 @@ gpt-3.5의 instruction은 3가지를 포함함
 
 # 4 Retrieval for Multi-Turn QA
 
-![f_2](F:\code\whtngus.github.io\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\f_2.PNG)
+![f_2](\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\f_2.PNG)
 
 대화형 QA 테스크에서 문서가 너무 길어져서 LLM에 직접 넣을수 없게 되면서 retriever 이 필수적이게 됨 
 
@@ -300,7 +300,7 @@ Fine-tuning Retriever for multi-turn QA
 
 ### 4.3 Comparisons
 
-![t_1](F:\code\whtngus.github.io\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\t_1.PNG)
+![t_1](\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\t_1.PNG)
 
 zero-shot으로 5개의 데이터에 대해서 질문 재작성 방법과 fine-funing 을 비교함 
 
@@ -335,7 +335,7 @@ INSCIT (Wu et al., 2023) 또한 전체 위키백과를 기반으로 합니다. �
 
 1. Self-Instruct
 
-![self-instruction](F:\code\whtngus.github.io\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\self-instruction.PNG)
+![self-instruction](\img\2024\ChatQA__Surpassing_GPT-4_on_Conversational_QA_and_RAG\self-instruction.PNG)
 
 `self-insturct`는 언어모델을 사용해 insturction 데이터를 생성하는 방법
 
