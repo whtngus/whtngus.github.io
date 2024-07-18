@@ -102,7 +102,7 @@ ex) Chat-REC는 ChatGPT를 사용해 사용자의 선호도를 파악하고 대�
 
 
 
-![f1](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f1.PNG)
+![f1](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f1.PNG)
 
 X : 사용자 상호작용 히스토리 x 데이터셋
 
@@ -118,7 +118,7 @@ negative log likelihood loss  L 사용
 
 ## 3.2 The Proposed LlamaRec
 
-![f_1](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_1.PNG)
+![f_1](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_1.PNG)
 
 large scale의 경우 아이템 히스토리 |I|가 100만건에 달함 
 
@@ -138,7 +138,7 @@ LRURec은 작은 스케일의 추천시스템으로 linear recurrent units임
 
  𝒇ranker 모델로는 Llama 2 7B를 사용함 
 
-![prompt](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\prompt.PNG)
+![prompt](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\prompt.PNG)
 
 위와 같은프롬프트 템플릿을 사용 
 
@@ -146,7 +146,7 @@ LLM을 이용하여 추천 아이템은 예측할 수 있으나 추천한 아이
 
 이를 위해 모델 예측 순서대로 출력을 하게되면 긴 리스트를 출력하기 위해 계산 연산량을 많이 필요로 하게됨 
 
-![f_2](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_2.PNG)
+![f_2](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_2.PNG)
 
 이러한 문제를 해결하기 위해 위의그림 2와 같은 방법을 사용함 
 
@@ -160,7 +160,7 @@ next token의 logits 값을 이용해서 뽑음
 
 ### 4.0.1 Datasets.
 
-![t_2](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\t_2.PNG)
+![t_2](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\t_2.PNG)
 
 평가 데이터셋 
 
@@ -191,7 +191,7 @@ RNN 기반 sota 모델과 Transformer 기반의 모델과 비교
 
 ### 4.0.3 Evaluation
 
-![t_1](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\t_1.PNG)
+![t_1](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\t_1.PNG)
 
 M : MRR@K
 
@@ -199,7 +199,7 @@ N : NDCG@K
 
 R : Recall@K
 
-![f_3](F:\code\whtngus.github.io\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_3.PNG)
+![f_3](\img\2024\LlamaRec__Two-Stage_Recommendation_using_Large_Language_Models_for_Ranking\f_3.PNG)
 
 위는 verbalizer을 사용했기 때문에 title 길이에 상관없이 연산량이 같음을 나타냄
 
