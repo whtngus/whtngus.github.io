@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SPREADSHEETLLM: Encoding Spreadsheets for Large Language Models"
-date: 2024-07-22 02:05:23 +0900
+date: 2024-07-23 02:05:23 +0900
 category: paper
 ---
 
@@ -186,7 +186,7 @@ spreadsheet데이터셋을 Markdown 과 비슷한 형식으로 변환하는 인�
 
 spreadsheet를 LLM에 인코딩하기 위한 일반적인 방법은아직 없음 
 
-주로 HTML, XML, and Markdown 3가지로 인코딩하고, 위의 그림5와 table 6같이 평가한경우 일반적으로 markdown이 더 효율적인것을 알 수 잇음 
+주로 HTML, XML, and Markdown 3가지로 인코딩하고, 위의 그림5와 table 6같이 평가한경우 일반적으로 markdown이 더 효율적인것을 알 수 있음 
 
 ![f1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f1.PNG)
 
@@ -204,7 +204,7 @@ S : row와 column의 범위
 
 ## 3.2 Structural-anchor-based Extraction
 
-큰 spreadsheet의 경우 수치형 동형의 row나 column이 있어서 이를 이용하면 레이아수 구조를 이해하는데 수월함 
+큰 spreadsheet의 경우 수치형 동형의 row나 column이 있어서 이를 이용하면 레이아의 구조를 이해하는데 수월함 
 
 이런 구조를 임베딩하기 위해  heuristic-based방법을 제안함 
 
@@ -274,7 +274,7 @@ Spreadsheets는 매우 많은 빈 row와 column 들을 보함하고 있음
 
 이런 방식을 사용하면 데이터를 압축하면서도 손실이 없는 압축이됨 (lossless compression)
 
-![t_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_1.PNG)
+![t_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t11.PNG)
 
 Table1에서 토큰 수가 상당히 압축됨을 알수 있음 
 
