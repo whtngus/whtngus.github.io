@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "SPREADSHEETLLM: Encoding Spreadsheets for Large Language Models"
-date: 2024-07-10 02:05:23 +0900
+date: 2024-07-22 02:05:23 +0900
 category: paper
 ---
 
@@ -47,7 +47,7 @@ SHEETCOMPRESSOR  은 3개의 모듈로 분리되어있음
 
 # 1 Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_1.PNG)
+![f_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_1.PNG)
 
 스프레드시트는 데이터를 관리하고 활용하기위해 많이 사용되고 있음 (ms excel, google sheets 등)
 
@@ -63,7 +63,7 @@ vanilla encoding 방법에서 연속적인 스프레드시트 직렬화 방법�
 
 ### 1) Structural Anchors for Efficient Layout Understanding:
 
-![f_2](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_2.PNG)
+![f_2](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_2.PNG)
 
 대용량의 스프레드시트는 동일한 속성의 row와  column들이 발견되어 이는 테이블 구조를 이해하는데 도움이됨 
 
@@ -127,11 +127,11 @@ MaskRCNN 방법을 이용해서 visual encoding 방법이 있었으나 VLM을 �
 
 그러나 위 방법들은 스프레드 시트에 적합하지 않다고 함 
 
-![f_5](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_5.PNG)
+![f_5](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_5.PNG)
 
 Markdown, html과 xlm로 변경하는경우 그림5와 같이 많은 토큰을 사용하게됨 
 
-![t_6](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_6.PNG)
+![t_6](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_6.PNG)
 
  ICL 실험한 결과  테이블 6과 같은 결과가 나옴 
 
@@ -188,7 +188,7 @@ spreadsheet를 LLM에 인코딩하기 위한 일반적인 방법은아직 없음
 
 주로 HTML, XML, and Markdown 3가지로 인코딩하고, 위의 그림5와 table 6같이 평가한경우 일반적으로 markdown이 더 효율적인것을 알 수 잇음 
 
-![f1](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f1.PNG)
+![f1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f1.PNG)
 
 S ∈ R^m,n : 스프레드시트
 
@@ -208,9 +208,9 @@ S : row와 column의 범위
 
 이런 구조를 임베딩하기 위해  heuristic-based방법을 제안함 
 
-![f3](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f3.PNG)
+![f3](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f3.PNG)
 
-![f3_1](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f3_1.PNG)
+![f3_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f3_1.PNG)
 
 r은 특정 row  에 대한 임베딩
 
@@ -222,7 +222,7 @@ c는 특정 column에 대한 임베딩
 
 이때 k파라미터를 설정해서 k이상 떨어진 경우 바운더리에서 떨어짐으로 제외하는 방식으로 처리함 
 
-![t_7](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_7.PNG)
+![t_7](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_7.PNG)
 
 k파라미터에 따른 성능차이는 위와 같음 
 
@@ -230,7 +230,7 @@ k가 클수록 성능은 올라가나 당연히 사용하는 토큰은 많아질
 
 단 Huge 사이즈에서는 입력 토큰이 너무길어져서 8k 에서 스코어가 내려간듯 (F1 스코어)
 
-![f4](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f4.PNG)
+![f4](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f4.PNG)
 
 Se : k 단위로자른 압축된 스프레드시트
 
@@ -268,13 +268,13 @@ Spreadsheets는 매우 많은 빈 row와 column 들을 보함하고 있음
 
 같은 value를 가진 sel들을 합치는 작업을 실행함 
 
-![f6](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f6.PNG)
+![f6](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f6.PNG)
 
 이러면 구조 정보를 잃어서 오히려 안좋을것 같은데 신기함..
 
 이런 방식을 사용하면 데이터를 압축하면서도 손실이 없는 압축이됨 (lossless compression)
 
-![t_1](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_1.PNG)
+![t_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_1.PNG)
 
 Table1에서 토큰 수가 상당히 압축됨을 알수 있음 
 
@@ -292,7 +292,7 @@ Table1에서 토큰 수가 상당히 압축됨을 알수 있음
 
 Number Format String (NFS)방식을 사용해서 ClosedXML or OpenPyXL을 사용해서 포맷을 정의 ''20242.14' -> 'yyyy-mm-dd' 와 같은 형식
 
-![f7](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f7.PNG)
+![f7](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f7.PNG)
 
 R : 미리 정의된 룰들 
 
@@ -350,13 +350,13 @@ LLM이 아직 스프레드시트에 체계적으로 적용되지 않았기 때�
 
 # 5 Results
 
-![t_2](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_2.PNG)
+![t_2](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_2.PNG)
 
 spreadsheet table  detection task에 대한 모델별 정확도 
 
-![f_7](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_7.PNG)
+![f_7](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\f_7.PNG)
 
-![t_3](F:\code\whtngus.github.io\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_3.PNG)
+![t_3](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t_3.PNG)
 
 요약을 한경우 스코어가 더 잘나옴을 확인할 수 있음 
 
