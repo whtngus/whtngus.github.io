@@ -274,7 +274,7 @@ Spreadsheets는 매우 많은 빈 row와 column 들을 보함하고 있음
 
 이런 방식을 사용하면 데이터를 압축하면서도 손실이 없는 압축이됨 (lossless compression)
 
-![t_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t11.PNG)
+![t_1](\img\2024\SPREADSHEETLLM__Encoding_Spreadsheets_for_Large_Language_Models\t1.PNG)
 
 Table1에서 토큰 수가 상당히 압축됨을 알수 있음 
 
