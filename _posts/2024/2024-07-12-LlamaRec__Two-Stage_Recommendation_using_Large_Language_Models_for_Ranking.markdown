@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LlamaRec: Two-Stage Recommendation using Large Language Models for Ranking"
-date: 2024-07-17 02:05:23 +0900
+date: 2024-07-23 02:05:23 +0900
 category: paper
 ---
 
@@ -86,9 +86,10 @@ text features 이용한 추천시스템은 좋은 성능을 보이고 있음
 
 다음 아이템을 생성하여 예측하는 방식으로 보임 
 
-ex) Chat-REC는 ChatGPT를 사용해 사용자의 선호도를 파악하고 대화형으로 설명가능한 추천 기능을 개선ex2) TallRec는 아이템 추천을 위한 instruction-tuning을 함
+ex) Chat-REC는 ChatGPT를 사용해 사용자의 선호도를 파악하고 대화형으로 설명가능한 추천 기능을 개선
 
- 
+ex2) TallRec는 아이템 추천을 위한 instruction-tuning을 함
+
 
 그러나 대부분 LLM 기반 추천시스템은 autoregressive 생성방식의 예측방식을 사용 
 

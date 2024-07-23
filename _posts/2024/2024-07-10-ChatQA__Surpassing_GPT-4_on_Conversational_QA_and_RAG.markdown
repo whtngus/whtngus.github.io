@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ChatQA: Surpassing GPT-4 on Conversational QA and RAG"
-date: 2024-07-10 02:05:23 +0900
+date: 2024-07-23 02:05:23 +0900
 category: paper
 ---
 
@@ -58,13 +58,14 @@ GPT-4-0613 (score: 53.90) and GPT-4-Turbo2024-04-09 (score: 54.03) 두 모델보
 ChatGPT는  QA와 RAG의 패러다임을 바꾸고 이끌었다. 
 
 1) 유저와 QA를 하면서 상호작용 할 수 있으며 대화가 가능해 후속질문이 가능
+
 2) 개방형 도메인과 긴 문서 설정 모두 RAG를 통해 통합할 수 있으며 LLM의 컨텍스트 길이보다 더 큰 범위의 문맥을 사용 가능 
 
 3) generalist models 로  도메인에 맞는 fine-tuning 없이도 사용 가능한 모델 
 
 
 
-본 연구에서는 학슴 모델 데이터 기술등을 공개한다고함 
+본 연구에서는 학습 모델 데이터 기술등을 공개한다고함 
 
 연구의 컨트리뷰션
 
@@ -116,7 +117,7 @@ RAG에서 질문에 따른 top k개의 관련있는 청그를 가져옴
 
 지금까지 대부분의 해결책은 Query rewriting 방법임 
 
-RAG의 경우 이전 질문 문맥에 상관없이 지금 질문에 의해서만 문서를 가져와서 이를 해결하기 위한 방법론들이 잇음 
+RAG의 경우 이전 질문 문맥에 상관없이 지금 질문에 의해서만 문서를 가져와서 이를 해결하기 위한 방법론들이 있음 
 
 #### Fine-tuning Retriever for multi-turn QA
 
@@ -148,7 +149,7 @@ a two-stage instruction tuning method를 제안함
 
 - stage-1
 
-SFT를 통해 f instruction-following and dialog datasets을 학습
+SFT를 통해 instruction-following and dialog datasets을 학습
 
 stage-1으로도 충분히 좋은 성능을 보인다고함 
 
@@ -202,25 +203,26 @@ Self-Instruct와 Unnatural Instruction을 포함함
 
 ### 3.2.1 Human Annotated Data
 
-사람이 직접 라벨링한 7천개의 대화 HumanAnnotatedConvQA데이터와가 있음
+사람이 직접 라벨링한 7천개의 대화 HumanAnnotatedConvQA 데이터가 있음
 
 이를 구축하기 위해 인터넷에서 7천개의 다양한토픽에 대한 문서를 수집하여 질문과 agent를 사용한 답변을 활용하여 생성함 
 
  이때 문서에서 멀티턴을 사용해서 질문을 함 
 
-평균적으로 하나의 문서에서 5 번의 질문을 함 
+평균 하나의 문서에서 4.4번의 사용자-질문 턴을 함 
+ -> SyntheticConvQA로 정의
 
  ```
  질문 방식
- User behavior
- 1) 문서를 기반으로 질문
- 2) agent가 더 명확한 질문을 뭉러보는경우 다시 대답 
- Agent behavior
- 1) 문서를 기반으로 질문에대한 답변을함
- 2) 유저의 질문이 명확하지 않은경우, 광범위한경우, 너무 일반적인경우 다시 질문을 함 
+ 1) 문서를 기반으로 질문 - User behavior
+ 2) agent가 더 명확한 질문을 물어보는경우 다시 대답  - Agent behavior
+ 3) 문서를 기반으로 질문에대한 답변을함 - User behavior
+ 4) 유저의 질문이 명확하지 않은경우, 광범위한경우, 너무 일반적인경우 다시 질문을 함 
  ```
 
 할루시네이션을 줄이기 위해 알수없는 답변 케이스를  같이 추가함
+
+-> QA데이터 생성 시 답변할 수 있는 위치를 같이 생성 하도록 하고 해당 위치를 삭제하여 데이터를 만듦 
 
 이때의 답변은 “Sorry. I cannot find the answer based on the context”
 
@@ -236,7 +238,7 @@ gpt-3.5의 instruction은 3가지를 포함함
 
 1. system role 로 답변에 대한 가이드를 제공 
 2. 필요한 데이터 유형을 나타내는 예시 대화 QA
-3. 모델이 내용을 기반으로 대화영 QA를 생성하도록 지시하는 문서
+3. 모델이 내용을 기반으로 대화형 QA를 생성하도록 지시하는 문서
 
 
 
@@ -264,7 +266,7 @@ gpt-3.5의 instruction은 3가지를 포함함
 
 대화형 QA 테스크에서 문서가 너무 길어져서 LLM에 직접 넣을수 없게 되면서 retriever 이 필수적이게 됨 
 
-retriever encodes 는 dialogue 히소트리와  새로운 질문을 concat함 
+retriever encodes 는 dialogue 히스토리와 새로운 질문을 concat함 
 
 
 
