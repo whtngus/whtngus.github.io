@@ -7,13 +7,128 @@ category: paper
 
 # On the Multi-turn Instruction Following for Conversational Web Agents
 
-Alibaba
+Alibaba 및 대학교
 
 url : https://arxiv.org/pdf/2402.15057v1
 
-
+dataset : https://github.com/magicgh/self-map
 
 
 
 # Abstract
 
+웹기반 환경에서 LLM덕분에 복잡한 환경에서도 광범위한 웹 탐색과 탁월한 작업 수행능력을 보임 
+
+그러나 현실적인 연속된 질문 시나리오에서 효과적으로 적용할 수 있는방법은 없음 
+
+
+
+해당 연구에서 Conversational Web Navigation 라는 테스크를 만들어, 유저와  에이전트간의 정교한 multi turn 대화를 지원하기 윈한 데이터셋 MT-Mind2Web을 만들어서 제안함 
+
+또한 LLM의 토큰 제한 문제와 문맥 기반의 대화 기능을 해결하기 위한 self-reflective memory-augmented planning (Self-MAP)를 제안함 
+
+# 1 Introduction 
+
+![f_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_1.PNG)
+
+AI의 지금까지의 목표는 복잡한 테스크들을 수행하는 AI agent를 개발하여 사람의 노력을 최소화하는것
+
+Figure 1의 (a)는 사용자의 입력을 해석하여 키보드와 마우스를 이용해 티켓을 예약하는 테스크를 수행하는것 
+
+사용자의 지시를 그대로 행동하는건 아직 제대로 구현되지 않음
+
+Figure 1의 (c)는 대화형 웹 세션에서 사용자가 이전의 정보를 새로 기반으로 이전 정보를 생략하고 말하는 경향이 있음 
+
+여기에서도 간략한 정보와 생략된 구조에 대한 답변을 해야함 
+
+
+
+이러한 것을 측정하기 위해 Conversational Web Navigation 테스크와 새로운 데이터셋을 제안함 
+
+Figure 1의 (b)처럼 LLM은 대화영 질문에 대한 답변을 할 수 있음 
+
+ 이때 사전 학습된 데이터와 외부 데이터 검색 기술을 통해 답변 가능함
+
+
+
+문맥 기반의 대화는 매우 킨 문맥과 노이즈를 해결해야 한다는 전통적인 문제가 있음
+
+
+
+논문에서 제안하는 Self-MAP프레임워크는 제한된 메모리 내에서 작동하도록 설게됨(입력 길이 제한)
+
+-> 대화 내용 기록을 기반으로 메모리 뱅크를 구성하고, 대화의 각 순서마다 상호작용 단계를 저장함 
+
+
+
+컨트리뷰션 
+
+(이해 안가서 그냥 chatgpt로 번역)
+
+**다중 턴 지시를 따르는 웹 에이전트의 연구**:웹 에이전트가 여러 차례의 지시를 따라가며 작업을 수행하는 능력을 연구하기 위해, 저자들은 대화형 웹 탐색 문제를 정의하고 새로운 데이터셋인 MT-Mind2Web을 도입합니다.
+
+**자기 성찰 메모리 증강 계획 방법 (Self-MAP) 제안**:저자들은 대화형 웹 탐색 과제의 기본적인 도전 과제를 해결하기 위해 메모리 활용과 자기 성찰을 결합한 Self-MAP이라는 방법을 제안합니다.
+
+**MT-Mind2Web 데이터셋에 대한 벤치마킹**:저자들은 다양한 기준선을 사용하여 MT-Mind2Web 데이터셋을 벤치마킹하고, 다양한 설정에서 종합적인 평가를 제공합니다. 실험 결과는 제안된 방법의 효과도 확인해줍니다.
+
+# 2 Related Works
+
+#### Web Agents
+
+최근 web agents 기반의  multi-domain, real-time 상호작용, visual UI understanding 등 다앙한 연구가 활성화 되고 있음 
+
+이런 문제를 해결하기 위해 LLM을이용하여 강력한 에이전트를 만들어 사되며 웹 에이전트 기반으로 LLM 성능을 향상시키기 위해 다양한 프롬프트 기반의 방법들이 제안됨 
+
+그러나 프롬프트 기반의 방법들은 fine-tuning하는 방법에 비교하여 실패한 결과를보이고 있음 
+
+#### Multi-turn Interactions with Environment 
+
+현실의 여러 환경에서 multi-turn 문제를 적용하기 위해서는 여러 문제들을 해결해야함
+
+우선 사용자들이 하나의 테스크에서만 질문하는경우는 거의 없음 
+
+#### Multi-turn Interactions with Users 
+
+광범위한 연구로 기존 LLM이 multi-turn에 탁월한 성능을 입증함 
+
+ MT-Bench 는 고품질의 80개의 멀티턴 데이터로 평가됨 (8개의 도메인으로 글쓰기, 열할극, 추리능력등)
+
+그러나 이 데이터셋은 llm의 고유지식에 의존하는 테스크임 
+
+# 3 MT-Mind2Web Dataset
+
+## 3.1 Annotation & Quality Control
+
+![f_2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_2.PNG)
+
+Mind2Web(single-turn interaction data) 데이터셋을 기반으로 MT-Mind2Web 데이터를 만듦 
+
+### 1) Organize Conversation Sessions
+
+Mind2Web데이터의 같은 문맥인 같은 도메인과 웹사이트에서 연속적 주제의 테스크 구조를 만듦
+
+-> multiple individual task 구조 
+
+두 개의 instructions이 같은 의도나 객체를 가지고 대화를 하는 경우 같은 의도로 분류함
+
+그림 2와 같음 
+
+  
+
+
+
+
+
+# 참고
+
+- Mind2Web
+
+Mind2Web은 언어 지시에 따라 모든 웹사이트에서 복잡한 작업을 완료할 수 있는 웹용 일반 에이전트를 개발하고 평가하기 위한 데이터 세트
+
+Mind2Web은 31개 도메인에 걸쳐 137개 웹사이트에서 수집한 2,000개 이상의 개방형 작업과 작업에 대한 크라우드소싱된 작업 시퀀스를 통해 일반 웹 에이전트를 구축하는 데 필요한 세 가지 요소를 제공합니다. 
+
+1. 다양한 도메인, 웹사이트 및 작업
+2. 시뮬레이션 및 단순화된 웹사이트 대신 실제 웹사이트 사용
+3. 광범위한 사용자 상호 작용 패턴. 데이터 세트 구조 데이터 필드
+
+https://paperswithcode.com/dataset/mind2web
