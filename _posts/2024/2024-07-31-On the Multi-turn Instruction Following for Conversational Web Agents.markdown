@@ -111,9 +111,87 @@ Mind2Web데이터의 같은 문맥인 같은 도메인과 웹사이트에서 연
 
 두 개의 instructions이 같은 의도나 객체를 가지고 대화를 하는 경우 같은 의도로 분류함
 
-그림 2와 같음 
+그림 2와 같이 Mind2Web데이터의 Insturction 1과 Instruction 2의 티켓 예약에 관한 같은 TicketCenter website의 Event 도메인을 공유함
 
-  
+이 경우 데이터를 결합하면 자연스러운 대화세션으로 사용할 수 있다고 함
+
+
+
+-> 자연스럽진 않을거같은데 ...
+
+### 2) Decompose Complex Instructions
+
+  Mind2Web는 이상생활에서 볼 수 없는 복잡한 연속된 액션이 필요한 경우가 있음 
+
+이런 복잡한 instruction의 경우 여러번 상호작용을 위한 좋은 지침이 될 수 있음 
+
+
+
+복잡한 지시문을 멀티턴으로 분해하기 위해서 AI와 사람이 직접하는 방법을 같이 사용하여 annotation함
+
+AI가 긴 시퀀스를 짧은 시퀀스로 나누는 결정을 내리는데는 사람보다 더 능숙했다고 함 
+
+![t_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\template_1.PNG)
+
+chatgpt를 통해 N개의 서브 테스크로 나누게 시킴 
+
+그림2의 예시에서 위에는 2개 아래는 3개의 서브테스크로 나뉜것을 볼 수 있음 
+
+chatgpt를 통해 시키고 사람이 검수했을때 98.5%가 잘 뉘었다고 함
+
+### 3) Rewrite Conversational Instructions
+
+원래 독립실행하는 명령을 대화형 명령으로 개선함 
+
+이때 anaphora(첫머리 어구 반복)와 ellipsis(생략)를 사용했다고 함 
+
+
+
+예시
+
+T2는 T1에서 언급된 WWE 티켓을 지칭하기 위해 'one'을 사용함
+
+T3는 티켓을 예약하는 동일한 행동과 함께 다른 작업으로 전화하며, 이때 동사 'book'을 생략함
+
+T4에서도 반복된 내용은 생략됨 
+
+
+
+#### Quality Verification
+
+오류나 실수등을 확인하기 위해 품질 검사를 진행함 
+
+이때 사람이 직접 확인하며 대화가 일관성이 없거나 이해가 되지 않는경오 이를 수정하며 검증을 통과할때 까지 반복함
+
+
+
+
+
+## 3.2 Dataset Statistics
+
+![t_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_1.PNG)
+
+720개의 웹 대화 센셩을 확보하였으며, 3,525개의 대응하는 지시 및 행동 시퀀스 쌍이 포함되어 있고, 각 대화 세션마다 평균 5회의 사용자-에이전트 상호작용
+
+위의 테이블 1과 같은 데이터셋을 생성함 
+
+## 3.3 Problem Definition
+
+Conversational WebNavigation 테스크
+
+Ct : 상호작용 히스토리로 {q1, A1, ... qt, At}
+
+Ai : Ct에 들어있는 행동 세트
+
+Et : 환경 상황 (ex 현재 HTML web page)
+
+
+
+
+
+# 4 Method
+
+
 
 
 
