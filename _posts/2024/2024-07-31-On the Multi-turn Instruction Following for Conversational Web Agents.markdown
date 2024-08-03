@@ -185,11 +185,77 @@ Ai : Ct에 들어있는 행동 세트
 
 Et : 환경 상황 (ex 현재 HTML web page)
 
-
-
-
-
 # 4 Method
+
+![f_3](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_3.PNG)
+
+Self-MAP framwork는 memory-augmented planning과 slef-reflection의 결합으로 되어있음 
+
+위의 그림 3과 같이 메인 요소는 Memory, Reflection, Planning Modules 3가지 로 이루어짐
+
+## 4.1 Memory Module
+
+웹 에이전트기반을 위한 memory bank는 대화 히스토리를 Ct를 구조화함 
+
+![ff1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff1.PNG)
+
+위처럼 진행하려면 많은 크기의 토큰이 주입되어야하며 모델에 따라 최대 입력 길이의 제한이 있음 
+
+몇몇의 메모리 조각은 환경 설정, 지침, 행동의 불일치로 인해 에이전트가 이후의 행동하는데 유요한 지침을 제공하지 못함 
+
+그래서 메모리뱅크에서 관련있는 top-K개의 액션만 가져와서 사용함 
+
+Ckt={q1,A1,…,qt,Ak−1t}
+
+-> 이때 text-embedding-ada-002 모델을 사용하여 임베딩 모델 사용 
+
+## 4.2 Reflection Module
+
+메모리공간을 제한하기 위해 아래 2가지 스텝으로 최대 메모리 공간을 설정함 
+
+1) Memory Simplification
+
+2) Memory Refinement
+
+#### Memory Simplification
+
+MINDACT framework는 작은 모델인 BERTa를 이용해 ranking top-N을 추출함 
+
+이를통해 노이즈나 관계가 없는 데이터를 제거함 
+
+#### Memory Refinement
+
+대화영 웹 탐색 도메인을 위한 특화된 메모리 정제 접근 방법을 설계함 
+
+전통적인 방법과 달리 모델이 잘못된 경로를 수집하지 않음 
+
+
+
+LLM의 중간 추론 근거를 생성하고 이전 메모리조각정보를 LLM에게 다음 행동의 ㅢㅇ사 결정 과정에 대한 이유를 설명하는 심층 근거를 생성하도록 함 (근거 - r)
+
+#### Self-reflective Memory
+
+위 두가지 스텝으로 노이즈 제거와 필터링을 완료 했으며 아래와 같이 표기함
+
+![ff2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff2.PNG)
+
+## 4.3 Planning with Self-reflective Memory
+
+현재 대화 차례에서 사용자 쿼리 qt와 이전행동 시퀀스 ak-1을 고려해 
+
+상위 k개의 피렅링 된 메모리조각 으로 M과 e를 얻음 
+
+이후 입력을 기반으로 LLM을 finetuning하여 다음 행동 a를 결정함
+
+
+
+# 5 Experiment
+
+![t_2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_2.PNG)
+
+
+
+생략...
 
 
 
