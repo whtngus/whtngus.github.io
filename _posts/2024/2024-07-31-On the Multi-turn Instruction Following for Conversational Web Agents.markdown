@@ -29,7 +29,7 @@ dataset : https://github.com/magicgh/self-map
 
 # 1 Introduction 
 
-![f_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_1.PNG)
+![f_1](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_1.PNG)
 
 AI의 지금까지의 목표는 복잡한 테스크들을 수행하는 AI agent를 개발하여 사람의 노력을 최소화하는것
 
@@ -99,7 +99,7 @@ Figure 1의 (b)처럼 LLM은 대화영 질문에 대한 답변을 할 수 있음
 
 ## 3.1 Annotation & Quality Control
 
-![f_2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_2.PNG)
+![f_2](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_2.PNG)
 
 Mind2Web(single-turn interaction data) 데이터셋을 기반으로 MT-Mind2Web 데이터를 만듦 
 
@@ -131,7 +131,7 @@ Mind2Web데이터의 같은 문맥인 같은 도메인과 웹사이트에서 연
 
 AI가 긴 시퀀스를 짧은 시퀀스로 나누는 결정을 내리는데는 사람보다 더 능숙했다고 함 
 
-![t_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\template_1.PNG)
+![t_1](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\template_1.PNG)
 
 chatgpt를 통해 N개의 서브 테스크로 나누게 시킴 
 
@@ -169,7 +169,7 @@ T4에서도 반복된 내용은 생략됨
 
 ## 3.2 Dataset Statistics
 
-![t_1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_1.PNG)
+![t_1](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_1.PNG)
 
 720개의 웹 대화 센셩을 확보하였으며, 3,525개의 대응하는 지시 및 행동 시퀀스 쌍이 포함되어 있고, 각 대화 세션마다 평균 5회의 사용자-에이전트 상호작용
 
@@ -187,7 +187,7 @@ Et : 환경 상황 (ex 현재 HTML web page)
 
 # 4 Method
 
-![f_3](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_3.PNG)
+![f_3](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\f_3.PNG)
 
 Self-MAP framwork는 memory-augmented planning과 slef-reflection의 결합으로 되어있음 
 
@@ -197,7 +197,7 @@ Self-MAP framwork는 memory-augmented planning과 slef-reflection의 결합으�
 
 웹 에이전트기반을 위한 memory bank는 대화 히스토리를 Ct를 구조화함 
 
-![ff1](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff1.PNG)
+![ff1](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff1.PNG)
 
 위처럼 진행하려면 많은 크기의 토큰이 주입되어야하며 모델에 따라 최대 입력 길이의 제한이 있음 
 
@@ -237,7 +237,7 @@ LLM의 중간 추론 근거를 생성하고 이전 메모리조각정보를 LLM�
 
 위 두가지 스텝으로 노이즈 제거와 필터링을 완료 했으며 아래와 같이 표기함
 
-![ff2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff2.PNG)
+![ff2](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\ff2.PNG)
 
 ## 4.3 Planning with Self-reflective Memory
 
@@ -251,7 +251,7 @@ LLM의 중간 추론 근거를 생성하고 이전 메모리조각정보를 LLM�
 
 # 5 Experiment
 
-![t_2](F:\code\whtngus.github.io\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_2.PNG)
+![t_2](\img\2024\On the Multi-turn Instruction Following for Conversational Web Agents\t_2.PNG)
 
 
 
