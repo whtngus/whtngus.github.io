@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "On the Multi-turn Instruction Following for Conversational Web Agents"
-date: 2024-07-23 02:05:23 +0900
+date: 2024-08-05 02:05:23 +0900
 category: paper
 ---
 
@@ -19,7 +19,7 @@ dataset : https://github.com/magicgh/self-map
 
 웹기반 환경에서 LLM덕분에 복잡한 환경에서도 광범위한 웹 탐색과 탁월한 작업 수행능력을 보임 
 
-그러나 현실적인 연속된 질문 시나리오에서 효과적으로 적용할 수 있는방법은 없음 
+그러나 현실적인 연속된 질문 시나리오에서 효과적으로 적용할 수 있는방법은 없음ㅐ 
 
 
 
