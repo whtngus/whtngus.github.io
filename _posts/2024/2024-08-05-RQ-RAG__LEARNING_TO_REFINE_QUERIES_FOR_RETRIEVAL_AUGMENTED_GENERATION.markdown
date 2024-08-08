@@ -35,7 +35,7 @@ LLM의 한계는 거대한 사전학습 데이터에 의존하기때문에 보�
 
  최신 정보에 접근할 수 없기 때문에, LLM은 환각(hallucinations)을 생성하기 쉽고, 정확하고 시의적절한 응답을 제공하는데 어려움을 겪을 수 있음
 
-![f_1](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_1.PNG)
+![f_1](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_1.PNG)
 
 LLM은 빠르게 발전하고 있지만 아직 아래와 같은 문제가 있음
 
@@ -91,7 +91,7 @@ Xorigin, Yorigin : 스페셜토큰이 포함되지 않은 오리지널 데이터
 
 스페셜 토큰은 SPECIAL_type  으로 질문을 재작성하기 위해 사용
 
-![f1](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f1.PNG)
+![f1](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f1.PNG)
 
 Qi, type : 재작성된 토큰이며 type은 개선된 행동(재작성, 분할, 애매모호함) i는 interation
 
@@ -101,7 +101,7 @@ Dik : 문서 k에 대한 이터레이션 스텝
 
 y_new : 는 마지막 이터레이션 응답 
 
-![f_5](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_5.PNG)
+![f_5](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_5.PNG)
 
 figure 1의 시나리오를 포함하며 멀티턴 대화도 포함함 (queries requiring decomposition, and queries needing disambiguation)
 
@@ -121,7 +121,7 @@ instruction following tasks : LIMA, WizardLM, Open-Orca, OpenAssistant, GPT4-Alp
 
 원본 데이터셋은 200토큰 이하라고함 
 
-![f_2](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_2.PNG)
+![f_2](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_2.PNG)
 
 Figure 2는 자동으로 태깅하기위한 흐름도
 
@@ -141,7 +141,7 @@ Figure 2는 자동으로 태깅하기위한 흐름도
 
 LLM을auto-regressive 방식으로 학습함 
 
-![f2](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f2.PNG)
+![f2](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f2.PNG)
 
 likelihood 로스 함수 
 
@@ -153,7 +153,7 @@ i는 각 스텝
 
  inference-time strategy 전략을 소개함 
 
-![f_7](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_7.PNG)
+![f_7](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\f_7.PNG)
 
 각각의 스텝에서 사용자의 질문에서 모델은 재작성, 질문 분해, 애매한 지룸ㄴ중 하나를 선택하여 최적화 답변을 생성함
 
@@ -181,7 +181,7 @@ y_final : 최종 답변
 
 전체 생성된 출력에서 가장 낮은 perplexity(당황)을 가진 경로 R_final을 선택함
 
-![ff1](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff1.PNG)
+![ff1](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff1.PNG)
 
 L은 모델 output의 token 길이
 
@@ -189,7 +189,7 @@ L은 모델 output의 token 길이
 
 R_final 에서 최종답변 Y_finnal을 생성하기 위해 높은 confidence 를 선택함
 
-![ff2](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff2.PNG)
+![ff2](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff2.PNG)
 
 l은 답변의 시작 위치  t는 (최종 답변 y_final의 시작위치 부터 시작)
 
@@ -199,7 +199,7 @@ l은 답변의 시작 위치  t는 (최종 답변 y_final의 시작위치 부터
 
 마지막 결론들을 결합해 가장 높은 스코어의 답변을 추출함 
 
-![ff3](F:\code\whtngus.github.io\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff3.PNG)
+![ff3](\img\2024\RQ-RAG__LEARNING_TO_REFINE_QUERIES_FOR_RETRIEVAL_AUGMENTED_GENERATION\ff3.PNG)
 
 #### Upper Bound
 
