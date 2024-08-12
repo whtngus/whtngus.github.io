@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RQ-RAG: LEARNING TO REFINE QUERIES FOR RETRIEVAL AUGMENTED GENERATION"
-date: 2024-08-08 02:05:23 +0900
+date: 2024-08-12 02:05:23 +0900
 category: paper
 ---
 
