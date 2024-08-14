@@ -88,7 +88,7 @@ LLM은 다음토큰을 예측하는데 최적화된 모델로 질문에 설득�
 
 사전학습된 LLM은 사람의 의견을 다시 생성할 때 개인의 페르소나를 생성하는건 명확하지 못함
 
-![prompt](F:\code\whtngus.github.io\img\2024\Synthetic_Replacements_for_Human_Survey_Data_The_Perils_of_Large_Language_Models\prompt.PNG)
+![prompt](\img\2024\Synthetic_Replacements_for_Human_Survey_Data_The_Perils_of_Large_Language_Models\prompt.PNG)
 
 위는 메타 정보를 넣어주기 위해 사용한프롬프트 
 
@@ -138,7 +138,7 @@ American political opinion surveys 를 벤치마크함 + gpt 학습기간 전에
 
 ## 2.1. Accuracy of Average and Standard Deviations
 
-![f_1](F:\code\whtngus.github.io\img\2024\Synthetic_Replacements_for_Human_Survey_Data_The_Perils_of_Large_Language_Models\f_1.PNG)
+![f_1](\img\2024\Synthetic_Replacements_for_Human_Survey_Data_The_Perils_of_Large_Language_Models\f_1.PNG)
 
 위의 Figure 1 은 chatgpt와 실제 투표의 분포 
 
