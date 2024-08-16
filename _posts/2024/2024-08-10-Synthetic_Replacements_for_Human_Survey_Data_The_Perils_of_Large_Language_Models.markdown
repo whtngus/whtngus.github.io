@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Synthetic Replacements for Human Survey Data? The Perils of Large Language Models"
-date: 2024-08-13 02:05:23 +0900
+date: 2024-08-16 02:05:23 +0900
 category: paper
 ---
 
