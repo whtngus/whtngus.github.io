@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RAFT: Adapting Language Model to Domain Specific RAG"
-date: 2024-08-19 02:05:23 +0900
+date: 2024-08-21 02:05:23 +0900
 category: paper
 ---
 
@@ -92,7 +92,7 @@ A* : 생성된 답변 (COT를 포함한 답변)
 
 # 2 LLMs for Open-Book Exam
 
-![f_1](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_1.PNG)
+![f_1](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_1.PNG)
 
 테스크의 이해를 돕기 위해 비유를 했다고함 
 
@@ -140,11 +140,11 @@ LLM이 사전학습 or SFT된 지식을 바탕으로 질문에 답변을 함
 
 이렇게 훈련된 모델에도 테스트시에 RAG를 사용할 수 있음 
 
-![ff1](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\ff1.PNG)
+![ff1](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\ff1.PNG)
 
 ##### RAFT
 
-![f_2](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_2.PNG)
+![f_2](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_2.PNG)
 
 Retrieval Augmented Fine-Tuning (RAFT) 방법 
 
@@ -161,11 +161,11 @@ Retrieval Augmented Fine-Tuning (RAFT) 방법
 
 P : 정답 문서의 비율을 유지함  -> (1 − P) 는 정답 문서가 없음(위의 그림2의 우측) 
 
-![ff2](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\ff2.PNG)
+![ff2](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\ff2.PNG)
 
 아래는 프롬프트 템플릿
 
-![f_3](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_3.PNG)
+![f_3](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_3.PNG)
 
 위 시나리오는 질문에 대해서 top-k 문서를 RAG가 검색해온 후 LLM에서 답변하는 케이스 
 
@@ -210,7 +210,7 @@ Wikipedia, Coding/API documents 그리고 의료도메인 QA 도메인을 포함
 
 ## 4.1 Results
 
-![t_1](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\t_1.PNG)
+![t_1](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\t_1.PNG)
 
 위에서 명시된 4개의 모델을 여러 데이터셋으로 비교해봄 
 
@@ -228,7 +228,7 @@ HotPot : 11만 3천 개의 위키피디아 기반 질문-답변 쌍으로 구성
 
 ## 4.2 Effect of CoT
 
-![t_2](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\t_2.PNG)
+![t_2](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\t_2.PNG)
 
 CoT를사용하고 안하고의 성능 차이를 비교함 
 
@@ -238,7 +238,7 @@ CoT를사용하고 안하고의 성능 차이를 비교함
 
 ## 4.3 Qualitative Analysis
 
-![f_4](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_4.PNG)
+![f_4](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_4.PNG)
 
 figure 4에서 시나리오작가를 묻는 질문에 dsf는 잘못된 답을 하게됨 
 
@@ -246,7 +246,7 @@ RAFT는 CoT 기반으로 답변을 하기 때문에 더 정확한 답변을 할 
 
 ##  4.4 Should we train the LLM always with the golden context for RAG?
 
-![f_5](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_5.PNG)
+![f_5](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_5.PNG)
 
 RAG가 정답을 가지고 있을 가능성P 를 얼마나 잡아야 될까라는 질문을 하게 됨
 
@@ -258,7 +258,7 @@ rag 로 5개의 문서를 가져오고 그중 하나만 정답인 케이스로 �
 
 # 5 RAFT Generalizes to Top-K RAG
 
-![f_6](F:\code\whtngus.github.io\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_6.PNG)
+![f_6](\img\2024\RAFT__Adapting_Language_Model_to_Domain_Specific_RAG\f_6.PNG)
 
 rag 를 top k를 몇으로 설정해야 llm이 답을 잘할 수 있을까?
 
