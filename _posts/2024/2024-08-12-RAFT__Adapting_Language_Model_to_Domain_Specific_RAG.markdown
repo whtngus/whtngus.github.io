@@ -295,14 +295,3 @@ large neural language models이 정말 텍스트를 이해했는지 혹은 그�
 RAFT의 학습 전략은 특정 도메인에 대한 qa성능을 높이기 위해 제안됨 (open-book setting)
 
 chain-of-thought와 RAG가 답변과 상관없는 문서를 가져오는 경우를 전부 대비해두고 여러 데이터셋을 통한 테스트를 통해 이를 증명함 
-
-
-
-
-
-
-
-
-
-
-
