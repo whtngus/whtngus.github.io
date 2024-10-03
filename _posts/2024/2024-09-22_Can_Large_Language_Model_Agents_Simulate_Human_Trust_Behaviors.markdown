@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Can Large Language Model Agents Simulate Human Trust Behaviors?"
-date: 2024-08-21 02:05:23 +0900
+date: 2024-10-03 02:05:23 +0900
 category: paper
 ---
 
@@ -77,7 +77,7 @@ Belief-Desire-Intention(BDI) 프레임워크를 채택하고 LLM 에이전트를
 
 ## 2.1. The Setting of Trust Games
 
-![f_1](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_1.PNG)
+![f_1](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_1.PNG)
 
 Trust Game을 기반으로 실험함 위의 그림1과 같이 플레이어가 처음으로 돈을 보낼지에 대한 결정을 내림 
 
@@ -174,7 +174,7 @@ LLM 에이전트가 신뢰성있게 행동하는지를 조사함
 
 ## 3.1. Amount Sent
 
-![f_2](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_2.PNG)
+![f_2](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_2.PNG)
 
 
 
@@ -196,9 +196,9 @@ Valid Response Rate (VRR) 평가 지표를 제안함 - 초기 보내는 돈이 1
 
 많은 금액을 주는 페르소나에서 하나의 BDI를 선택하고 적은 금액을 주는 페르소나에서 또 하나의 BDI를 선택 후 긍정적인 요소는 파란색 부정적인 요소는 빨간색으로 표시함 
 
-![prompt_1](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\prompt_1.PNG)
+![prompt_1](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\prompt_1.PNG)
 
-![prompt_2](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\prompt_2.PNG)
+![prompt_2](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\prompt_2.PNG)
 
 ## 3.3. Basic Analysis of Agent Trust
 
@@ -251,7 +251,7 @@ Vicuna-33b는 또 낮은돈을 보낸걸 봐서는 모델별 특성이 있음을
 
 ## 4.2. Behavioral Factor 1: Reciprocity Anticipation
 
-![f_3](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_3.PNG)
+![f_3](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_3.PNG)
 
 Trust Game 게임에서 사람은 Dictactor Game 보다 높은 금액을 보냄 
 
@@ -263,7 +263,7 @@ BDI 분석 결과에서 gpt-4의 경우 사람과 비슷한 의견을 냈다고�
 
 ## 4.3. Behavioral Factor 2: Risk Perception
 
-![f_4](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_4.PNG)
+![f_4](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_4.PNG)
 
 Risky Dictator Game에서 확률 p가 높을수록 신뢰 행동에 대한 위험이 낮아지고, 더 많은 인간이 신뢰를 선택됨
 
@@ -271,7 +271,7 @@ LLM은 신뢰에 대해 큰 영향을 받지 않으며 그나마 gpt-4가 영향
 
 ## 4.4. Behavioral Factor 3: Prosocial Preference
 
-![f_5](F:\code\whtngus.github.io\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_5.PNG)
+![f_5](\img\2024\Can_Large_Language_Model_Agents_Simulate_Human_Trust_Behaviors\f_5.PNG)
 
 Lottery Game는 GPT-4와 굉장히 비슷함 
 
