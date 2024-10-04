@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Can Large Language Model Agents Simulate Human Trust Behaviors?"
-date: 2024-10-03 02:05:23 +0900
+date: 2024-10-04 02:05:23 +0900
 category: paper
 ---
 
