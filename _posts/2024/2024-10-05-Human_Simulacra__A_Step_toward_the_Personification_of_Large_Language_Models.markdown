@@ -93,7 +93,7 @@ virtual character dataset을 제공하며 멀티에이전트 기반 인지 모�
 
 # 3 Human Simulacra Dataset
 
-![f_1](F:\code\whtngus.github.io\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_1.PNG)
+![f_1](\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_1.PNG)
 
 정보체인의 계측적 구조로 가상 캐릭터 데이터를 생성함 
 
@@ -109,7 +109,7 @@ virtual character dataset을 제공하며 멀티에이전트 기반 인지 모�
 
 LLM을 사용하여 일관성 있는 life story를 만드는건 매우 어렵다고 함
 
-![f_2](F:\code\whtngus.github.io\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_2.PNG)
+![f_2](\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_2.PNG)
 
 캐릭터의 life story를 생성하기 위해 여러 테스크로 분해하여 semi-automated 전략으로 변경함 
 
@@ -158,7 +158,7 @@ Profile Selection module의 품질과 정교함을 보장함
 
 ## 3.4 Life Story
 
-![t_1](F:\code\whtngus.github.io\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\t_1.PNG)
+![t_1](\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\t_1.PNG)
 
 간단한 biography정보를 통해서 반복적인 생성을 통해 biography정보를 풍부하게 만듦 
 
@@ -180,7 +180,7 @@ T번의 반복 생성을 한다고 함
 
 # 4 Multi-Agent Cognitive Mechanism
 
-![f_3](F:\code\whtngus.github.io\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_3.PNG)
+![f_3](\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_3.PNG)
 
 3에서 설명한 방법으로 가상 캐릭터의 life story를 정교하게 만듦 
 
@@ -208,7 +208,7 @@ T번의 반복 생성을 한다고 함
 
 시뮬레이션을 평가하기 위해서 psychology-guided manner을 사용함
 
-![f_4](F:\code\whtngus.github.io\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_4.PNG)
+![f_4](\img\2024\Human_Simulacra__A_Step_toward_the_Personification_of_Large_Language_Models\f_4.PNG)
 
 그림 4에서와 같이 2가지 방법을 사용함 (self report, observer report)
 
