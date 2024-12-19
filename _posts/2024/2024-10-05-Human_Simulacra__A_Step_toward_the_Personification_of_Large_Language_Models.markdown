@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Human Simulacra: A Step toward the Personification of Large Language Models"
-date: 2024-11-21 02:05:23 +0900
+date: 2024-12-19 02:05:23 +0900
 category: paper
 ---
 
