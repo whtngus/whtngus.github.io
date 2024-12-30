@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A Unified Anomaly Synthesis Strategy with Gradient Ascent for Industrial Anomaly Detection and Localization"
-date: 2024-12-27 02:05:23 +0900
+date: 2024-12-30 02:05:23 +0900
 category: paper
 ---
 
@@ -65,7 +65,7 @@ few-shot class generalizable anomaly detection 과 하나의 모델이 알고있
 
  residual features을 상당히 분산히 큰 feature인 class-invariant representation 로 간주할 수 있음
 
-![f_1](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_1.PNG)
+![f_1](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_1.PNG)
 
 figure 1의 를 보면 b를 보면  새로운 클래스는 원래 학습 분포(정상과 비정상)의 차이가 크지 않을거라고 가정 
 
@@ -137,9 +137,9 @@ I_train = I^n ∪ I^a
 
 트레인 데이터셋은 일반 이미지와 이상치 이미지로 구성됨 
 
-![f1](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f1.PNG)
+![f1](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f1.PNG)
 
-![f2](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f2.PNG)
+![f2](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f2.PNG)
 
 일반 임지와 이상치 이미지는 위와 같으 구성됨 
 
@@ -149,7 +149,7 @@ unknown class는 C_u로 표기함  그리고 known class는 C_k로 표기함
 
 #### Overview
 
-#### ![f_2](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_2.PNG)
+#### ![f_2](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_2.PNG)
 
 ResAD은 3개의파트로 구성됨 
 
@@ -161,17 +161,17 @@ ResAD은 3개의파트로 구성됨
 
 Residual feature learning은 class-generalizable AD를 하기위한 논문의 핵심 아디이어임 
 
-![f3](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f3.PNG)
+![f3](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f3.PNG)
 
 ϕ : Feature extraction 네트워크(각각 다른 레벨로 추출)
 
 L: feature extraction 의 레벨의 총 수 
 
-![f4](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f4.PNG)
+![f4](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f4.PNG)
 
 여기서 H_l, W_l, C_l은 높이, 너비, 채널 차원을 가진 feautre map 임 
 
-![f5](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f5.PNG)
+![f5](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f5.PNG)
 
 l : level
 
@@ -185,7 +185,7 @@ l : level
 
 pre-trained 네트워크인 ϕ 이 일반 이미지로부터 계층적으로 feature를 추출함 
 
-![f6](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f6.PNG)
+![f6](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f6.PNG)
 
 l은 각 레벨을 의미 
 
@@ -195,7 +195,7 @@ N_fs 는 일반 이미지 수
 
 #### Residual Features.
 
-![f7](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f7.PNG)
+![f7](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f7.PNG)
 
 x^l_h,w 는 초기 feature 
 
@@ -203,7 +203,7 @@ x^l_h,w 는 초기 feature
 
 식에서 l은 참조 pool 
 
-![ff1](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff1.PNG)
+![ff1](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff1.PNG)
 
 x^l_h,w 는 representation 임 
 
@@ -211,7 +211,7 @@ x^l_h,w 는 representation 임
 
 
 
-![f_3](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_3.PNG)
+![f_3](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f_3.PNG)
 
 
 
@@ -233,7 +233,7 @@ C_θ_1 는 Featrue Constrainor 이고     projects 초기 residual feature는 x^
 
 제약된 constrain feature는 
 
-![f8](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f8.PNG)
+![f8](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f8.PNG)
 
 위와 같이 정의함 
 
@@ -243,7 +243,7 @@ C_θ_1 는 Featrue Constrainor 이고     projects 초기 residual feature는 x^
 
 #### Abnormal Invariant OCC Loss
 
-![ff2](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff2.PNG)
+![ff2](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff2.PNG)
 
 y^l_h,w = 1은 이상치의 위치
 
@@ -263,23 +263,23 @@ y^l_h,w = 0은 정상 위치
 
  normalizing flow (NF) model 을 사용해서 represent를 변환함
 
-![f9](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f9.PNG)
+![f9](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\f9.PNG)
 
 NF 모델로 위와 같은 수식을 사용함 
 
 변한된 representation 벡터를 z로 이동 
 
-![ff3](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff3.PNG)
+![ff3](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff3.PNG)
 
 J는 x에대한 z의 미분값이고Jacobian matrix를 사용함 
 
-![ff4](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff4.PNG)
+![ff4](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff4.PNG)
 
 C를 NF 모델에 씌움 
 
 BGAD를 통해 알고있는 클래스에 오버피팅되지 않도록 막음
 
-![ff5](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff5.PNG)
+![ff5](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff5.PNG)
 
 b_n은 바운더리 τ 마진값
 
@@ -287,7 +287,7 @@ b_n은 바운더리 τ 마진값
 
 τ는 0.1 을 사용 (스케일을 낮게 잡음)  -> τ값에 따른 실험결과 첨부되어있음
 
-![ff6](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff6.PNG)
+![ff6](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff6.PNG)
 
 loss fuction 3개를 합함 
 
@@ -295,7 +295,7 @@ loss fuction 3개를 합함
 
 
 
-![ff7](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff7.PNG)
+![ff7](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\ff7.PNG)
 
 새로운 클래스에서 해당 논문은 학습 없이 오직 few-shot normal 샘플을 필요로함
 
@@ -337,7 +337,7 @@ L1과 L2의 장점을 취하면서 단점을 보완하기 위해 제안된 것
 
 L2는 제곱이여서 이상치에 취약
 
-![huber_loss](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\huber_loss.PNG)
+![huber_loss](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\huber_loss.PNG)
 
 이상치에 취약한걸 해결하게 위해 특정 값보다 큰 경우 로스함수를 제곱을 제거
 
@@ -347,7 +347,7 @@ l2와 유사하지만 그외부분은 l1과 유사한 형태를 가져감
 
 
 
-참고 : https://wikidocs.net/229977![normalizing_flow_model](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\normalizing_flow_model.PNG)
+참고 : https://wikidocs.net/229977![normalizing_flow_model](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\normalizing_flow_model.PNG)
 
 - Jacobian matrix
 
@@ -355,7 +355,7 @@ l2와 유사하지만 그외부분은 l1과 유사한 형태를 가져감
 
 -> 변환해야 되는 스케일을 선형으로 맞춰 버림 
 
-![jacobian](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\jacobian.PNG)
+![jacobian](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\jacobian.PNG)
 
 참고:  https://angeloyeo.github.io/2020/07/24/Jacobian.html
 
@@ -363,4 +363,4 @@ l2와 유사하지만 그외부분은 l1과 유사한 형태를 가져감
 
 참고 : https://blog.naver.com/aorigin/220947541918
 
-![bilinear_interporation](F:\code\whtngus.github.io\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\bilinear_interporation.PNG)
+![bilinear_interporation](\img\2024\ResAD__A_Simple_Framework_for_Class_Generalizable_Anomaly_Detection\bilinear_interporation.PNG)
