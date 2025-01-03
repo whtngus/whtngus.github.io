@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Social Life Simulation for Non-Cognitive Skills Learning"
-date: 2025-1-2 02:05:23 +0900
+date: 2025-1-3 02:05:23 +0900
 category: paper
 ---
 
@@ -33,7 +33,7 @@ LLMs에게 persona를 할당하고, 평가함
 
 # 1 Introduction
 
-![f_1](F:\code\whtngus.github.io\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_1.PNG)
+![f_1](\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_1.PNG)
 
 해당 연구에서는 기존 연구의 포괄적인 조사와 치계적인 분류 쳬계에 포커스를 맞춤 
 
@@ -55,13 +55,13 @@ LLM에게 페르소나를 할당하는 테스크를 수행하고
 
 사용자(사용자의 정보 및 이전 행동을 기반)의 페르소나를 개별적으로 만족하기 위한 만족하기 위한 임무
 
-![f_2](F:\code\whtngus.github.io\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_2.PNG)
+![f_2](\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_2.PNG)
 
 기존 연구들을 조사하고 위의 그림 2와같이 분류함
 
 # 2 LLM Role-Playing
 
-![f_3](F:\code\whtngus.github.io\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_3.PNG)
+![f_3](\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_3.PNG)
 
 llm을 통한 role-playing은 계획, 반성에서 인상적인 성능을 보임 
 
@@ -137,7 +137,7 @@ llm을 평가자로 사용하는 방식은 표준 프레임워크가 됨
 
 # 3 LLM Personalization
 
-![f_4](F:\code\whtngus.github.io\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_4.PNG)
+![f_4](\img\2024\Two_Tales_of_Persona_in_LLMs_A_Survey_of_Role_Playing_and_Personalization\f_4.PNG)
 
 사람에 맞는 개인화된 추천같은 테스크를 할 수 있어야함
 
