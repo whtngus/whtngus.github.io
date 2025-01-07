@@ -1,15 +1,18 @@
 ---
 layout: post
-title: "Human Simulacra: A Step toward the Personification of Large Language Models"
-date: 2024-12-19 02:05:23 +0900
+title: "Human Simulacra: Benchmarking the Personification of Large Language Models"
+date: 2025-1-7 02:05:23 +0900
 category: paper
 ---
 
-# Human Simulacra: A Step toward the Personification of Large Language Models
+# Human Simulacra: Benchmarking the Personification of Large Language Models
 
 2024년 2월 28일
 
 중국 대학교들 
+
+git : https://github.com/hasakiXie123/Human-Simulacra
+
 
 # Abstract
 
