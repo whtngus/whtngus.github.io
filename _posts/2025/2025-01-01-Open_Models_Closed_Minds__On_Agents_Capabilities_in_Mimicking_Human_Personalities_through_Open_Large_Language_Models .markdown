@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Personas within Parameters: Fine-Tuning Small Language Models with Low-Rank Adapters to Mimic User Behaviors"
-date: 2025-01-01 02:05:23 +0900
+title: "Open Models, Closed Minds? On Agents Capabilities in Mimicking Human Personalities through Open Large Language Models"
+date: 2025-01-08 02:05:23 +0900
 category: paper
 ---
 
-# Personas within Parameters: Fine-Tuning Small Language Models with Low-Rank Adapters to Mimic User Behaviors
+# Open Models, Closed Minds? On Agents Capabilities in Mimicking Human Personalities through Open Large Language Models
+
 
 2024년 1월 13일
 
@@ -49,7 +50,7 @@ RQ3: Open LLM agent는 모방시 구체적인 역할에 따라 행동을 지시�
 
 ## 2.1 The MBTI and BFI Personality Tests
 
- ![t_1](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_1.PNG)
+ ![t_1](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_1.PNG)
 
 MBTI는 BFI 상당히 자주 널리 사용됨 
 
@@ -112,7 +113,7 @@ RQ1~RQ3을 하기위해 3가지 프롬프트 전략을 사용함
 
 #### Unconditioned Prompting
 
-![f_1](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_1.PNG)
+![f_1](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_1.PNG)
 
 RQ1에 대답하기 위해 Q^MBTI, Q^BFI 질문들을 훈련받지않은 구조의 프롬프트를사용함 
 
@@ -120,7 +121,7 @@ RQ1에 대답하기 위해 Q^MBTI, Q^BFI 질문들을 훈련받지않은 구조�
 
 #### Personality-Conditioned Prompting.
 
-![f_2](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_2.PNG)
+![f_2](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_2.PNG)
 
 RQ2를 위해서는 구채적인 페르소나를 위한 내용들이 제공됨
 
@@ -130,7 +131,7 @@ MTBI 는 PBFI의 각 요인에 대해 연관된 언어적 라벨, 개념적 정�
 
 #### Role- and Personality-Conditioned Prompting.
 
-![f_3](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_3.PNG)
+![f_3](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_3.PNG)
 
 RQ3를 평가하기 위해서 사람의역할이 llm 모방 능력을얼마나 향상시켰는지 이전 연구를 조사해야됨 
 
@@ -152,7 +153,7 @@ temperature 값을 테스트 τ = {0.01, 0.7}
 
 ## 3.5 Models
 
-![t_2](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_2.PNG)
+![t_2](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_2.PNG)
 
 HuggingFace Model에서 Table2와 같은 다양한 모델을 가지고 실험함
 
@@ -176,7 +177,7 @@ Open LLM은 MBTI와 BFI 테스트에 대해 인지하고 음을 나타냄
 
 #### MBTI test.
 
-![f_4](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_4.PNG)
+![f_4](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_4.PNG)
 
 그림4의 윗 부분을 보면 temperature가 0.01일때 단봉분포를 보임 
 
@@ -184,7 +185,7 @@ Open LLM은 MBTI와 BFI 테스트에 대해 인지하고 음을 나타냄
 
 #### BFI test
 
-![f_5](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_5.PNG)
+![f_5](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\f_5.PNG)
 
 특별한 특징은 없어보임 
 
@@ -198,7 +199,7 @@ temperature가 0에 가까운경우 mbti는 j나 ENFJ성향을 보이며 BFI의 
 
 #### MBTI test. 
 
-![t_3](F:\code\whtngus.github.io\img\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_3.PNG)
+![t_3](\2025\Open_Models_Closed_Minds__On_Agents_Capabilities_in_Mimicking_Human_Personalities_through_Open_Large_Language_Models\t_3.PNG)
 
 Table 3의 왼쪽 테이블로 MBTI 정확도 평가를 함 
 
