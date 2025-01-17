@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Open Models, Closed Minds? On Agents Capabilities in Mimicking Human Personalities through Open Large Language Models"
-date: 2025-01-08 02:05:23 +0900
+date: 2025-01-17 02:05:23 +0900
 category: paper
 ---
 
