@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Generative Agent Simulations of 1,000 People"
-date: 2025-01-01 02:05:23 +0900
+date: 2025-01-24 02:05:23 +0900
 category: paper
 ---
 
@@ -91,7 +91,7 @@ git : https://github.com/joonspk-research/genagents
 
 특히, 인터뷰 대상자들에게 자신이 중요하다고 생각하는 점을 강조할 수 있는 더 많은 자유를 제공하며, 궁극적으로 무엇이 측정될지를 형성함
 
-![f_1](F:\code\whtngus.github.io\img\2025\Generative_Agent_Simulations_of_1_000_People\f_1.PNG)
+![f_1](\img\2025\Generative_Agent_Simulations_of_1_000_People\f_1.PNG)
 
 - 그림1 캡션
 
@@ -157,7 +157,7 @@ git : https://github.com/joonspk-research/genagents
 
 
 
-![f_2](F:\code\whtngus.github.io\img\2025\Generative_Agent_Simulations_of_1_000_People\f_2.PNG)
+![f_2](\img\2025\Generative_Agent_Simulations_of_1_000_People\f_2.PNG)
 
 **생성형 에이전트의 예측 성능 및 95% 신뢰 구간.** 참가자와 생성형 에이전트의 예측 성능 간의 일치율은 다양한 구성 개념(construct)에 대해 평가되며, 이를 개인별로 평균화함
 
@@ -231,7 +231,7 @@ git : https://github.com/joonspk-research/genagents
 
 
 
-![t_1](F:\code\whtngus.github.io\img\2025\Generative_Agent_Simulations_of_1_000_People\t_1.PNG)
+![t_1](\img\2025\Generative_Agent_Simulations_of_1_000_People\t_1.PNG)
 
 p-value는 ***: p < 0.001, **: p < 0.01, *: p < 0.05로 표시됩니다.
 
@@ -269,7 +269,7 @@ AI 시스템이 소수집단에 대해 성능이 낮거나 잘못된 결과를 �
 
 하위 그룹은 참가자들의 GSS 응답에 따라 정의되었습니다(SM 5 참조).
 
-![f_3](F:\code\whtngus.github.io\img\2025\Generative_Agent_Simulations_of_1_000_People\f_3.PNG)
+![f_3](\img\2025\Generative_Agent_Simulations_of_1_000_People\f_3.PNG)
 
 **정치적 이념, 인종, 성별 하위 그룹별 생성형 에이전트의 Demographic Parity Difference(DPD)**
 세 가지 작업(GSS: 백분율, Big Five: 상관계수, 경제학 게임: 상관계수)에 대한 분석 결과를 제공합니다.
