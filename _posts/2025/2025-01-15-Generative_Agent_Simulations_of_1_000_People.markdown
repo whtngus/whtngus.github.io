@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Generative Agent Simulations of 1,000 People"
-date: 2025-01-24 02:05:23 +0900
+date: 2025-01-28 02:05:23 +0900
 category: paper
 ---
 
