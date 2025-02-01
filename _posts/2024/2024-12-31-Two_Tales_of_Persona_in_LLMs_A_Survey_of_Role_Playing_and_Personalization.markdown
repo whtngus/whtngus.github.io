@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Social Life Simulation for Non-Cognitive Skills Learning"
+title: "Two Tales of Persona in LLMs:A Survey of Role-Playing and Personalization"
 date: 2025-1-3 02:05:23 +0900
 category: paper
 ---
