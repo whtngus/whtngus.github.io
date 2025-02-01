@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Two Tales of Persona in LLMs:A Survey of Role-Playing and Personalization"
-date: 2025-1-3 02:05:23 +0900
+date: 2025-2-1 02:05:23 +0900
 category: paper
 ---
 
