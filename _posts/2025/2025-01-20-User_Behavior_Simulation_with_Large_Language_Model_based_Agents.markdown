@@ -192,7 +192,7 @@ ChatGPT를 활용해 추천 도메인에서 주목할 만한 **5가지 행동 �
 
 - 망각 함수
 
-  ![f3](F:\code\whtngus.github.io\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f3.PNG)
+  ![f3](\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f3.PNG)
 
   ​
 
@@ -270,7 +270,7 @@ ChatGPT를 활용해 추천 도메인에서 주목할 만한 **5가지 행동 �
 
 ## User behavior simulator with LLM-based agents
 
-![f_1](F:\code\whtngus.github.io\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f_1.PNG)
+![f_1](\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f_1.PNG)
 
 설계된 시뮬레이터의 전체 프레임워크인 RecAgent는 **Figure 1**에서 볼 수 있음
 
@@ -336,7 +336,7 @@ c. 시뮬레이터의 주요 특징들. 다양한 에이전트가 라운드별�
 
 
 
-이러한 특성을 시뮬레이터에 반영하기 위해, 우리는 에이전트의 활동 수준을 **Pareto 분포**를 사용해 모델링![f1](F:\code\whtngus.github.io\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f1.PNG)
+이러한 특성을 시뮬레이터에 반영하기 위해, 우리는 에이전트의 활동 수준을 **Pareto 분포**를 사용해 모델링![f1](\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f1.PNG)
 
 x_min은 최소 활동 수준을 나타내고, α는 분포의 형태를 제어하는 매개변수
 
@@ -363,7 +363,7 @@ x_min은 최소 활동 수준을 나타내고, α는 분포의 형태를 제어�
 - 정답 데이터와 b개의 부정적인 아이템(negative items)을 결합하여 총 a+b개의 아이템으로 구성된 추천 리스트를 만듭니다.
 - 이 추천 리스트를 에이전트에 제공하여, 에이전트가 a개의 아이템을 선택하게 합니다.
 
-![f2](F:\code\whtngus.github.io\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f2.PNG)
+![f2](\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f2.PNG)
 
 U는 모든 유저 u는 특정 사용자 정답 데이터 세트 T_u와 에이전트가 선택한 아이템 세트 S_u를 정의
 
@@ -379,7 +379,7 @@ a: 정답 데이터로 선택할 아이템 수.
 
 b: 부정 아이템 수.
 
-![f_2](F:\code\whtngus.github.io\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f_2.PNG)
+![f_2](\img\2025\User_Behavior_Simulation_with_Large_Language_Model_based_Agents\f_2.PNG)
 
 비교 대상은 아래와 같음 
 
