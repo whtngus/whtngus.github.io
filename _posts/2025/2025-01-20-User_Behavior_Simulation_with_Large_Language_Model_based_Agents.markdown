@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "User Behavior Simulation with Large Language Model based Agents"
-date: 2025-02-01 02:05:23 +0900
+date: 2025-02-18 02:05:23 +0900
 category: paper
 ---
 
