@@ -64,7 +64,7 @@ AI의 사람 시뮬레이션은 사회 이론의 프로토타입 제작(Aher et 
 
 
 
-![f_1](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_1.PNG)
+![f_1](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_1.PNG)
 
 LLM이 긴 프로파일 입력을 처리하지 못하거나 견고성이 부족함으로 인해 발생하는 부정적인 영향을 평가하기 위해, 우리는 LLM의 신뢰성을 평가하는 두 가지 차원을 제안함
 
@@ -118,7 +118,7 @@ Park et al. (2023)은 에이전트의 사회적 상호작용을 평가하기 위
 
 # 3 SimulateBench
 
-![t_1](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_1.PNG)
+![t_1](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_1.PNG)
 
  **SimulateBench**를 도입하여 캐릭터 프로파일 수집 및 신뢰성 평가를 수행함
 
@@ -193,7 +193,7 @@ Relationship의 경우 친숙도, 판단, 애정, 행동 패턴, 관계 상태, 
 
 
 
-![f_3](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_3.PNG)
+![f_3](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_3.PNG)
 
 그림3은 생성된 데이터 예시  2개의 질문 수준은 메타데이터를 읽고 그대로 답하는 수준으로 보임 ..
 
@@ -340,7 +340,7 @@ GPT-3.5와 GPT-4는 상용 모델이고, 다른 모델은 hugging face의 오픈
 
 #### GPT series perform better than open-source models; longer context size does not necessarily mean better consistency performance
 
-![t_2](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_2.PNG)
+![t_2](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_2.PNG)
 
 표 2는 캐릭터를 시뮬레이션할 때 모든 질문 유형에 걸쳐 다양한 모델의 CA 점수를 보여줌 
 
@@ -358,7 +358,7 @@ GPT-3.5와 GPT-4는 상용 모델이고, 다른 모델은 hugging face의 오픈
 
 ## 5.3 Robustness Evaluation Results
 
-![f_2](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_2.PNG)
+![f_2](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\f_2.PNG)
 
 모델이 캐릭터를 시뮬레이션하도록 지시받고 해당 캐릭터의 프로필에 변형(교란)이 가해졌을 때 RCoV, RA, CA 점수를 그림2에서 볼 수 있음 
 
@@ -370,7 +370,7 @@ Vicuna-13B-16K(0.621)는 Age Variants 그룹에서 Vicuna-7B-16K(0.457)보다 �
 
 ##### Open-source models show poor robustness performance; models exhibit similar robustness to different profile perturbations(오픈 소스 모델은 견고성 성능이 떨어지는 경우가 많으며 프로필 변동성엔 유사한 견고성을 보임)
 
-![t_3](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_3.PNG)
+![t_3](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_3.PNG)
 
 일부 오픈 소스 모델은 프로필 변형에 직면할 때 견고성 성능이 크게 저하됨
 
@@ -388,7 +388,7 @@ Vicuna-13B-16K(0.621)는 Age Variants 그룹에서 Vicuna-7B-16K(0.457)보다 �
 
 #### Bias of models towards specific demographic traits
 
-![t_4](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_4.PNG)
+![t_4](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_4.PNG)
 
  어떤 프로필 정보가 다양한 LLM에 대해 높은 신뢰성을 가져올지 조사하기 위해 프로필의 다른 인구 통계 정보를 교란하여 LLM의 일관성을 비교함
 
@@ -414,7 +414,7 @@ Vicuna-13B-16K(0.621)는 Age Variants 그룹에서 Vicuna-7B-16K(0.457)보다 �
 
 -> 즉 프로필의 역순으로 질문 순서를 바꿔서 다시 평가 
 
-![t_5](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_5.PNG)
+![t_5](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_5.PNG)
 
 순서를 변동하니까 성능 차이가 심해짐
 
@@ -422,7 +422,7 @@ Vicuna-13B-16K(0.621)는 Age Variants 그룹에서 Vicuna-7B-16K(0.457)보다 �
 
 #### Reasoning prompting
 
-![t_6](F:\code\whtngus.github.io\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_6.PNG)
+![t_6](\img\2025\How_Far_Are_LLMs_from_Believable_AI__A_Benchmark_for_Evaluating_the_Believability_of_Human_Behavior_Simulation\t_6.PNG)
 
 COT를 적용한 경우 성능이 높아지기 때문에 이를 적용해서 테스트해봄
 

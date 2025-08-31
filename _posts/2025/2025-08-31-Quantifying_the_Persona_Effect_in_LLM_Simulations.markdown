@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quantifying the Persona Effect in LLM Simulations"
-date: 2025-2-1 02:05:23 +0900ㅡ
+date: 2025-08-31 02:05:23 +0900
 category: paper
 ---
 
