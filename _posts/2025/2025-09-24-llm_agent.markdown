@@ -1,0 +1,380 @@
+---
+layout: post
+title: "LLM Agent 와 Reasoning ㅣㅣ"
+date: 2025-09-25 02:05:23 +0900
+category: paper
+---
+
+# LLM Agent
+
+LLM agent가 무엇인지 이해햐기 위해, 먼저 LLM의 기본 역량을 비교
+
+![f_1.png](G:\code\whtngus.github.io\img\2025\agent\f_1.png)
+
+![f_2.png](G:\code\whtngus.github.io\img\2025\agent\f_2.png)
+
+기본 LLM 은 여러 토큰을 연속으로 샘플링하여 대화를 모사하고 더 포괄적인 답변을 제공함
+
+![f_3.png](G:\code\whtngus.github.io\img\2025\agent\f_3.png)
+
+![f_4.png](G:\code\whtngus.github.io\img\2025\agent\f_4.png)
+
+그러나 대화를 계속 진행하다보면 그 단점이 나오는데, 대화를 기억하지 못함 
+
+숫자 계산도 마찬가지, 이를 해결하기 위해 외부 시스템을 통해 LLM 역량을 강화하고 이를 Anthropic 에서는 Augmented LLM 이라고 부름
+
+![f_5.png](G:\code\whtngus.github.io\img\2025\agent\f_5.png)
+
+수학 문제에 직면했을떄, LLM은 적절한 툴을 사용하여 결정함 
+
+### agent 란
+
+센서를 통해 환경을 인지하고 액추에이터(actuator)를 통해 그 환경에 작용한다고 볼 수 있는 모든 것을 의미한다. — Russell & Norvig, AI: A Modern Approach (2016)
+
+Agents는 환경과 상호작용하며 일반적으로 여러 중요한 구성 요소로 이루어져 있음
+
+- **Environments** — 에이전트가 상호작용하는 세계
+- **Sensors** — 환경을 관측하는 데 사용
+- **Actuators** — 환경과 상호작용하기 위해 사용하는 툴
+- **Effectors** — 관측 결과를 행동으로 전환하는 “두뇌” 또는 규칙
+
+![f_7.png](G:\code\whtngus.github.io\img\2025\agent\f_7.png)
+
+위 프레임워크를 통해 Augmented LLM에 적합하게 만들 수도 있음
+
+위에서 "Augmented" LLM 을 사용하면  Percepts는 text가 됨
+
+![f_8.png](G:\code\whtngus.github.io\img\2025\agent\f_8.png)
+
+어떤 행동을 취할지 결정하기 위해, LLM Agent에는 계획을 수립하는 능력이라는 핵심 요소가 필요함
+
+ LLM이 chain-of-thought 같은 기법을 통해 “추론”하고 “생각”할 수 있어야 함
+
+이러한 계획(planning)을 통해, 에이전트는 상황(LLM)을 이해하고, 다음 단계를 계획하며, 툴(tool)를 사용해 행동을 취하고, 취한 행동을 메모리(memory)에 기록할 수 있음
+
+## Memory
+
+LLM 은 예측 모델임으로 기존 대화내용을 암기하지 않음
+
+하지만 LLM agent는 단기 기억 뿐아니라 필요 시 수깁 개의 단계까지 추적해야할 수도 있음
+
+![f_9.png](G:\code\whtngus.github.io\img\2025\agent\f_9.png)
+
+이는 이론적으로 LLM Agent가 수십, 심지어 수백 단계에 이르는 작업들을 기억해야 할 수 있으므로 long-term memory(장기 기억)라고 불림
+
+![f_11.png](G:\code\whtngus.github.io\img\2025\agent\f_11.png)
+
+위처럼 모델에 기억력을 부여하기 위해 몇 가지 방법들이 있음 
+
+### Short-Term Memory
+
+이 방법은 가장 간단한 방법으로 모델의 context window로 처리하는 방법 
+
+![f_12.png](G:\code\whtngus.github.io\img\2025\agent\f_12.png)
+
+이 방식은 대화 이력이 LLM의 context window 안에 들어오기만 하면 잘 작동하며, 메모리를 흉내 내는 좋은 방법입니다. 하지만 실제로 대화를 기억하는 대신, 본질적으로 우리는 LLM에게 그 대화의 내용을 “알려주는” 것
+
+![f_13.png](G:\code\whtngus.github.io\img\2025\agent\f_13.png)
+
+Context window가 작은 모델이거나 대화 이력이 방대할 경우, 지금까지 진행된 대화를 요약하기 위해 다른 LLM을 사용할 수도 있음
+
+대화를 지속적으로 요약함으로써, 대화의 전체 크기를 줄일 수 있습니다. 이는 토큰 수를 줄이면서도 가장 중요한 정보만 추적하도록 도와줌
+
+### Long-term Memory
+
+LLM Agents에서 long-term memory는 오랜 기간 동안 유지되어야 하는 에이전트의 과거 행동 공간(past action space)을 포함
+
+각 대화를 임베딩 하여 vector database에 저장 후 
+
+![f_14.png](G:\code\whtngus.github.io\img\2025\agent\f_14.png)
+
+임의의 프롬프트를 임베딩하고 그것을 데이터베이스에 있는 임베딩과 비교함으로써, 벡터 데이터베이스에서 가장 관련성이 높은 정보를 찾아서 사용(롱텀의 경우 이전 세션에서 수행한 답변도 기억하도록 설정도 가능)
+
+위 방법이 RAG(Retrieval-Augmented Generation) 방식
+
+
+
+## Tools
+
+Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하거나, 외부 애플리케이션(예: 코드 작동을 위한)을 사용할 수 있도록 하며 두 가지 활용 사례를 가짐
+
+1. 정보를 얻기 위해 데이터를 가져오거나
+
+2. 회의실 예약 등의 행동을 수행
+
+![f_15.png](G:\code\whtngus.github.io\img\2025\agent\f_15.png)
+
+![f_16.png](G:\code\whtngus.github.io\img\2025\agent\f_16.png)
+
+툴을요청해야되는 질문이 온 경우 code interpreter 에 쉽게 전달할 수 있게 위그림의 예시처럼 josn 혹은 mcp등 여러가지 방식으로 처리하며, LLM이 사용할 수 있는 간단한 (곱셈 더하기 등 ) 커스텀 한수를 생성할 수 있는데 이를 function calling 이라고함
+
+
+
+에이전트적 프레임워크가 정해져 있다면, Tools는 미리 정해진 순서로 사용될 수 도 있음
+
+여기에서 LLM이 어떤 툴을 언제 사용할지 자율적으로 결정하는데 그렇게되면 아래 그림처럼  실행됨
+
+LLM agents가  llm 호출의 연속임
+
+![f_17.png](G:\code\whtngus.github.io\img\2025\agent\f_17.png)
+
+ 즉, 중간 단계의 출력을 LLM으로 다시 전달하여 연속적으로 처리를 이어 감
+
+
+
+툴(Tool) 사용은 LLM의 역량을 강화하고 단점을 보완하는 강력한 기법으로 최근 몇 년간 툴 사용과 관련된 연구가 급격히 늘어나고 있으며, 연구 상당 부분은 LLM에게 툴 사용을 지시하는 프롬프트를 제공하는 것뿐 아니라, 툴 사용 자체에 특화하여 모델을 학습시키는 방식을 포함함
+
+![f_18.png](G:\code\whtngus.github.io\img\2025\agent\f_18.png)
+
+이런 접근의 초기 기법 중 하나가 Toolformer라는 것으로, 어떤 API를 어떻게 호출할지를 결정하도록 학습된 모델로, Toolformer는 [ 과 ] 토큰을 사용하여 툴 호출의 시작과 끝을 표시합니다. 예를 들어 “What is 5 times 3?”라는 프롬프트가 주어지면, [ 토큰에 도달할 때까지 토큰을 생성
+
+![f_19.png](G:\code\whtngus.github.io\img\2025\agent\f_19.png)
+
+![f_20.png](G:\code\whtngus.github.io\img\2025\agent\f_20.png)
+
+![f_21.png](G:\code\whtngus.github.io\img\2025\agent\f_21.png)
+
+
+
+Toolformer는 모델이 학습할 수 있는 다양한 툴 사용 사례가 포함된 데이터셋을 신중히 생성함으로써 이러한 동작을 형성하도록 학습해 각 툴마다 개별적으로 생성된 few-shot prompt를 사용하여 해당 툴을 활용하는 출력을 샘플
+
+![t_22.png](G:\code\whtngus.github.io\img\2025\agent\t_22.png)
+
+
+
+이후 툴 사용의 정확도, 출력의 정확성, loss 감소 등을 기준으로 출력들을 필터링하함
+
+이렇게 만들어진 데이터셋은 해당 툴 사용 형식에 따르도록 LLM을 학습시키는데 사용할 수 있음
+
+Toolformer가 발표된 이후, 수천 가지 툴을 사용할 수 있는 LLMs(ToolLLM⁴)나 가장 관련성 높은 툴을 쉽게 찾을 수 있는 LLMs(Gorilla⁵) 같은 흥미로운 기법들이 많이나오게됨
+
+## Model Context Protocol (MCP)
+
+Tools는 에이전트적 프레임워크에서 매우 중요한 구성 요소이며, LLM이 세상과 상호작용하고 역량을 확장하도록 해줍니다. 하지만 서로 다른 API가 많을 경우, 툴 사용을 가능케 하는 것은 까다로울 수 있습니다. 왜냐하면 모든 툴가 다음 과정을 거쳐야 하기 때문
+
+1. 수동으로 툴을 추적하고 LLM에 전달해야 함
+
+2. 수동으로 예상 JSON 스키마를 포함해 툴을 설명해야 함
+
+3.  API가 변경될 때마다 수동으로 업데이트 해야 함
+
+![t_23.png](G:\code\whtngus.github.io\img\2025\agent\t_23.png)
+
+Anthropic은 어떠한 에이전트적 프레임워크에서도 툴을 더 쉽게 구현할 수 있도록 Model Context Protocol(MCP)을 개발해 날씨 앱이다 github 같은 서비스에 대한 API 접근을 표준화함 
+
+
+
+MCP는 세 가지 컴포넌트로 이루어짐
+
+1. **MCP Host** — 연결을 관리하는 LLM 애플리케이션(예: Cursor)
+
+2. **MCP Client** — MCP 서버와 1:1 연결을 유지
+
+3. **MCP Server** — LLM에게 context, tools, capabilities를 제공
+
+![24.png](G:\code\whtngus.github.io\img\2025\agent\24.png)
+
+
+
+예를 들어, 특정 LLM 애플리케이션이 당신의 깃허브 레포에서 최근 5개의 commit을 요약하도록 하고 싶다고 가정하면
+
+1. MCP Host(클라이언트와 함께)는 먼저 MCP Server에 어떤 툴들이 사용 가능한지 확인을 요청
+
+![25.png](G:\code\whtngus.github.io\img\2025\agent\25.png)
+
+2. LLM은 해당 정보를 받아 툴을 사용할지 선택
+   
+   그런 다음 Host를 통해 MCP Server에 요청을 보내고, 사용된 툴을 포함한 결과를 전달받습니다.
+
+![26.png](G:\code\whtngus.github.io\img\2025\agent\26.png)
+
+3. 마지막으로 LLM은 그 결과를 받아 사용자에게 전달할 답변을 분석
+
+![27.png](G:\code\whtngus.github.io\img\2025\agent\27.png)
+
+MCP를 지원하는 모든 LLM 애플리케이션이 활용할 수 있는 MCP Server와 연결할 수 있으므로, 툴 개발이 훨씬 쉬워짐 
+
+예를 들어, Github와 상호작용하는 MCP Server를 만들면, MCP를 지원하는 모든 LLM 애플리케이션이 그것을 사용할 수 있음
+
+## Planning
+
+툴 사용은 LLM이 자신의 역량을 확장하게 해줍니다. 이런 툴들은 보통 JSON 유사한 요청 형식을 통해 호출
+
+그렇다면 에이전트적 시스템에서 LLM은 어떤 툴을 언제 사용해야 할지 어떻게 결정할지에 대해 planning이 등장하게 됨 
+
+LLM Agents에서 planning이란, 주어진 작업을 실행 가능한 단계들로 분할하는 과정을 의미
+
+
+
+아래와 같이 계획을 통해 모델은 과거 행동을 반복적으로 확인하고, 필요하면 현재 계획을 업데이트함
+
+![28.png](G:\code\whtngus.github.io\img\2025\agent\28.png)
+
+![29.png](G:\code\whtngus.github.io\img\2025\agent\29.png)
+
+## Reasoning
+
+LLM Agents에서 planning을 가능하게 하려면, 먼저 이 기법의 기본인 reasoning을 살펴봐야함
+
+실행 가능한 단계를 계획하기 위해서는 복잡한 추론 행동이 필요하고, 따라서 LLM은 작업을 계획하는 다음 단계로 넘어가기 전에 이러한 추론을 수행할 수 있어야함
+
+“Reasoning” LLM은 질문에 답하기 전에 “생각”하는 경향을 보이는 모델을 의미함
+
+이런 추론 행동은 크게 두 가지 방식으로 활성화 할 수 있음
+
+1. LLM을 fine-tuning
+
+2. 프롬프트 엔지니어링
+
+![30.png](G:\code\whtngus.github.io\img\2025\agent\30.png)
+
+## Reasoning and Acting
+
+LLM이 추론 행동을 할 수 있게 만드는 것은 훌륭하지만, 그것만으로 실행 가능한 단계들을 계획할 수 있게 되는 것은 아님
+
+지금까지 살펴본 기법들은 주로 추론 행동을 보여주거나, 툴을 통해 환경과 상호작용하는 데 초점이 있었음
+
+이 두 과정을 결합한 초기 기법 중 하나가 ReAct(Reason and Act)라고 함
+
+ReAct는 신중한 prompt engineering을 통해 이 기능을 수행합니다. ReAct 프롬프트에는 세 가지 단계가 설명됨
+
+1. Thought - 현재 상황에 대한 추론 단계
+
+2. Action - 실행해야 할 행동들(예: 툴 사용)
+
+3. Observation - 행동의 결과에 대한 추론 단계
+
+아래 프롬프트를 조면 직관적으로 적혀있음
+
+![31.png](G:\code\whtngus.github.io\img\2025\agent\31.png)
+
+![32.png](G:\code\whtngus.github.io\img\2025\agent\32.png)
+
+![33.png](G:\code\whtngus.github.io\img\2025\agent\33.png)
+
+LLM은 이 프롬프트(시스템 프롬프트로 사용할 수 있음)를 활용하여, 생각(Thought), 행동(Action), 관찰(Observation)의 사이클을 반복하는 방식으로 동작을 수행
+
+결과를 반환하라는 행동(Action) 지시가 있을 때까지 이 과정을 계속합니다. 생각(Thought)과 관찰(Observation)을 반복함으로써, LLM은 행동을 계획하고, 결과를 관찰하며, 그에 따라 조정할 수 있음
+
+![34.png](G:\code\whtngus.github.io\img\2025\agent\34.png)
+
+## Reflecting
+
+ReAct를 사용하는 LLM이라 해도, 모든 작업을 완벽하게 수행하지는 못함
+
+실패를 되돌아볼 수 있는 기능이 ReAct 에는 없는데 이걸 보완해주는게 Reflexion임 
+
+Reflexion은 언어적 강화(verbal reinforcement)를 통해 에이전트가 이전의 실패로부터 배우도록 돕는 기법
+
+LLM에 3가지 역할을 가정함 
+
+- **Actor** — 상태 관찰(state observations)에 기반해 행동을 선택하고 실행합니다. Chain-of-Thought나 ReAct 같은 기법을 사용할 수 있습니다.
+- **Evaluator** — Actor가 만든 출력물을 점수화합니다.
+- **Self-reflection** — Actor가 취한 행동과 Evaluator가 생성한 점수를 돌아보며(Reflecting) 평가합니다.
+
+메모리 모듈을 추가하여 행동(단기)과 자기반성(장기)을 추적함으로써, 에이전트가 실수로부터 학습하고 개선된 행동을 찾도록 도움 
+
+![35.png](G:\code\whtngus.github.io\img\2025\agent\35.png)
+
+유사하면서도 우아한 기법으로 SELF-REFINE이 있는데, 이는 출력물을 다듬고 피드백을 생성하는 과정을 반복
+
+동일한 LLM이 초기 출력, 개선된 출력, 피드백 생성까지 모두 담당
+
+Reflexion과 SELF-REFINE 모두 이러한 자기반성적 행동은 출력물의 품질에 따라 보상이 주어지는 강화학습과 매우 유사한 모습을 보임
+
+![36.png](G:\code\whtngus.github.io\img\2025\agent\36.png)
+
+![37.png](G:\code\whtngus.github.io\img\2025\agent\37.png)
+
+## Multi-Agent Collaboration
+
+지금까지 살펴본 단일 에이전트에는 몇 가지 문제가 있음
+
+1. 사용 가능한 툴가 너무 많으면 선택이 복잡짐
+
+2. 선택이 복잡해짐에 따라 문맥이 과도하게 복잡해짐
+
+3. 작업이 특정 전문성을 요구할 수도 있음
+
+이 대신, 여러 에이전트(Memory, Tools, Planning에 각각 접근 권한이 있는)가 서로, 그리고 환경과 상호작용하는 Multi-Agents 프레임워크로 눈을 돌릴 수 있음
+
+이러한 Multi-Agent 시스템은 보통 전문화된 Agents로 구성되며, 각각 고유한 툴 세트를 보유하고 supervisor가 이를 감독함 
+
+supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된 Agent에게 특정 과제를 할당
+
+![38.png](G:\code\whtngus.github.io\img\2025\agent\38.png)
+
+![39.png](G:\code\whtngus.github.io\img\2025\agent\39.png)
+
+실제로, 다수의 Multi-Agent 아키텍처가 존재하며, 이들은 핵심적으로 두 가지 구성 요소를 가짐
+
+- Agent **Initialization** — 개별(전문화된) Agent들은 어떻게 생성되는가?
+- Agent **Orchestration** — 모든 Agent들은 어떻게 조율되는가?
+
+![40.png](G:\code\whtngus.github.io\img\2025\agent\40.png)
+
+
+
+## Multi-Agent 컴퓨턴트 구현 예
+
+### Interactive Simulacra of Human Behavior
+
+[Generative Agents: Interactive Simulacra of Human Behavior](/1b9c32470be2800fa672e82689018fc4?pvs=25)
+
+믿을법한 사람의 행동을 모사하는 계산 소프트웨어 에이전트를 만들었는데, 이를 Generative Agents라 부름
+
+각 Generative Agent는 특정 프로필(profile)을 부여받으며, 이는 고유한 행동 양식을 부여하고, 보다 흥미롭고 역동적인 행동을 유도함
+
+각 Agent는 memory, planning, reflection 세 가지 모듈로 초기화되며, 이는 우리가 ReAct와 Reflexion에서 봤던 핵심 구성 요소들과 매우 유사함
+
+![41.png](G:\code\whtngus.github.io\img\2025\agent\41.png)
+
+![42.png](G:\code\whtngus.github.io\img\2025\agent\42.png)
+
+프레임워크에서 memory 모듈은 가장 중요한 요소 중 하나입니다. 이는 지금까지의 모든 이벤트뿐 아니라, planning과 reflection 행동도 저장
+
+주어진 다음 단계나 질문이 있을 때, 메모리에서 관련 항목을 불러온 뒤, 최신성(recency), 중요성(importance), 관련성(relevance)에 따라 점수를 매기고, 가장 높은 점수를 받은 메모리가 Agent에게 공유됨
+
+이를통해 Agents가 자유롭게 행동하며 서로 상호작용할 수 있게됨
+
+사람이 평가를 했고 관찰(observation), 계획(planning), 반성(reflection)이 Generative Agents의 성능에서 얼마나 중요한지를 보여줌
+
+![43.png](G:\code\whtngus.github.io\img\2025\agent\43.png)
+
+![44.png](G:\code\whtngus.github.io\img\2025\agent\44.png)
+
+![45.png](G:\code\whtngus.github.io\img\2025\agent\45.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 참고 사이트
+
+1. LLM agent 기초
+
+```
+https://newsletter.maartengrootendorst.com/p/a-visual-guide-to-llm-agents
+https://www.promptingguide.ai/research/llm-agents
+- 정리가 너무 잘 되어있어 아래 링크 위주로 정리
+https://tulip-phalange-a1e.notion.site/LLM-Agents-1b9c32470be2800fa672e82689018fc4
+https://tulip-phalange-a1e.notion.site/Reasoning-LLMs-190c32470be2806d834ee0ad98aaa0b6
+```
