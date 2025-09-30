@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "LLM Agent 와 Reasoning ㅣㅣ"
+title: "LLM Agent 와 Reasoning"
 date: 2025-09-25 02:05:23 +0900
 category: paper
 ---
@@ -344,6 +344,14 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 ![44.png](G:\code\whtngus.github.io\img\2025\agent\44.png)
 
 ![45.png](G:\code\whtngus.github.io\img\2025\agent\45.png)
+
+# Reasoning LLMs
+
+[DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1), [OpenAI o3-mini](https://openai.com/index/openai-o3-mini/), 그리고 [Google Gemini 2.0 Flash Thinking](https://deepmind.google/technologies/gemini/flash-thinking/)은 LLMs가 “reasoning” 프레임워크를 통해 어떻게 새로운 차원으로 확장될 수 있는지 보여주는 대표적인 예시임
+
+이들은 학습 시점의 연산(train-time compute)의 확장(scaling)에서 추론 시점의 연산(test-time compute)의 확장으로의 패러다임 전환을 의미함
+
+
 
 
 
