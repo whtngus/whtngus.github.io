@@ -349,7 +349,41 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 [DeepSeek-R1](https://github.com/deepseek-ai/DeepSeek-R1), [OpenAI o3-mini](https://openai.com/index/openai-o3-mini/), 그리고 [Google Gemini 2.0 Flash Thinking](https://deepmind.google/technologies/gemini/flash-thinking/)은 LLMs가 “reasoning” 프레임워크를 통해 어떻게 새로운 차원으로 확장될 수 있는지 보여주는 대표적인 예시임
 
-이들은 학습 시점의 연산(train-time compute)의 확장(scaling)에서 추론 시점의 연산(test-time compute)의 확장으로의 패러다임 전환을 의미함
+일반적인 LLMs와 비교했을 때, reasoning LLMs는 주어진 질문에 답하기 전에 문제를 더 작은 단계(일반적으로 reasoning steps 또는 thought processes라고 불림)로 나누려고함
+
+![46.png](G:\code\whtngus.github.io\img\2025\agent\46.png)
+
+LLMs가 실제로 인간처럼 생각할 수 있는지 여부를 철학적으로 논의[¹](/190c32470be2806d834ee0ad98aaa0b6?pvs=25#190c32470be280b0875df96436067bc8) 할 수도 있지만, 이러한 reasoning 단계는 과정을 더 작은, 구조화된 추론(inference)으로 분해함
+
+즉, LLM이 “무엇을” 답해야 하는지를 배우는 대신, “어떻게” 답해야 하는지를 배우게됨
+
+![47.png](G:\code\whtngus.github.io\img\2025\agent\47.png)
+
+
+
+reasoning LLMs가 어떻게 만들어지는지 이해하기 위해, train-time compute의 확장에서 test-time compute의 확장으로 초점을 전환하는 패러다임 전환을 먼저 살펴봐야함
+
+2024년 중반까지, 사전 학습(pre-training) 동안 LLMs의 성능을 높이기 위해, 개발자들은 다음 요소들의 크기를 자주 늘렸음
+
+- Model (# of **parameters**)
+- Dataset (# of **tokens**)
+- Compute (# of **FLOPs**)
+
+이들을 합쳐 train-time compute라고 함
+
+train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fine-tuning) 동안 필요한 연산도 포함될 수 있음
+
+이 두 과정은 LLM 성능을 향상시키는데 있어 두가지 주요 관심사 였음
+
+![48.png](G:\code\whtngus.github.io\img\2025\agent\48.png)
+
+## Scaling Laws
+
+
+
+
+
+
 
 
 
