@@ -7,13 +7,13 @@ category: paper
 
 # LLM Agent
 
-LLM agent가 무엇인지 이해햐기 위해, 먼저 LLM의 기본 역량을 비교
+LLM agent가 무엇인지 이해하기 위해, 먼저 LLM의 기본 역량을 비교
 
 ![f_1.png](G:\code\whtngus.github.io\img\2025\agent\f_1.png)
 
 ![f_2.png](G:\code\whtngus.github.io\img\2025\agent\f_2.png)
 
-기본 LLM 은 여러 토큰을 연속으로 샘플링하여 대화를 모사하고 더 포괄적인 답변을 제공함
+기본 LLM 은 여러 토큰을 연속으로 샘플링 하여 대화를 모사하고 더 포괄적인 답변을 제공함
 
 ![f_3.png](G:\code\whtngus.github.io\img\2025\agent\f_3.png)
 
@@ -92,8 +92,6 @@ LLM Agents에서 long-term memory는 오랜 기간 동안 유지되어야 하는
 
 위 방법이 RAG(Retrieval-Augmented Generation) 방식
 
-
-
 ## Tools
 
 Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하거나, 외부 애플리케이션(예: 코드 작동을 위한)을 사용할 수 있도록 하며 두 가지 활용 사례를 가짐
@@ -108,8 +106,6 @@ Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하
 
 툴을요청해야되는 질문이 온 경우 code interpreter 에 쉽게 전달할 수 있게 위그림의 예시처럼 josn 혹은 mcp등 여러가지 방식으로 처리하며, LLM이 사용할 수 있는 간단한 (곱셈 더하기 등 ) 커스텀 한수를 생성할 수 있는데 이를 function calling 이라고함
 
-
-
 에이전트적 프레임워크가 정해져 있다면, Tools는 미리 정해진 순서로 사용될 수 도 있음
 
 여기에서 LLM이 어떤 툴을 언제 사용할지 자율적으로 결정하는데 그렇게되면 아래 그림처럼  실행됨
@@ -119,8 +115,6 @@ LLM agents가  llm 호출의 연속임
 ![f_17.png](G:\code\whtngus.github.io\img\2025\agent\f_17.png)
 
  즉, 중간 단계의 출력을 LLM으로 다시 전달하여 연속적으로 처리를 이어 감
-
-
 
 툴(Tool) 사용은 LLM의 역량을 강화하고 단점을 보완하는 강력한 기법으로 최근 몇 년간 툴 사용과 관련된 연구가 급격히 늘어나고 있으며, 연구 상당 부분은 LLM에게 툴 사용을 지시하는 프롬프트를 제공하는 것뿐 아니라, 툴 사용 자체에 특화하여 모델을 학습시키는 방식을 포함함
 
@@ -134,13 +128,9 @@ LLM agents가  llm 호출의 연속임
 
 ![f_21.png](G:\code\whtngus.github.io\img\2025\agent\f_21.png)
 
-
-
 Toolformer는 모델이 학습할 수 있는 다양한 툴 사용 사례가 포함된 데이터셋을 신중히 생성함으로써 이러한 동작을 형성하도록 학습해 각 툴마다 개별적으로 생성된 few-shot prompt를 사용하여 해당 툴을 활용하는 출력을 샘플
 
 ![t_22.png](G:\code\whtngus.github.io\img\2025\agent\t_22.png)
-
-
 
 이후 툴 사용의 정확도, 출력의 정확성, loss 감소 등을 기준으로 출력들을 필터링하함
 
@@ -156,13 +146,11 @@ Tools는 에이전트적 프레임워크에서 매우 중요한 구성 요소이
 
 2. 수동으로 예상 JSON 스키마를 포함해 툴을 설명해야 함
 
-3.  API가 변경될 때마다 수동으로 업데이트 해야 함
+3. API가 변경될 때마다 수동으로 업데이트 해야 함
 
 ![t_23.png](G:\code\whtngus.github.io\img\2025\agent\t_23.png)
 
 Anthropic은 어떠한 에이전트적 프레임워크에서도 툴을 더 쉽게 구현할 수 있도록 Model Context Protocol(MCP)을 개발해 날씨 앱이다 github 같은 서비스에 대한 API 접근을 표준화함 
-
-
 
 MCP는 세 가지 컴포넌트로 이루어짐
 
@@ -173,8 +161,6 @@ MCP는 세 가지 컴포넌트로 이루어짐
 3. **MCP Server** — LLM에게 context, tools, capabilities를 제공
 
 ![24.png](G:\code\whtngus.github.io\img\2025\agent\24.png)
-
-
 
 예를 들어, 특정 LLM 애플리케이션이 당신의 깃허브 레포에서 최근 5개의 commit을 요약하도록 하고 싶다고 가정하면
 
@@ -203,8 +189,6 @@ MCP를 지원하는 모든 LLM 애플리케이션이 활용할 수 있는 MCP Se
 그렇다면 에이전트적 시스템에서 LLM은 어떤 툴을 언제 사용해야 할지 어떻게 결정할지에 대해 planning이 등장하게 됨 
 
 LLM Agents에서 planning이란, 주어진 작업을 실행 가능한 단계들로 분할하는 과정을 의미
-
-
 
 아래와 같이 계획을 통해 모델은 과거 행동을 반복적으로 확인하고, 필요하면 현재 계획을 업데이트함
 
@@ -313,8 +297,6 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 ![40.png](G:\code\whtngus.github.io\img\2025\agent\40.png)
 
-
-
 ## Multi-Agent 컴퓨턴트 구현 예
 
 ### Interactive Simulacra of Human Behavior
@@ -359,8 +341,6 @@ LLMs가 실제로 인간처럼 생각할 수 있는지 여부를 철학적으로
 
 ![47.png](G:\code\whtngus.github.io\img\2025\agent\47.png)
 
-
-
 reasoning LLMs가 어떻게 만들어지는지 이해하기 위해, train-time compute의 확장에서 test-time compute의 확장으로 초점을 전환하는 패러다임 전환을 먼저 살펴봐야함
 
 2024년 중반까지, 사전 학습(pre-training) 동안 LLMs의 성능을 높이기 위해, 개발자들은 다음 요소들의 크기를 자주 늘렸음
@@ -377,7 +357,236 @@ train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fin
 
 ![48.png](G:\code\whtngus.github.io\img\2025\agent\48.png)
 
-## Scaling Laws
+##### Scaling Laws
+
+모델의 규모(연산, 데이터셋 크기, 모델 크기)가 모델 성능과 어떻게 상관관계를 갖는지 연구하는 분야가 바로 다양한 scaling laws
+
+이 관계는 일반적으로 log-log 스케일로 나타내는데(그래서 직선 형태가 됨), 이는 연산량의 큰 증가를 시각화하기 위함
+
+
+가장 잘 알려진 것은 “Kaplan” 과 “Chinchilla” scaling laws입니다. 이 법칙들은 모델의 성능이 더 많은 compute, 더 많은 토큰, 그리고 더 많은 파라미터와 함께 증가한다고 대체로 말함
+
+-> 이를 위해 세 요인 모두를 동시에 확장해야 하며, Kaplan의 Scaling Law는 고정된 compute에서 모델 크기를 키우는 것이 일반적으로 데이터를 확장하는 것보다 더 효과적이라고 말함, Chinchilla의 Scaling Law는 모델 크기와 데이터가 동등하게 중요하다고 주장
+
+=> 2024년 compute, 데이터셋 크기, 모델 파라미터까지 꾸준히 증가했음에도, 그이득은 서서히 줄어들고 있는 중
+
+![49.png](G:\code\whtngus.github.io\img\2025\agent\49.png)
+
+![50.png](G:\code\whtngus.github.io\img\2025\agent\50.png)
+
+### test-time compute
+
+train-time compute를 계속 늘리는 데 드는 비용이 높아짐에 따라, 추론 시점의 연산(test-time compute)이라는 다른 초점이 떠오르게됨
+
+사전 학습 예산을 계속 늘리는 대신, test-time compute는 모델이 추론 시점에 “더 오래 생각”할 수 있도록 하는것
+
+-> reasoning 모델은 체계적인 “thinking” 과정을 통해 답을 도출하기 위해 더 많은 토큰을 사용
+
+![51.png](G:\code\whtngus.github.io\img\2025\agent\51.png)
+
+
+
+##### Scaling Laws
+
+train-time compute에 비해 test-time compute에 대한 scaling laws는 상대적으로 새로운 분야
+
+[OpenAI가 작성한 포스트](https://openai.com/index/learning-to-reason-with-llms/)에서, test-time compute도 train-time compute의 확장(scaling) 추세와 유사할 수 있다고 제안
+
+![52.png](G:\code\whtngus.github.io\img\2025\agent\52.png)
+
+“Scaling Scaling Laws with Board Games”[⁴](/190c32470be2806d834ee0ad98aaa0b6?pvs=25#190c32470be280219f97e70b91ee066f) 라는 흥미로운 논문에서는 AlphaZero를 다양한 연산량으로 학습해 Hex 게임을 두게 하면서, train-time compute와 test-time compute를 여러 단계로 달리하여 비교함
+
+이에따라 test-time compute가 train-time compute처럼 확장됨에 따라, “reasoning” 모델들이 더 많은 test-time compute를 활용하는 쪽으로 패러다임 전환이 진행됨
+
+![53.png](G:\code\whtngus.github.io\img\2025\agent\53.png)
+
+### Categories of Test-time Compute
+
+DeepSeek R-1과 OpenAI o1 같은 reasoning 모델들의 놀라운 성공은 “더 오래 생각하기” 이상의 다양한 기법들이 있다는 것을 보여줌 
+
+Chain-of-Thought, revising answers, backtracking, sampling 등을 포함하여 매우 다양한 기법들이 있음
+
+이중 아래 두가지를 살펴봄
+
+- Search against Verifiers (검증자를 활용한 검색): 생성을 샘플링하고, 최적의 답변을 선택
+- Modifying Proposal Distribution (제안 분포 수정): 학습된 “Thinking” 프로세스
+
+Search against verifiers는 결과물(output)에 초점을 맞추는 반면, Modifying proposal distribution은 입력(input)에 초점을 맞춤
+
+![54.png](G:\code\whtngus.github.io\img\2025\agent\54.png)
+
+verifier에는 Outcome Reward Models (ORM), Process Reward Models (PRM) 두 가지 유형이 있고, ORM은 오직 결과(outcome)만 평가하며, 그 이면의 과정에는 관심을 두지 않고, 반면, PRM은 결과를 도출하는 과정(즉, “reasoning”)도 함께 평가함
+
+![55.png](G:\code\whtngus.github.io\img\2025\agent\55.png)
+
+### Search against Verifiers
+
+Verifier를 활용한 검색은 test-time compute의 첫 번째 주요 카테고리로 일반적으로 두 가지 단계를 거침
+
+1. 여러 가지 reasoning 과정과 답변을 샘플링
+
+2. 생성된 답변을 Verifier(Reward Model)로 평가
+
+이때 Verifier는 보통 LLM을 미세 조정하여 결과(Outcome Reward Model, ORM)나 과정(Process Reward Model, PRM)를 평가하도록 만든 모델을 사용함
+
+Verifier를 사용하면, 질문에 답하는 LLM을 재학습하거나 미세 조정할 필요가 없다는 큰 장점이 있음
+
+- Majority Voting
+
+가장 간단한 방법은 사실상 Reward Model이나 Verifier를 전혀 사용하지 않고, 대신 다수결 투표(majority vote)를 수행하는 방법으로 self-consistency라고도 함, 여러 모델이 답변을 생성한 뒤, 가장 많이 나온 답을 최종 답변으로선택
+
+![56.png](G:\code\whtngus.github.io\img\2025\agent\56.png)
+
+- Best-of-N samples
+
+Verifier를 사용하는 첫 번째 기법은 Best-of-N samples라고 하며, N개의 샘플을 생성한 다음, Verifier(Outcome Reward Model)를 사용해 각 답변을 평가함
+
+답변 자체가 아니라, reasoning 과정을 평가하는 Process Reward Model(PRM)을 사용할 수도 있는데, 이는 각 reasoning 단계의 품질을 판단하고, 총합이 가장 높은 후보를 선택함
+
+두 Verifier 타입 모두에서, 각 답변 후보에 대해 RM 점수를 부여하고, 가장 높은 점수의 후보를 선택할 수 있음 이를 Weighted Best-of-N samples라고 부름
+
+![57.PNG](G:\code\whtngus.github.io\img\2025\agent\57.PNG)
+
+
+
+- Monte Carlo Tree Search
+
+트리 검색을 더 효율적으로 만드는 유명한 기법 중 하나로 Monte Carlo Tree Search가 있으며 4가지 단계로 구성됨
+
+> - Selection (미리 정해진 공식을 바탕으로 특정 leaf를 선택)
+> 
+> - Expand (추가 노드를 생성)
+> 
+> - Rollouts (노드를 무작위로 생성하여 끝까지 탐색)
+> 
+> - Backprop (결과 점수를 부모 노드로 업데이트)
+
+탐색(exploration)과 활용(exploitation) 사이의 균형을 맞춤
+
+확장된 reasoning 단계 중 하나를 선택하고, 여러 번 Rollout하여 여러 답안을 도출
+
+![59.png](G:\code\whtngus.github.io\img\2025\agent\59.png)
+
+![60.png](G:\code\whtngus.github.io\img\2025\agent\60.png)
+
+### Modifying Proposal Distribution
+
+reasoning LLMs을 만드는 두 번째 카테고리는 “Modifying Proposal Distribution”
+
+verifier를 이용하여 올바른 reasoning 단계를 찾는 방식(output-focused)과 달리, 모델이 더 나은 reasoning 단계를 생성할 수 있도록 학습하는 방식(input-focused)
+
+즉, completions/thoughts/tokens이 샘플링되는 분포를 조정함
+
+프롬프트엔지니어링과 reasoning 토큰을 생성하도록 학습하는 등의 방법을 사용하며, 리즈닝을 유도하는 토큰을 생성하도록 함
+
+![61.png](G:\code\whtngus.github.io\img\2025\agent\61.png)
+
+![62.png](G:\code\whtngus.github.io\img\2025\agent\62.png)
+
+- Prompting
+
+Prompt Engineering을 사용하면, 프롬프트를 수정하여 리즈닝 과정을 유도하도록 모델의 결과을 개선함
+
+이 과정을 단순화하기 위해, “Let’s think step-by-step” [-](/190c32470be2806d834ee0ad98aaa0b6?pvs=25#190c32470be280d7a335f1b1be1d77c7) 같은 문구만 입력해도됨
+
+다만, 이 방식에서 모델은 본질적으로 이 과정을 따르도록 학습된 것은 아닙니다. 또한 이는 고정적이고 선형적인 과정이어서, 만약 모델이 잘못된 reasoning으로 시작하면 수정 없이 그대로 진행될 가능성이 높음
+
+- STaR(Self-Taught Reasoner)
+
+Prompting 외에도, 모델이 이러한 reasoning 단계를 생성하면 보상을 주어 “reasoning”을 학습하도록 하는 방법이 있음
+
+일반적으로 많은 reasoning 데이터와 강화 학습을 이용해 특정 행동을 보상하며 그 방법중 논쟁이 많은 방법중의 하나로 STaR이 있음 
+
+STaR는 LLM이 자체적으로 reasoning 데이터를 생성하고, 이를 모델 미세 조정에 사용하는 방식
+
+1. reasoning  model 답변 생성
+
+2. 답이 맞으면(2a), reasoning과 답변을 트리플릿 학습 데이터(3b)에 추가
+
+해당 데이터는 SFT에 활용됨
+
+3. 모델이 잘못된 답을 내놓으면(2b), “힌트”(정답)를 제공하고 이 답이 왜 맞는지 reasoning을 요청(4b)
+
+최종 reasoning 단계도 같은 트리플릿 학습 데이터에 추가
+
+![63.png](G:\code\whtngus.github.io\img\2025\agent\63.png)
+
+- DeepSeek-R1
+
+reasoning 모델 분야의 큰 발표 중 하나는 DeepSeek-R1으로 OpenAI의 o1 resoning과 경쟁자인 모델임
+
+DeepSeek은 여러 기법을 통해 reasoning을 base 모델(DeepSeek-V3-Base)에 우아하게 distill하는 데 성공함
+
+흥미롭게도, 여기에는 Verifier가 전혀 사용되지 않았으며, reasoning 행동을 distill하기 위해 지도 학습(supervised fine-tuning)을 사용하는 대신, 강화 학습(reinforcement learning)에 크게 집함
+
+> - Reasoning with DeepSeek-R1 Zero
+> 
+> DeepSeek-V3-Base로부터 시작하여, (시스템 프롬프트와 유사한) 아주 간단한 프롬프트를 파이프라인에서 사용여 대규모 reasoning 데이터에 대한 지도 학습 대신 오직 강화 학습(RL)만 사용해 reasoning 행동을 가능케함
+> 
+> 명시적으로 reasoning 과정은 <think> 태그 사이에 있어야 한다고 언급하지만, 그 과정이 어떠해야 하는지는 구체적으로 지정하지 않음
+> 
+> ![64.png](G:\code\whtngus.github.io\img\2025\agent\64.png)
+> 
+> - Accuracy rewards – **답변**이 맞는지 확인해 보상
+> - Format rewards – **<thinking>** 과 **<answer>** 태그를 사용하는지에 대한 보상
+> 
+> RL 알고리즘은 Group Relative Policy Optimization (GRPO)으로 핵심 아이디어는 정답 혹은 오답으로 이어진 모든 선택(토큰 세트와 reasoning 단계 모두)의 확률을 높이거나 낮추는 것
+> 
+> 흥미롭게도, <think> 과정이 어떠해야 하는지에 대한 예시는 주지 않고, <think> 태그를 쓰라고만 프롬프트에 지시
+> 
+> 모델은 스스로 길고 복잡한 reasoning 과정을 시도할수록 정답 확률이 높아진다는 사실을 학습함
+> 
+> ![65.png](G:\code\whtngus.github.io\img\2025\agent\65.png)
+> 
+> DeepSeek-R1을 만들기 위해 저자들은 다섯 단계를 따름
+> 
+> 1. Cold Start
+>    
+>    DeepSeek-V3-Base를 소량의 고품질 reasoning 데이터(약 5,000 토큰)로 미세 조정(fine-tuning)하여, 가독성이 떨어지는 결과(Cold Start)를 방지
+> 
+> 2. Reasoning-oriented Reinforcement Learning
+>    
+>    DeepSeek-V3-Zero와 유사한 RL 프로세스를 통해 학습하며 대상 언어를 일관되게 유지하기 위해 또다른 보상을 추가함
+> 
+> 3. Rejection Sampling
+>    
+>    RL로 학습된 모델을 이용하여 이후 지도 학습을 위해 사용될 합성(synthetic) reasoning 데이터를 생성
+>    
+>    Rejection Sampling(규칙 기반 보상, rule-based rewards)과 Reward Model(DeepSeek-V3-Base)을 통해 600,000개의 고품질 reasoning 샘플을 생성
+>    
+>    DeepSeek-V3와 그 일부 학습 데이터를 사용해 200,000개의 non-reasoning 샘플을 생성
+>    
+>    ![66.png](G:\code\whtngus.github.io\img\2025\agent\66.png)
+> 
+> 4. Supervised Fine-Tuning
+>    
+>    만들어진 800,000개의 샘플로 DeepSeek-V3-Base를 지도 학습 방식으로 미세 조정
+> 
+> 5. Reinforcement Learning for all Scenarios
+>    
+>    앞선 단계를 거친 모델을 DeepSeek-R1-Zero에서 사용된 방식과 유사한 RL 기법으로 학습
+>    
+>    다만 사람들의 선호도와 일치시키기 위해(Helpfulness, Harmlessness), 추가적인 보상 신호(reward signals)가 사용함
+>    
+>    또한, 가독성 문제를 방지하기 위해 reasoning 과정을 요약하도록 모델에 요청함
+> 
+> 결과적으로, DeepSeek-R1은 실제로 DeepSeek-V3-Base를 지도 학습과 강화 학습으로 미세 조정한 모델
+
+- Distilling Reasoning with DeepSeek-R1
+
+DeepSeek-R1은 671B 파라미터를 가진 거대한 모델로 일반적인 gpu에서 구동이 어려움
+
+DeepSeek-R1의 reasoning 품질을 Qwen-32B 같은 다른 모델로 distill하는 방법을 연구함
+
+이 과정은 앞서 언급된 800,000개의 고품질 샘플 전체를 사용해 진행
+
+
+
+앞서 언급했던 Process Reward Models(PRMs)과 Monte Carlo Tree Search(MCTS)를 DeepSeek 측도 시도했지만, reasoning을 구현하는 데 성공하지 못했다고 함 
+
+1. MCTS 경우에는 매우 큰 검색 공간 문제가 있어 노드 확장을 제한
+
+2. PRMs를 사용한 Best-of-N 기법: 보상 해킹을 방지하기 위해 Reward Model을 계속 재학습해야 하는 계산 부담 문제
 
 
 
@@ -388,6 +597,14 @@ train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fin
 
 
 
+
+
+
+- Beam search with process reward models
+
+Beam search를 통해 답변과 중간 단계를 생성할 수도 있음
+
+Beam search를 사용하여 여러 reasoning 단계를 샘플링하고, 각 단계를 PRM이 평가하여 사용
 
 
 
