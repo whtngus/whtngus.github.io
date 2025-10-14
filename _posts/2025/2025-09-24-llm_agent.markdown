@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLM Agent 와 Reasoning"
-date: 2025-09-25 02:05:23 +0900
+date: 2025-10-14 02:05:23 +0900
 category: paper
 ---
 
@@ -363,7 +363,6 @@ train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fin
 
 이 관계는 일반적으로 log-log 스케일로 나타내는데(그래서 직선 형태가 됨), 이는 연산량의 큰 증가를 시각화하기 위함
 
-
 가장 잘 알려진 것은 “Kaplan” 과 “Chinchilla” scaling laws입니다. 이 법칙들은 모델의 성능이 더 많은 compute, 더 많은 토큰, 그리고 더 많은 파라미터와 함께 증가한다고 대체로 말함
 
 -> 이를 위해 세 요인 모두를 동시에 확장해야 하며, Kaplan의 Scaling Law는 고정된 compute에서 모델 크기를 키우는 것이 일반적으로 데이터를 확장하는 것보다 더 효과적이라고 말함, Chinchilla의 Scaling Law는 모델 크기와 데이터가 동등하게 중요하다고 주장
@@ -383,8 +382,6 @@ train-time compute를 계속 늘리는 데 드는 비용이 높아짐에 따라,
 -> reasoning 모델은 체계적인 “thinking” 과정을 통해 답을 도출하기 위해 더 많은 토큰을 사용
 
 ![51.png](G:\code\whtngus.github.io\img\2025\agent\51.png)
-
-
 
 ##### Scaling Laws
 
@@ -446,8 +443,6 @@ Verifier를 사용하는 첫 번째 기법은 Best-of-N samples라고 하며, N�
 두 Verifier 타입 모두에서, 각 답변 후보에 대해 RM 점수를 부여하고, 가장 높은 점수의 후보를 선택할 수 있음 이를 Weighted Best-of-N samples라고 부름
 
 ![57.PNG](G:\code\whtngus.github.io\img\2025\agent\57.PNG)
-
-
 
 - Monte Carlo Tree Search
 
@@ -580,51 +575,16 @@ DeepSeek-R1의 reasoning 품질을 Qwen-32B 같은 다른 모델로 distill하�
 
 이 과정은 앞서 언급된 800,000개의 고품질 샘플 전체를 사용해 진행
 
-
-
 앞서 언급했던 Process Reward Models(PRMs)과 Monte Carlo Tree Search(MCTS)를 DeepSeek 측도 시도했지만, reasoning을 구현하는 데 성공하지 못했다고 함 
 
 1. MCTS 경우에는 매우 큰 검색 공간 문제가 있어 노드 확장을 제한
 
 2. PRMs를 사용한 Best-of-N 기법: 보상 해킹을 방지하기 위해 Reward Model을 계속 재학습해야 하는 계산 부담 문제
-
-
-
-
-
-
-
-
-
-
-
-
-
 - Beam search with process reward models
 
 Beam search를 통해 답변과 중간 단계를 생성할 수도 있음
 
 Beam search를 사용하여 여러 reasoning 단계를 샘플링하고, 각 단계를 PRM이 평가하여 사용
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 # 참고 사이트
 
