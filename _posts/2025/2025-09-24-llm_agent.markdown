@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLM Agent 와 Reasoning"
-date: 2025-10-14 02:05:23 +0900
+date: 2025-09-25 02:05:23 +0900
 category: paper
 ---
 
@@ -56,7 +56,7 @@ Agents는 환경과 상호작용하며 일반적으로 여러 중요한 구성 �
 
 LLM 은 예측 모델임으로 기존 대화내용을 암기하지 않음
 
-하지만 LLM agent는 단기 기억 뿐아니라 필요 시 수깁 개의 단계까지 추적해야할 수도 있음
+하지만 LLM agent는 단기 기억 뿐 아니라 필요 시 수십 개의 단계까지 추적해야할 수도 있음
 
 ![f_9.png](G:\code\whtngus.github.io\img\2025\agent\f_9.png)
 
@@ -78,7 +78,7 @@ LLM 은 예측 모델임으로 기존 대화내용을 암기하지 않음
 
 Context window가 작은 모델이거나 대화 이력이 방대할 경우, 지금까지 진행된 대화를 요약하기 위해 다른 LLM을 사용할 수도 있음
 
-대화를 지속적으로 요약함으로써, 대화의 전체 크기를 줄일 수 있습니다. 이는 토큰 수를 줄이면서도 가장 중요한 정보만 추적하도록 도와줌
+대화를 지속적으로 요약함으로써, 대화의 전체 크기를 줄일 수 있습니다. 이는 토큰 수를 줄이면서도 가장 중요한 정보만 추적하도록 도와 줌
 
 ### Long-term Memory
 
@@ -88,7 +88,7 @@ LLM Agents에서 long-term memory는 오랜 기간 동안 유지되어야 하는
 
 ![f_14.png](G:\code\whtngus.github.io\img\2025\agent\f_14.png)
 
-임의의 프롬프트를 임베딩하고 그것을 데이터베이스에 있는 임베딩과 비교함으로써, 벡터 데이터베이스에서 가장 관련성이 높은 정보를 찾아서 사용(롱텀의 경우 이전 세션에서 수행한 답변도 기억하도록 설정도 가능)
+입력된 프롬프트를 임베딩하고 그것을 데이터베이스에 있는 임베딩과 비교함으로써, 벡터 데이터베이스에서 가장 관련성이 높은 정보를 찾아서 사용(롱텀의 경우 이전 세션에서 수행한 답변도 기억하도록 설정도 가능)
 
 위 방법이 RAG(Retrieval-Augmented Generation) 방식
 
@@ -104,7 +104,7 @@ Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하
 
 ![f_16.png](G:\code\whtngus.github.io\img\2025\agent\f_16.png)
 
-툴을요청해야되는 질문이 온 경우 code interpreter 에 쉽게 전달할 수 있게 위그림의 예시처럼 josn 혹은 mcp등 여러가지 방식으로 처리하며, LLM이 사용할 수 있는 간단한 (곱셈 더하기 등 ) 커스텀 한수를 생성할 수 있는데 이를 function calling 이라고함
+툴을 요청해야 되는 질문이 온 경우 code interpreter 에 쉽게 전달할 수 있게 위그림의 예시처럼 json혹은 mcp등 여러가지 방식으로 처리하며, LLM이 사용할 수 있는 간단한 (곱셈 더하기 등 ) 커스텀 함수를 생성할 수 있는데 이를 function calling 이라고 함
 
 에이전트적 프레임워크가 정해져 있다면, Tools는 미리 정해진 순서로 사용될 수 도 있음
 
@@ -120,7 +120,7 @@ LLM agents가  llm 호출의 연속임
 
 ![f_18.png](G:\code\whtngus.github.io\img\2025\agent\f_18.png)
 
-이런 접근의 초기 기법 중 하나가 Toolformer라는 것으로, 어떤 API를 어떻게 호출할지를 결정하도록 학습된 모델로, Toolformer는 [ 과 ] 토큰을 사용하여 툴 호출의 시작과 끝을 표시합니다. 예를 들어 “What is 5 times 3?”라는 프롬프트가 주어지면, [ 토큰에 도달할 때까지 토큰을 생성
+이런 접근의 초기 기법 중 하나가 Toolformer라는 것으로, 어떤 API를 어떻게 호출할지를 결정하도록 학습된 모델로, Toolformer는 [ 과 ] 토큰을 사용하여 툴 호출의 시작과 끝을 표시합니다. 예를 들어 “What is 5 times 3?”라는 프롬프트가 주어지면, ] 토큰에 도달할 때까지 토큰을 생성
 
 ![f_19.png](G:\code\whtngus.github.io\img\2025\agent\f_19.png)
 
@@ -132,15 +132,17 @@ Toolformer는 모델이 학습할 수 있는 다양한 툴 사용 사례가 포�
 
 ![t_22.png](G:\code\whtngus.github.io\img\2025\agent\t_22.png)
 
-이후 툴 사용의 정확도, 출력의 정확성, loss 감소 등을 기준으로 출력들을 필터링하함
+이후 툴 사용의 정확도, 출력의 정확성, loss 감소 등을 기준으로 출력들을 필터링함
 
 이렇게 만들어진 데이터셋은 해당 툴 사용 형식에 따르도록 LLM을 학습시키는데 사용할 수 있음
 
-Toolformer가 발표된 이후, 수천 가지 툴을 사용할 수 있는 LLMs(ToolLLM⁴)나 가장 관련성 높은 툴을 쉽게 찾을 수 있는 LLMs(Gorilla⁵) 같은 흥미로운 기법들이 많이나오게됨
+Toolformer가 발표된 이후, 수천 가지 툴을 사용할 수 있는 LLMs(ToolLLM⁴)나 가장 관련성 높은 툴을 쉽게 찾을 수 있는 LLMs(Gorilla⁵) 같은 흥미로운 기법들이 많이 나오게 됨
 
 ## Model Context Protocol (MCP)
 
-Tools는 에이전트적 프레임워크에서 매우 중요한 구성 요소이며, LLM이 세상과 상호작용하고 역량을 확장하도록 해줍니다. 하지만 서로 다른 API가 많을 경우, 툴 사용을 가능케 하는 것은 까다로울 수 있습니다. 왜냐하면 모든 툴가 다음 과정을 거쳐야 하기 때문
+Tools는 에이전트적 프레임워크에서 매우 중요한 구성 요소이며, LLM이 세상과 상호작용하고 역량을 확장하도록 해줌. 하지만 서로 다른 API가 많을 경우, 툴 사용을 가능케 하는 것은 까다로울 수 있음
+
+왜냐하면 모든 툴은 다음 과정을 거쳐야 하기 때문
 
 1. 수동으로 툴을 추적하고 LLM에 전달해야 함
 
@@ -220,7 +222,9 @@ LLM이 추론 행동을 할 수 있게 만드는 것은 훌륭하지만, 그것�
 
 이 두 과정을 결합한 초기 기법 중 하나가 ReAct(Reason and Act)라고 함
 
-ReAct는 신중한 prompt engineering을 통해 이 기능을 수행합니다. ReAct 프롬프트에는 세 가지 단계가 설명됨
+ReAct는 신중한 prompt engineering을 통해 이 기능을 수행
+
+ReAct 프롬프트에는 세 가지 단계가 설명됨
 
 1. Thought - 현재 상황에 대한 추론 단계
 
@@ -252,9 +256,9 @@ Reflexion은 언어적 강화(verbal reinforcement)를 통해 에이전트가 �
 
 LLM에 3가지 역할을 가정함 
 
-- **Actor** — 상태 관찰(state observations)에 기반해 행동을 선택하고 실행합니다. Chain-of-Thought나 ReAct 같은 기법을 사용할 수 있습니다.
-- **Evaluator** — Actor가 만든 출력물을 점수화합니다.
-- **Self-reflection** — Actor가 취한 행동과 Evaluator가 생성한 점수를 돌아보며(Reflecting) 평가합니다.
+- **Actor** — 상태 관찰(state observations)에 기반해 행동을 선택하고 실행합니다. Chain-of-Thought나 ReAct 같은 기법을 사용할 수 있음
+- **Evaluator** — Actor가 만든 출력물을 점수화
+- **Self-reflection** — Actor가 취한 행동과 Evaluator가 생성한 점수를 돌아보며(Reflecting) 평가
 
 메모리 모듈을 추가하여 행동(단기)과 자기반성(장기)을 추적함으로써, 에이전트가 실수로부터 학습하고 개선된 행동을 찾도록 도움 
 
@@ -273,14 +277,6 @@ Reflexion과 SELF-REFINE 모두 이러한 자기반성적 행동은 출력물의
 ## Multi-Agent Collaboration
 
 지금까지 살펴본 단일 에이전트에는 몇 가지 문제가 있음
-
-1. 사용 가능한 툴가 너무 많으면 선택이 복잡짐
-
-2. 선택이 복잡해짐에 따라 문맥이 과도하게 복잡해짐
-
-3. 작업이 특정 전문성을 요구할 수도 있음
-
-이 대신, 여러 에이전트(Memory, Tools, Planning에 각각 접근 권한이 있는)가 서로, 그리고 환경과 상호작용하는 Multi-Agents 프레임워크로 눈을 돌릴 수 있음
 
 이러한 Multi-Agent 시스템은 보통 전문화된 Agents로 구성되며, 각각 고유한 툴 세트를 보유하고 supervisor가 이를 감독함 
 
@@ -305,7 +301,7 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 믿을법한 사람의 행동을 모사하는 계산 소프트웨어 에이전트를 만들었는데, 이를 Generative Agents라 부름
 
-각 Generative Agent는 특정 프로필(profile)을 부여받으며, 이는 고유한 행동 양식을 부여하고, 보다 흥미롭고 역동적인 행동을 유도함
+각 Generative Agent는 특정 프로필(profile)을 부여 받으며, 이는 고유한 행동 양식을 부여하고, 보다 흥미롭고 역동적인 행동을 유도함
 
 각 Agent는 memory, planning, reflection 세 가지 모듈로 초기화되며, 이는 우리가 ReAct와 Reflexion에서 봤던 핵심 구성 요소들과 매우 유사함
 
