@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "LLM Agent 와 Reasoning"
-date: 2025-09-25 02:05:23 +0900
+date: 2025-10-21 02:05:23 +0900
 category: paper
 ---
 
@@ -9,21 +9,21 @@ category: paper
 
 LLM agent가 무엇인지 이해하기 위해, 먼저 LLM의 기본 역량을 비교
 
-![f_1.png](G:\code\whtngus.github.io\img\2025\agent\f_1.png)
+![f_1.png](\img\2025\agent\f_1.png)
 
-![f_2.png](G:\code\whtngus.github.io\img\2025\agent\f_2.png)
+![f_2.png](\img\2025\agent\f_2.png)
 
 기본 LLM 은 여러 토큰을 연속으로 샘플링 하여 대화를 모사하고 더 포괄적인 답변을 제공함
 
-![f_3.png](G:\code\whtngus.github.io\img\2025\agent\f_3.png)
+![f_3.png](\img\2025\agent\f_3.png)
 
-![f_4.png](G:\code\whtngus.github.io\img\2025\agent\f_4.png)
+![f_4.png](\img\2025\agent\f_4.png)
 
 그러나 대화를 계속 진행하다보면 그 단점이 나오는데, 대화를 기억하지 못함 
 
 숫자 계산도 마찬가지, 이를 해결하기 위해 외부 시스템을 통해 LLM 역량을 강화하고 이를 Anthropic 에서는 Augmented LLM 이라고 부름
 
-![f_5.png](G:\code\whtngus.github.io\img\2025\agent\f_5.png)
+![f_5.png](\img\2025\agent\f_5.png)
 
 수학 문제에 직면했을떄, LLM은 적절한 툴을 사용하여 결정함 
 
@@ -38,13 +38,13 @@ Agents는 환경과 상호작용하며 일반적으로 여러 중요한 구성 �
 - **Actuators** — 환경과 상호작용하기 위해 사용하는 툴
 - **Effectors** — 관측 결과를 행동으로 전환하는 “두뇌” 또는 규칙
 
-![f_7.png](G:\code\whtngus.github.io\img\2025\agent\f_7.png)
+![f_7.png](\img\2025\agent\f_7.png)
 
 위 프레임워크를 통해 Augmented LLM에 적합하게 만들 수도 있음
 
 위에서 "Augmented" LLM 을 사용하면  Percepts는 text가 됨
 
-![f_8.png](G:\code\whtngus.github.io\img\2025\agent\f_8.png)
+![f_8.png](\img\2025\agent\f_8.png)
 
 어떤 행동을 취할지 결정하기 위해, LLM Agent에는 계획을 수립하는 능력이라는 핵심 요소가 필요함
 
@@ -58,11 +58,11 @@ LLM 은 예측 모델임으로 기존 대화내용을 암기하지 않음
 
 하지만 LLM agent는 단기 기억 뿐 아니라 필요 시 수십 개의 단계까지 추적해야할 수도 있음
 
-![f_9.png](G:\code\whtngus.github.io\img\2025\agent\f_9.png)
+![f_9.png](\img\2025\agent\f_9.png)
 
 이는 이론적으로 LLM Agent가 수십, 심지어 수백 단계에 이르는 작업들을 기억해야 할 수 있으므로 long-term memory(장기 기억)라고 불림
 
-![f_11.png](G:\code\whtngus.github.io\img\2025\agent\f_11.png)
+![f_11.png](\img\2025\agent\f_11.png)
 
 위처럼 모델에 기억력을 부여하기 위해 몇 가지 방법들이 있음 
 
@@ -70,11 +70,11 @@ LLM 은 예측 모델임으로 기존 대화내용을 암기하지 않음
 
 이 방법은 가장 간단한 방법으로 모델의 context window로 처리하는 방법 
 
-![f_12.png](G:\code\whtngus.github.io\img\2025\agent\f_12.png)
+![f_12.png](\img\2025\agent\f_12.png)
 
 이 방식은 대화 이력이 LLM의 context window 안에 들어오기만 하면 잘 작동하며, 메모리를 흉내 내는 좋은 방법입니다. 하지만 실제로 대화를 기억하는 대신, 본질적으로 우리는 LLM에게 그 대화의 내용을 “알려주는” 것
 
-![f_13.png](G:\code\whtngus.github.io\img\2025\agent\f_13.png)
+![f_13.png](\img\2025\agent\f_13.png)
 
 Context window가 작은 모델이거나 대화 이력이 방대할 경우, 지금까지 진행된 대화를 요약하기 위해 다른 LLM을 사용할 수도 있음
 
@@ -86,7 +86,7 @@ LLM Agents에서 long-term memory는 오랜 기간 동안 유지되어야 하는
 
 각 대화를 임베딩 하여 vector database에 저장 후 
 
-![f_14.png](G:\code\whtngus.github.io\img\2025\agent\f_14.png)
+![f_14.png](\img\2025\agent\f_14.png)
 
 입력된 프롬프트를 임베딩하고 그것을 데이터베이스에 있는 임베딩과 비교함으로써, 벡터 데이터베이스에서 가장 관련성이 높은 정보를 찾아서 사용(롱텀의 경우 이전 세션에서 수행한 답변도 기억하도록 설정도 가능)
 
@@ -100,9 +100,9 @@ Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하
 
 2. 회의실 예약 등의 행동을 수행
 
-![f_15.png](G:\code\whtngus.github.io\img\2025\agent\f_15.png)
+![f_15.png](\img\2025\agent\f_15.png)
 
-![f_16.png](G:\code\whtngus.github.io\img\2025\agent\f_16.png)
+![f_16.png](\img\2025\agent\f_16.png)
 
 툴을 요청해야 되는 질문이 온 경우 code interpreter 에 쉽게 전달할 수 있게 위그림의 예시처럼 json혹은 mcp등 여러가지 방식으로 처리하며, LLM이 사용할 수 있는 간단한 (곱셈 더하기 등 ) 커스텀 함수를 생성할 수 있는데 이를 function calling 이라고 함
 
@@ -112,25 +112,25 @@ Tools는 특정 LLM이 외부 환경(예: 데이터베이스)과 상호작용하
 
 LLM agents가  llm 호출의 연속임
 
-![f_17.png](G:\code\whtngus.github.io\img\2025\agent\f_17.png)
+![f_17.png](\img\2025\agent\f_17.png)
 
  즉, 중간 단계의 출력을 LLM으로 다시 전달하여 연속적으로 처리를 이어 감
 
 툴(Tool) 사용은 LLM의 역량을 강화하고 단점을 보완하는 강력한 기법으로 최근 몇 년간 툴 사용과 관련된 연구가 급격히 늘어나고 있으며, 연구 상당 부분은 LLM에게 툴 사용을 지시하는 프롬프트를 제공하는 것뿐 아니라, 툴 사용 자체에 특화하여 모델을 학습시키는 방식을 포함함
 
-![f_18.png](G:\code\whtngus.github.io\img\2025\agent\f_18.png)
+![f_18.png](\img\2025\agent\f_18.png)
 
 이런 접근의 초기 기법 중 하나가 Toolformer라는 것으로, 어떤 API를 어떻게 호출할지를 결정하도록 학습된 모델로, Toolformer는 [ 과 ] 토큰을 사용하여 툴 호출의 시작과 끝을 표시합니다. 예를 들어 “What is 5 times 3?”라는 프롬프트가 주어지면, ] 토큰에 도달할 때까지 토큰을 생성
 
-![f_19.png](G:\code\whtngus.github.io\img\2025\agent\f_19.png)
+![f_19.png](\img\2025\agent\f_19.png)
 
-![f_20.png](G:\code\whtngus.github.io\img\2025\agent\f_20.png)
+![f_20.png](\img\2025\agent\f_20.png)
 
-![f_21.png](G:\code\whtngus.github.io\img\2025\agent\f_21.png)
+![f_21.png](\img\2025\agent\f_21.png)
 
 Toolformer는 모델이 학습할 수 있는 다양한 툴 사용 사례가 포함된 데이터셋을 신중히 생성함으로써 이러한 동작을 형성하도록 학습해 각 툴마다 개별적으로 생성된 few-shot prompt를 사용하여 해당 툴을 활용하는 출력을 샘플
 
-![t_22.png](G:\code\whtngus.github.io\img\2025\agent\t_22.png)
+![t_22.png](\img\2025\agent\t_22.png)
 
 이후 툴 사용의 정확도, 출력의 정확성, loss 감소 등을 기준으로 출력들을 필터링함
 
@@ -150,7 +150,7 @@ Tools는 에이전트적 프레임워크에서 매우 중요한 구성 요소이
 
 3. API가 변경될 때마다 수동으로 업데이트 해야 함
 
-![t_23.png](G:\code\whtngus.github.io\img\2025\agent\t_23.png)
+![t_23.png](\img\2025\agent\t_23.png)
 
 Anthropic은 어떠한 에이전트적 프레임워크에서도 툴을 더 쉽게 구현할 수 있도록 Model Context Protocol(MCP)을 개발해 날씨 앱이다 github 같은 서비스에 대한 API 접근을 표준화함 
 
@@ -162,23 +162,23 @@ MCP는 세 가지 컴포넌트로 이루어짐
 
 3. **MCP Server** — LLM에게 context, tools, capabilities를 제공
 
-![24.png](G:\code\whtngus.github.io\img\2025\agent\24.png)
+![24.png](\img\2025\agent\24.png)
 
 예를 들어, 특정 LLM 애플리케이션이 당신의 깃허브 레포에서 최근 5개의 commit을 요약하도록 하고 싶다고 가정하면
 
 1. MCP Host(클라이언트와 함께)는 먼저 MCP Server에 어떤 툴들이 사용 가능한지 확인을 요청
 
-![25.png](G:\code\whtngus.github.io\img\2025\agent\25.png)
+![25.png](\img\2025\agent\25.png)
 
 2. LLM은 해당 정보를 받아 툴을 사용할지 선택
    
    그런 다음 Host를 통해 MCP Server에 요청을 보내고, 사용된 툴을 포함한 결과를 전달받습니다.
 
-![26.png](G:\code\whtngus.github.io\img\2025\agent\26.png)
+![26.png](\img\2025\agent\26.png)
 
 3. 마지막으로 LLM은 그 결과를 받아 사용자에게 전달할 답변을 분석
 
-![27.png](G:\code\whtngus.github.io\img\2025\agent\27.png)
+![27.png](\img\2025\agent\27.png)
 
 MCP를 지원하는 모든 LLM 애플리케이션이 활용할 수 있는 MCP Server와 연결할 수 있으므로, 툴 개발이 훨씬 쉬워짐 
 
@@ -194,9 +194,9 @@ LLM Agents에서 planning이란, 주어진 작업을 실행 가능한 단계들�
 
 아래와 같이 계획을 통해 모델은 과거 행동을 반복적으로 확인하고, 필요하면 현재 계획을 업데이트함
 
-![28.png](G:\code\whtngus.github.io\img\2025\agent\28.png)
+![28.png](\img\2025\agent\28.png)
 
-![29.png](G:\code\whtngus.github.io\img\2025\agent\29.png)
+![29.png](\img\2025\agent\29.png)
 
 ## Reasoning
 
@@ -212,7 +212,7 @@ LLM Agents에서 planning을 가능하게 하려면, 먼저 이 기법의 기본
 
 2. 프롬프트 엔지니어링
 
-![30.png](G:\code\whtngus.github.io\img\2025\agent\30.png)
+![30.png](\img\2025\agent\30.png)
 
 ## Reasoning and Acting
 
@@ -234,17 +234,17 @@ ReAct 프롬프트에는 세 가지 단계가 설명됨
 
 아래 프롬프트를 조면 직관적으로 적혀있음
 
-![31.png](G:\code\whtngus.github.io\img\2025\agent\31.png)
+![31.png](\img\2025\agent\31.png)
 
-![32.png](G:\code\whtngus.github.io\img\2025\agent\32.png)
+![32.png](\img\2025\agent\32.png)
 
-![33.png](G:\code\whtngus.github.io\img\2025\agent\33.png)
+![33.png](\img\2025\agent\33.png)
 
 LLM은 이 프롬프트(시스템 프롬프트로 사용할 수 있음)를 활용하여, 생각(Thought), 행동(Action), 관찰(Observation)의 사이클을 반복하는 방식으로 동작을 수행
 
 결과를 반환하라는 행동(Action) 지시가 있을 때까지 이 과정을 계속합니다. 생각(Thought)과 관찰(Observation)을 반복함으로써, LLM은 행동을 계획하고, 결과를 관찰하며, 그에 따라 조정할 수 있음
 
-![34.png](G:\code\whtngus.github.io\img\2025\agent\34.png)
+![34.png](\img\2025\agent\34.png)
 
 ## Reflecting
 
@@ -262,7 +262,7 @@ LLM에 3가지 역할을 가정함
 
 메모리 모듈을 추가하여 행동(단기)과 자기반성(장기)을 추적함으로써, 에이전트가 실수로부터 학습하고 개선된 행동을 찾도록 도움 
 
-![35.png](G:\code\whtngus.github.io\img\2025\agent\35.png)
+![35.png](\img\2025\agent\35.png)
 
 유사하면서도 우아한 기법으로 SELF-REFINE이 있는데, 이는 출력물을 다듬고 피드백을 생성하는 과정을 반복
 
@@ -270,9 +270,9 @@ LLM에 3가지 역할을 가정함
 
 Reflexion과 SELF-REFINE 모두 이러한 자기반성적 행동은 출력물의 품질에 따라 보상이 주어지는 강화학습과 매우 유사한 모습을 보임
 
-![36.png](G:\code\whtngus.github.io\img\2025\agent\36.png)
+![36.png](\img\2025\agent\36.png)
 
-![37.png](G:\code\whtngus.github.io\img\2025\agent\37.png)
+![37.png](\img\2025\agent\37.png)
 
 ## Multi-Agent Collaboration
 
@@ -282,16 +282,16 @@ Reflexion과 SELF-REFINE 모두 이러한 자기반성적 행동은 출력물의
 
 supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된 Agent에게 특정 과제를 할당
 
-![38.png](G:\code\whtngus.github.io\img\2025\agent\38.png)
+![38.png](\img\2025\agent\38.png)
 
-![39.png](G:\code\whtngus.github.io\img\2025\agent\39.png)
+![39.png](\img\2025\agent\39.png)
 
 실제로, 다수의 Multi-Agent 아키텍처가 존재하며, 이들은 핵심적으로 두 가지 구성 요소를 가짐
 
 - Agent **Initialization** — 개별(전문화된) Agent들은 어떻게 생성되는가?
 - Agent **Orchestration** — 모든 Agent들은 어떻게 조율되는가?
 
-![40.png](G:\code\whtngus.github.io\img\2025\agent\40.png)
+![40.png](\img\2025\agent\40.png)
 
 ## Multi-Agent 컴퓨턴트 구현 예
 
@@ -305,9 +305,9 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 각 Agent는 memory, planning, reflection 세 가지 모듈로 초기화되며, 이는 우리가 ReAct와 Reflexion에서 봤던 핵심 구성 요소들과 매우 유사함
 
-![41.png](G:\code\whtngus.github.io\img\2025\agent\41.png)
+![41.png](\img\2025\agent\41.png)
 
-![42.png](G:\code\whtngus.github.io\img\2025\agent\42.png)
+![42.png](\img\2025\agent\42.png)
 
 프레임워크에서 memory 모듈은 가장 중요한 요소 중 하나입니다. 이는 지금까지의 모든 이벤트뿐 아니라, planning과 reflection 행동도 저장
 
@@ -317,11 +317,11 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 사람이 평가를 했고 관찰(observation), 계획(planning), 반성(reflection)이 Generative Agents의 성능에서 얼마나 중요한지를 보여줌
 
-![43.png](G:\code\whtngus.github.io\img\2025\agent\43.png)
+![43.png](\img\2025\agent\43.png)
 
-![44.png](G:\code\whtngus.github.io\img\2025\agent\44.png)
+![44.png](\img\2025\agent\44.png)
 
-![45.png](G:\code\whtngus.github.io\img\2025\agent\45.png)
+![45.png](\img\2025\agent\45.png)
 
 # Reasoning LLMs
 
@@ -329,13 +329,13 @@ supervisor는 Agents 간의 커뮤니케이션을 관리하고, 각 전문화된
 
 일반적인 LLMs와 비교했을 때, reasoning LLMs는 주어진 질문에 답하기 전에 문제를 더 작은 단계(일반적으로 reasoning steps 또는 thought processes라고 불림)로 나누려고함
 
-![46.png](G:\code\whtngus.github.io\img\2025\agent\46.png)
+![46.png](\img\2025\agent\46.png)
 
 LLMs가 실제로 인간처럼 생각할 수 있는지 여부를 철학적으로 논의[¹](/190c32470be2806d834ee0ad98aaa0b6?pvs=25#190c32470be280b0875df96436067bc8) 할 수도 있지만, 이러한 reasoning 단계는 과정을 더 작은, 구조화된 추론(inference)으로 분해함
 
 즉, LLM이 “무엇을” 답해야 하는지를 배우는 대신, “어떻게” 답해야 하는지를 배우게됨
 
-![47.png](G:\code\whtngus.github.io\img\2025\agent\47.png)
+![47.png](\img\2025\agent\47.png)
 
 reasoning LLMs가 어떻게 만들어지는지 이해하기 위해, train-time compute의 확장에서 test-time compute의 확장으로 초점을 전환하는 패러다임 전환을 먼저 살펴봐야함
 
@@ -351,7 +351,7 @@ train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fin
 
 이 두 과정은 LLM 성능을 향상시키는데 있어 두가지 주요 관심사 였음
 
-![48.png](G:\code\whtngus.github.io\img\2025\agent\48.png)
+![48.png](\img\2025\agent\48.png)
 
 ##### Scaling Laws
 
@@ -365,9 +365,9 @@ train-time compute에는 훈련(사전 학습)뿐만 아니라 미세 조정(fin
 
 => 2024년 compute, 데이터셋 크기, 모델 파라미터까지 꾸준히 증가했음에도, 그이득은 서서히 줄어들고 있는 중
 
-![49.png](G:\code\whtngus.github.io\img\2025\agent\49.png)
+![49.png](\img\2025\agent\49.png)
 
-![50.png](G:\code\whtngus.github.io\img\2025\agent\50.png)
+![50.png](\img\2025\agent\50.png)
 
 ### test-time compute
 
@@ -377,7 +377,7 @@ train-time compute를 계속 늘리는 데 드는 비용이 높아짐에 따라,
 
 -> reasoning 모델은 체계적인 “thinking” 과정을 통해 답을 도출하기 위해 더 많은 토큰을 사용
 
-![51.png](G:\code\whtngus.github.io\img\2025\agent\51.png)
+![51.png](\img\2025\agent\51.png)
 
 ##### Scaling Laws
 
@@ -385,13 +385,13 @@ train-time compute에 비해 test-time compute에 대한 scaling laws는 상대�
 
 [OpenAI가 작성한 포스트](https://openai.com/index/learning-to-reason-with-llms/)에서, test-time compute도 train-time compute의 확장(scaling) 추세와 유사할 수 있다고 제안
 
-![52.png](G:\code\whtngus.github.io\img\2025\agent\52.png)
+![52.png](\img\2025\agent\52.png)
 
 “Scaling Scaling Laws with Board Games”[⁴](/190c32470be2806d834ee0ad98aaa0b6?pvs=25#190c32470be280219f97e70b91ee066f) 라는 흥미로운 논문에서는 AlphaZero를 다양한 연산량으로 학습해 Hex 게임을 두게 하면서, train-time compute와 test-time compute를 여러 단계로 달리하여 비교함
 
 이에따라 test-time compute가 train-time compute처럼 확장됨에 따라, “reasoning” 모델들이 더 많은 test-time compute를 활용하는 쪽으로 패러다임 전환이 진행됨
 
-![53.png](G:\code\whtngus.github.io\img\2025\agent\53.png)
+![53.png](\img\2025\agent\53.png)
 
 ### Categories of Test-time Compute
 
@@ -406,11 +406,11 @@ Chain-of-Thought, revising answers, backtracking, sampling 등을 포함하여 �
 
 Search against verifiers는 결과물(output)에 초점을 맞추는 반면, Modifying proposal distribution은 입력(input)에 초점을 맞춤
 
-![54.png](G:\code\whtngus.github.io\img\2025\agent\54.png)
+![54.png](\img\2025\agent\54.png)
 
 verifier에는 Outcome Reward Models (ORM), Process Reward Models (PRM) 두 가지 유형이 있고, ORM은 오직 결과(outcome)만 평가하며, 그 이면의 과정에는 관심을 두지 않고, 반면, PRM은 결과를 도출하는 과정(즉, “reasoning”)도 함께 평가함
 
-![55.png](G:\code\whtngus.github.io\img\2025\agent\55.png)
+![55.png](\img\2025\agent\55.png)
 
 ### Search against Verifiers
 
@@ -428,7 +428,7 @@ Verifier를 사용하면, 질문에 답하는 LLM을 재학습하거나 미세 �
 
 가장 간단한 방법은 사실상 Reward Model이나 Verifier를 전혀 사용하지 않고, 대신 다수결 투표(majority vote)를 수행하는 방법으로 self-consistency라고도 함, 여러 모델이 답변을 생성한 뒤, 가장 많이 나온 답을 최종 답변으로선택
 
-![56.png](G:\code\whtngus.github.io\img\2025\agent\56.png)
+![56.png](\img\2025\agent\56.png)
 
 - Best-of-N samples
 
@@ -438,7 +438,7 @@ Verifier를 사용하는 첫 번째 기법은 Best-of-N samples라고 하며, N�
 
 두 Verifier 타입 모두에서, 각 답변 후보에 대해 RM 점수를 부여하고, 가장 높은 점수의 후보를 선택할 수 있음 이를 Weighted Best-of-N samples라고 부름
 
-![57.PNG](G:\code\whtngus.github.io\img\2025\agent\57.PNG)
+![57.PNG](\img\2025\agent\57.PNG)
 
 - Monte Carlo Tree Search
 
@@ -456,9 +456,9 @@ Verifier를 사용하는 첫 번째 기법은 Best-of-N samples라고 하며, N�
 
 확장된 reasoning 단계 중 하나를 선택하고, 여러 번 Rollout하여 여러 답안을 도출
 
-![59.png](G:\code\whtngus.github.io\img\2025\agent\59.png)
+![59.png](\img\2025\agent\59.png)
 
-![60.png](G:\code\whtngus.github.io\img\2025\agent\60.png)
+![60.png](\img\2025\agent\60.png)
 
 ### Modifying Proposal Distribution
 
@@ -470,9 +470,9 @@ verifier를 이용하여 올바른 reasoning 단계를 찾는 방식(output-focu
 
 프롬프트엔지니어링과 reasoning 토큰을 생성하도록 학습하는 등의 방법을 사용하며, 리즈닝을 유도하는 토큰을 생성하도록 함
 
-![61.png](G:\code\whtngus.github.io\img\2025\agent\61.png)
+![61.png](\img\2025\agent\61.png)
 
-![62.png](G:\code\whtngus.github.io\img\2025\agent\62.png)
+![62.png](\img\2025\agent\62.png)
 
 - Prompting
 
@@ -500,7 +500,7 @@ STaR는 LLM이 자체적으로 reasoning 데이터를 생성하고, 이를 모�
 
 최종 reasoning 단계도 같은 트리플릿 학습 데이터에 추가
 
-![63.png](G:\code\whtngus.github.io\img\2025\agent\63.png)
+![63.png](\img\2025\agent\63.png)
 
 - DeepSeek-R1
 
@@ -516,7 +516,7 @@ DeepSeek은 여러 기법을 통해 reasoning을 base 모델(DeepSeek-V3-Base)�
 > 
 > 명시적으로 reasoning 과정은 <think> 태그 사이에 있어야 한다고 언급하지만, 그 과정이 어떠해야 하는지는 구체적으로 지정하지 않음
 > 
-> ![64.png](G:\code\whtngus.github.io\img\2025\agent\64.png)
+> ![64.png](\img\2025\agent\64.png)
 > 
 > - Accuracy rewards – **답변**이 맞는지 확인해 보상
 > - Format rewards – **<thinking>** 과 **<answer>** 태그를 사용하는지에 대한 보상
@@ -527,7 +527,7 @@ DeepSeek은 여러 기법을 통해 reasoning을 base 모델(DeepSeek-V3-Base)�
 > 
 > 모델은 스스로 길고 복잡한 reasoning 과정을 시도할수록 정답 확률이 높아진다는 사실을 학습함
 > 
-> ![65.png](G:\code\whtngus.github.io\img\2025\agent\65.png)
+> ![65.png](\img\2025\agent\65.png)
 > 
 > DeepSeek-R1을 만들기 위해 저자들은 다섯 단계를 따름
 > 
@@ -547,7 +547,7 @@ DeepSeek은 여러 기법을 통해 reasoning을 base 모델(DeepSeek-V3-Base)�
 >    
 >    DeepSeek-V3와 그 일부 학습 데이터를 사용해 200,000개의 non-reasoning 샘플을 생성
 >    
->    ![66.png](G:\code\whtngus.github.io\img\2025\agent\66.png)
+>    ![66.png](\img\2025\agent\66.png)
 > 
 > 4. Supervised Fine-Tuning
 >    
